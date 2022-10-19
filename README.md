@@ -1,2 +1,2 @@
 # SAE-Serious-game
-Repo for or SAE project about Network
+Repo for our SAE project about Network
