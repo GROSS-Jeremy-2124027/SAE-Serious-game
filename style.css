@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 10px;
+    background-color: #cacaaa;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 4em;
+}
+
+.boutonConnexion{
+    width: 200px;
+    padding: 20px;
+    border: solid 2px #55868c;
+    border-radius: 10px;
+    background-color: #55868c;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.boutonConnexion:hover{
+    background-color: #17868f;
+    border-color: #17868f;
+    cursor: pointer;
+}
+
+.boutonJouer{
+    width: 200px;
+    padding: 20px;
+    border: solid 2px #55868c;
+    border-radius: 10px;
+    background-color: #55868c;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.boutonJouer:hover{
+    background-color: #17868f;
+    border-color: #17868f;
+    cursor: pointer;
+}
+
+.boutonMulti{
+    width: 200px;
+    padding: 20px;
+    border: solid 2px #55868c;
+    border-radius: 10px;
+    background-color: #55868c;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.boutonMulti:hover{
+    background-color: #17868f;
+    border-color: #17868f;
+    cursor: pointer;
+}
