@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
 *{
     margin: 0;
     padding: 0;
 }
 
 body{
-    padding: 10px;
-    background-color: #cacaaa;
+    padding: 20px;
+    background-color: #cecaaa;
 }
 
 header{
@@ -16,59 +19,41 @@ header{
 }
 
 section{
+    height: 550px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 h1{
+    font-family: 'Silkscreen', cursive;
+    text-align: center;
     font-size: 4em;
 }
 
+button{
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.5em;
+    margin-top: 40px;
+    width: 330px;
+    padding: 30px;
+    border: solid 2px #55868c;
+    border-radius: 10px;
+    background-color: #55868c;
+    color: #fff;
+    transition: 0.4s;
+}
+
 .boutonConnexion{
-    width: 200px;
-    padding: 20px;
-    border: solid 2px #55868c;
-    border-radius: 10px;
-    background-color: #55868c;
-    color: #fff;
-    transition: 0.4s;
+    font-size: 1em;
+    margin-top: 20px !important;
+    width: 200px !important;
+    margin-top: 0 !important;
 }
 
-.boutonConnexion:hover{
-    background-color: #17868f;
-    border-color: #17868f;
-    cursor: pointer;
-}
-
-.boutonJouer{
-    width: 200px;
-    padding: 20px;
-    border: solid 2px #55868c;
-    border-radius: 10px;
-    background-color: #55868c;
-    color: #fff;
-    transition: 0.4s;
-}
-
-.boutonJouer:hover{
-    background-color: #17868f;
-    border-color: #17868f;
-    cursor: pointer;
-}
-
-.boutonMulti{
-    width: 200px;
-    padding: 20px;
-    border: solid 2px #55868c;
-    border-radius: 10px;
-    background-color: #55868c;
-    color: #fff;
-    transition: 0.4s;
-}
-
-.boutonMulti:hover{
+button:hover{
     background-color: #17868f;
     border-color: #17868f;
     cursor: pointer;
