@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 545, 32 )
+
+[sub_resource type="Gradient" id=2]
+interpolation_mode = 1
+offsets = PoolRealArray( 0, 0.995169 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture2D" id=4]
+gradient = SubResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 525, 391 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 517, 0 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 517.5, 0 )
+scale = Vector2( 17.0156, 1 )
+texture = SubResource( 4 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 540, -14 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -224, 166 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 517, 0 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( 517.5, 0 )
+scale = Vector2( 17.0156, 1 )
+texture = SubResource( 4 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( -235, 625 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 517, 0 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 517.5, 0 )
+scale = Vector2( 17.0156, 1 )
+texture = SubResource( 4 )
