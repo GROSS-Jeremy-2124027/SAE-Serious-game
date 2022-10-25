@@ -1,9 +1,14 @@
 const NbLvl = 20;
 var btn = [];
 var btnid;
+var btnCampagne;
+var btnMulti;
+var btnRetour = document.createElement("button")
 
 function menuLvl() {
-    removeAllChildNodes(document.getElementById('menu'))
+    btnMulti = document.getElementById("boutonMulti");
+    btnCampagne  = document.getElementById("boutonJouer")
+    removeAllChildNodes(document.getElementById('menu'));
     for (let i = 0; i < NbLvl; i++) {
         btn[i] = document.createElement("button");
         let j = i+1;
@@ -13,8 +18,16 @@ function menuLvl() {
             btnid = this.id
             warpLvl()
         }
-        document.getElementById("menu").appendChild(btn[i]);
+        document.getElementById("menulvl").appendChild(btn[i]);
     }
+    btnRetour.textContent = "retour";
+    btnRetour.onclick = function () {
+        removeAllChildNodes(document.getElementById('menulvl'));
+        document.getElementById("menu").appendChild(btnCampagne);
+        document.getElementById("menu").appendChild(btnMulti);
+    }
+
+    document.getElementById("menulvl").appendChild(btnRetour);
 }
 
 function warpLvl() {
