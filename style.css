@@ -76,11 +76,11 @@ button:hover{
     cursor: pointer;
 }
 
-.description{
+#description{
     margin-top: 40px;
 }
 
-.menu {
+#menu {
     display: flex;
     flex-direction: column;
     align-items: center;
