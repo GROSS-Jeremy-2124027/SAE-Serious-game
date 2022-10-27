@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://ASSETS/kenny pack redux/PNG/Players/128x256/Beige/alienBeige_stand.png" type="Texture" id=2]
+[ext_resource path="res://PlayerSpriteFrame.tres" type="SpriteFrames" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 54.0
@@ -17,5 +17,7 @@ __meta__ = {
 position = Vector2( 0, 56 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+animation = "Idle"
+playing = true
