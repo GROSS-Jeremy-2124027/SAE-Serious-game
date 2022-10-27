@@ -11,14 +11,27 @@ config_version=4
 [application]
 
 config/name="SAE"
-run/main_scene="res://level2.tscn"
+run/main_scene="res://level1.tscn"
 config/icon="res://icon.png"
+
+[compression]
+
+formats/zstd/long_distance_matching=true
+formats/zstd/compression_level=22
+formats/zlib/compression_level=9
+formats/gzip/compression_level=9
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 

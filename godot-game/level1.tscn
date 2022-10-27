@@ -42,6 +42,7 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 drag_margin_left = 0.1
 drag_margin_right = 0.1
+drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]

@@ -16,7 +16,7 @@ gradient = SubResource( 2 )
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 525, 391 )
+position = Vector2( 578, 366 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -31,10 +31,22 @@ scale = Vector2( 17.0156, 1 )
 texture = SubResource( 4 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 540, -14 )
+position = Vector2( -461, 507 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.0
+editor_draw_drag_margin = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2( -224, 166 )
+position = Vector2( -520, 45 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -49,7 +61,7 @@ scale = Vector2( 17.0156, 1 )
 texture = SubResource( 4 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( -235, 625 )
+position = Vector2( -517, 682 )
 __meta__ = {
 "_edit_group_": true
 }
