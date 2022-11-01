@@ -4,7 +4,7 @@ var SPEED = 600
 var ANTI_SLIPPERY = 0.3 # pourcentage
 var MAX_JUMP_TIME = 20 # en frame
 var GRAVITY_FORCE = 70
-var MAX_GRAVITY_FORCE = 2000 # pour la gravité seulement
+var MAX_GRAVITY_FORCE = 2000
 var JUMP_FORCE = 1200
 
 enum States {AIR = 1, FLOOR, LADDER, TASK}
@@ -15,7 +15,6 @@ var jumping := false
 var onLadder := false
 
 func _physics_process(delta):
-	print(is_on_floor())
 	match state:
 		States.AIR:
 			if is_on_floor():
