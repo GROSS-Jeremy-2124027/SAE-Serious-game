@@ -8,7 +8,7 @@ var GRAVITY_FORCE = 70
 var MAX_GRAVITY_FORCE = 2000
 var JUMP_FORCE = 1100
 
-enum States {AIR = 1, FLOOR, LADDER, TASK}
+enum States {AIR = 1, FLOOR, LADDER, PC}
 var state = States.AIR
 var jumpTime = 0
 var jumpTopLadderTime = 0
@@ -16,6 +16,7 @@ var velocity = Vector2(0,0)
 var jumping := false
 var jumpingTopLadder := false
 var onLadder := false
+var onPc := false
 
 func _physics_process(delta):
 	match state:
@@ -49,6 +50,8 @@ func _physics_process(delta):
 		States.FLOOR:
 			if not is_on_floor():
 				state = States.AIR
+			elif should_use_pc():
+				state = States.PC
 			elif should_climb_ladder():
 				state = States.LADDER
 			if Input.is_action_pressed("ui_up"):
@@ -98,9 +101,19 @@ func _physics_process(delta):
 			else:
 				velocity.x = 0
 			velocity = move_and_slide(velocity, Vector2.UP)
+		States.PC:
+			$Sprite.play("Watch")
+			if (Input.is_action_just_pressed("ui_select")):
+				state = States.FLOOR
 
 func should_climb_ladder() -> bool:
 	if onLadder and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):
+		return true
+	else:
+		return false
+
+func should_use_pc() -> bool:
+	if onPc and Input.is_action_just_pressed("ui_select"):
 		return true
 	else:
 		return false
@@ -115,3 +128,9 @@ func _on_LadderChecker_body_entered(body):
 
 func _on_LadderChecker_body_exited(body):
 	onLadder = false
+
+func _on_LadderChecker2_body_entered(body):
+	onPc = true
+
+func _on_LadderChecker2_body_exited(body):
+	onPc = false
