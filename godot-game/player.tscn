@@ -33,5 +33,15 @@ collision_mask = 4
 position = Vector2( 0, 56 )
 shape = SubResource( 2 )
 
+[node name="LadderChecker2" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker2"]
+position = Vector2( 0, 56 )
+shape = SubResource( 2 )
+
 [connection signal="body_entered" from="LadderChecker" to="." method="_on_LadderChecker_body_entered"]
 [connection signal="body_exited" from="LadderChecker" to="." method="_on_LadderChecker_body_exited"]
+[connection signal="body_entered" from="LadderChecker2" to="." method="_on_LadderChecker2_body_entered"]
+[connection signal="body_exited" from="LadderChecker2" to="." method="_on_LadderChecker2_body_exited"]
