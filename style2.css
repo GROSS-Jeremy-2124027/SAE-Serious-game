@@ -8,12 +8,8 @@
 }
 
 body{
-    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #cacaaa;
-    ;
 }
 
 .container{
@@ -29,7 +25,6 @@ body{
 
 .container .forms{
     display: flex;
-    align-items: center;
     height: 440px;
     width: 200%;
     transition: height 0.2s ease;
@@ -41,6 +36,7 @@ body{
     padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
+    margin-right: 1em;
 }
 
 .container.active .login{
@@ -177,4 +173,10 @@ body{
 .form .login-signup{
     margin-top: 30px;
     text-align: center;
+}
+
+.boutonConnexion {
+    padding: 10px;
+    margin:3px;
+    font-size: 20px;
 }

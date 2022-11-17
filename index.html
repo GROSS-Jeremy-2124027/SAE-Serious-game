@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title> Network Park </title>
-    <meta name="description" content="Venez tout apprendre sur les réseaux informatiqu avec Network Park !"/> 
+    <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !"/>
     <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game"/>
     <meta name="author" content="Groupe 1 Année 2" />
     <link rel="stylesheet" href="style.css"/>
@@ -12,31 +12,36 @@
 </head>
 <body>
     <header>
-        <a href="connexion.html">
-            <button class="boutonConnexion">
+        <a>
+            <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
                 Se connecter
             </button>
+            <div id="connexion"></div>
         </a>
     </header>
-    <section>
+    <section id="sectionMenu">
         <h1>
             Network Park
         </h1>
         <div id="description">
             <p id="textDescription">
                 Network Park est un serious game pour tout apprendre sur les Réseaux informatique ! <br>
-                Apprenez a résoudre des tache 
+<<<<<<< HEAD
+                Apprenez a résoudre des tâches
                 d'adressage IP, ...
+=======
+                Apprenez a résoudre des tache d'adressage IP, les différents modèle (TCP/IP, OSI)...
+>>>>>>> 7f779b83dba43f457906e6ef9bb6f85b717a37c4
             </p>
         </div>
-        <p id="menu">
+        <div id="menu">
             <button class="boutonJouer" onclick="menuLvl()" id="boutonJouer">
                 Solo
             </button>
             <button class="boutonMulti" id="boutonMulti">
                 Multijoueur
             </button>
-        </p>
+        </div>
         <a id="menulvl">
         </a>
     </section>

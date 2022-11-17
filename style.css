@@ -18,7 +18,7 @@ header{
     justify-content: flex-end;
 }
 
-section{
+section {
     height: 600px;
     width: 100%;
     display: flex;
@@ -93,4 +93,10 @@ button:hover{
 
 #menulvl {
     margin-bottom:-3.2em;
+}
+
+object {
+    transition: 0.4s;
+    position: absolute;
+    margin-left: -27ex;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="connexion">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-    <a href="index.html">
-        <button class="boutonConnexion">
-            Retour
-        </button>
-    </a>
     <div class="container">
         <div class="forms">
+            <a>
+                <button class="boutonConnexion" onclick="boutonRetour()" id="btnconnexion">
+                    X
+                </button>
+            </a>
             <div class="form login">
                 <span class="title">Connexion</span>
 
@@ -85,5 +85,6 @@
     </div>
 
     <script src="script2.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

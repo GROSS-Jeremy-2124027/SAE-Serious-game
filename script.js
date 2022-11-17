@@ -4,6 +4,8 @@ var btnid;
 var btnCampagne;
 var btnMulti;
 var btnRetour = document.createElement("button")
+var btnconnexion
+
 
 function menuLvl() {
     btnMulti = document.getElementById("boutonMulti");
@@ -34,7 +36,6 @@ function menuLvl() {
         document.getElementById("description").appendChild(textDescription);
 
     }
-
     document.getElementById("menulvl").appendChild(btnRetour);
 }
 
@@ -47,4 +48,14 @@ function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+}
+
+function connexionPage() {
+    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="450" height="600"></object>';
+}
+
+function boutonRetour() {
+    document.getElementById('connexion').innerHTML=""
+    btnconnexion = document.getElementById('boutonconnexion')
+    document.getElementById('connexion').appendChild(btnconnexion)
 }
