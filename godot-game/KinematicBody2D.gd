@@ -103,7 +103,9 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
+			get_parent().get_node("PC/PCsprite").set("visible", false)
 			if (Input.is_action_just_pressed("ui_select")):
+				get_parent().get_node("PC/PCsprite").set("visible", true)
 				state = States.FLOOR
 
 func should_climb_ladder() -> bool:

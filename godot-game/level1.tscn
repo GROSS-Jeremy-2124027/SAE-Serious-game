@@ -5,6 +5,7 @@
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=3]
 [ext_resource path="res://ASSETS/texture blocks/continue.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/texture blocks/piliergauche.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/texture blocks/background.png" type="Texture" id=9]
 [ext_resource path="res://ASSETS/texture blocks/continue_top.png" type="Texture" id=14]
 [ext_resource path="res://ASSETS/texture blocks/coin_interieur1.png" type="Texture" id=17]
@@ -15,8 +16,6 @@
 
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 96, 68 )
-
-[sub_resource type="GradientTexture2D" id=44]
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -368,20 +367,21 @@ scale = Vector2( 317, 128 )
 texture = ExtResource( 9 )
 
 [node name="PC" type="StaticBody2D" parent="."]
+position = Vector2( -4, -32 )
 collision_layer = 8
 collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PC"]
+[node name="PCshape" type="CollisionShape2D" parent="PC"]
 position = Vector2( 1056, 76 )
 shape = SubResource( 43 )
 
-[node name="Sprite" type="Sprite" parent="PC"]
+[node name="PCsprite" type="Sprite" parent="PC"]
 position = Vector2( 1056, 78 )
 scale = Vector2( 3, 2.1875 )
-texture = SubResource( 44 )
+texture = ExtResource( 6 )
 
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
