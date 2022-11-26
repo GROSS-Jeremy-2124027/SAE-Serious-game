@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/continue_top.png-2eca413302540f8a6797add233902bdd.stex"
+path="res://.import/coin_low_platform.png-863737fee0bbd4c7fb9f8f79041e4002.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/texture blocks/continue_top.png"
-dest_files=[ "res://.import/continue_top.png-2eca413302540f8a6797add233902bdd.stex" ]
+source_file="res://ASSETS/texture blocks level 2/coin_low_platform.png"
+dest_files=[ "res://.import/coin_low_platform.png-863737fee0bbd4c7fb9f8f79041e4002.stex" ]
 
 [params]
 

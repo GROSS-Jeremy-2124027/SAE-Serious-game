@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/piliergauche.png-a668966ceb39689e62bccfae87d0c975.stex"
+path="res://.import/gaucheversbas.png-94f558ae39924d65134d5b646e9bca7f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/texture blocks/piliergauche.png"
-dest_files=[ "res://.import/piliergauche.png-a668966ceb39689e62bccfae87d0c975.stex" ]
+source_file="res://ASSETS/texture blocks level 1/gaucheversbas.png"
+dest_files=[ "res://.import/gaucheversbas.png-94f558ae39924d65134d5b646e9bca7f.stex" ]
 
 [params]
 

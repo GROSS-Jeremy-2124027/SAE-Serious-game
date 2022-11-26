@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angle.png-d6c63e418a3b87e4ae942220e96e6cf9.stex"
+path="res://.import/low_platform.png-2a61d8e855b3b6d7cf8510e17695a56e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/texture blocks/angle.png"
-dest_files=[ "res://.import/angle.png-d6c63e418a3b87e4ae942220e96e6cf9.stex" ]
+source_file="res://ASSETS/texture blocks level 1/low_platform.png"
+dest_files=[ "res://.import/low_platform.png-2a61d8e855b3b6d7cf8510e17695a56e.stex" ]
 
 [params]
 

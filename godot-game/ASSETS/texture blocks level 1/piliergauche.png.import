@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pilierdroite.png-5ef851d2a02cd7e65264fcaa4144cd6f.stex"
+path="res://.import/piliergauche.png-af37bdb6599cd2a93835878ef03f274b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/texture blocks/pilierdroite.png"
-dest_files=[ "res://.import/pilierdroite.png-5ef851d2a02cd7e65264fcaa4144cd6f.stex" ]
+source_file="res://ASSETS/texture blocks level 1/piliergauche.png"
+dest_files=[ "res://.import/piliergauche.png-af37bdb6599cd2a93835878ef03f274b.stex" ]
 
 [params]
 

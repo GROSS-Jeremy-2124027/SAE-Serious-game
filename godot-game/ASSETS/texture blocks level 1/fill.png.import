@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gaucheversbas.png-8e6cd9ce590351faaede2a4bf0ca4ea2.stex"
+path="res://.import/fill.png-8db0ebfbea5a713091b198778eb3511a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/texture blocks/gaucheversbas.png"
-dest_files=[ "res://.import/gaucheversbas.png-8e6cd9ce590351faaede2a4bf0ca4ea2.stex" ]
+source_file="res://ASSETS/texture blocks level 1/fill.png"
+dest_files=[ "res://.import/fill.png-8db0ebfbea5a713091b198778eb3511a.stex" ]
 
 [params]
 
