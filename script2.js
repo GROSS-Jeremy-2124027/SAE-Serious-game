@@ -3,6 +3,8 @@ const container = document.querySelector(".container"),
       pwFields = document.querySelectorAll(".password"),
       signUp = document.querySelector(".signup-link"),
       login = document.querySelector(".login-link");
+      forms = document.querySelector(".forms");
+      partie1 = document.getElementById("partie1");
 
     //   js code to show/hide password and change icon
     pwShowHide.forEach(eyeIcon =>{
@@ -27,8 +29,10 @@ const container = document.querySelector(".container"),
 
     // js code to appear signup and login form
     signUp.addEventListener("click", ( )=>{
+        partie1.style.display = "none";
         container.classList.add("active");
     });
     login.addEventListener("click", ( )=>{
+        partie1.style.display = "initial"
         container.classList.remove("active");
     });
