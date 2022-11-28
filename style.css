@@ -8,8 +8,19 @@
 
 body{
     padding: 20px;
-    background-color: #cacaaa;
 }
+
+#background-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
 
 header{
     width: 100%;
@@ -32,6 +43,7 @@ h1{
     text-align: center;
     font-size: 4em;
     justify-content: center;
+    color: #fff;
 }
 
 h2{
@@ -39,16 +51,19 @@ h2{
     text-align: center;
     font-size: 2.5em;
     margin-bottom: 40px;
+    color: #fff;
 }
 
 p{
     font-family: 'Silkscreen', cursive;
     text-align: center;
+    color: #fff;
 }
 
 li{
     font-family: 'Silkscreen', cursive;
     font-size: 1.2em;
+    color: #fff;
 }
 
 button{
