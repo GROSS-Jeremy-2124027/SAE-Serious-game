@@ -13,6 +13,10 @@ body{
     margin-left: 10%;
 }
 
+input {
+    width: 253px;
+}
+
 .container{
     position: relative;
     max-width: 430px;
@@ -55,9 +59,7 @@ body{
     transition: opacity 0.2s ease;
 }
 
-.container.active .forms{
-    height: 600px;
-}
+
 .container .form .title{
     position: relative;
     font-size: 27px;
@@ -85,7 +87,6 @@ body{
 .input-field input{
     position: absolute;
     height: 100%;
-    width: 100%;
     padding: 0 35px;
     border: none;
     outline: none;
@@ -169,11 +170,6 @@ body{
 
 .button input:hover{
     background-color: #265df2;
-}
-
-.form .login-signup{
-    margin-top: 30px;
-    text-align: center;
 }
 
 .boutonConnexion {
