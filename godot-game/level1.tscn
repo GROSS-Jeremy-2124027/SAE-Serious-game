@@ -1,21 +1,20 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ASSETS/texture blocks/angle.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=3]
-[ext_resource path="res://ASSETS/texture blocks/continue.png" type="Texture" id=4]
-[ext_resource path="res://ASSETS/texture blocks/piliergauche.png" type="Texture" id=5]
+[ext_resource path="res://ASSETS/texture blocks level 1/continue.png" type="Texture" id=4]
+[ext_resource path="res://ASSETS/texture blocks level 1/piliergauche.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png" type="Texture" id=6]
-[ext_resource path="res://ASSETS/texture blocks/background.png" type="Texture" id=9]
-[ext_resource path="res://ASSETS/texture blocks/continue_top.png" type="Texture" id=14]
-[ext_resource path="res://ASSETS/texture blocks/coin_interieur1.png" type="Texture" id=17]
-[ext_resource path="res://ASSETS/texture blocks/fill.png" type="Texture" id=19]
-[ext_resource path="res://ASSETS/texture blocks/gaucheversbas.png" type="Texture" id=21]
-[ext_resource path="res://ASSETS/texture blocks/coin_low_platform.png" type="Texture" id=22]
-[ext_resource path="res://ASSETS/texture blocks/pilierdroite.png" type="Texture" id=23]
-
-[sub_resource type="RectangleShape2D" id=43]
-extents = Vector2( 96, 68 )
+[ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://MonofiffusionArea.gd" type="Script" id=8]
+[ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=9]
+[ext_resource path="res://ASSETS/texture blocks level 1/continue_top.png" type="Texture" id=14]
+[ext_resource path="res://ASSETS/texture blocks level 1/coin_interieur1.png" type="Texture" id=17]
+[ext_resource path="res://ASSETS/texture blocks level 1/fill.png" type="Texture" id=19]
+[ext_resource path="res://ASSETS/texture blocks level 1/gaucheversbas.png" type="Texture" id=21]
+[ext_resource path="res://ASSETS/texture blocks level 1/coin_low_platform.png" type="Texture" id=22]
+[ext_resource path="res://ASSETS/texture blocks level 1/pilierdroite.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -357,6 +356,39 @@ points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
 } ]
 32/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 96, 68 )
+
+[sub_resource type="DynamicFont" id=44]
+
+[sub_resource type="Theme" id=45]
+default_font = SubResource( 44 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 336, 142 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=48]
+default_font = SubResource( 47 )
+
+[sub_resource type="DynamicFont" id=49]
+size = 24
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=50]
+default_font = SubResource( 49 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
@@ -365,23 +397,6 @@ points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
 position = Vector2( 147, 340 )
 scale = Vector2( 317, 128 )
 texture = ExtResource( 9 )
-
-[node name="PC" type="StaticBody2D" parent="."]
-position = Vector2( -4, -32 )
-collision_layer = 8
-collision_mask = 0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PCshape" type="CollisionShape2D" parent="PC"]
-position = Vector2( 1056, 76 )
-shape = SubResource( 43 )
-
-[node name="PCsprite" type="Sprite" parent="PC"]
-position = Vector2( 1056, 78 )
-scale = Vector2( 3, 2.1875 )
-texture = ExtResource( 6 )
 
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
@@ -399,6 +414,277 @@ tile_set = SubResource( 40 )
 format = 1
 tile_data = PoolIntArray( -720821, 0, 0, -720820, 0, 0, -720819, 0, 0, -720818, 0, 0, -720817, 0, 0, -524218, 0, 0, -524217, 0, 0, -524216, 0, 0, -458729, 0, 0 )
 
+[node name="Tiles Solid" type="TileMap" parent="."]
+tile_set = SubResource( 9 )
+cell_size = Vector2( 160, 160 )
+cell_custom_transform = Transform2D( 64, 0, 0, 0, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -1441763, -536870886, 0, -1376227, -536870886, 0, -1310718, -536870911, 0, -1310711, -1073741823, 0, -1310710, -536870896, 0, -1310709, -536870911, 0, -1310691, -536870886, 0, -1245182, -536870911, 0, -1245175, -1073741823, 0, -1245174, -536870896, 0, -1245173, -536870911, 0, -1245155, -1610612710, 0, -1245150, -2147483647, 0, -1179646, -536870911, 0, -1179639, -1073741823, 0, -1179638, -536870896, 0, -1179637, -536870911, 0, -1179619, -1610612710, 0, -1179614, -2147483647, 0, -1114110, -536870911, 0, -1114103, -1073741823, 0, -1114102, -536870896, 0, -1114101, -536870911, 0, -1114089, 1073741826, 0, -1114088, -2147483646, 0, -1114083, -1610612710, 0, -1114078, -2147483647, 0, -1048574, -536870911, 0, -1048567, -1073741823, 0, -1048566, -536870896, 0, -1048565, -536870911, 0, -1048553, -536870911, 0, -1048552, -2147483647, 0, -1048547, -1610612710, 0, -1048542, -2147483647, 0, -983038, -536870911, 0, -983031, -1073741823, 0, -983030, -536870896, 0, -983029, -536870911, 0, -983017, -536870911, 0, -983016, -2147483647, 0, -983011, -1610612710, 0, -983006, -2147483647, 0, -917502, -536870911, 0, -917497, 31, 0, -917496, 31, 0, -917495, 1610612756, 0, -917494, 1610612737, 0, -917493, -1610612716, 0, -917481, -536870911, 0, -917480, -2147483647, 0, -917475, -1610612710, 0, -917470, -2147483647, 0, -851966, -1610612735, 0, -851963, -1073741795, 0, -851952, -1610612734, 0, -851951, -2147483646, 0, -851945, -536870911, 0, -851944, -2147483647, 0, -851934, -2147483647, 0, -786430, -1610612735, 0, -786416, -1610612735, 0, -786415, -2147483647, 0, -786409, -536870911, 0, -786408, -2147483647, 0, -786398, -2147483647, 0, -720894, -1610612735, 0, -720892, 31, 0, -720885, 536870932, 0, -720884, -536870892, 0, -720880, -536870911, 0, -720879, 1610612756, 0, -720878, 1610612737, 0, -720877, 1610612737, 0, -720876, 1610612737, 0, -720875, 1610612737, 0, -720874, 1073741825, 0, -720873, 1073741844, 0, -720872, -2147483628, 0, -720871, 1073741825, 0, -720870, 1073741825, 0, -720869, 1073741825, 0, -720868, 1073741825, 0, -720867, 1610612766, 0, -720862, -2147483647, 0, -655358, -1610612735, 0, -655354, 1073741850, 0, -655349, -2147483647, 0, -655348, -536870911, 0, -655344, 2, 0, -655343, 536870913, 0, -655342, 536870913, 0, -655341, 536870913, 0, -655340, 536870913, 0, -655339, 536870913, 0, -655338, 536870913, 0, -655337, 536870913, 0, -655336, 536870913, 0, -655335, 536870913, 0, -655334, 536870913, 0, -655333, 536870913, 0, -655332, 536870913, 0, -655331, 536870942, 0, -655330, -536870883, 0, -655326, -2147483647, 0, -589822, -1610612735, 0, -589816, 1073741850, 0, -589813, -2147483647, 0, -589812, -536870911, 0, -589795, -1610612710, 0, -589791, 536870938, 0, -589790, -2147483647, 0, -524286, -1610612735, 0, -524277, -2147483647, 0, -524276, -536870911, 0, -524259, -1610612710, 0, -524254, -2147483647, 0, -458750, -1610612735, 0, -458749, 1610612737, 0, -458748, 1610612737, 0, -458747, 1610612737, 0, -458746, 1610612737, 0, -458745, 1610612737, 0, -458744, 1610612737, 0, -458743, 1610612737, 0, -458742, 1610612737, 0, -458741, 1073741825, 0, -458740, 1073741844, 0, -458738, -1610612710, 0, -458734, -1073741804, 0, -458733, 1, 0, -458732, 20, 0, -458723, 27, 0, -458722, 536870938, 0, -458718, -2147483647, 0, -393214, -1610612735, 0, -393202, 25, 0, -393201, -1073741792, 0, -393198, -2147483647, 0, -393197, 16, 0, -393196, 2, 0, -393195, 1, 0, -393194, 20, 0, -393183, 536870938, 0, -393182, -2147483647, 0, -327678, -1610612735, 0, -327666, -1610612710, 0, -327662, -2147483647, 0, -327661, 16, 0, -327660, 16, 0, -327659, 16, 0, -327658, 2, 0, -327657, 1, 0, -327656, 20, 0, -327646, -2147483647, 0, -262142, -1610612735, 0, -262130, -1610612710, 0, -262128, -1073741792, 0, -262127, -1073741792, 0, -262126, -2147483647, 0, -262125, 16, 0, -262124, 16, 0, -262123, 16, 0, -262122, 16, 0, -262121, 16, 0, -262120, 2, 0, -262119, 20, 0, -262110, -2147483647, 0, -196606, -1610612735, 0, -196605, 26, 0, -196604, 26, 0, -196603, 28, 0, -196600, -1610612734, 0, -196599, 1073741825, 0, -196598, 1073741825, 0, -196597, 1610612738, 0, -196594, -1610612710, 0, -196590, -2147483647, 0, -196589, 16, 0, -196588, 16, 0, -196587, 16, 0, -196586, 16, 0, -196585, 16, 0, -196584, 16, 0, -196583, -1610612735, 0, -196574, -2147483647, 0, -131070, -1610612735, 0, -131067, -1610612710, 0, -131064, -1610612735, 0, -131063, 16, 0, -131062, 16, 0, -131061, -2147483647, 0, -131058, 25, 0, -131057, -1073741792, 0, -131054, -2147483647, 0, -131053, 16, 0, -131052, 16, 0, -131051, 16, 0, -131050, 16, 0, -131049, 16, 0, -131048, 16, 0, -131047, -1610612735, 0, -131038, -2147483647, 0, -65534, -1610612735, 0, -65531, 27, 0, -65528, -1610612735, 0, -65527, 1, 0, -65526, 1, 0, -65525, -1073741822, 0, -65518, -2147483647, 0, -65517, 16, 0, -65516, 16, 0, -65515, 16, 0, -65514, 16, 0, -65513, 16, 0, -65512, 16, 0, -65511, -1610612735, 0, -65502, -2147483647, 0, 2, -1610612735, 0, 8, -1610612735, 0, 18, -2147483647, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, -1610612735, 0, 34, -2147483647, 0, 65538, 2, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 536870913, 0, 65568, 536870913, 0, 65569, 536870913, 0, 65570, 536870914, 0 )
+
+[node name="PC" type="StaticBody2D" parent="."]
+position = Vector2( -4, -32 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="PCshape" type="CollisionShape2D" parent="PC"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 43 )
+
+[node name="PCsprite" type="Sprite" parent="PC"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 6 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PC"]
+margin_left = 420.0
+margin_top = -216.0
+margin_right = 532.0
+margin_bottom = -128.0
+rect_scale = Vector2( 10, 10 )
+theme = SubResource( 45 )
+tab_size = 3
+text = "C'est fou"
+
+[node name="ColorRect" type="ColorRect" parent="PC"]
+margin_left = -580.0
+margin_top = -776.0
+margin_right = 2356.0
+margin_bottom = 632.0
+color = Color( 0, 0, 0, 0.878431 )
+
+[node name="Monofiffusion" type="Area2D" parent="PC/ColorRect"]
+collision_layer = 271
+collision_mask = 271
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PC/ColorRect/Monofiffusion"]
+position = Vector2( 912, 478 )
+shape = SubResource( 51 )
+
+[node name="Monofiffusion" type="MarginContainer" parent="PC/ColorRect/Monofiffusion"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 864.0
+margin_top = 500.0
+margin_right = 1248.0
+margin_bottom = 620.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/Monofiffusion/Monofiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/ColorRect/Monofiffusion/Monofiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/Monofiffusion/Monofiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/Monofiffusion/Monofiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 48 )
+text = "Monodiffusion"
+align = 1
+valign = 1
+
+[node name="Multidiffusion" type="MarginContainer" parent="PC/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -604.0
+margin_top = 46.0
+margin_right = -220.0
+margin_bottom = 166.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/ColorRect/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/Multidiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/Multidiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 48 )
+text = "Multidiffusion"
+align = 1
+valign = 1
+
+[node name="Diffusion" type="MarginContainer" parent="PC/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -604.0
+margin_top = 296.0
+margin_right = -220.0
+margin_bottom = 416.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/ColorRect/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/Diffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/Diffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 48 )
+text = "Diffusion"
+align = 1
+valign = 1
+
+[node name="DiffusionRep" type="MarginContainer" parent="PC/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 268.0
+margin_top = -280.0
+margin_right = 868.0
+margin_bottom = -80.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/DiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer10" type="MarginContainer" parent="PC/ColorRect/DiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+grow_horizontal = 0
+rect_clip_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/DiffusionRep/MarginContainer10"]
+margin_right = 600.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/DiffusionRep/MarginContainer10/HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = SubResource( 50 )
+text = "Envoyer des paquets de 
+données dans les réseaux IP à tous les participants d’un réseau local."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="MonodiffusionRep" type="MarginContainer" parent="PC/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 268.0
+margin_right = 868.0
+margin_bottom = 200.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/MonodiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/ColorRect/MonodiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/MonodiffusionRep/MarginContainer"]
+margin_right = 600.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/MonodiffusionRep/MarginContainer/HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+theme = SubResource( 50 )
+text = "Les paquets sont envoyés à une seule destination réseau avec une adresse particulière."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="MultidiffusionRep" type="MarginContainer" parent="PC/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 268.0
+margin_top = 296.0
+margin_right = 868.0
+margin_bottom = 496.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC/ColorRect/MultidiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+custom_styles/panel = SubResource( 46 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC/ColorRect/MultidiffusionRep"]
+margin_right = 600.0
+margin_bottom = 200.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/ColorRect/MultidiffusionRep/MarginContainer"]
+margin_right = 600.0
+margin_bottom = 200.0
+
+[node name="Label" type="Label" parent="PC/ColorRect/MultidiffusionRep/MarginContainer/HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+theme = SubResource( 50 )
+text = "envoyer un même paquet à plusieurs utilisateurs."
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 639, 2 )
 
@@ -414,9 +700,4 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[node name="Tiles Solid" type="TileMap" parent="."]
-tile_set = SubResource( 9 )
-cell_size = Vector2( 160, 160 )
-cell_custom_transform = Transform2D( 64, 0, 0, 0, 0, 0 )
-format = 1
-tile_data = PoolIntArray( -1441763, -536870886, 0, -1376227, -536870886, 0, -1310718, -536870911, 0, -1310711, -1073741823, 0, -1310710, -536870896, 0, -1310709, -536870911, 0, -1310691, -536870886, 0, -1245182, -536870911, 0, -1245175, -1073741823, 0, -1245174, -536870896, 0, -1245173, -536870911, 0, -1245155, -1610612710, 0, -1245150, -2147483647, 0, -1179646, -536870911, 0, -1179639, -1073741823, 0, -1179638, -536870896, 0, -1179637, -536870911, 0, -1179619, -1610612710, 0, -1179614, -2147483647, 0, -1114110, -536870911, 0, -1114103, -1073741823, 0, -1114102, -536870896, 0, -1114101, -536870911, 0, -1114089, 1073741826, 0, -1114088, -2147483646, 0, -1114083, -1610612710, 0, -1114078, -2147483647, 0, -1048574, -536870911, 0, -1048567, -1073741823, 0, -1048566, -536870896, 0, -1048565, -536870911, 0, -1048553, -536870911, 0, -1048552, -2147483647, 0, -1048547, -1610612710, 0, -1048542, -2147483647, 0, -983038, -536870911, 0, -983031, -1073741823, 0, -983030, -536870896, 0, -983029, -536870911, 0, -983017, -536870911, 0, -983016, -2147483647, 0, -983011, -1610612710, 0, -983006, -2147483647, 0, -917502, -536870911, 0, -917497, 31, 0, -917496, 31, 0, -917495, 1610612756, 0, -917494, 1610612737, 0, -917493, -1610612716, 0, -917481, -536870911, 0, -917480, -2147483647, 0, -917475, -1610612710, 0, -917470, -2147483647, 0, -851966, -1610612735, 0, -851963, -1073741795, 0, -851952, -1610612734, 0, -851951, -2147483646, 0, -851945, -536870911, 0, -851944, -2147483647, 0, -851934, -2147483647, 0, -786430, -1610612735, 0, -786416, -1610612735, 0, -786415, -2147483647, 0, -786409, -536870911, 0, -786408, -2147483647, 0, -786398, -2147483647, 0, -720894, -1610612735, 0, -720892, 31, 0, -720885, 536870932, 0, -720884, -536870892, 0, -720880, -536870911, 0, -720879, 1610612756, 0, -720878, 1610612737, 0, -720877, 1610612737, 0, -720876, 1610612737, 0, -720875, 1610612737, 0, -720874, 1073741825, 0, -720873, 1073741844, 0, -720872, -2147483628, 0, -720871, 1073741825, 0, -720870, 1073741825, 0, -720869, 1073741825, 0, -720868, 1073741825, 0, -720867, 1610612766, 0, -720862, -2147483647, 0, -655358, -1610612735, 0, -655354, 1073741850, 0, -655349, -2147483647, 0, -655348, -536870911, 0, -655344, 2, 0, -655343, 536870913, 0, -655342, 536870913, 0, -655341, 536870913, 0, -655340, 536870913, 0, -655339, 536870913, 0, -655338, 536870913, 0, -655337, 536870913, 0, -655336, 536870913, 0, -655335, 536870913, 0, -655334, 536870913, 0, -655333, 536870913, 0, -655332, 536870913, 0, -655331, 536870942, 0, -655330, -536870883, 0, -655326, -2147483647, 0, -589822, -1610612735, 0, -589816, 1073741850, 0, -589813, -2147483647, 0, -589812, -536870911, 0, -589795, -1610612710, 0, -589791, 536870938, 0, -589790, -2147483647, 0, -524286, -1610612735, 0, -524277, -2147483647, 0, -524276, -536870911, 0, -524259, -1610612710, 0, -524254, -2147483647, 0, -458750, -1610612735, 0, -458749, 1610612737, 0, -458748, 1610612737, 0, -458747, 1610612737, 0, -458746, 1610612737, 0, -458745, 1610612737, 0, -458744, 1610612737, 0, -458743, 1610612737, 0, -458742, 1610612737, 0, -458741, 1073741825, 0, -458740, 1073741844, 0, -458738, -1610612710, 0, -458734, -1073741804, 0, -458733, 1, 0, -458732, 20, 0, -458723, 27, 0, -458722, 536870938, 0, -458718, -2147483647, 0, -393214, -1610612735, 0, -393202, 25, 0, -393201, -1073741792, 0, -393198, -2147483647, 0, -393197, 16, 0, -393196, 2, 0, -393195, 1, 0, -393194, 20, 0, -393183, 536870938, 0, -393182, -2147483647, 0, -327678, -1610612735, 0, -327666, -1610612710, 0, -327662, -2147483647, 0, -327661, 16, 0, -327660, 16, 0, -327659, 16, 0, -327658, 2, 0, -327657, 1, 0, -327656, 20, 0, -327646, -2147483647, 0, -262142, -1610612735, 0, -262130, -1610612710, 0, -262128, -1073741792, 0, -262127, -1073741792, 0, -262126, -2147483647, 0, -262125, 16, 0, -262124, 16, 0, -262123, 16, 0, -262122, 16, 0, -262121, 16, 0, -262120, 2, 0, -262119, 20, 0, -262110, -2147483647, 0, -196606, -1610612735, 0, -196605, 26, 0, -196604, 26, 0, -196603, 28, 0, -196600, -1610612734, 0, -196599, 1073741825, 0, -196598, 1073741825, 0, -196597, 1610612738, 0, -196594, -1610612710, 0, -196590, -2147483647, 0, -196589, 16, 0, -196588, 16, 0, -196587, 16, 0, -196586, 16, 0, -196585, 16, 0, -196584, 16, 0, -196583, -1610612735, 0, -196574, -2147483647, 0, -131070, -1610612735, 0, -131067, -1610612710, 0, -131064, -1610612735, 0, -131063, 16, 0, -131062, 16, 0, -131061, -2147483647, 0, -131058, 25, 0, -131057, -1073741792, 0, -131054, -2147483647, 0, -131053, 16, 0, -131052, 16, 0, -131051, 16, 0, -131050, 16, 0, -131049, 16, 0, -131048, 16, 0, -131047, -1610612735, 0, -131038, -2147483647, 0, -65534, -1610612735, 0, -65531, 27, 0, -65528, -1610612735, 0, -65527, 1, 0, -65526, 1, 0, -65525, -1073741822, 0, -65518, -2147483647, 0, -65517, 16, 0, -65516, 16, 0, -65515, 16, 0, -65514, 16, 0, -65513, 16, 0, -65512, 16, 0, -65511, -1610612735, 0, -65502, -2147483647, 0, 2, -1610612735, 0, 8, -1610612735, 0, 18, -2147483647, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, -1610612735, 0, 34, -2147483647, 0, 65538, 2, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 536870913, 0, 65568, 536870913, 0, 65569, 536870913, 0, 65570, 536870914, 0 )
+[connection signal="input_event" from="PC/ColorRect/Monofiffusion" to="PC/ColorRect/Monofiffusion" method="_on_Monofiffusion_input_event"]
