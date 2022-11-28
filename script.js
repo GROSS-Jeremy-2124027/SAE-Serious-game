@@ -1,4 +1,4 @@
-const NbLvl = 5;
+const NbLvl = 4;
 var btn = [];
 var btnid;
 var btnCampagne;
@@ -10,6 +10,8 @@ var btnconnexion
 function menuLvl() {
     btnMulti = document.getElementById("boutonMulti");
     btnCampagne  = document.getElementById("boutonJouer");
+    score = document.getElementById('scores');
+    textDescription = document.getElementById('textDescription');
     score = document.getElementById("scores");
     textDescription = document.getElementById("textDescription");
     removeAllChildNodes(document.getElementById('menu'));
@@ -25,18 +27,17 @@ function menuLvl() {
             btnid = this.id
             warpLvl()
         }
-        document.getElementById("menulvl").appendChild(btn[i]);
+        document.getElementById("menu").appendChild(btn[i]);
     }
     btnRetour.textContent = "retour";
     btnRetour.onclick = function () {
-        removeAllChildNodes(document.getElementById('menulvl'));
+        removeAllChildNodes(document.getElementById('menu'));
         document.getElementById("menu").appendChild(btnCampagne);
-        document.getElementById("menu").appendChild(btnMulti);
         document.getElementById("sectionScore").appendChild(score);
         document.getElementById("description").appendChild(textDescription);
 
     }
-    document.getElementById("menulvl").appendChild(btnRetour);
+    document.getElementById("menu").appendChild(btnRetour);
 }
 
 function warpLvl() {
@@ -51,11 +52,10 @@ function removeAllChildNodes(parent) {
 }
 
 function connexionPage() {
-    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="450" height="600"></object>';
+    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="436" height="440"></object>';
 }
 
-function boutonRetour() {
-    document.getElementById('connexion').innerHTML=""
-    btnconnexion = document.getElementById('boutonconnexion')
-    document.getElementById('connexion').appendChild(btnconnexion)
+function boutonCroix() {
+    btnconnexion = document.getElementById('btnconnexion')
+    removeAllChildNodes(document.getElementById('connexion'));
 }

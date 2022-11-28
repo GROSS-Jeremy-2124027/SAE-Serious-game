@@ -31,6 +31,7 @@ h1{
     font-family: 'Silkscreen', cursive;
     text-align: center;
     font-size: 4em;
+    justify-content: center;
 }
 
 h2{

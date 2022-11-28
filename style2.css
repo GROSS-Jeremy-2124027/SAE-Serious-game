@@ -10,6 +10,7 @@
 body{
     display: flex;
     background-color: #cacaaa;
+    margin-left: 10%;
 }
 
 .container{
