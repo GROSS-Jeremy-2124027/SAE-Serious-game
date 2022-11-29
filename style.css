@@ -29,7 +29,7 @@ header{
     justify-content: flex-end;
 }
 
-section {
+.section {
     height: 600px;
     width: 100%;
     display: flex;

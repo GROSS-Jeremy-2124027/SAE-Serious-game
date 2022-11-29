@@ -52,7 +52,7 @@ function removeAllChildNodes(parent) {
 }
 
 function connexionPage() {
-    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="436" height="440"></object>';
+    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="436" height="700"></object>';
 }
 
 function boutonCroix() {
