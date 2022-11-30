@@ -97,6 +97,10 @@ button:hover{
 
 #menulvl {
     margin-bottom:-3.2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
 }
 
 object {
@@ -104,3 +108,10 @@ object {
     position: absolute;
     margin-left: -27ex;
 }
+
+#t {
+    display: none;
+}
+
+
+

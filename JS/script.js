@@ -27,17 +27,17 @@ function menuLvl() {
             btnid = this.id
             warpLvl()
         }
-        document.getElementById("menu").appendChild(btn[i]);
+        document.getElementById("menulvl").appendChild(btn[i]);
     }
     btnRetour.textContent = "retour";
     btnRetour.onclick = function () {
-        removeAllChildNodes(document.getElementById('menu'));
+        removeAllChildNodes(document.getElementById('menulvl'));
         document.getElementById("menu").appendChild(btnCampagne);
         document.getElementById("sectionScore").appendChild(score);
         document.getElementById("description").appendChild(textDescription);
 
     }
-    document.getElementById("menu").appendChild(btnRetour);
+    document.getElementById("menulvl").appendChild(btnRetour);
 }
 
 function warpLvl() {
@@ -52,10 +52,13 @@ function removeAllChildNodes(parent) {
 }
 
 function connexionPage() {
-    document.getElementById('connexion').innerHTML='<object type="text/html" data="connexion.html" width="436" height="700"></object>';
-}
+    if (document.getElementById('t').style.display === "none") {
+        document.getElementById('t').style.display = "block";
+        document.getElementById('boutonconnexion').textContent = "quitter";
+    }
+    else {
+        document.getElementById('t').style.display = "none";
+        document.getElementById('boutonconnexion').textContent = "Se connecter";
+    }
 
-function boutonCroix() {
-    btnconnexion = document.getElementById('btnconnexion')
-    removeAllChildNodes(document.getElementById('connexion'));
 }
