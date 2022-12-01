@@ -1,10 +1,10 @@
 <?php
 
     function connect() {
-        $servername = "mysql-jeremygross.alwaysdata.net";
-        $username = "264023";
-        $password = "Nutella13?";
-        $database = "jeremygross_networkpark";
+        $servername = "mysql-networkpark.alwaysdata.net";
+        $username = "291361";
+        $password = "coucou18?";
+        $database = "networkpark_bd";
     
         $con = new mysqli($servername, $username, $password, $database);
     
