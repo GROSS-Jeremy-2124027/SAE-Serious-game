@@ -12,11 +12,12 @@ function menuLvl() {
     btnCampagne  = document.getElementById("boutonJouer");
     score = document.getElementById('scores');
     textDescription = document.getElementById('textDescription');
-    score = document.getElementById("scores");
-    textDescription = document.getElementById("textDescription");
+    //on récupère tout les éléments présent au début
+
     removeAllChildNodes(document.getElementById('menu'));
     removeAllChildNodes(document.getElementById('description'));
     removeAllChildNodes(document.getElementById('sectionScore'));
+    //on supprime tout les éléments présent au début
 
     for (let i = 0; i < NbLvl; i++) {
         btn[i] = document.createElement("button");
@@ -29,7 +30,11 @@ function menuLvl() {
         }
         document.getElementById("menulvl").appendChild(btn[i]);
     }
+    //ajoute un nombre de boutons correspondant a NbLvl qui mènent au niveau correspondant
+
     btnRetour.textContent = "retour";
+    btnRetour.style.backgroundColor = '#345153';
+    btnRetour.style.borderColor ='#345153';
     btnRetour.onclick = function () {
         removeAllChildNodes(document.getElementById('menulvl'));
         document.getElementById("menu").appendChild(btnCampagne);
@@ -38,27 +43,31 @@ function menuLvl() {
 
     }
     document.getElementById("menulvl").appendChild(btnRetour);
+    //créer et ajoute le bouton retour à la suite
 }
 
 function warpLvl() {
     let niveau = "level-" + btnid + "/lvl" + btnid + ".html"
     window.location.href = niveau;
-}
+}//fonction pour acceder au niveau selon le bouton
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
-}
+}//fonction pour supprimer tout les enfants d'un élément
+
+var bool = false;
 
 function connexionPage() {
-    if (document.getElementById('t').style.display === "none") {
-        document.getElementById('t').style.display = "block";
+    if (bool === false) {
+        document.getElementById('pageConnexion').style.display = "block";
         document.getElementById('boutonconnexion').textContent = "quitter";
+        bool = true;
     }
     else {
-        document.getElementById('t').style.display = "none";
+        document.getElementById('pageConnexion').style.display = "none";
         document.getElementById('boutonconnexion').textContent = "Se connecter";
+        bool = false;
     }
-
-}
+}//fonction pour afficher/cacher la page de connexion
