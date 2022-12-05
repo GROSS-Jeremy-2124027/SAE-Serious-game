@@ -136,3 +136,5 @@ func _on_LadderChecker2_body_entered(body):
 
 func _on_LadderChecker2_body_exited(body):
 	onPc = false
+
+
