@@ -67,7 +67,7 @@ function connexionPage() {
     }
     else {
         document.getElementById('pageConnexion').style.display = "none";
-        document.getElementById('boutonconnexion').textContent = "Se connecter";
+        document.getElementById('boutonconnexion').textContent = "Se connecter / S'incrire";    
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion
