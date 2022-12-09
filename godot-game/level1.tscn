@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
@@ -15,9 +15,11 @@
 [ext_resource path="res://MonoRepArea2D.gd" type="Script" id=13]
 [ext_resource path="res://ASSETS/texture blocks level 1/continue_top.png" type="Texture" id=14]
 [ext_resource path="res://DiffuRepArea2D.gd" type="Script" id=15]
-[ext_resource path="res://Sombre.gd" type="Script" id=16]
+[ext_resource path="res://PC.gd" type="Script" id=16]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_interieur1.png" type="Texture" id=17]
+[ext_resource path="res://Sombre.gd" type="Script" id=18]
 [ext_resource path="res://ASSETS/texture blocks level 1/fill.png" type="Texture" id=19]
+[ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=20]
 [ext_resource path="res://ASSETS/texture blocks level 1/gaucheversbas.png" type="Texture" id=21]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_low_platform.png" type="Texture" id=22]
 [ext_resource path="res://ASSETS/texture blocks level 1/pilierdroite.png" type="Texture" id=23]
@@ -432,6 +434,7 @@ tile_data = PoolIntArray( -1441763, -536870886, 0, -1376227, -536870886, 0, -131
 position = Vector2( -4, -32 )
 collision_layer = 8
 collision_mask = 0
+script = ExtResource( 16 )
 
 [node name="PCshape" type="CollisionShape2D" parent="PC"]
 position = Vector2( 1056, 76 )
@@ -443,14 +446,13 @@ scale = Vector2( 3, 2.1875 )
 texture = ExtResource( 6 )
 
 [node name="Sombre" type="ColorRect" parent="PC"]
-visible = false
 margin_left = -580.0
 margin_top = -776.0
 margin_right = 2356.0
 margin_bottom = 632.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.878431 )
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 
 [node name="MonoArea2D" type="Area2D" parent="PC/Sombre"]
 position = Vector2( 584, 808 )
@@ -499,12 +501,12 @@ align = 1
 valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="PC/Sombre/MonoArea2D"]
+visible = false
 light_mask = 17
 position = Vector2( 472, -252 )
 shape = SubResource( 52 )
 
 [node name="ColorRect" type="ColorRect" parent="PC/Sombre/MonoArea2D"]
-visible = false
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -312.0
@@ -560,19 +562,19 @@ align = 1
 valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="PC/Sombre/MultiArea2D"]
+visible = false
 light_mask = 17
 position = Vector2( 472, 4 )
 shape = SubResource( 52 )
 
 [node name="ColorRect" type="ColorRect" parent="PC/Sombre/MultiArea2D"]
-visible = false
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -56.0
 margin_right = 664.0
 margin_bottom = 64.0
 mouse_filter = 2
-color = Color( 0, 0.313726, 1, 1 )
+color = Color( 0.254902, 0.364706, 0.607843, 1 )
 
 [node name="DiffuArea2D" type="Area2D" parent="PC/Sombre"]
 position = Vector2( 1168, 1616 )
@@ -628,14 +630,13 @@ position = Vector2( -112, -556 )
 shape = SubResource( 52 )
 
 [node name="ColorRect" type="ColorRect" parent="PC/Sombre/DiffuArea2D"]
-visible = false
 material = SubResource( 53 )
 margin_left = -304.0
 margin_top = -616.0
 margin_right = 80.0
 margin_bottom = -496.0
 mouse_filter = 2
-color = Color( 0, 0.313726, 1, 1 )
+color = Color( 0.168627, 0.270588, 0.72549, 1 )
 
 [node name="DiffuRepArea2D" type="Area2D" parent="PC/Sombre"]
 position = Vector2( 1168, 1616 )
@@ -829,8 +830,14 @@ margin_bottom = -416.0
 mouse_filter = 2
 color = Color( 1, 0, 0, 1 )
 
+[node name="check" type="Sprite" parent="PC"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 20 )
+
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 639, 2 )
+position = Vector2( 640, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
@@ -844,7 +851,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[connection signal="visibility_changed" from="PC" to="PC" method="_on_PC_visibility_changed"]
 [connection signal="visibility_changed" from="PC/Sombre" to="PC/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="PC/Sombre/MonoArea2D" to="PC/Sombre/MonoArea2D" method="_on_MonoArea2D_input_event"]
 [connection signal="mouse_exited" from="PC/Sombre/MonoArea2D" to="PC/Sombre/MonoArea2D" method="_on_MonoArea2D_mouse_exited"]

@@ -104,7 +104,7 @@ func _physics_process(delta):
 		States.PC:
 			$Sprite.play("Watch")
 			get_parent().get_node("PC/Sombre").set("visible", true)
-			if (Input.is_action_just_pressed("ui_select")):
+			if (Input.is_action_just_pressed("ui_select") or (get_parent().get_node("PC/Sombre").visible == false)):
 				get_parent().get_node("PC/Sombre").set("visible", false)
 				state = States.FLOOR
 
@@ -124,9 +124,6 @@ func move_and_fall():
 	if velocity.y < MAX_GRAVITY_FORCE and not jumping:
 		velocity.y += GRAVITY_FORCE
 	velocity = move_and_slide(velocity,Vector2.UP)
-
-func resetPC():
-	get_parent().get_node("PC/ColorRect/DiffuArea2D/ColorRect").color
 
 func _on_LadderChecker_body_entered(body):
 	onLadder = true

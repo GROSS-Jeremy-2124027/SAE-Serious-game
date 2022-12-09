@@ -1,9 +1,9 @@
 extends Area2D
 
 var BLACK = Color(0,0,0)
-var RED = Color(255,0,0)
-var GREEN = Color(0,255,0)
-var BLUE = Color(0,80,255)
+var RED = Color("b92b2b")
+var GREEN = Color("1e982e")
+var BLUE = Color("2b45b9")
 enum colors {BLACK,RED,GREEN,BLUE}
 var color = colors.BLACK
 	
