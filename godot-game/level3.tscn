@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://ASSETS/texture blocks level 3/coin_interieur1.png" type="Texture" id=10]
 [ext_resource path="res://ASSETS/texture blocks level 3/continue.png" type="Texture" id=11]
 [ext_resource path="res://ASSETS/texture blocks level 3/pilierdroite.png" type="Texture" id=12]
+[ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
@@ -263,6 +264,17 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 position = Vector2( 147, 340 )
 scale = Vector2( 317, 128 )
 texture = ExtResource( 2 )
+
+[node name="Ladder" type="TileMap" parent="."]
+position = Vector2( 0, -32 )
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 64, 0, 0, 32, 0, 0 )
+show_collision = true
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 1048626, 9, 0, 1114162, 7, 0, 1245234, 7, 0, 1376306, 7, 0, 1507303, 6, 0, 1507306, 5, 0, 1507378, 7, 0, 1638450, 7, 0, 1769522, 7, 0, 1900594, 7, 0 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 639, 2 )

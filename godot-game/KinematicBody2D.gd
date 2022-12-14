@@ -29,7 +29,7 @@ func _physics_process(delta):
 			$Sprite.play("Air")
 			if onSpring:
 				if velocity.y > 0:
-					velocity.y = -JUMP_FORCE*2
+					velocity.y = -JUMP_FORCE*2.3
 					onSpring = false
 			if Input.is_action_pressed("ui_left"):
 				$Sprite.flip_h=true
@@ -138,7 +138,12 @@ func _on_LadderChecker_body_exited(body):
 
 func _on_SpringChecker_body_entered(body):
 	onSpring = true
-	print("TA MERE")
 
 func _on_SpringChecker_body_exited(body):
 	onSpring = false
+
+func _on_PcChecker_body_entered(body):
+	onPc = true
+
+func _on_PcChecker_body_exited(body):
+	onPc = false
