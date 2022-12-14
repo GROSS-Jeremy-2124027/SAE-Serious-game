@@ -17,6 +17,7 @@ var jumping := false
 var jumpingTopLadder := false
 var onLadder := false
 var onPc := false
+var onSpring := false
 
 func _physics_process(delta):
 	match state:
@@ -26,6 +27,10 @@ func _physics_process(delta):
 			elif should_climb_ladder():
 				state = States.LADDER
 			$Sprite.play("Air")
+			if onSpring:
+				if velocity.y > 0:
+					velocity.y = -JUMP_FORCE*2
+					onSpring = false
 			if Input.is_action_pressed("ui_left"):
 				$Sprite.flip_h=true
 				velocity.x = lerp(velocity.x,-SPEED,ANTI_SLIPPERY)
@@ -131,10 +136,9 @@ func _on_LadderChecker_body_entered(body):
 func _on_LadderChecker_body_exited(body):
 	onLadder = false
 
-func _on_LadderChecker2_body_entered(body):
-	onPc = true
+func _on_SpringChecker_body_entered(body):
+	onSpring = true
+	print("TA MERE")
 
-func _on_LadderChecker2_body_exited(body):
-	onPc = false
-
-
+func _on_SpringChecker_body_exited(body):
+	onSpring = false

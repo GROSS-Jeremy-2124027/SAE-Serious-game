@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
@@ -23,6 +23,20 @@
 [ext_resource path="res://ASSETS/texture blocks level 1/gaucheversbas.png" type="Texture" id=21]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_low_platform.png" type="Texture" id=22]
 [ext_resource path="res://ASSETS/texture blocks level 1/pilierdroite.png" type="Texture" id=23]
+[ext_resource path="res://ASSETS/Spring/Spring_06.png" type="Texture" id=24]
+[ext_resource path="res://ASSETS/Spring/Spring_05.png" type="Texture" id=25]
+[ext_resource path="res://ASSETS/Spring/Spring_01.png" type="Texture" id=26]
+[ext_resource path="res://ASSETS/Spring/Spring_02.png" type="Texture" id=27]
+[ext_resource path="res://ASSETS/Spring/Spring_08.png" type="Texture" id=28]
+[ext_resource path="res://ASSETS/Spring/Spring_15.png" type="Texture" id=29]
+[ext_resource path="res://ASSETS/Spring/Spring_12.png" type="Texture" id=30]
+[ext_resource path="res://ASSETS/Spring/Spring_11.png" type="Texture" id=31]
+[ext_resource path="res://ASSETS/Spring/Spring_04.png" type="Texture" id=32]
+[ext_resource path="res://ASSETS/Spring/Spring_09.png" type="Texture" id=33]
+[ext_resource path="res://ASSETS/Spring/Spring_03.png" type="Texture" id=34]
+[ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=35]
+[ext_resource path="res://ASSETS/Spring/Spring_13.png" type="Texture" id=36]
+[ext_resource path="res://ASSETS/Spring/Spring_07.png" type="Texture" id=37]
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -398,12 +412,28 @@ default_font = SubResource( 49 )
 [sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 300, 100 )
 
+[sub_resource type="SpriteFrames" id=55]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 36 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "boing",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=56]
+extents = Vector2( 48, 36 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 147, 340 )
+position = Vector2( 184, 328 )
 scale = Vector2( 317, 128 )
 texture = ExtResource( 9 )
 
@@ -446,6 +476,7 @@ scale = Vector2( 3, 2.1875 )
 texture = ExtResource( 6 )
 
 [node name="Sombre" type="ColorRect" parent="PC"]
+visible = false
 margin_left = -580.0
 margin_top = -776.0
 margin_right = 2356.0
@@ -835,6 +866,28 @@ visible = false
 position = Vector2( 1064, 56 )
 scale = Vector2( 0.475, 0.405964 )
 texture = ExtResource( 20 )
+
+[node name="Spring" type="StaticBody2D" parent="."]
+position = Vector2( 1224, 160 )
+rotation = -3.14159
+collision_layer = 16
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Spring"]
+position = Vector2( -23.8917, 0 )
+scale = Vector2( 1.36975, 1.41138 )
+z_as_relative = false
+frames = SubResource( 55 )
+animation = "idle"
+centered = false
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spring"]
+position = Vector2( 24, 36 )
+shape = SubResource( 56 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 0 )
