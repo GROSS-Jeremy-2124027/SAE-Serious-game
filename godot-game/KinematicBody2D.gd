@@ -18,6 +18,7 @@ var jumpingTopLadder := false
 var onLadder := false
 var onPc := false
 var onSpring := false
+var pcid = 1
 
 func _physics_process(delta):
 	match state:
@@ -27,10 +28,9 @@ func _physics_process(delta):
 			elif should_climb_ladder():
 				state = States.LADDER
 			$Sprite.play("Air")
-			if onSpring:
-				if velocity.y > 0:
-					velocity.y = -JUMP_FORCE*2.3
-					onSpring = false
+			if onSpring and velocity.y > 0:
+				velocity.y = -JUMP_FORCE*2.3
+				onSpring = false
 			if Input.is_action_pressed("ui_left"):
 				$Sprite.flip_h=true
 				velocity.x = lerp(velocity.x,-SPEED,ANTI_SLIPPERY)
@@ -108,9 +108,9 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
-			get_parent().get_node("PC/Sombre").set("visible", true)
-			if (Input.is_action_just_pressed("ui_select") or (get_parent().get_node("PC/Sombre").visible == false)):
-				get_parent().get_node("PC/Sombre").set("visible", false)
+			get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", true)
+			if (Input.is_action_just_pressed("ui_select") or (get_parent().get_node("PC" + str(pcid) + "/Sombre").visible == false)):
+				get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
 				state = States.FLOOR
 
 func should_climb_ladder() -> bool:

@@ -21,9 +21,13 @@ func _process(delta):
 				completed = true
 				get_node("check").visible = true
 				get_node("Sombre").visible = false
+				get_parent().get_node("KinematicBody2D").pcid += 1
 			else :
 				wait_time-=delta
 		else:
+			if (get_parent().get_node("KinematicBody2D").pcid >= int(name[-1])):
+				get_node("PCsprite").texture = load("res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png")
+				get_node("PCshape").disabled = false
 			noBlack = true
 			for i in range(0,2):
 				if (get_node("Sombre").get_child(i).get_node("ColorRect").color == BLACK):
