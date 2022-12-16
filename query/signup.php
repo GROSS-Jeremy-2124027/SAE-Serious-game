@@ -30,19 +30,19 @@ if (isset($_POST["signup"])) {
     }
 
     if (strlen($password) < 8) {
-        echo "Le mot de passe doit comporter au moins 8 caractères.";
+        echo "<script> alert('Le mot de passe doit comporter au moins 8 caractères'); </script>";
     }
 
     if (!$has_uppercase) {
-        echo "Le mot de passe doit comporter au moins une majuscule.";
+        echo "<script> alert('Le mot de passe doit comporter au moins une majuscule'); </script>";
     }
 
     if (!$has_digit) {
-        echo "Le mot de passe doit comporter au moins un chiffre.";
+        echo "<script> alert('Le mot de passe doit comporter au moins un chiffre'); </script>";
     }
 
     if (!$has_special_char) {
-        echo "Le mot de passe doit comporter au moins un caractère spécial.";
+        echo "<script> alert('Le mot de passe doit comporter au moins un caractère spécial'); </script>";
     }
 
     if (strlen($password) >= 8 && $has_uppercase && $has_digit && $has_special_char) {
@@ -53,7 +53,7 @@ if (isset($_POST["signup"])) {
         $insert = $con -> query($sql) or die ($con -> error);
 
         if ($insert === TRUE) {
-            echo "New record created successfully";
+            echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l'aide de vos identifiants'); </script>";
             // echo header("Location: ../index.html");
         }
         else {

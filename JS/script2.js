@@ -64,13 +64,13 @@ var b = false;
         }
     }
 
-    function connection() {
-        if (b === false) {
-            erreurConnection.textContent = "Mot de passe et identifiant pas correspondant"
-        }
-        else {
-            //fait des trucs
-        }
-    }
+    // function connection() {
+    //     if (b === false) {
+    //         erreurConnection.textContent = "Mot de passe et identifiant pas correspondant"
+    //     }
+    //     else {
+    //         //fait des trucs
+    //     }
+    // }
 
 

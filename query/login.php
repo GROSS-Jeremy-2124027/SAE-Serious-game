@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
 
     if ($user -> num_rows > 0) {
         while($rows = $user -> fetch_assoc()) {
-            echo "Welcome" . " " . $username;
+            echo "<script> alert('Welcome" . " " . $username . "'); </script>";
         }
 
 ?>
