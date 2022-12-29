@@ -16,7 +16,7 @@ func _process(delta):
 			get_node("PCsprite").texture = load("res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png")
 			get_node("PCshape").disabled = false
 		noBlack = true
-		for i in range(0,5):
+		for i in get_node("Sombre").get_child_count():
 			if (get_node("Sombre").get_child(i).get_node("ColorRect").color == BLACK):
 				noBlack = false
 				correct = false

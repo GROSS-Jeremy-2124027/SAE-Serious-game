@@ -7,15 +7,15 @@
 [ext_resource path="res://ASSETS/texture blocks level 1/piliergauche.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://MultiArea2D.gd" type="Script" id=8]
+[ext_resource path="res://R1.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=9]
-[ext_resource path="res://DiffuArea2D.gd" type="Script" id=10]
-[ext_resource path="res://MonoArea2D.gd" type="Script" id=11]
-[ext_resource path="res://MultiRepArea2D.gd" type="Script" id=12]
-[ext_resource path="res://MonoRepArea2D.gd" type="Script" id=13]
+[ext_resource path="res://Q2.gd" type="Script" id=10]
+[ext_resource path="res://Q3.gd" type="Script" id=11]
+[ext_resource path="res://Q1.gd" type="Script" id=12]
+[ext_resource path="res://R2.gd" type="Script" id=13]
 [ext_resource path="res://ASSETS/texture blocks level 1/continue_top.png" type="Texture" id=14]
-[ext_resource path="res://DiffuRepArea2D.gd" type="Script" id=15]
-[ext_resource path="res://PC.gd" type="Script" id=16]
+[ext_resource path="res://R3.gd" type="Script" id=15]
+[ext_resource path="res://WordToDef.gd" type="Script" id=16]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_interieur1.png" type="Texture" id=17]
 [ext_resource path="res://Sombre.gd" type="Script" id=18]
 [ext_resource path="res://ASSETS/texture blocks level 1/fill.png" type="Texture" id=19]
@@ -389,12 +389,12 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=47]
+[sub_resource type="DynamicFont" id=60]
 size = 32
 font_data = ExtResource( 7 )
 
 [sub_resource type="Theme" id=48]
-default_font = SubResource( 47 )
+default_font = SubResource( 60 )
 
 [sub_resource type="RectangleShape2D" id=52]
 extents = Vector2( 192, 60 )
@@ -402,12 +402,12 @@ extents = Vector2( 192, 60 )
 [sub_resource type="CanvasItemMaterial" id=53]
 blend_mode = 1
 
-[sub_resource type="DynamicFont" id=49]
+[sub_resource type="DynamicFont" id=61]
 size = 24
 font_data = ExtResource( 7 )
 
 [sub_resource type="Theme" id=50]
-default_font = SubResource( 49 )
+default_font = SubResource( 61 )
 
 [sub_resource type="RectangleShape2D" id=54]
 extents = Vector2( 300, 100 )
@@ -489,13 +489,13 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 0.878431 )
 script = ExtResource( 18 )
 
-[node name="MonoArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="Q1" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
-[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/MonoArea2D"]
+[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -509,23 +509,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/MonoArea2D/Monodiffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/MonoArea2D/Monodiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/MonoArea2D/Monodiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/MonoArea2D/Monodiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -535,13 +535,13 @@ text = "Monodiffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/MonoArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
 visible = false
 light_mask = 17
 position = Vector2( 472, -252 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/MonoArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q1"]
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -312.0
@@ -550,13 +550,13 @@ margin_bottom = -192.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="MultiArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="Q2" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
-[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/MultiArea2D"]
+[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -570,23 +570,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/MultiArea2D/Multidiffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/MultiArea2D/Multidiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/MultiArea2D/Multidiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/MultiArea2D/Multidiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -596,13 +596,13 @@ text = "Multidiffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/MultiArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
 visible = false
 light_mask = 17
 position = Vector2( 472, 4 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/MultiArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q2"]
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -56.0
@@ -611,13 +611,13 @@ margin_bottom = 64.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="DiffuArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="Q3" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
-[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/DiffuArea2D"]
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -632,23 +632,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/DiffuArea2D/Diffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/DiffuArea2D/Diffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/DiffuArea2D/Diffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q3/Diffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/DiffuArea2D/Diffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -658,13 +658,13 @@ text = "Diffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/DiffuArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
 visible = false
 light_mask = 17
 position = Vector2( -112, -556 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/DiffuArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q3"]
 material = SubResource( 53 )
 margin_left = -304.0
 margin_top = -616.0
@@ -673,13 +673,13 @@ margin_bottom = -496.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="DiffuRepArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="R1" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 15 )
+script = ExtResource( 8 )
 
-[node name="DiffusionRep" type="MarginContainer" parent="PC1/Sombre/DiffuRepArea2D"]
+[node name="DiffusionRep" type="MarginContainer" parent="PC1/Sombre/R1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -693,25 +693,25 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/DiffuRepArea2D/DiffusionRep"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/R1/DiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer10" type="MarginContainer" parent="PC1/Sombre/DiffuRepArea2D/DiffusionRep"]
+[node name="MarginContainer10" type="MarginContainer" parent="PC1/Sombre/R1/DiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 grow_horizontal = 0
 rect_clip_content = true
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/DiffuRepArea2D/DiffusionRep/MarginContainer10"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/DiffuRepArea2D/DiffusionRep/MarginContainer10/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -724,12 +724,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/DiffuRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R1"]
 light_mask = 17
 position = Vector2( 868, -1092 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/DiffuRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R1"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -739,13 +739,13 @@ margin_bottom = -992.0
 mouse_filter = 2
 color = Color( 1, 0, 0, 1 )
 
-[node name="MonoRepArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="R2" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
 script = ExtResource( 13 )
 
-[node name="MonodiffusionRep" type="MarginContainer" parent="PC1/Sombre/MonoRepArea2D"]
+[node name="MonodiffusionRep" type="MarginContainer" parent="PC1/Sombre/R2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -759,23 +759,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/MonoRepArea2D/MonodiffusionRep"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/R2/MonodiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/MonoRepArea2D/MonodiffusionRep"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R2/MonodiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/MonoRepArea2D/MonodiffusionRep/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/MonoRepArea2D/MonodiffusionRep/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -787,12 +787,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/MonoRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R2"]
 light_mask = 17
 position = Vector2( 868, -812 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/MonoRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R2"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -802,13 +802,13 @@ margin_bottom = -712.0
 mouse_filter = 2
 color = Color( 1, 0, 0, 1 )
 
-[node name="MultiRepArea2D" type="Area2D" parent="PC1/Sombre"]
+[node name="R3" type="Area2D" parent="PC1/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 
-[node name="MultidiffusionRep" type="MarginContainer" parent="PC1/Sombre/MultiRepArea2D"]
+[node name="MultidiffusionRep" type="MarginContainer" parent="PC1/Sombre/R3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -822,23 +822,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/MultiRepArea2D/MultidiffusionRep"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/R3/MultidiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/MultiRepArea2D/MultidiffusionRep"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R3/MultidiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/MultiRepArea2D/MultidiffusionRep/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/MultiRepArea2D/MultidiffusionRep/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -850,12 +850,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/MultiRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R3"]
 light_mask = 17
 position = Vector2( 868, -516 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/MultiRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R3"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -900,13 +900,13 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 0.878431 )
 script = ExtResource( 18 )
 
-[node name="MonoArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="Q1" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 
-[node name="Monodiffusion" type="MarginContainer" parent="PC2/Sombre/MonoArea2D"]
+[node name="Monodiffusion" type="MarginContainer" parent="PC2/Sombre/Q1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -920,23 +920,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/MonoArea2D/Monodiffusion"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/Q1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/MonoArea2D/Monodiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/MonoArea2D/Monodiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q1/Monodiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/MonoArea2D/Monodiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -946,13 +946,13 @@ text = "Monodiffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/MonoArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q1"]
 visible = false
 light_mask = 17
 position = Vector2( 472, -252 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/MonoArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q1"]
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -312.0
@@ -961,13 +961,13 @@ margin_bottom = -192.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="MultiArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="Q2" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 8 )
+script = ExtResource( 10 )
 
-[node name="Multidiffusion" type="MarginContainer" parent="PC2/Sombre/MultiArea2D"]
+[node name="Multidiffusion" type="MarginContainer" parent="PC2/Sombre/Q2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -981,23 +981,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/MultiArea2D/Multidiffusion"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/Q2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/MultiArea2D/Multidiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/MultiArea2D/Multidiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q2/Multidiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/MultiArea2D/Multidiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -1007,13 +1007,13 @@ text = "Multidiffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/MultiArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q2"]
 visible = false
 light_mask = 17
 position = Vector2( 472, 4 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/MultiArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q2"]
 material = SubResource( 53 )
 margin_left = 280.0
 margin_top = -56.0
@@ -1022,13 +1022,13 @@ margin_bottom = 64.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="DiffuArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="Q3" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 
-[node name="Diffusion" type="MarginContainer" parent="PC2/Sombre/DiffuArea2D"]
+[node name="Diffusion" type="MarginContainer" parent="PC2/Sombre/Q3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1043,23 +1043,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/DiffuArea2D/Diffusion"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/Q3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/DiffuArea2D/Diffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/DiffuArea2D/Diffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q3/Diffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/DiffuArea2D/Diffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
@@ -1069,13 +1069,13 @@ text = "Diffusion"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/DiffuArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q3"]
 visible = false
 light_mask = 17
 position = Vector2( -112, -556 )
 shape = SubResource( 52 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/DiffuArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q3"]
 material = SubResource( 53 )
 margin_left = -304.0
 margin_top = -616.0
@@ -1084,13 +1084,13 @@ margin_bottom = -496.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="DiffuRepArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="R1" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 15 )
+script = ExtResource( 8 )
 
-[node name="DiffusionRep" type="MarginContainer" parent="PC2/Sombre/DiffuRepArea2D"]
+[node name="DiffusionRep" type="MarginContainer" parent="PC2/Sombre/R1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1104,25 +1104,25 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/DiffuRepArea2D/DiffusionRep"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/R1/DiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer10" type="MarginContainer" parent="PC2/Sombre/DiffuRepArea2D/DiffusionRep"]
+[node name="MarginContainer10" type="MarginContainer" parent="PC2/Sombre/R1/DiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 grow_horizontal = 0
 rect_clip_content = true
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/DiffuRepArea2D/DiffusionRep/MarginContainer10"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R1/DiffusionRep/MarginContainer10"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/DiffuRepArea2D/DiffusionRep/MarginContainer10/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/R1/DiffusionRep/MarginContainer10/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -1135,12 +1135,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/DiffuRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R1"]
 light_mask = 17
 position = Vector2( 868, -1092 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/DiffuRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R1"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -1150,13 +1150,13 @@ margin_bottom = -992.0
 mouse_filter = 2
 color = Color( 1, 0, 0, 1 )
 
-[node name="MonoRepArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="R2" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
 script = ExtResource( 13 )
 
-[node name="MonodiffusionRep" type="MarginContainer" parent="PC2/Sombre/MonoRepArea2D"]
+[node name="MonodiffusionRep" type="MarginContainer" parent="PC2/Sombre/R2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1170,23 +1170,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/MonoRepArea2D/MonodiffusionRep"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/R2/MonodiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/MonoRepArea2D/MonodiffusionRep"]
+[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/R2/MonodiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/MonoRepArea2D/MonodiffusionRep/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R2/MonodiffusionRep/MarginContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/MonoRepArea2D/MonodiffusionRep/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/R2/MonodiffusionRep/MarginContainer/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -1198,12 +1198,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/MonoRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R2"]
 light_mask = 17
 position = Vector2( 868, -812 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/MonoRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R2"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -1213,13 +1213,13 @@ margin_bottom = -712.0
 mouse_filter = 2
 color = Color( 1, 0, 0, 1 )
 
-[node name="MultiRepArea2D" type="Area2D" parent="PC2/Sombre"]
+[node name="R3" type="Area2D" parent="PC2/Sombre"]
 position = Vector2( 1168, 1616 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 12 )
+script = ExtResource( 15 )
 
-[node name="MultidiffusionRep" type="MarginContainer" parent="PC2/Sombre/MultiRepArea2D"]
+[node name="MultidiffusionRep" type="MarginContainer" parent="PC2/Sombre/R3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1233,23 +1233,23 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC2/Sombre/MultiRepArea2D/MultidiffusionRep"]
+[node name="Panel" type="Panel" parent="PC2/Sombre/R3/MultidiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 46 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/MultiRepArea2D/MultidiffusionRep"]
+[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/R3/MultidiffusionRep"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/MultiRepArea2D/MultidiffusionRep/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R3/MultidiffusionRep/MarginContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC2/Sombre/MultiRepArea2D/MultidiffusionRep/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC2/Sombre/R3/MultidiffusionRep/MarginContainer/HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 200.0
 size_flags_horizontal = 3
@@ -1261,12 +1261,12 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/MultiRepArea2D"]
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R3"]
 light_mask = 17
 position = Vector2( 868, -516 )
 shape = SubResource( 54 )
 
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/MultiRepArea2D"]
+[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R3"]
 visible = false
 material = SubResource( 53 )
 margin_left = 568.0
@@ -1364,28 +1364,28 @@ drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
 [connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC1/Sombre/MonoArea2D" to="PC1/Sombre/MonoArea2D" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/MonoArea2D" to="PC1/Sombre/MonoArea2D" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/MultiArea2D" to="PC1/Sombre/MultiArea2D" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/MultiArea2D" to="PC1/Sombre/MultiArea2D" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/DiffuArea2D" to="PC1/Sombre/DiffuArea2D" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/DiffuArea2D" to="PC1/Sombre/DiffuArea2D" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/DiffuRepArea2D" to="PC1/Sombre/DiffuRepArea2D" method="_on_DiffuRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/DiffuRepArea2D" to="PC1/Sombre/DiffuRepArea2D" method="_on_DiffuRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/MonoRepArea2D" to="PC1/Sombre/MonoRepArea2D" method="_on_MonoRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/MonoRepArea2D" to="PC1/Sombre/MonoRepArea2D" method="_on_MonoRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/MultiRepArea2D" to="PC1/Sombre/MultiRepArea2D" method="_on_MultiRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/MultiRepArea2D" to="PC1/Sombre/MultiRepArea2D" method="_on_MultiRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_mouse_exited"]
 [connection signal="visibility_changed" from="PC2/Sombre" to="PC2/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC2/Sombre/MonoArea2D" to="PC2/Sombre/MonoArea2D" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/MonoArea2D" to="PC2/Sombre/MonoArea2D" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/MultiArea2D" to="PC2/Sombre/MultiArea2D" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/MultiArea2D" to="PC2/Sombre/MultiArea2D" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/DiffuArea2D" to="PC2/Sombre/DiffuArea2D" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/DiffuArea2D" to="PC2/Sombre/DiffuArea2D" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/DiffuRepArea2D" to="PC2/Sombre/DiffuRepArea2D" method="_on_DiffuRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/DiffuRepArea2D" to="PC2/Sombre/DiffuRepArea2D" method="_on_DiffuRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/MonoRepArea2D" to="PC2/Sombre/MonoRepArea2D" method="_on_MonoRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/MonoRepArea2D" to="PC2/Sombre/MonoRepArea2D" method="_on_MonoRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/MultiRepArea2D" to="PC2/Sombre/MultiRepArea2D" method="_on_MultiRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/MultiRepArea2D" to="PC2/Sombre/MultiRepArea2D" method="_on_MultiRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/Q1" to="PC2/Sombre/Q1" method="_on_MonoArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/Q1" to="PC2/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/Q2" to="PC2/Sombre/Q2" method="_on_MultiArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/Q2" to="PC2/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/Q3" to="PC2/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/Q3" to="PC2/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/R1" to="PC2/Sombre/R1" method="_on_DiffuRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/R1" to="PC2/Sombre/R1" method="_on_DiffuRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/R2" to="PC2/Sombre/R2" method="_on_MonoRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/R2" to="PC2/Sombre/R2" method="_on_MonoRepArea2D_mouse_exited"]
+[connection signal="input_event" from="PC2/Sombre/R3" to="PC2/Sombre/R3" method="_on_MultiRepArea2D_input_event"]
+[connection signal="mouse_exited" from="PC2/Sombre/R3" to="PC2/Sombre/R3" method="_on_MultiRepArea2D_mouse_exited"]

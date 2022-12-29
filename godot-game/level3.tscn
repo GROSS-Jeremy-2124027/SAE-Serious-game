@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=2]
@@ -13,6 +13,14 @@
 [ext_resource path="res://ASSETS/texture blocks level 3/continue.png" type="Texture" id=11]
 [ext_resource path="res://ASSETS/texture blocks level 3/pilierdroite.png" type="Texture" id=12]
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
+[ext_resource path="res://Q2.gd" type="Script" id=15]
+[ext_resource path="res://Q3.gd" type="Script" id=16]
+[ext_resource path="res://Q1.gd" type="Script" id=17]
+[ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://WordToDef.gd" type="Script" id=20]
+[ext_resource path="res://Sombre.gd" type="Script" id=22]
+[ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=23]
+[ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
 points = PoolVector2Array( 160, 64, 0, 64, 0, 0, 160, 0 )
@@ -282,6 +290,30 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 } ]
 9/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 96, 68 )
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 32
+font_data = ExtResource( 19 )
+
+[sub_resource type="Theme" id=52]
+default_font = SubResource( 47 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 192, 60 )
+
+[sub_resource type="CanvasItemMaterial" id=54]
+blend_mode = 1
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
@@ -308,6 +340,301 @@ cell_size = Vector2( 160, 160 )
 format = 1
 tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, 131069, 0, 0 )
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 11 )
+cell_size = Vector2( 160, 160 )
+format = 1
+tile_data = PoolIntArray( -1310705, -536870909, 0, -1179658, -1073741821, 0, -1245169, -536870909, 0, -1114122, -1073741821, 0, -1179633, -536870909, 0, -1048586, -1073741821, 0, -1114097, -536870909, 0, -983050, -1073741821, 0, -1048561, -536870909, 0, -917514, -1073741821, 0, -983025, -536870909, 0, -851978, -1073741821, 0, -917489, -536870909, 0, -786442, -1073741821, 0, -851953, -536870909, 0, -720906, -1073741821, 0, -786417, -536870909, 0, -655370, -1073741821, 0, -720881, -536870909, 0, -589834, -1073741821, 0, -655345, -536870909, 0, -524298, -1073741821, 0, -589809, -536870909, 0, -458762, -1073741821, 0, -524273, -536870909, 0, -393226, -1073741821, 0, -458737, -1610612733, 0, -327690, -1073741821, 0, -393201, -1610612733, 0, -262154, -1073741821, 0, -327665, -1610612733, 0, -196618, -1073741821, 0, -262140, -1610612727, 0, -262139, 1610612738, 0, -262138, -1610612727, 0, -262134, -1610612727, 0, -262129, -1610612733, 0, -131082, -1073741821, 0, -131077, -2147483644, 0, -131076, 1610612736, 0, -196603, 1610612745, 0, -196595, -1610612727, 0, -196594, -1610612727, 0, -196593, -1610612733, 0, -65546, -1073741821, 0, -65540, -1073741821, 0, -65539, -2147483639, 0, -131067, 1610612738, 0, -131057, -1610612733, 0, -10, -1073741821, 0, -4, -1073741821, 0, -65531, 1610612745, 0, -65525, -1610612727, 0, -65521, -1610612733, 0, 65526, -1073741821, 0, 65532, -1073741821, 0, 1, 7, 0, 2, 6, 0, 5, 1610612745, 0, 8, -1610612727, 0, 15, -1610612733, 0, 131062, -1073741821, 0, 131068, -1073741821, 0, 131070, -1610612727, 0, 131071, -1610612727, 0, 65538, 2, 0, 65539, -1073741815, 0, 65540, -1073741815, 0, 65541, -1073741822, 0, 65542, -1073741815, 0, 65551, -1610612733, 0, 196598, -1073741821, 0, 196600, -2147483639, 0, 196601, -2147483639, 0, 196604, -1073741821, 0, 131087, -1610612733, 0, 262134, -1073741821, 0, 262140, 1610612740, 0, 196612, -536870905, 0, 196616, -1610612736, 0, 196617, 1610612736, 0, 196623, -1610612733, 0, 327670, -1073741821, 0, 262148, -536870905, 0, 262151, -1610612736, 0, 262152, -1610612735, 0, 262153, -1073741821, 0, 262159, -1610612733, 0, 393206, -1073741821, 0, 327684, -536870905, 0, 327686, -1610612736, 0, 327687, -1610612735, 0, 327688, -1610612731, 0, 327689, -1073741821, 0, 327695, -1610612733, 0, 458742, -2147483647, 0, 458743, 1610612739, 0, 458744, 1610612739, 0, 458745, 1610612739, 0, 458746, 1610612739, 0, 458747, 1610612739, 0, 458748, 1610612739, 0, 458749, 1610612739, 0, 458750, 1610612739, 0, 458751, 1610612739, 0, 393216, 1610612739, 0, 393217, 1610612739, 0, 393218, 1610612739, 0, 393219, 1610612739, 0, 393220, 1610612739, 0, 393221, 1610612739, 0, 393222, 1610612739, 0, 393223, 1610612739, 0, 393224, 1610612739, 0, 393225, 1610612739, 0, 393226, 1610612739, 0, 393227, 1610612739, 0, 393228, 1610612739, 0, 393229, 1610612739, 0, 393230, 1610612739, 0, 393231, -1610612735, 0 )
+
+[node name="PC1" type="StaticBody2D" parent="."]
+position = Vector2( -1240, -33 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 20 )
+
+[node name="PCshape" type="CollisionShape2D" parent="PC1"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 50 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC1"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 23 )
+
+[node name="Sombre" type="ColorRect" parent="PC1"]
+margin_left = -580.0
+margin_top = -776.0
+margin_right = 2356.0
+margin_bottom = 632.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.878431 )
+script = ExtResource( 22 )
+
+[node name="Q1" type="Area2D" parent="PC1/Sombre"]
+position = Vector2( 446, 1105 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 280.0
+margin_top = -312.0
+margin_right = 664.0
+margin_bottom = -192.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/Monodiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/Monodiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "8"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
+visible = false
+light_mask = 17
+position = Vector2( 472, -252 )
+shape = SubResource( 53 )
+
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q1"]
+material = SubResource( 54 )
+margin_left = 280.0
+margin_top = -312.0
+margin_right = 664.0
+margin_bottom = -192.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Q2" type="Area2D" parent="PC1/Sombre"]
+position = Vector2( 936, 841 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 280.0
+margin_top = -56.0
+margin_right = 664.0
+margin_bottom = 64.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "32"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
+visible = false
+light_mask = 17
+position = Vector2( 472, 4 )
+shape = SubResource( 53 )
+
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q2"]
+material = SubResource( 54 )
+margin_left = 280.0
+margin_top = -56.0
+margin_right = 664.0
+margin_bottom = 64.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Q3" type="Area2D" parent="PC1/Sombre"]
+position = Vector2( 1991, 1397 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -616.0
+margin_right = 80.0
+margin_bottom = -496.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q3/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q3/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q3/Diffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "64"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
+visible = false
+light_mask = 17
+position = Vector2( -112, -556 )
+shape = SubResource( 53 )
+
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q3"]
+material = SubResource( 54 )
+margin_left = -304.0
+margin_top = -616.0
+margin_right = 80.0
+margin_bottom = -496.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Q4" type="Area2D" parent="PC1/Sombre"]
+position = Vector2( 2455, 1418 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -616.0
+margin_right = 80.0
+margin_bottom = -496.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q4/Diffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q4/Diffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "128"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q4"]
+visible = false
+light_mask = 17
+position = Vector2( -112, -556 )
+shape = SubResource( 53 )
+
+[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q4"]
+material = SubResource( 54 )
+margin_left = -304.0
+margin_top = -616.0
+margin_right = 80.0
+margin_bottom = -496.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="check" type="Sprite" parent="PC1"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 24 )
+
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 639, 2 )
 
@@ -323,8 +650,12 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 11 )
-cell_size = Vector2( 160, 160 )
-format = 1
-tile_data = PoolIntArray( -1310705, -536870909, 0, -1179658, -1073741821, 0, -1245169, -536870909, 0, -1114122, -1073741821, 0, -1179633, -536870909, 0, -1048586, -1073741821, 0, -1114097, -536870909, 0, -983050, -1073741821, 0, -1048561, -536870909, 0, -917514, -1073741821, 0, -983025, -536870909, 0, -851978, -1073741821, 0, -917489, -536870909, 0, -786442, -1073741821, 0, -851953, -536870909, 0, -720906, -1073741821, 0, -786417, -536870909, 0, -655370, -1073741821, 0, -720881, -536870909, 0, -589834, -1073741821, 0, -655345, -536870909, 0, -524298, -1073741821, 0, -589809, -536870909, 0, -458762, -1073741821, 0, -524273, -536870909, 0, -393226, -1073741821, 0, -458737, -1610612733, 0, -327690, -1073741821, 0, -393201, -1610612733, 0, -262154, -1073741821, 0, -327665, -1610612733, 0, -196618, -1073741821, 0, -262140, -1610612727, 0, -262139, 1610612738, 0, -262138, -1610612727, 0, -262134, -1610612727, 0, -262129, -1610612733, 0, -131082, -1073741821, 0, -131077, -2147483644, 0, -131076, 1610612736, 0, -196603, 1610612745, 0, -196595, -1610612727, 0, -196594, -1610612727, 0, -196593, -1610612733, 0, -65546, -1073741821, 0, -65540, -1073741821, 0, -65539, -2147483639, 0, -131067, 1610612738, 0, -131057, -1610612733, 0, -10, -1073741821, 0, -4, -1073741821, 0, -65531, 1610612745, 0, -65525, -1610612727, 0, -65521, -1610612733, 0, 65526, -1073741821, 0, 65532, -1073741821, 0, 1, 7, 0, 2, 6, 0, 5, 1610612745, 0, 8, -1610612727, 0, 15, -1610612733, 0, 131062, -1073741821, 0, 131068, -1073741821, 0, 131070, -1610612727, 0, 131071, -1610612727, 0, 65538, 2, 0, 65539, -1073741815, 0, 65540, -1073741815, 0, 65541, -1073741822, 0, 65542, -1073741815, 0, 65551, -1610612733, 0, 196598, -1073741821, 0, 196600, -2147483639, 0, 196601, -2147483639, 0, 196604, -1073741821, 0, 131087, -1610612733, 0, 262134, -1073741821, 0, 262140, 1610612740, 0, 196612, -536870905, 0, 196616, -1610612736, 0, 196617, 1610612736, 0, 196623, -1610612733, 0, 327670, -1073741821, 0, 262148, -536870905, 0, 262151, -1610612736, 0, 262152, -1610612735, 0, 262153, -1073741821, 0, 262159, -1610612733, 0, 393206, -1073741821, 0, 327684, -536870905, 0, 327686, -1610612736, 0, 327687, -1610612735, 0, 327688, -1610612731, 0, 327689, -1073741821, 0, 327695, -1610612733, 0, 458742, -2147483647, 0, 458743, 1610612739, 0, 458744, 1610612739, 0, 458745, 1610612739, 0, 458746, 1610612739, 0, 458747, 1610612739, 0, 458748, 1610612739, 0, 458749, 1610612739, 0, 458750, 1610612739, 0, 458751, 1610612739, 0, 393216, 1610612739, 0, 393217, 1610612739, 0, 393218, 1610612739, 0, 393219, 1610612739, 0, 393220, 1610612739, 0, 393221, 1610612739, 0, 393222, 1610612739, 0, 393223, 1610612739, 0, 393224, 1610612739, 0, 393225, 1610612739, 0, 393226, 1610612739, 0, 393227, 1610612739, 0, 393228, 1610612739, 0, 393229, 1610612739, 0, 393230, 1610612739, 0, 393231, -1610612735, 0 )
+[connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
+[connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q4" to="PC1/Sombre/Q4" method="_on_DiffuArea2D_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q4" to="PC1/Sombre/Q4" method="_on_DiffuArea2D_mouse_exited"]
