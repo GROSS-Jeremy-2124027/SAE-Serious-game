@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Network Park </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !">
-    <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game">
-    <meta name="author" content="Groupe 1 Année 2">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="CSS/style2.css">
 </head>
@@ -33,13 +30,13 @@
                     </div>
                 </form>
                 <div class="login-signup">
-                    <span class="text">Pas membre?
+                    <span class="text">Pas de compte ?
                         <a href="#" class="text signup-link">Inscrivez-vous</a>
                     </span>
                 </div>
             </div>
 
-            <!-- Registration Form -->
+            <!-- Formulaire d'inscription -->
             <div class="form signup" id="partie2">
                 <span class="title">Inscription</span>
 
@@ -65,8 +62,8 @@
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">Deja membre?
-                        <a href="#" class="text login-link">Connectez-vous</a>
+                    <span class="text"> Vous avez déjà un compte?
+                        <a href="#" class="text login-link"> Connectez-vous </a>
                     </span>
                 </div>
             </div>
