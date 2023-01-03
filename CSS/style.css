@@ -42,6 +42,10 @@ h2{
     color: #fff;
 }
 
+#titreHistoire{
+    padding-top: 40px;
+}
+
 p{
     font-family: 'Silkscreen', cursive;
     text-align: center;
