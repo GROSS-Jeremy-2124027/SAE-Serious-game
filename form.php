@@ -29,7 +29,7 @@
                     </div>
                     <p id="erreurConnection"></p>
                     <div class="input-field button">
-                        <input type="submit" name="login" value="Login" onclick="connection()">
+                        <input type="submit" name="login" value="se connecter" onclick="connection()">
                     </div>
                 </form>
                 <div class="login-signup">
@@ -60,7 +60,7 @@
                     </div>
                     <p id="erreur"></p>
                     <div class="input-field button">
-                        <input type="submit" name="signup" value="Signup" onclick="signup()">
+                        <input type="submit" name="signup" value="S'inscrire" onclick="signup()">
                     </div>
                 </form>
 
