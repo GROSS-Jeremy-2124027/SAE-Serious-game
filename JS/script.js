@@ -2,20 +2,20 @@ const NbLvl = 4;
 var btn = [];
 var btnid;
 var btnCampagne;
-var btnMulti;
 var btnRetour = document.createElement("button")
 var btnconnexion
 
 
 function menuLvl() {
-    btnMulti = document.getElementById("boutonMulti");
     btnCampagne  = document.getElementById("boutonJouer");
     score = document.getElementById('scores');
     textDescription = document.getElementById('textDescription');
+    textHistoire = document.getElementById('textHistoire');
     //on récupère tout les éléments présent au début
 
     removeAllChildNodes(document.getElementById('menu'));
     removeAllChildNodes(document.getElementById('description'));
+    removeAllChildNodes(document.getElementById('histoire'));
     removeAllChildNodes(document.getElementById('sectionScore'));
     //on supprime tout les éléments présent au début
 
@@ -40,6 +40,7 @@ function menuLvl() {
         document.getElementById("menu").appendChild(btnCampagne);
         document.getElementById("sectionScore").appendChild(score);
         document.getElementById("description").appendChild(textDescription);
+        document.getElementById("histoire").appendChild(textHistoire);
 
     }
     document.getElementById("menulvl").appendChild(btnRetour);

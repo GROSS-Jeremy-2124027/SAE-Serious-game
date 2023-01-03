@@ -88,6 +88,14 @@ button:hover{
     padding: 0 20%;
 }
 
+#histoire{
+    margin-top: 40px;
+}
+
+#textHistoire{
+    padding: 0 20%;
+}
+
 #menu {
     display: flex;
     flex-direction: column;
