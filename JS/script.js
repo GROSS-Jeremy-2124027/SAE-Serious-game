@@ -8,14 +8,14 @@ var btnconnexion
 
 function menuLvl() {
     btnCampagne  = document.getElementById("boutonJouer");
-    score = document.getElementById('scores');
     textDescription = document.getElementById('textDescription');
-    textHistoire = document.getElementById('textHistoire');
+    score = document.getElementById('scores');
+    histoire = document.getElementById('histoire');
     //on récupère tout les éléments présent au début
 
     removeAllChildNodes(document.getElementById('menu'));
     removeAllChildNodes(document.getElementById('description'));
-    removeAllChildNodes(document.getElementById('histoire'));
+    removeAllChildNodes(document.getElementById('menuHistoire'));
     removeAllChildNodes(document.getElementById('sectionScore'));
     //on supprime tout les éléments présent au début
 
@@ -40,7 +40,7 @@ function menuLvl() {
         document.getElementById("menu").appendChild(btnCampagne);
         document.getElementById("sectionScore").appendChild(score);
         document.getElementById("description").appendChild(textDescription);
-        document.getElementById("histoire").appendChild(textHistoire);
+        document.getElementById("menuHistoire").appendChild(histoire);
 
     }
     document.getElementById("menulvl").appendChild(btnRetour);
