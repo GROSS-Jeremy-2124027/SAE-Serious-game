@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title> Network Park </title>
+    <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !">
+    <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game">
+    <meta name="author" content="Groupe 1 Année 2" >
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/styleBack.css">
+    <link rel="icon" href="img/controller.png">
+    <script src="JS/script.js"></script>
+</head>
+<body>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <header>
+        <div>
+            <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
+                Se connecter / S'inscrire 
+            </button>
+            <div id="pageConnexion">
+                <object id="htmlpage" type="text/html" data="form.php" width="436" height="500"></object>
+            </div>
+        </div>
+    </header>
+        <h1>
+            Network Park
+        </h1>
+    <div class="section" id="sectionMenu">
+        <div id="description">
+            <p id="textDescription">
+                Network Park est un serious game pour tout apprendre sur les Réseaux informatique !
+                Apprenez à résoudre des tâches d'adressage IP, les différents modèles (TCP/UDP, OSI, IP)...
+            </p>
+        </div>
+
+        <div id="menuHistoire">
+            <div id="histoire">
+                <h2 id="titreHistoire">
+                    Histoire
+                </h2>
+                <div id="histoire-image-text">
+                    <img src="img/alien.png" alt="Image de l'Alien">
+                    <p id="textHistoire">
+                        Je suis Bloop l'extraterrestre, spaceTrooper. Un vaisseau a été percuté par un astéroïde et maintenant
+                        plusieurs personnes sont bloquées dans plusieurs pièces du vaisseau. Chaque niveau correspond à une pièce 
+                        du vaisseau. Mon objectif est de résoudre des tâches pour parvenir à libérer ces personnes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu">
+            <button class="boutonJouer" onclick="menuLvl()" id="boutonJouer">
+                Commencer
+            </button>
+        </div>
+        <a id="menulvl">
+        </a>
+    </div>
+    <div class="section" id="sectionScore">
+        <div id="scores">
+            <h2>
+                Meilleurs scores :
+            </h2>
+            <!--
+            <ul>
+                <li>
+                    Ismail : 200 pts
+                </li> 
+                <li>
+                    Jérémy : 2510 pts
+                </li>
+                <li>
+                    Thomas : 2 pts
+                </li>
+                <li>
+                    Antony : 99999999 pts
+                </li>
+                <li>
+                    Antoine : 800 pts
+                </li>
+            </ul>-->
+            <?php
+
+            // Connect to the database
+            $servername = "mysql-networkpark.alwaysdata.net";
+            $username = "291361";
+            $password = "coucou18?";
+            $database = "networkpark_bd";
+        
+            $db = new mysqli($servername, $username, $password, $database);
+
+            // Check for errors
+            if ($db->connect_error) {
+                die("Connection failed: " . $db->connect_error);
+            }
+
+            // Query the database
+            $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC LIMIT 10";
+            $result = $db->query($query);
+
+            // Print the top scores
+            while ($row = $result->fetch_assoc()) {
+
+            ?>
+                <li>
+                    <?php
+                        echo $row['identifiant'] . " : " . $row['meilleurScore'] . "<br>";
+                    ?>
+                </li>
+
+            <?php
+            }
+
+            // Close the connection
+            $db->close();
+
+            ?>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
