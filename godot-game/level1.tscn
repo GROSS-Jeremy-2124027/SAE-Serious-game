@@ -11,7 +11,6 @@
 [ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=9]
 [ext_resource path="res://Q2.gd" type="Script" id=10]
 [ext_resource path="res://Q3.gd" type="Script" id=11]
-[ext_resource path="res://Q1.gd" type="Script" id=12]
 [ext_resource path="res://R2.gd" type="Script" id=13]
 [ext_resource path="res://ASSETS/texture blocks level 1/continue_top.png" type="Texture" id=14]
 [ext_resource path="res://R3.gd" type="Script" id=15]
@@ -37,6 +36,7 @@
 [ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=35]
 [ext_resource path="res://ASSETS/Spring/Spring_13.png" type="Texture" id=36]
 [ext_resource path="res://ASSETS/Spring/Spring_07.png" type="Texture" id=37]
+[ext_resource path="res://Q1.gd" type="Script" id=38]
 
 [sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -493,7 +493,7 @@ script = ExtResource( 18 )
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 12 )
+script = ExtResource( 38 )
 
 [node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
 anchor_left = 0.5
@@ -536,7 +536,6 @@ align = 1
 valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
-visible = false
 light_mask = 17
 position = Vector2( 472, -252 )
 shape = SubResource( 52 )
@@ -597,7 +596,6 @@ align = 1
 valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
-visible = false
 light_mask = 17
 position = Vector2( 472, 4 )
 shape = SubResource( 52 )
@@ -659,7 +657,6 @@ align = 1
 valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
-visible = false
 light_mask = 17
 position = Vector2( -112, -556 )
 shape = SubResource( 52 )
@@ -904,7 +901,7 @@ script = ExtResource( 18 )
 position = Vector2( 584, 808 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 12 )
+script = ExtResource( 38 )
 
 [node name="Monodiffusion" type="MarginContainer" parent="PC2/Sombre/Q1"]
 anchor_left = 0.5

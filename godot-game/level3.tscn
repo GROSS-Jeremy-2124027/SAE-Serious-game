@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=2]
@@ -13,12 +13,11 @@
 [ext_resource path="res://ASSETS/texture blocks level 3/continue.png" type="Texture" id=11]
 [ext_resource path="res://ASSETS/texture blocks level 3/pilierdroite.png" type="Texture" id=12]
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
-[ext_resource path="res://Q2.gd" type="Script" id=15]
-[ext_resource path="res://Q3.gd" type="Script" id=16]
-[ext_resource path="res://Q1.gd" type="Script" id=17]
+[ext_resource path="res://2questions.gd" type="Script" id=14]
+[ext_resource path="res://Panel.gd" type="Script" id=15]
+[ext_resource path="res://2q_Reponse.gd" type="Script" id=17]
+[ext_resource path="res://Sombre-2q.gd" type="Script" id=18]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=19]
-[ext_resource path="res://WordToDef.gd" type="Script" id=20]
-[ext_resource path="res://Sombre.gd" type="Script" id=22]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=23]
 [ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=24]
 
@@ -293,6 +292,13 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 96, 68 )
 
+[sub_resource type="DynamicFont" id=47]
+size = 32
+font_data = ExtResource( 19 )
+
+[sub_resource type="Theme" id=52]
+default_font = SubResource( 47 )
+
 [sub_resource type="StyleBoxFlat" id=51]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
@@ -301,18 +307,8 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=47]
-size = 32
-font_data = ExtResource( 19 )
-
-[sub_resource type="Theme" id=52]
-default_font = SubResource( 47 )
-
 [sub_resource type="RectangleShape2D" id=53]
 extents = Vector2( 192, 60 )
-
-[sub_resource type="CanvasItemMaterial" id=54]
-blend_mode = 1
 
 [node name="Node2D" type="Node2D"]
 
@@ -350,7 +346,7 @@ tile_data = PoolIntArray( -1310705, -536870909, 0, -1179658, -1073741821, 0, -12
 position = Vector2( -1240, -33 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 20 )
+script = ExtResource( 14 )
 
 [node name="PCshape" type="CollisionShape2D" parent="PC1"]
 position = Vector2( 1056, 76 )
@@ -363,152 +359,135 @@ scale = Vector2( 3, 2.1875 )
 texture = ExtResource( 23 )
 
 [node name="Sombre" type="ColorRect" parent="PC1"]
+visible = false
 margin_left = -580.0
 margin_top = -776.0
 margin_right = 2356.0
 margin_bottom = 632.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.878431 )
-script = ExtResource( 22 )
+script = ExtResource( 18 )
 
-[node name="Q1" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 446, 1105 )
+[node name="Q1" type="Label" parent="PC1/Sombre"]
+margin_left = 1188.0
+margin_top = 441.0
+margin_right = 2068.0
+margin_bottom = 482.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "Combien de bits a une adresse IPV4 ?"
+align = 1
+valign = 1
+
+[node name="R1" type="Area2D" parent="PC1/Sombre/Q1"]
+position = Vector2( -464, 120 )
 collision_layer = 17
 collision_mask = 17
 script = ExtResource( 17 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
+[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1/R1"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
+margin_right = 384.0
+margin_bottom = 120.0
 mouse_filter = 2
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/Monodiffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/R1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/Monodiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/R1/Monodiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/R1/Monodiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/R1/Monodiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "8"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
-visible = false
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1/R1"]
 light_mask = 17
-position = Vector2( 472, -252 )
+position = Vector2( 192, 60 )
 shape = SubResource( 53 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q1"]
-material = SubResource( 54 )
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q2" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 936, 841 )
+[node name="R2" type="Area2D" parent="PC1/Sombre/Q1"]
+position = Vector2( 8, 120 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource( 17 )
 
-[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2"]
+[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q1/R2"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
+margin_right = 384.0
+margin_bottom = 120.0
 mouse_filter = 2
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/Multidiffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/R2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/Multidiffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/R2/Multidiffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/R2/Multidiffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/R2/Multidiffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "32"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
-visible = false
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1/R2"]
 light_mask = 17
-position = Vector2( 472, 4 )
+position = Vector2( 192, 60 )
 shape = SubResource( 53 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q2"]
-material = SubResource( 54 )
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q3" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1991, 1397 )
+[node name="R3" type="Area2D" parent="PC1/Sombre/Q1"]
+position = Vector2( 784, 736 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
+script = ExtResource( 17 )
 
-[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q3"]
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q1/R3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -523,57 +502,211 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q3/Diffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/R3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q3/Diffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/R3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q3/Diffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/R3/Diffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/R3/Diffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "64"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
-visible = false
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1/R3"]
 light_mask = 17
 position = Vector2( -112, -556 )
 shape = SubResource( 53 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q3"]
-material = SubResource( 54 )
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q4" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 2455, 1418 )
+[node name="R4" type="Area2D" parent="PC1/Sombre/Q1"]
+position = Vector2( 952, 120 )
 collision_layer = 17
 collision_mask = 17
-script = ExtResource( 16 )
+script = ExtResource( 17 )
+
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q1/R4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q4"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/R4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/R4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/R4/Diffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q1/R4/Diffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "128"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1/R4"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 53 )
+
+[node name="Q2" type="Label" parent="PC1/Sombre"]
+margin_left = 1188.0
+margin_top = 1009.0
+margin_right = 2068.0
+margin_bottom = 1050.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+text = "Combien de bits a une adresse IPV6 ?"
+align = 1
+valign = 1
+
+[node name="R1" type="Area2D" parent="PC1/Sombre/Q2"]
+position = Vector2( -464, 120 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 17 )
+
+[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q2/R1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/R1/Monodiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/R1/Monodiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/R1/Monodiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/R1/Monodiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "8"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2/R1"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 53 )
+
+[node name="R2" type="Area2D" parent="PC1/Sombre/Q2"]
+position = Vector2( 8, 120 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 17 )
+
+[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2/R2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/R2/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/R2/Multidiffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/R2/Multidiffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/R2/Multidiffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "32"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2/R2"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 53 )
+
+[node name="R3" type="Area2D" parent="PC1/Sombre/Q2"]
+position = Vector2( 784, 736 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 17 )
+
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q2/R3"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -588,46 +721,90 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q4/Diffusion"]
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/R3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q4/Diffusion"]
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/R3/Diffusion"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q4/Diffusion/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/R3/Diffusion/MarginContainer"]
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="PC1/Sombre/Q4/Diffusion/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/R3/Diffusion/MarginContainer/HBoxContainer"]
 margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 theme = SubResource( 52 )
-text = "128"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "64"
 align = 1
 valign = 1
 
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q4"]
-visible = false
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2/R3"]
 light_mask = 17
 position = Vector2( -112, -556 )
 shape = SubResource( 53 )
 
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q4"]
-material = SubResource( 54 )
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
+[node name="R4" type="Area2D" parent="PC1/Sombre/Q2"]
+position = Vector2( 952, 120 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 17 )
+
+[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q2/R4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/R4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/R4/Diffusion"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/R4/Diffusion/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PC1/Sombre/Q2/R4/Diffusion/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 52 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "128"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2/R4"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 53 )
 
 [node name="check" type="Sprite" parent="PC1"]
 visible = false
@@ -636,7 +813,7 @@ scale = Vector2( 0.475, 0.405964 )
 texture = ExtResource( 24 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 639, 2 )
+position = Vector2( -192, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
@@ -651,11 +828,19 @@ drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
 [connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q4" to="PC1/Sombre/Q4" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q4" to="PC1/Sombre/Q4" method="_on_DiffuArea2D_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q1/R1" to="PC1/Sombre/Q1/R1" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1/R1" to="PC1/Sombre/Q1/R1" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q1/R2" to="PC1/Sombre/Q1/R2" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1/R2" to="PC1/Sombre/Q1/R2" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q1/R3" to="PC1/Sombre/Q1/R3" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1/R3" to="PC1/Sombre/Q1/R3" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q1/R4" to="PC1/Sombre/Q1/R4" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q1/R4" to="PC1/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2/R1" to="PC1/Sombre/Q2/R1" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2/R1" to="PC1/Sombre/Q2/R1" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2/R2" to="PC1/Sombre/Q2/R2" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2/R2" to="PC1/Sombre/Q2/R2" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2/R3" to="PC1/Sombre/Q2/R3" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2/R3" to="PC1/Sombre/Q2/R3" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="PC1/Sombre/Q2/R4" to="PC1/Sombre/Q2/R4" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="PC1/Sombre/Q2/R4" to="PC1/Sombre/Q2/R4" method="_on_R1_mouse_exited"]
