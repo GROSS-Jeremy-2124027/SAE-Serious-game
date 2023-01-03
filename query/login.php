@@ -8,6 +8,7 @@ if (isset($_POST["login"])) {
     
     $username = $_POST["username"];
     $password = $_POST["password"];
+
     
     $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '$username' AND mot_de_passe = '$password' ";
 
@@ -17,15 +18,11 @@ if (isset($_POST["login"])) {
         while($rows = $user -> fetch_assoc()) {
             echo "<script> alert('Welcome" . " " . $username . "'); </script>";
         }
-
-?>
-
-<?php
-
     }
     else {
         echo "<script> alert('No record'); </script>";
         // echo "<script> document.location=  '../index.html'; </script>";
-    }
+    } 
+        
 }
 ?>

@@ -6,7 +6,7 @@ if (isset($_POST["signup"])) {
     
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
+
 
     $has_uppercase = false;
     $has_digit = false;
