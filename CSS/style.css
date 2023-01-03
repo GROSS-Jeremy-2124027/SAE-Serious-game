@@ -94,10 +94,13 @@ button:hover{
 
 #histoire{
     margin-top: 40px;
+    padding: 0 20%;
 }
 
-#textHistoire{
-    padding: 0 20%;
+#histoire-image-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #menu {
