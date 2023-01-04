@@ -43,7 +43,7 @@
                     Histoire
                 </h2>
                 <div id="histoire-image-text">
-                    <img src="img/alien.png" alt="Image de l'Alien">
+                    <img id="imgAlien" src="img/alien.png" alt="Image de l'Alien">
                     <p id="textHistoire">
                         Je suis Bloop l'extraterrestre, spaceTrooper. Un vaisseau a été percuté par un astéroïde et maintenant
                         plusieurs personnes sont bloquées dans plusieurs pièces du vaisseau. Chaque niveau correspond à une pièce 
@@ -66,44 +66,45 @@
             <h2>
                 Meilleurs scores :
             </h2>
-            
+            <ul>
             <?php
 
-            // Connexion à la base de données
-            $servername = "mysql-networkpark.alwaysdata.net";
-            $username = "291361";
-            $password = "coucou18?";
-            $database = "networkpark_bd";
-        
-            $db = new mysqli($servername, $username, $password, $database);
+                // Connexion à la base de données
+                $servername = "mysql-networkpark.alwaysdata.net";
+                $username = "291361";
+                $password = "coucou18?";
+                $database = "networkpark_bd";
 
-            // Checker les erreurs de connection
-            if ($db->connect_error) {
-                die("Connection failed: " . $db->connect_error);
-            }
+                $db = new mysqli($servername, $username, $password, $database);
 
-            // Envoi de la requête sql
-            $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
-            $result = $db->query($query);
+                // Checker les erreurs
+                if ($db->connect_error) {
+                    die("Connection failed: " . $db->connect_error);
+                }
 
-            // Affichage des meilleurs scores
-            while ($row = $result->fetch_assoc()) {
+                // Envoi de la requête
+                $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
+                $result = $db->query($query);
+
+                // Affichage des meilleurs scores
+                while ($row = $result->fetch_assoc()) {
+
+                ?>
+                    <li>
+                        <?php
+                            echo $row['identifiant'] . " : " . $row['meilleurScore'] . "<br>";
+                        ?>
+                    </li>
+
+                <?php
+                }
+
+                // Fermer la connection
+                $db->close();
 
             ?>
-                <li>
-                    <?php
-                        echo $row['identifiant'] . " : " . $row['meilleurScore'] . "<br>";
-                    ?>
-                </li>
 
-            <?php
-            }
-
-            // Fermer la connection à la base de donnée
-            $db->close();
-
-            ?>
-
+            </ul>
         </div>
     </div>
     <script src="script.js"></script>

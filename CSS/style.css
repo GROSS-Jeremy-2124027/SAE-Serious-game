@@ -4,6 +4,7 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 body{
@@ -52,6 +53,12 @@ p{
     color: #fff;
 }
 
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 li{
     font-family: 'Silkscreen', cursive;
     font-size: 1.2em;
@@ -92,6 +99,10 @@ button:hover{
     padding: 0 20%;
 }
 
+#imgAlien{
+    height: 152px;
+}
+
 #histoire{
     margin-top: 40px;
     padding: 0 20%;
@@ -101,6 +112,7 @@ button:hover{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 #menu {
@@ -132,5 +144,23 @@ object {
     display: none;
 }
 
+@media(max-width : 800px){
+
+    .section {
+        height: 100%;
+    }
+
+    #histoire-image-text{
+        flex-direction: column;
+    }
+
+    #imgAlien{
+        margin-bottom: 30px;
+    }
 
 
+    #sectionScore{
+        margin-top: 100px;
+    }
+
+}
