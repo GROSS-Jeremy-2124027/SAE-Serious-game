@@ -66,27 +66,10 @@
             <h2>
                 Meilleurs scores :
             </h2>
-            <!--
-            <ul>
-                <li>
-                    Ismail : 200 pts
-                </li> 
-                <li>
-                    Jérémy : 2510 pts
-                </li>
-                <li>
-                    Thomas : 2 pts
-                </li>
-                <li>
-                    Antony : 99999999 pts
-                </li>
-                <li>
-                    Antoine : 800 pts
-                </li>
-            </ul>-->
+            
             <?php
 
-            // Connect to the database
+            // Connexion à la base de données
             $servername = "mysql-networkpark.alwaysdata.net";
             $username = "291361";
             $password = "coucou18?";
@@ -94,16 +77,16 @@
         
             $db = new mysqli($servername, $username, $password, $database);
 
-            // Check for errors
+            // Checker les erreurs
             if ($db->connect_error) {
                 die("Connection failed: " . $db->connect_error);
             }
 
-            // Query the database
+            // Envoi de la requête
             $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC LIMIT 10";
             $result = $db->query($query);
 
-            // Print the top scores
+            // Affichage des meilleurs scores
             while ($row = $result->fetch_assoc()) {
 
             ?>
