@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="CSS/style2.css">
 </head>
-<body>
+<body> 
     <div class="container">
         <div class="forms">
             <div class="form login" id="partie1">
@@ -26,7 +26,7 @@
                     </div>
                     <p id="erreurConnection"></p>
                     <div class="input-field button">
-                        <input type="submit" name="login" value="se connecter" onclick="connection()">
+                        <input type="submit" name="login" value="Se connecter" onclick="connection()">
                     </div>
                 </form>
                 <div class="login-signup">
