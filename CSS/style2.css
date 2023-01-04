@@ -55,10 +55,16 @@ input {
     opacity: 0;
     transition: opacity 0.09s ease;
 }
+
 .container.active .signup{
     opacity: 1;
     transition: opacity 0.2s ease;
     width: 312px;
+}
+
+.login-signup .text{
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px;
 }
 
 
