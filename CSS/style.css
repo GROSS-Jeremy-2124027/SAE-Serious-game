@@ -122,10 +122,6 @@ button:hover{
     justify-content: center;
 }
 
-#menulvl button {
-    margin-left: 3.2ex;
-}
-
 #menulvl {
     margin-bottom:-3.2em;
     display: flex;
@@ -158,9 +154,16 @@ object {
         margin-bottom: 30px;
     }
 
-
     #sectionScore{
         margin-top: 100px;
     }
 
+    button{
+        width: 220px;
+    }
+
+    h1{
+        margin-top: 30px;
+        font-size: 3em;
+    }
 }
