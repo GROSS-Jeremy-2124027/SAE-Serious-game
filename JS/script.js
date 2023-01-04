@@ -68,7 +68,8 @@ function connexionPage() {
     }
     else {
         document.getElementById('pageConnexion').style.display = "none";
-        document.getElementById('boutonconnexion').textContent = "Se connecter / S'incrire";    
+        document.getElementById('boutonconnexion').textContent = "Connecté";  
+        btnconnexion.disabled = "disabled";  
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion
