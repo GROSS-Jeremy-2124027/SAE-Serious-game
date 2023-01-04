@@ -1,5 +1,6 @@
 <?php
 
+    // Fonction permettant de se connecter à notre base de données
     function connect() {
         $servername = "mysql-networkpark.alwaysdata.net";
         $username = "291361";
