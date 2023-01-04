@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
 
 *{
     margin: 0;
@@ -87,6 +88,7 @@ input {
 
 .input-field input{
     position: absolute;
+    font-family: 'Kanit', sans-serif;
     height: 100%;
     padding: 0 35px;
     border: none;
