@@ -77,12 +77,12 @@
         
             $db = new mysqli($servername, $username, $password, $database);
 
-            // Checker les erreurs
+            // Checker les erreurs de connection
             if ($db->connect_error) {
                 die("Connection failed: " . $db->connect_error);
             }
 
-            // Envoi de la requête
+            // Envoi de la requête sql
             $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
             $result = $db->query($query);
 
@@ -99,7 +99,7 @@
             <?php
             }
 
-            // Fermer la connection
+            // Fermer la connection à la base de donnée
             $db->close();
 
             ?>
