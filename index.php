@@ -83,7 +83,7 @@
             }
 
             // Envoi de la requête
-            $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC LIMIT 10";
+            $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
             $result = $db->query($query);
 
             // Affichage des meilleurs scores
@@ -99,7 +99,7 @@
             <?php
             }
 
-            // Close the connection
+            // Fermer la connection
             $db->close();
 
             ?>
