@@ -796,13 +796,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[node name="ChatBox" parent="KinematicBody2D/Camera2D" instance=ExtResource( 38 )]
-margin_left = -945.0
-margin_top = -115.0
-margin_right = -695.0
-margin_bottom = 135.0
-rect_scale = Vector2( 2, 2 )
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -845,6 +838,15 @@ modulate = Color( 0.0666667, 0.0980392, 0.270588, 1 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 10 )
 centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 38 )]
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1119.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
 
 [connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]

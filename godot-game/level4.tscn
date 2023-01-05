@@ -417,13 +417,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
-[node name="ChatBox" parent="KinematicBody2D/Camera2D" instance=ExtResource( 30 )]
-margin_left = -945.0
-margin_top = -115.0
-margin_right = -695.0
-margin_bottom = 135.0
-rect_scale = Vector2( 2, 2 )
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 11 )
 cell_size = Vector2( 160, 160 )
@@ -472,3 +465,12 @@ modulate = Color( 0.0666667, 0.0980392, 0.270588, 1 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 30 )]
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1119.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
