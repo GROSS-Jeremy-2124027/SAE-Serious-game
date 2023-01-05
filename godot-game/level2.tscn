@@ -847,6 +847,7 @@ margin_top = 167.0
 margin_right = -1119.0
 margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
+mouse_filter = 2
 
 [connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]

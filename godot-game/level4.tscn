@@ -474,3 +474,4 @@ margin_top = 167.0
 margin_right = -1119.0
 margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
+mouse_filter = 2

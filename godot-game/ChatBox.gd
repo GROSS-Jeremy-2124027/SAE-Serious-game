@@ -51,7 +51,7 @@ func text_entered(text):
 		add_message('', envoie_indice(pcid), '#ff5757')
 		inputField.text = ''		
 	elif text =='sortir':
-		JavaScript.eval("window.location.href='../index.html'")
+		JavaScript.eval("window.location.href='../index.php'")
 		inputField.text = ''		
 	elif text != '':
 		add_message(user_name, text, '#00abc7')
