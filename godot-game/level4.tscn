@@ -1,7 +1,7 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/texture blocks level 4/continue_top.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/texture blocks level 4/gaucheversbas.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/texture blocks level 4/pilierdroite.png" type="Texture" id=5]
@@ -28,6 +28,8 @@
 [ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=26]
 [ext_resource path="res://ASSETS/Spring/Spring_03.png" type="Texture" id=27]
 [ext_resource path="res://ASSETS/Spring/Spring_01.png" type="Texture" id=28]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=29]
+[ext_resource path="res://ChatBox.tscn" type="PackedScene" id=30]
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -339,13 +341,6 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 147, 340 )
-scale = Vector2( 317, 128 )
-texture = ExtResource( 2 )
-
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
 tile_set = ExtResource( 13 )
@@ -422,8 +417,58 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 
+[node name="ChatBox" parent="KinematicBody2D/Camera2D" instance=ExtResource( 30 )]
+margin_left = -945.0
+margin_top = -115.0
+margin_right = -695.0
+margin_bottom = 135.0
+rect_scale = Vector2( 2, 2 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 11 )
 cell_size = Vector2( 160, 160 )
 format = 1
 tile_data = PoolIntArray( -458751, -1073741821, 0, -458745, 9, 0, -458728, -536870909, 0, -393215, -1073741821, 0, -393209, 9, 0, -393192, -536870909, 0, -327679, -1073741821, 0, -327673, 9, 0, -327656, -536870909, 0, -262143, -1073741821, 0, -262137, 9, 0, -262120, -536870909, 0, -196607, -1073741821, 0, -196601, 9, 0, -196584, -536870909, 0, -131071, -1073741821, 0, -131065, 9, 0, -131048, -536870909, 0, -65535, -1073741821, 0, -65529, 9, 0, -65512, -536870909, 0, 1, -1073741821, 0, 7, -1610612727, 0, 8, 1610612738, 0, 11, -1610612736, 0, 12, -2147483648, 0, 24, -536870909, 0, 65537, -1073741821, 0, 65539, -1610612734, 0, 65540, -1610612727, 0, 65544, 1610612745, 0, 65547, -1610612733, 0, 65548, -2147483645, 0, 65560, -536870909, 0, 131073, -1073741821, 0, 131075, 1073741833, 0, 131079, 9, 0, 131083, -1610612733, 0, 131084, -2147483645, 0, 131096, -536870909, 0, 196609, -1073741821, 0, 196611, -536870910, 0, 196612, -536870903, 0, 196615, 9, 0, 196619, -1610612733, 0, 196620, -2147483645, 0, 196632, -536870909, 0, 262145, -1073741821, 0, 262151, -2147483644, 0, 262152, 1073741827, 0, 262153, 1073741827, 0, 262154, 1073741827, 0, 262155, 1073741825, 0, 262156, -2147483647, 0, 262157, 1610612736, 0, 262158, -1610612727, 0, 262159, -1610612727, 0, 262163, -1610612727, 0, 262164, -1610612727, 0, 262168, -536870909, 0, 327681, -1073741821, 0, 327688, -1073741820, 0, 327689, 536870915, 0, 327690, 1, 0, 327691, 1610612741, 0, 327692, 1610612741, 0, 327693, -1073741821, 0, 327704, -536870909, 0, 393217, -1073741821, 0, 393226, 0, 0, 393227, 1, 0, 393228, 1610612741, 0, 393229, -1073741821, 0, 393237, -2147483639, 0, 393238, -1610612727, 0, 393240, -536870909, 0, 458753, -1073741821, 0, 458763, 0, 0, 458764, 1, 0, 458765, -1073741821, 0, 458769, -1610612727, 0, 458770, -1610612727, 0, 458776, -536870909, 0, 524289, -1073741821, 0, 524290, -1610612727, 0, 524291, -1610612727, 0, 524292, -1610612727, 0, 524293, -1610612727, 0, 524294, -1610612727, 0, 524295, 536870913, 0, 524296, -536870911, 0, 524300, -1610612733, 0, 524301, -1073741821, 0, 524307, -1073741815, 0, 524308, -1073741815, 0, 524312, -536870909, 0, 589825, -1073741821, 0, 589831, -2147483645, 0, 589832, -536870909, 0, 589836, 0, 0, 589837, -1073741824, 0, 589848, -536870909, 0, 655361, -1073741821, 0, 655367, -2147483645, 0, 655368, -536870912, 0, 655369, -536870911, 0, 655384, -536870909, 0, 720897, -1073741821, 0, 720901, -1610612727, 0, 720902, -1610612727, 0, 720903, -2147483645, 0, 720904, 5, 0, 720905, 1073741828, 0, 720920, -536870909, 0, 786433, -1073741821, 0, 786439, -2147483647, 0, 786440, 1073741827, 0, 786441, 1073741827, 0, 786442, -1610612732, 0, 786456, -536870909, 0, 851969, -1073741821, 0, 851970, -1610612727, 0, 851971, -1610612727, 0, 851983, -1610612727, 0, 851984, -1610612727, 0, 851992, -536870909, 0, 917505, -1073741821, 0, 917528, -536870909, 0, 983041, 1610612737, 0, 983042, 1610612739, 0, 983043, 1610612739, 0, 983044, 1610612739, 0, 983045, 1610612739, 0, 983046, 1610612739, 0, 983047, 1610612739, 0, 983048, 1610612739, 0, 983049, 1610612739, 0, 983050, 1610612739, 0, 983051, 1610612739, 0, 983052, 1610612739, 0, 983053, 1610612739, 0, 983054, 1610612739, 0, 983055, 1610612739, 0, 983056, 1610612739, 0, 983057, 1610612739, 0, 983058, 1610612739, 0, 983059, 1610612739, 0, 983060, 1610612739, 0, 983061, 1610612739, 0, 983062, 1610612739, 0, 983063, 1610612739, 0, 983064, 1073741825, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+self_modulate = Color( 0.0588235, 0.0901961, 0.25098, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 29 )
+centered = false
+
+[node name="blocs loin" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -1000 )
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs loin"]
+modulate = Color( 0.0493317, 0.0750785, 0.207031, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="blocs moyen" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -500 )
+motion_mirroring = Vector2( 2240, 1680 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs moyen"]
+modulate = Color( 0.0604248, 0.0888248, 0.234375, 1 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="blocs proche" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1920, 1440 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs proche"]
+modulate = Color( 0.0666667, 0.0980392, 0.270588, 1 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+centered = false

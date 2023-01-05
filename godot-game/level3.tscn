@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=2]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=2]
 [ext_resource path="res://ASSETS/texture blocks level 3/gaucheversbas.png" type="Texture" id=3]
 [ext_resource path="res://ASSETS/texture blocks level 3/angle.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/texture blocks level 3/coin_low_platform.png" type="Texture" id=5]
@@ -15,9 +15,11 @@
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
 [ext_resource path="res://2questions.gd" type="Script" id=14]
 [ext_resource path="res://Panel.gd" type="Script" id=15]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=16]
 [ext_resource path="res://2q_Reponse.gd" type="Script" id=17]
 [ext_resource path="res://Sombre-2q.gd" type="Script" id=18]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://ChatBox.tscn" type="PackedScene" id=20]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=23]
 [ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=24]
 
@@ -311,13 +313,6 @@ border_color = Color( 1, 1, 1, 1 )
 extents = Vector2( 192, 60 )
 
 [node name="Node2D" type="Node2D"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 147, 340 )
-scale = Vector2( 317, 128 )
-texture = ExtResource( 2 )
 
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
@@ -826,6 +821,56 @@ drag_margin_left = 0.1
 drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
+
+[node name="ChatBox" parent="KinematicBody2D/Camera2D" instance=ExtResource( 20 )]
+margin_left = -945.0
+margin_top = -115.0
+margin_right = -695.0
+margin_bottom = 135.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+self_modulate = Color( 0.0588235, 0.0901961, 0.25098, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="blocs loin" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -1000 )
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs loin"]
+modulate = Color( 0.0493317, 0.0750785, 0.207031, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="blocs moyen" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -500 )
+motion_mirroring = Vector2( 2240, 1680 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs moyen"]
+modulate = Color( 0.0604248, 0.0888248, 0.234375, 1 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="blocs proche" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1920, 1440 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs proche"]
+modulate = Color( 0.0666667, 0.0980392, 0.270588, 1 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+centered = false
 
 [connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="PC1/Sombre/Q1/R1" to="PC1/Sombre/Q1/R1" method="_on_R1_input_event"]

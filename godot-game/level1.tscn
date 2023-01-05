@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://R1.gd" type="Script" id=8]
-[ext_resource path="res://ASSETS/texture blocks level 1/background.png" type="Texture" id=9]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=9]
 [ext_resource path="res://Q2.gd" type="Script" id=10]
 [ext_resource path="res://Q3.gd" type="Script" id=11]
 [ext_resource path="res://ChatBox.tscn" type="PackedScene" id=12]
@@ -38,6 +38,7 @@
 [ext_resource path="res://ASSETS/Spring/Spring_13.png" type="Texture" id=36]
 [ext_resource path="res://ASSETS/Spring/Spring_07.png" type="Texture" id=37]
 [ext_resource path="res://Q1.gd" type="Script" id=38]
+[ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=39]
 
 [sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -431,12 +432,49 @@ extents = Vector2( 48, 36 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 184, 328 )
-scale = Vector2( 317, 128 )
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Background"]
+self_modulate = Color( 0.0588235, 0.0901961, 0.25098, 1 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
+centered = false
+
+[node name="blocs loin" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -1000 )
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs loin"]
+modulate = Color( 0.0493317, 0.0750785, 0.207031, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 39 )
+centered = false
+
+[node name="blocs moyen" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( 0, -500 )
+motion_mirroring = Vector2( 2240, 1680 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs moyen"]
+modulate = Color( 0.0604248, 0.0888248, 0.234375, 1 )
+scale = Vector2( 3.5, 3.5 )
+texture = ExtResource( 39 )
+centered = false
+
+[node name="blocs proche" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1920, 1440 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/blocs proche"]
+modulate = Color( 0.0666667, 0.0980392, 0.270588, 1 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 39 )
+centered = false
 
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
