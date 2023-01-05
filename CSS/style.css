@@ -91,7 +91,9 @@ button{
     width: 200px !important; 
     margin-top: 0 !important;
     margin-left: 20px;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 button:hover{

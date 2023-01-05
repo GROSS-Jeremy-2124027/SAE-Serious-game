@@ -18,7 +18,7 @@
     <div id='stars3'></div>
     <header>  
         <div>
-            <button class="boutonAdministrateur" onclick="AdministrateurPage()" id="boutonAdministrateur">
+            <button class="boutonAdministrateur" onclick="AdministrateurPage()">
                 Administrateur 
             </button>
         </div>
