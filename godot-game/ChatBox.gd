@@ -43,7 +43,7 @@ func add_message(username, text, color = ''):
 
 
 func text_entered(text):
-	var pcid = get_parent().get_parent().pcid
+	var pcid = get_parent().get_parent().get_node("KinematicBody2D").pcid
 	if text =='help' or text =='aide':
 		add_message('BOT', 'commandes\nindice : affiche un indice pour la question en cours \nsortir : fait sortir du niveau et fait retourner au menu', '#ffffff')
 		inputField.text = ''		
