@@ -18,9 +18,11 @@
     <div id='stars3'></div>
     <header>  
         <div>
-            <button class="boutonAdministrateur" onclick="AdministrateurPage()">
-                Administrateur 
-            </button>
+            <a href="admin.html">
+                <button class="boutonAdministrateur">
+                    Administrateur 
+                </button>
+            </a>
         </div>
         <div>
             <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
