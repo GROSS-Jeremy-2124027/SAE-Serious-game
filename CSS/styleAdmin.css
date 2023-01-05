@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    padding: 20px;
+}
+
+/*button{
+    
+}*/
+
+.boutonRetour{
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.5em;
+    margin-top: 40px;
+    width: 330px;
+    padding: 30px;
+    border: solid 2px #55868c;
+    border-radius: 10px;
+    background-color: #55868c;
+    color: #fff;
+    transition: 0.4s;
+    font-size: 1em;
+    margin-top: 20px;
+    width: 200px;
+    margin-top: 0;
+}
