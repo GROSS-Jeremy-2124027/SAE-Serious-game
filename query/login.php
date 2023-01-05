@@ -19,11 +19,11 @@ if (isset($_POST["login"])) {
     // Si l'utilisateur existe
     if ($user -> num_rows > 0) {
         while($rows = $user -> fetch_assoc()) {
-            echo "<script> alert('Welcome" . " " . $username . "'); </script>";
+            echo "<script> alert('Vous êtes connecté" . " " . $username . "'); </script>";
         }
     }
     else {
-        echo "<script> alert('No record'); </script>";
+        echo "<script> alert('Identifiant invalide'); </script>";
     } 
         
 }

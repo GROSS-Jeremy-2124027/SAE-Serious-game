@@ -11,6 +11,7 @@ const container = document.querySelector(".container"),
 var str;
 var str2;
 var b = false;
+var btnconnexion;
 
     //partie pour cacher/montrer le/les mot(s) de passe
     pwShowHide.forEach(eyeIcon =>{
@@ -60,7 +61,7 @@ var b = false;
             erreur.textContent = "Mots de passe ne correspondent pas"
         }
         else {
-            //fait des trucs
+           
         }
     }
 
@@ -72,5 +73,3 @@ var b = false;
     //         //fait des trucs
     //     }
     // }
-
-

@@ -61,6 +61,7 @@ function removeAllChildNodes(parent) {
 var bool = false;
 
 function connexionPage() {
+
     if (bool === false) {
         document.getElementById('pageConnexion').style.display = "block";
         document.getElementById('boutonconnexion').textContent = "quitter";
@@ -68,8 +69,8 @@ function connexionPage() {
     }
     else {
         document.getElementById('pageConnexion').style.display = "none";
-        document.getElementById('boutonconnexion').textContent = "Connecté";  
-        btnconnexion.disabled = "disabled";  
+        document.getElementById('boutonconnexion').textContent = "blabla";  
+        //btnconnexion.disabled = "disabled";  
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion

@@ -16,7 +16,12 @@
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
-    <header>
+    <header>  
+        <div>
+            <button class="boutonAdministrateur" onclick="AdministrateurPage()" id="boutonAdministrateur">
+                Administrateur 
+            </button>
+        </div>
         <div>
             <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
                 Se connecter / S'inscrire 
