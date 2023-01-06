@@ -61,7 +61,13 @@ if (isset($_POST["signup"])) {
                 VALUES ('$username', '$password')";
 
         $insert = $con -> query($sql) or die ($con -> error);
-
+       
+        if ($insert -> num_rows > 0) {
+                echo "<script> alert('Vous êtes connecté avez deja un compte'); </script>";
+        }
+        else {
+            echo "<script> alert('Identifiant invalide'); </script>";
+        }
 
         if ($insert) {
             echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>"; 
