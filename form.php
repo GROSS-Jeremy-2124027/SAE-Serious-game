@@ -51,7 +51,7 @@
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
+                        <input type="password" name ="confirmPassword" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
