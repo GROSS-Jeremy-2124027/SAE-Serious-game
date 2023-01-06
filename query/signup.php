@@ -61,13 +61,13 @@ if (isset($_POST["signup"])) {
                 VALUES ('$username', '$password')";
 
         $insert = $con -> query($sql) or die ($con -> error);
-        $valider = true;
 
-        if ($valider === true) {
-                echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l'aide de vos identifiants'); </script>";
+
+        if ($insert) {
+            echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>"; 
         }
         else {   
-            echo "<script> alert('Error: je sais pas '); </script>";
+            echo "<script> alert('Error: '); </script>";
         }
     }    
 }
