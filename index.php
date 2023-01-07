@@ -75,6 +75,7 @@
             </h2>
             <ul>
             <?php
+                session_start();
 
                 // Connexion à la base de données
                 $servername = "mysql-networkpark.alwaysdata.net";
@@ -88,11 +89,23 @@
                 if ($db->connect_error) {
                     die("Connection failed: " . $db->connect_error);
                 }
+                
+                // Envoi de la requête pour savoir si les cookies correspondent à un utilisateur
+                $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
+                $user = $db -> query($sql);
 
-                // Envoi de la requête
+                // Si l'utilisateur existe
+                if ($user -> num_rows > 0) {
+                    while($rows = $user -> fetch_assoc()) {
+                        echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+                    }
+                }
+
+                // Envoi de la requête pour les meilleurs scores
                 $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
                 $result = $db->query($query);
-
+                
+                
                 // Affichage des meilleurs scores
                 while ($row = $result->fetch_assoc()) {
 
