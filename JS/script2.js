@@ -58,10 +58,10 @@ var btnconnexion;
 
     function signup() {
         if (str != str2) {
-            erreur.textContent = "Mots de passe ne correspondent pas"
+            return false;
         }
         else {
-           
+           return true;
         }
     }
 

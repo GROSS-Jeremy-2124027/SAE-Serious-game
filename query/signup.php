@@ -8,6 +8,7 @@ if (isset($_POST["signup"])) {
     // On récupère l'identifiant et le mot de passe de l'utilisateur
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $passwordConfirm = $_POST["confirmPassword"];
 
     // Vérification des critères du mot de passe
     $has_uppercase = false;
@@ -28,7 +29,7 @@ if (isset($_POST["signup"])) {
 
         if (!ctype_alnum($char)) {
             $has_special_char = true;
-        }
+        }      
     }
 
     // Affichage des erreurs si il manque un critère
@@ -41,29 +42,39 @@ if (isset($_POST["signup"])) {
     }
 
     if (!$has_digit) {
-        echo "<script> alert('Le mot de passe doit comporter au moins un chiffre'); </script>";
+        echo "<script> alert('Le mot de passe doit comporter au moins un chiffre'); </script>"; 
     }
 
     if (!$has_special_char) {
-        echo "<script> alert('Le mot de passe doit comporter au moins un caractère spécial'); </script>";
+        echo "<script> alert('Le mot de passe doit comporter au moins un caractère spécial'); </script>"; 
+    }
+
+    if ($password !== $passwordConfirm){
+        echo "<script> alert('Les mots de passe ne correspondent pas'); </script>"; 
     }
 
     // Si tout les critères sont remplis
-    if (strlen($password) >= 8 && $has_uppercase && $has_digit && $has_special_char) {
+    if (strlen($password) >= 8 && $has_uppercase && $has_digit && $has_special_char && ($password === $passwordConfirm)) {
         
         // Envoi de la requête
         $sql = "INSERT INTO `utilisateur`(`identifiant`, `mot_de_passe`) 
                 VALUES ('$username', '$password')";
 
         $insert = $con -> query($sql) or die ($con -> error);
-
-        if ($insert === TRUE) {
-            echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l'aide de vos identifiants'); </script>";
+       
+        if ($insert -> num_rows > 0) {
+                echo "<script> alert('Vous êtes connecté avez deja un compte'); </script>";
         }
         else {
-            echo "Error: ";
+            echo "<script> alert('Identifiant invalide'); </script>";
         }
 
+        if ($insert) {
+            echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>"; 
+        }
+        else {   
+            echo "<script> alert('Error: '); </script>";
+        }
     }    
 }
 

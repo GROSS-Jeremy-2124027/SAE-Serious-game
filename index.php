@@ -18,10 +18,13 @@
     <div id='stars3'></div>
     <header>  
         <div>
-            <a href="admin.html">
+            <a href="admin.php">
                 <button class="boutonAdministrateur">
                     Administrateur 
                 </button>
+                <div id="pageAdmin">
+                <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
+            </div>
             </a>
         </div>
         <div>

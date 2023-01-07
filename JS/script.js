@@ -6,6 +6,7 @@ var btnRetour = document.createElement("button")
 var btnconnexion
 
 
+
 function menuLvl() {
     btnCampagne  = document.getElementById("boutonJouer");
     textDescription = document.getElementById('textDescription');
@@ -74,3 +75,6 @@ function connexionPage() {
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion
+
+
+
