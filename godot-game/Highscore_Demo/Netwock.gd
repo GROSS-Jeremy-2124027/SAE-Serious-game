@@ -71,33 +71,8 @@ extends Control
 #	print("Requesting...\n\tCommand: " + request['command'] + "\n\tBody: " + body)
 #
 
-#func _submit_score():
-#	var score = 0
-#	var username = ""
-#
-#	# Generate a random username
-#	var con = "bcdfghjklmnpqrstvwxyz"
-#	var vow = "aeiou"
-#	username = ""
-#	for _i in range(3 + randi() % 4):
-#		var string = con
-#		if _i % 2 == 0:
-#			string = vow
-#		username += string.substr(randi() % string.length(), 1)
-#		if _i == 0:
-#			username = username.capitalize()
-#	score = randi() % 1000
-#
-#	var command = "add_score"
-#	var data = {"score" : score, "username" : username}
-#	request_queue.push_back({"command" : command, "data" : data})
-	
-	
-#func _get_scores():
-#	var command = "get_scores"
-#	var data = {"score_offset" : 0, "score_number" : 10}
-#	request_queue.push_back({"command" : command, "data" : data});
-func _get_scores():
+func _submit_score():
+	var score = 13
 	var err = 0
 	var http = HTTPClient.new() # Create the Client.
 	err = http.connect_to_host("http://networkpark.alwaysdata.net", 80) # Connect to host/port.
@@ -120,7 +95,35 @@ func _get_scores():
 		"Accept: */*"
 	]
 	
-	err = http.request(HTTPClient.METHOD_GET, "/test2.php", headers) # Request a page from the site (this one was chunked..)
+	err = http.request(HTTPClient.METHOD_GET, "/test2.php?command=add_score&score="+String(score), headers) # Request a page from the site (this one was chunked..)
+	assert(err == OK) # Make sure all is OK.
+	
+	
+func _get_scores():
+	var err = 0
+	var http = HTTPClient.new() # Create the Client.
+	err = http.connect_to_host("http://networkpark.alwaysdata.net", 80) # Connect to host/port.
+	assert(err == OK) # Make sure connection is OK.
+	
+	# Wait until resolved and connected.
+	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
+		http.poll()
+		print("Connecting...")
+		if not OS.has_feature("web"):
+			OS.delay_msec(500)
+		else:
+			yield(Engine.get_main_loop(), "idle_frame")
+	
+	assert(http.get_status() == HTTPClient.STATUS_CONNECTED) # Check if the connection was made successfully.
+
+	# Some headers
+	var headers = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
+	var score = 20
+	
+	err = http.request(HTTPClient.METHOD_GET, "/test2.php?command=get_score", headers) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
