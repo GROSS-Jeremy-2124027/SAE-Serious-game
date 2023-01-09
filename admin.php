@@ -17,6 +17,10 @@
 
 <?php
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     // Informations de connexion à la base de données
     define("DB_SERVERNAME", "mysql-networkpark.alwaysdata.net");
     define("DB_USERNAME", "291361");
@@ -58,7 +62,7 @@
     echo "</table>";
 
 ?>
-<article>
+<form action="admin.php" method="post">
     <div class="affichage">
         <h3>
             Identifiant
@@ -101,13 +105,43 @@
         </h3>
         <input type="text" name="mauvaiseReponse3" id="">
     </div>
-</article>
+    <div class="affichage">
+        <input type="submit" value="valider" name="valider">
+    </div>
+</form>
 
 
 <?php
 
-    // Fermez la connexion
-    $db->close();
+    if (isset($_POST["valider"])) {
+
+
+        $identifiant = $_POST["identifiant"];
+        $question = $_POST["question"];
+        $indice = $_POST["indice"];
+        $bonneReponse = $_POST["bonneReponse"];
+        $mauvaiseReponse = $_POST["mauvaiseReponse"];
+        $mauvaiseReponse2 = $_POST["mauvaiseReponse2"];
+        $mauvaiseReponse3 = $_POST["mauvaiseReponse3"];
+
+        // Début de la transaction
+        mysqli_begin_transaction($db);
+
+        // Préparation de la requête de mise à jour de la table "question"
+        $query1 = "UPDATE question SET id_question = '$identifiant' tupleQuestion = '$question', indice = $indice";
+
+        $updateQuestion = $db -> query($query1) or die ($db -> error);
+
+        // Préparation de la requête de mise à jour de la table "reponse"
+        $query2 = "UPDATE reponse SET bonneReponse = '$bonneReponse', mauvaiseReponse = '$mauvaiseReponse', mauvaiseReponse2 = '$mauvaiseReponse2', 
+        mauvaiseReponse3 = '$mauvaiseReponse3' WHERE question_id = $identifiant";
+
+        $updtateReponse = $db -> query($query2) or die ($db -> error);
+        mysqli_close($db);
+
+        // Validation de la transaction
+        //mysqli_commit($db);
+    }
 
 ?>
 

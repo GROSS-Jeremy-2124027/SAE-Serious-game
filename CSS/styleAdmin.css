@@ -49,7 +49,7 @@ h3{
     margin-top: 0;
 }
 
-article{
+form{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -61,4 +61,8 @@ article{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.affichage input{
+    color: #000;
 }
