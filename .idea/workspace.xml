@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64057d24-481b-4f44-9776-1fbc00b9ab5b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/godot-game/Highscore_Demo/Netwock.gd" beforeDir="false" afterPath="$PROJECT_DIR$/godot-game/Highscore_Demo/Netwock.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/godot-game/Highscore_Demo/export_presets.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/godot-game/Highscore_Demo/export_presets.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-level/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-level/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-level/index.pck" beforeDir="false" afterPath="$PROJECT_DIR$/test-level/index.pck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test2.php" beforeDir="false" afterPath="$PROJECT_DIR$/test2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +75,9 @@
       <workItem from="1669967378291" duration="1224000" />
       <workItem from="1669968686267" duration="2154000" />
       <workItem from="1670227101991" duration="39000" />
-      <workItem from="1673172493129" duration="7029000" />
+      <workItem from="1673172493129" duration="7630000" />
+      <workItem from="1673252047022" duration="29000" />
+      <workItem from="1673275695808" duration="5356000" />
     </task>
     <servers />
   </component>
