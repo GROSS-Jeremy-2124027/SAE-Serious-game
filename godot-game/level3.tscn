@@ -13,7 +13,7 @@
 [ext_resource path="res://ASSETS/texture blocks level 3/continue.png" type="Texture" id=11]
 [ext_resource path="res://ASSETS/texture blocks level 3/pilierdroite.png" type="Texture" id=12]
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
-[ext_resource path="res://2questions.gd" type="Script" id=14]
+[ext_resource path="res://1question.gd" type="Script" id=14]
 [ext_resource path="res://Panel.gd" type="Script" id=15]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=16]
 [ext_resource path="res://2q_Reponse.gd" type="Script" id=17]
@@ -294,12 +294,12 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 96, 68 )
 
-[sub_resource type="DynamicFont" id=47]
+[sub_resource type="DynamicFont" id=54]
 size = 32
 font_data = ExtResource( 19 )
 
 [sub_resource type="Theme" id=52]
-default_font = SubResource( 47 )
+default_font = SubResource( 54 )
 
 [sub_resource type="StyleBoxFlat" id=51]
 bg_color = Color( 0, 0, 0, 1 )
@@ -354,7 +354,6 @@ scale = Vector2( 3, 2.1875 )
 texture = ExtResource( 23 )
 
 [node name="Sombre" type="ColorRect" parent="PC1"]
-visible = false
 margin_left = -580.0
 margin_top = -776.0
 margin_right = 2356.0

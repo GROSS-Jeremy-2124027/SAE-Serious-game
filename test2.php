@@ -35,12 +35,12 @@ switch ($_REQUEST['command']) {
         die;
 
     case "get_question":
-        $question = "SELECT tupleQuestion,indice,bonneReponse,mauvaiseReponse,mauvaiseReponse2,mauvaiseReponse3 FROM question, reponse WHERE id_question = ".$_REQUEST['nbQuestion']."";
+        $question = "SELECT tupleQuestion,indice,bonneReponse,mauvaiseReponse,mauvaiseReponse2,mauvaiseReponse3 FROM question, reponse WHERE question_id=id_question AND question_id = ".$_REQUEST['idQuestion']."";
         $result = $con->query($question);
         while ( $row = $result->fetch_assoc())  {
             $dbdata=$row;
         }
-        echo json_encode($dbdata);
+        echo json_encode($dbdata, JSON_UNESCAPED_UNICODE);
         die;
 }
 

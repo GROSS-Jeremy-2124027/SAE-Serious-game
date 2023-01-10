@@ -12,7 +12,7 @@ func _process(delta):
 		if (get_parent().get_node("KinematicBody2D").pcid >= int(name[-1])):
 			get_node("PCsprite").texture = load("res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png")
 			get_node("PCshape").disabled = false
-		if (get_node("Sombre/Q1/R2/Multidiffusion/Panel").bg == WHITE and get_node("Sombre/Q2/R4/Diffusion/Panel").bg == WHITE):
+		if (get_node("Sombre/Q1/R2/box/Panel").bg == WHITE and get_node("Sombre/Q2/R4/box/Panel").bg == WHITE):
 			correct = true
 		else :
 			correct = false

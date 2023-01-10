@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
@@ -7,17 +7,14 @@
 [ext_resource path="res://ASSETS/texture blocks level 1/piliergauche.png" type="Texture" id=5]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=6]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://R1.gd" type="Script" id=8]
+[ext_resource path="res://2q_Reponse.gd" type="Script" id=8]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=9]
-[ext_resource path="res://Q2.gd" type="Script" id=10]
-[ext_resource path="res://Q3.gd" type="Script" id=11]
+[ext_resource path="res://1question.gd" type="Script" id=10]
+[ext_resource path="res://Panel.gd" type="Script" id=11]
 [ext_resource path="res://ChatBox.tscn" type="PackedScene" id=12]
-[ext_resource path="res://R2.gd" type="Script" id=13]
+[ext_resource path="res://Sombre-2q.gd" type="Script" id=13]
 [ext_resource path="res://ASSETS/texture blocks level 1/continue_top.png" type="Texture" id=14]
-[ext_resource path="res://R3.gd" type="Script" id=15]
-[ext_resource path="res://WordToDef.gd" type="Script" id=16]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_interieur1.png" type="Texture" id=17]
-[ext_resource path="res://Sombre.gd" type="Script" id=18]
 [ext_resource path="res://ASSETS/texture blocks level 1/fill.png" type="Texture" id=19]
 [ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=20]
 [ext_resource path="res://ASSETS/texture blocks level 1/gaucheversbas.png" type="Texture" id=21]
@@ -37,8 +34,8 @@
 [ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=35]
 [ext_resource path="res://ASSETS/Spring/Spring_13.png" type="Texture" id=36]
 [ext_resource path="res://ASSETS/Spring/Spring_07.png" type="Texture" id=37]
-[ext_resource path="res://Q1.gd" type="Script" id=38]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=39]
+[ext_resource path="res://level1.gd" type="Script" id=40]
 
 [sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -380,40 +377,6 @@ points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
 } ]
 32/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=43]
-extents = Vector2( 96, 68 )
-
-[sub_resource type="StyleBoxFlat" id=46]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="DynamicFont" id=60]
-size = 32
-font_data = ExtResource( 7 )
-
-[sub_resource type="Theme" id=48]
-default_font = SubResource( 60 )
-
-[sub_resource type="RectangleShape2D" id=52]
-extents = Vector2( 192, 60 )
-
-[sub_resource type="CanvasItemMaterial" id=53]
-blend_mode = 1
-
-[sub_resource type="DynamicFont" id=61]
-size = 24
-font_data = ExtResource( 7 )
-
-[sub_resource type="Theme" id=50]
-default_font = SubResource( 61 )
-
-[sub_resource type="RectangleShape2D" id=54]
-extents = Vector2( 300, 100 )
-
 [sub_resource type="SpriteFrames" id=55]
 animations = [ {
 "frames": [ ExtResource( 27 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 36 ), ExtResource( 29 ) ],
@@ -430,7 +393,36 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=56]
 extents = Vector2( 48, 36 )
 
+[sub_resource type="RectangleShape2D" id=60]
+extents = Vector2( 96, 68 )
+
+[sub_resource type="DynamicFont" id=47]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=61]
+default_font = SubResource( 47 )
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=64]
+extents = Vector2( 532, 64.5 )
+
+[sub_resource type="RectangleShape2D" id=65]
+
+[sub_resource type="RectangleShape2D" id=66]
+
+[sub_resource type="RectangleShape2D" id=63]
+extents = Vector2( 192, 60 )
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 40 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -499,825 +491,6 @@ cell_custom_transform = Transform2D( 64, 0, 0, 0, 0, 0 )
 format = 1
 tile_data = PoolIntArray( -1441763, -536870886, 0, -1376227, -536870886, 0, -1310718, -536870911, 0, -1310711, -1073741823, 0, -1310710, -536870896, 0, -1310709, -536870911, 0, -1310691, -536870886, 0, -1245182, -536870911, 0, -1245175, -1073741823, 0, -1245174, -536870896, 0, -1245173, -536870911, 0, -1245155, -1610612710, 0, -1245150, -2147483647, 0, -1179646, -536870911, 0, -1179639, -1073741823, 0, -1179638, -536870896, 0, -1179637, -536870911, 0, -1179619, -1610612710, 0, -1179614, -2147483647, 0, -1114110, -536870911, 0, -1114103, -1073741823, 0, -1114102, -536870896, 0, -1114101, -536870911, 0, -1114089, 1073741826, 0, -1114088, -2147483646, 0, -1114083, -1610612710, 0, -1114078, -2147483647, 0, -1048574, -536870911, 0, -1048567, -1073741823, 0, -1048566, -536870896, 0, -1048565, -536870911, 0, -1048553, -536870911, 0, -1048552, -2147483647, 0, -1048547, -1610612710, 0, -1048542, -2147483647, 0, -983038, -536870911, 0, -983031, -1073741823, 0, -983030, -536870896, 0, -983029, -536870911, 0, -983017, -536870911, 0, -983016, -2147483647, 0, -983011, -1610612710, 0, -983006, -2147483647, 0, -917502, -536870911, 0, -917497, 31, 0, -917496, 31, 0, -917495, 1610612756, 0, -917494, 1610612737, 0, -917493, -1610612716, 0, -917481, -536870911, 0, -917480, -2147483647, 0, -917475, -1610612710, 0, -917470, -2147483647, 0, -851966, -1610612735, 0, -851952, -1610612734, 0, -851951, -2147483646, 0, -851945, -536870911, 0, -851944, -2147483647, 0, -851934, -2147483647, 0, -786430, -1610612735, 0, -786416, -1610612735, 0, -786415, -2147483647, 0, -786409, -536870911, 0, -786408, -2147483647, 0, -786398, -2147483647, 0, -720894, -1610612735, 0, -720892, 31, 0, -720885, 536870932, 0, -720884, -536870892, 0, -720880, -536870911, 0, -720879, 1610612756, 0, -720878, 1610612737, 0, -720877, 1610612737, 0, -720876, 1610612737, 0, -720875, 1610612737, 0, -720874, 1073741825, 0, -720873, 1073741844, 0, -720872, -2147483628, 0, -720871, 1073741825, 0, -720870, 1073741825, 0, -720869, 1073741825, 0, -720868, 1073741825, 0, -720867, -1610612711, 0, -720862, -2147483647, 0, -655358, -1610612735, 0, -655349, -2147483647, 0, -655348, -536870911, 0, -655344, 2, 0, -655343, 536870913, 0, -655342, 536870913, 0, -655341, 536870913, 0, -655340, 536870913, 0, -655339, 536870913, 0, -655338, 536870913, 0, -655337, 536870913, 0, -655336, 536870913, 0, -655335, 536870913, 0, -655334, 536870913, 0, -655333, 536870913, 0, -655332, 536870913, 0, -655331, 32, 0, -655326, -2147483647, 0, -589822, -1610612735, 0, -589813, -2147483647, 0, -589812, -536870911, 0, -589795, -1610612710, 0, -589791, 536870938, 0, -589790, -2147483647, 0, -524286, -1610612735, 0, -524277, -2147483647, 0, -524276, -536870911, 0, -524259, -1610612710, 0, -524254, -2147483647, 0, -458750, -1610612735, 0, -458749, 1610612737, 0, -458748, 1610612737, 0, -458747, 1610612737, 0, -458746, 1610612737, 0, -458745, 1610612737, 0, -458744, 1610612737, 0, -458743, 1610612737, 0, -458742, 1610612737, 0, -458741, 1073741825, 0, -458740, 1073741844, 0, -458738, -1610612710, 0, -458734, -1073741804, 0, -458733, 1, 0, -458732, 20, 0, -458723, 27, 0, -458722, 536870938, 0, -458718, -2147483647, 0, -393214, -1610612735, 0, -393202, 25, 0, -393201, -1073741792, 0, -393198, -2147483647, 0, -393197, 16, 0, -393196, 2, 0, -393195, 1, 0, -393194, 20, 0, -393183, 536870938, 0, -393182, -2147483647, 0, -327678, -1610612735, 0, -327666, -1610612710, 0, -327662, -2147483647, 0, -327661, 16, 0, -327660, 16, 0, -327659, 16, 0, -327658, 2, 0, -327657, 1, 0, -327656, 20, 0, -327649, -1073741792, 0, -327648, -1073741792, 0, -327646, -2147483647, 0, -262142, -1610612735, 0, -262130, -1610612710, 0, -262128, -1073741792, 0, -262127, -1073741792, 0, -262126, -2147483647, 0, -262125, 16, 0, -262124, 16, 0, -262123, 16, 0, -262122, 16, 0, -262121, 16, 0, -262120, 2, 0, -262119, 20, 0, -262116, -1073741792, 0, -262115, -1073741792, 0, -262110, -2147483647, 0, -196606, -1610612735, 0, -196605, 26, 0, -196604, 26, 0, -196603, 28, 0, -196600, -1610612734, 0, -196599, 1073741825, 0, -196598, 1073741825, 0, -196597, 1610612738, 0, -196594, -1610612710, 0, -196590, -2147483647, 0, -196589, 16, 0, -196588, 16, 0, -196587, 16, 0, -196586, 16, 0, -196585, 16, 0, -196584, 16, 0, -196583, -1610612735, 0, -196574, -2147483647, 0, -131070, -1610612735, 0, -131067, -1610612710, 0, -131064, -1610612735, 0, -131063, 16, 0, -131062, 16, 0, -131061, -2147483647, 0, -131058, 25, 0, -131057, -1073741792, 0, -131054, -2147483647, 0, -131053, 16, 0, -131052, 16, 0, -131051, 16, 0, -131050, 16, 0, -131049, 16, 0, -131048, 16, 0, -131047, -1610612735, 0, -131038, -2147483647, 0, -65534, -1610612735, 0, -65531, 27, 0, -65528, -1610612735, 0, -65527, 1, 0, -65526, 1, 0, -65525, -1073741822, 0, -65518, -2147483647, 0, -65517, 16, 0, -65516, 16, 0, -65515, 16, 0, -65514, 16, 0, -65513, 16, 0, -65512, 16, 0, -65511, -1610612735, 0, -65502, -2147483647, 0, 2, -1610612735, 0, 8, -1610612735, 0, 18, -2147483647, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, -1610612735, 0, 34, -2147483647, 0, 65538, 2, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 536870913, 0, 65568, 536870913, 0, 65569, 536870913, 0, 65570, 536870914, 0 )
 
-[node name="PC1" type="StaticBody2D" parent="."]
-position = Vector2( -4, -32 )
-collision_layer = 8
-collision_mask = 0
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PCshape" type="CollisionShape2D" parent="PC1"]
-position = Vector2( 1056, 76 )
-shape = SubResource( 43 )
-disabled = true
-
-[node name="PCsprite" type="Sprite" parent="PC1"]
-position = Vector2( 1056, 78 )
-scale = Vector2( 3, 2.1875 )
-texture = ExtResource( 6 )
-
-[node name="Sombre" type="ColorRect" parent="PC1"]
-visible = false
-margin_left = -580.0
-margin_top = -776.0
-margin_right = 2356.0
-margin_bottom = 632.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 0.878431 )
-script = ExtResource( 18 )
-
-[node name="Q1" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 38 )
-
-[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Monodiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
-light_mask = 17
-position = Vector2( 472, -252 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q1"]
-material = SubResource( 53 )
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q2" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 10 )
-
-[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Multidiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
-light_mask = 17
-position = Vector2( 472, 4 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q2"]
-material = SubResource( 53 )
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q3" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 11 )
-
-[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q3/Diffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Diffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
-light_mask = 17
-position = Vector2( -112, -556 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q3"]
-material = SubResource( 53 )
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="R1" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 8 )
-
-[node name="DiffusionRep" type="MarginContainer" parent="PC1/Sombre/R1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer10" type="MarginContainer" parent="PC1/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-grow_horizontal = 0
-rect_clip_content = true
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = SubResource( 50 )
-text = "Envoyer des paquets de 
-données dans les réseaux IP à tous les participants d’un réseau local."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R1"]
-light_mask = 17
-position = Vector2( 868, -1092 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R1"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R2" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 13 )
-
-[node name="MonodiffusionRep" type="MarginContainer" parent="PC1/Sombre/R2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 50 )
-text = "Les paquets sont envoyés à une seule destination réseau avec une adresse particulière."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R2"]
-light_mask = 17
-position = Vector2( 868, -812 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R2"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R3" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 15 )
-
-[node name="MultidiffusionRep" type="MarginContainer" parent="PC1/Sombre/R3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 50 )
-text = "envoyer un même paquet à plusieurs utilisateurs."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R3"]
-light_mask = 17
-position = Vector2( 868, -516 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R3"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="check" type="Sprite" parent="PC1"]
-visible = false
-position = Vector2( 1064, 56 )
-scale = Vector2( 0.475, 0.405964 )
-texture = ExtResource( 20 )
-
-[node name="PC2" type="StaticBody2D" parent="."]
-position = Vector2( 520, -672.8 )
-collision_layer = 8
-collision_mask = 0
-script = ExtResource( 16 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PCshape" type="CollisionShape2D" parent="PC2"]
-position = Vector2( 1056, 76 )
-shape = SubResource( 43 )
-disabled = true
-
-[node name="PCsprite" type="Sprite" parent="PC2"]
-position = Vector2( 1056, 78 )
-scale = Vector2( 3, 2.1875 )
-texture = ExtResource( 6 )
-
-[node name="Sombre" type="ColorRect" parent="PC2"]
-visible = false
-margin_left = -580.0
-margin_top = -776.0
-margin_right = 2356.0
-margin_bottom = 632.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 0.878431 )
-script = ExtResource( 18 )
-
-[node name="Q1" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 38 )
-
-[node name="Monodiffusion" type="MarginContainer" parent="PC2/Sombre/Q1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q1/Monodiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Monodiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q1"]
-visible = false
-light_mask = 17
-position = Vector2( 472, -252 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q1"]
-material = SubResource( 53 )
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q2" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 10 )
-
-[node name="Multidiffusion" type="MarginContainer" parent="PC2/Sombre/Q2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q2/Multidiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Multidiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q2"]
-visible = false
-light_mask = 17
-position = Vector2( 472, 4 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q2"]
-material = SubResource( 53 )
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q3" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 11 )
-
-[node name="Diffusion" type="MarginContainer" parent="PC2/Sombre/Q3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/Q3/Diffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 48 )
-text = "Diffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/Q3"]
-visible = false
-light_mask = 17
-position = Vector2( -112, -556 )
-shape = SubResource( 52 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/Q3"]
-material = SubResource( 53 )
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="R1" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 8 )
-
-[node name="DiffusionRep" type="MarginContainer" parent="PC2/Sombre/R1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer10" type="MarginContainer" parent="PC2/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-grow_horizontal = 0
-rect_clip_content = true
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R1/DiffusionRep/MarginContainer10"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/R1/DiffusionRep/MarginContainer10/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = SubResource( 50 )
-text = "Envoyer des paquets de 
-données dans les réseaux IP à tous les participants d’un réseau local."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R1"]
-light_mask = 17
-position = Vector2( 868, -1092 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R1"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R2" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 13 )
-
-[node name="MonodiffusionRep" type="MarginContainer" parent="PC2/Sombre/R2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R2/MonodiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/R2/MonodiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 50 )
-text = "Les paquets sont envoyés à une seule destination réseau avec une adresse particulière."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R2"]
-light_mask = 17
-position = Vector2( 868, -812 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R2"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R3" type="Area2D" parent="PC2/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 15 )
-
-[node name="MultidiffusionRep" type="MarginContainer" parent="PC2/Sombre/R3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC2/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 46 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC2/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC2/Sombre/R3/MultidiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC2/Sombre/R3/MultidiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 50 )
-text = "envoyer un même paquet à plusieurs utilisateurs."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC2/Sombre/R3"]
-light_mask = 17
-position = Vector2( 868, -516 )
-shape = SubResource( 54 )
-
-[node name="ColorRect" type="ColorRect" parent="PC2/Sombre/R3"]
-visible = false
-material = SubResource( 53 )
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="check" type="Sprite" parent="PC2"]
-visible = false
-position = Vector2( 1064, 56 )
-scale = Vector2( 0.475, 0.405964 )
-texture = ExtResource( 20 )
-
 [node name="Spring1" type="StaticBody2D" parent="."]
 position = Vector2( 5384, -1440 )
 rotation = -3.14159
@@ -1384,6 +557,53 @@ flip_v = true
 position = Vector2( 24, 36 )
 shape = SubResource( 56 )
 
+[node name="PC1" type="StaticBody2D" parent="."]
+position = Vector2( -41, -33 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 10 )
+
+[node name="PCshape" type="CollisionShape2D" parent="PC1"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 60 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC1"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 6 )
+
+[node name="check" type="Sprite" parent="PC1"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 20 )
+
+[node name="PC2" type="StaticBody2D" parent="."]
+position = Vector2( 516, -673 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PCshape" type="CollisionShape2D" parent="PC2"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 60 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC2"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 6 )
+
+[node name="check" type="Sprite" parent="PC2"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 20 )
+
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 0 )
 
@@ -1401,6 +621,235 @@ editor_draw_drag_margin = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Sombre" type="ColorRect" parent="CanvasLayer"]
+margin_left = -368.0
+margin_top = -200.0
+margin_right = 2568.0
+margin_bottom = 1449.0
+rect_scale = Vector2( 0.65, 0.65 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.878431 )
+script = ExtResource( 13 )
+
+[node name="Q1" type="Label" parent="CanvasLayer/Sombre"]
+margin_left = 1188.0
+margin_top = 393.846
+margin_right = 2068.0
+margin_bottom = 434.846
+size_flags_horizontal = 3
+theme = SubResource( 61 )
+text = "Combien de bits a une adresse IPV4 ?"
+align = 1
+valign = 1
+
+[node name="R1" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( -557, 135.385 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 8 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R1/box"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 62 )
+script = ExtResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1/box"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer/HBoxContainer"]
+margin_right = 1064.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+theme = SubResource( 61 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cdc
+cecr"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R1"]
+light_mask = 17
+position = Vector2( 532, 64.5 )
+shape = SubResource( 64 )
+
+[node name="R2" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( -564, 348.385 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 8 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R2/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 62 )
+script = ExtResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R2/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R2/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 61 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "32"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R2"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 65 )
+
+[node name="R3" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( -534, 599.385 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 8 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = -36.0
+margin_right = 346.0
+margin_bottom = 84.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R3/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 62 )
+script = ExtResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R3/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R3/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 61 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "64"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R3"]
+light_mask = 17
+shape = SubResource( 66 )
+
+[node name="R4" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( -575, 753.385 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 8 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R4/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 62 )
+script = ExtResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R4/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R4/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 61 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "128"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R4"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 63 )
+
 [node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
 margin_left = 11.0
 margin_top = 167.0
@@ -1409,29 +858,12 @@ margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
 
-[connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_mouse_exited"]
-[connection signal="visibility_changed" from="PC2/Sombre" to="PC2/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC2/Sombre/Q1" to="PC2/Sombre/Q1" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/Q1" to="PC2/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/Q2" to="PC2/Sombre/Q2" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/Q2" to="PC2/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/Q3" to="PC2/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/Q3" to="PC2/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/R1" to="PC2/Sombre/R1" method="_on_DiffuRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/R1" to="PC2/Sombre/R1" method="_on_DiffuRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/R2" to="PC2/Sombre/R2" method="_on_MonoRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/R2" to="PC2/Sombre/R2" method="_on_MonoRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC2/Sombre/R3" to="PC2/Sombre/R3" method="_on_MultiRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC2/Sombre/R3" to="PC2/Sombre/R3" method="_on_MultiRepArea2D_mouse_exited"]
+[connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R2" to="CanvasLayer/Sombre/Q1/R2" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R2" to="CanvasLayer/Sombre/Q1/R2" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R3" to="CanvasLayer/Sombre/Q1/R3" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R3" to="CanvasLayer/Sombre/Q1/R3" method="_on_R1_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]

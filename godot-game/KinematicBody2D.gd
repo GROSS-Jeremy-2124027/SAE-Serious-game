@@ -53,9 +53,11 @@ func _physics_process(delta):
 				jumpTopLadderTime = 0
 			move_and_fall()
 		States.FLOOR:
+			$Sprite.visible = true
 			if not is_on_floor():
 				state = States.AIR
 			elif should_use_pc():
+				get_parent().get_node("CanvasLayer/Sombre").set("visible", true)
 				state = States.PC
 			elif should_climb_ladder():
 				state = States.LADDER
@@ -108,9 +110,10 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
-			get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", true)
-			if (Input.is_action_just_pressed("ui_select") or (get_parent().get_node("PC" + str(pcid) + "/Sombre").visible == false)):
-				get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
+			$Sprite.visible = false
+			if (Input.is_action_just_pressed("ui_select") or get_parent().get_node("CanvasLayer/Sombre").visible == false) :
+				#get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
+				get_parent().get_node("CanvasLayer/Sombre").set("visible", false)
 				state = States.FLOOR
 
 func should_climb_ladder() -> bool:
