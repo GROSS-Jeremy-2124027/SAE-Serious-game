@@ -80,6 +80,9 @@ if (isset($_POST["signup"])) {
         if ($insert) {
             echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>"; 
         }
+        else {   
+            echo "<script> alert('Error: '); </script>";
+        }
     }    
 }
 
