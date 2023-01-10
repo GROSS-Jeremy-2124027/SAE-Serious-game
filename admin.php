@@ -14,6 +14,21 @@
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
+    <header>
+
+        <div>
+            <a href="index.php">
+                <button class="boutonRetour" onclick="connexionPage()">
+                    Retour 
+                </button>
+            </a>
+        </div>
+        
+    </header>
+    <section>
+    <h1>
+        Administrateur
+    </h1>
 
 <?php
 
@@ -46,7 +61,7 @@
     $result = $stmt->get_result();
 
     // Affichez le résultat
-    echo "<table border='1'>";
+    echo "<table>";
     echo "<tr><th>Identifiant</th><th>Tuple question</th><th>Indice</th><th>Bonne réponse</th><th>Mauvaise réponse 1</th><th>Mauvaise réponse 2</th><th>Mauvaise réponse 3</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -62,54 +77,56 @@
     echo "</table>";
 
 ?>
-<form action="admin.php" method="post">
-    <div class="affichage">
-        <h3>
-            Identifiant
-        </h3>
-        <input type="text" name="identifiant" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Question 
-        </h3>
-        <input type="text" name="question" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Indice
-        </h3>
-        <input type="text" name="indice" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Bonne réponse
-        </h3>
-        <input type="text" name="bonneReponse" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 1
-        </h3>
-        <input type="text" name="mauvaiseReponse" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 2
-        </h3>
-        <input type="text" name="mauvaiseReponse2" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 3
-        </h3>
-        <input type="text" name="mauvaiseReponse3" id="">
-    </div>
-    <div class="affichage">
-        <input type="submit" value="valider" name="valider">
-    </div>
-</form>
-
+    </section>
+    <section>
+        <form action="admin.php" method="post">
+            <div class="affichage">
+                <h3>
+                    Identifiant
+                </h3>
+                <input type="text" name="identifiant" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Question 
+                </h3>
+                <input type="text" name="question" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Indice
+                </h3>
+                <input type="text" name="indice" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Bonne réponse
+                </h3>
+                <input type="text" name="bonneReponse" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 1
+                </h3>
+                <input type="text" name="mauvaiseReponse" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 2
+                </h3>
+                <input type="text" name="mauvaiseReponse2" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 3
+                </h3>
+                <input type="text" name="mauvaiseReponse3" id="">
+            </div>
+            <div class="affichage">
+                <input type="submit" class="boutonValider" value="valider" name="valider">
+            </div>
+        </form>
+    </section>
 
 <?php
 
@@ -128,19 +145,20 @@
         mysqli_begin_transaction($db);
 
         // Préparation de la requête de mise à jour de la table "question"
-        $query1 = "UPDATE question SET id_question = '$identifiant' tupleQuestion = '$question', indice = $indice";
-
+        $query1 = "UPDATE `question` SET `tupleQuestion` = '$question', `indice` = '$indice' WHERE `id_question` = '$identifiant'";
+        
         $updateQuestion = $db -> query($query1) or die ($db -> error);
 
         // Préparation de la requête de mise à jour de la table "reponse"
-        $query2 = "UPDATE reponse SET bonneReponse = '$bonneReponse', mauvaiseReponse = '$mauvaiseReponse', mauvaiseReponse2 = '$mauvaiseReponse2', 
-        mauvaiseReponse3 = '$mauvaiseReponse3' WHERE question_id = $identifiant";
+        $query2 = "UPDATE `reponse` SET `bonneReponse` = '$bonneReponse', `mauvaiseReponse` = '$mauvaiseReponse', `mauvaiseReponse2` = '$mauvaiseReponse2', 
+        `mauvaiseReponse3` = '$mauvaiseReponse3' WHERE `question_id` = '$identifiant'";
+
+        // Validation de la transaction
+        mysqli_commit($db);
 
         $updtateReponse = $db -> query($query2) or die ($db -> error);
         mysqli_close($db);
 
-        // Validation de la transaction
-        //mysqli_commit($db);
     }
 
 ?>

@@ -6,7 +6,7 @@
     <title> Network Park </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="CSS/style2.css">
+    <link rel="stylesheet" href="CSS/styleConnexion.css">
 </head>
 <body> 
     <div class="container">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <script src="JS/script2.js"></script>
-    <script src="JS/script.js"></script>
+    <script src="JS/connexion.js"></script>
+    <script src="JS/mainScript.js"></script>
 </body>
 </html>

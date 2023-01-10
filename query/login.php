@@ -1,9 +1,16 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 include "../connection/connection.php";
 $con = connect();
 
+function set_url()
+{
+    echo("<script>window.parent.location.href = '../admin.php'</script>");
+}
 // Si clic sur le bouton se connecter
 if (isset($_POST["login"])) {
     
@@ -20,6 +27,7 @@ if (isset($_POST["login"])) {
     if ($user -> num_rows > 0) {
         while($rows = $user -> fetch_assoc()) {
             echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+            set_url();
         }
     }
     else {

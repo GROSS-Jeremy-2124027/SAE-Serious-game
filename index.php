@@ -7,10 +7,10 @@
     <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !">
     <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game">
     <meta name="author" content="Groupe 1 Année 2" >
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
     <link rel="icon" href="img/controller.png">
-    <script src="JS/script.js"></script>
+    <script src="JS/mainScript.js"></script>
 </head>
 <body>
     <div id='stars'></div>
@@ -18,14 +18,14 @@
     <div id='stars3'></div>
     <header>  
         <div>
-            <a href="admin.php">
-                <button class="boutonAdministrateur">
+
+                <button class="boutonAdministrateur" onclick="administrateurPage()" id="boutonAdministrateur">
                     Administrateur 
                 </button>
                 <div id="pageAdmin">
-                <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
-            </div>
-            </a>
+                    <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
+                </div>
+
         </div>
         <div>
             <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
@@ -97,12 +97,12 @@
                 $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
                 $user = $db -> query($sql);
 
-                // Si l'utilisateur existe
-                if ($user -> num_rows > 0) {
+                //Si l'utilisateur existe
+                /*if ($user -> num_rows > 0) {
                     while($rows = $user -> fetch_assoc()) {
                         echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
                     }
-                }
+                }*/
 
                 // Envoi de la requête pour les meilleurs scores
                 $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
@@ -130,6 +130,6 @@
             </ul>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="mainScript.js"></script>
 </body>
 </html>

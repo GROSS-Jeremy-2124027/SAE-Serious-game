@@ -37,6 +37,10 @@ if (isset($_POST["signup"])) {
         echo "<script> alert('Le mot de passe doit comporter au moins 8 caractères'); </script>";
     }
 
+    if (strlen($username) > 11) {
+        echo "<script> alert('Le pseudo est trop long'); </script>";
+    }
+
     if (!$has_uppercase) {
         echo "<script> alert('Le mot de passe doit comporter au moins une majuscule'); </script>";
     }
@@ -54,7 +58,7 @@ if (isset($_POST["signup"])) {
     }
 
     // Si tout les critères sont remplis
-    if (strlen($password) >= 8 && $has_uppercase && $has_digit && $has_special_char && ($password === $passwordConfirm)) {
+    if (strlen($password) >= 8 && strlen($username) <= 10 && $has_uppercase && $has_digit && $has_special_char && ($password === $passwordConfirm)) {
         
         // Envoi de la requête
         $sql = "INSERT INTO `utilisateur`(`identifiant`, `mot_de_passe`) 
@@ -62,12 +66,6 @@ if (isset($_POST["signup"])) {
 
         $insert = $con -> query($sql) or die ($con -> error);
        
-        if ($insert -> num_rows > 0) {
-                echo "<script> alert('Vous êtes connecté avez deja un compte'); </script>";
-        }
-        else {
-            echo "<script> alert('Identifiant invalide'); </script>";
-        }
 
         if ($insert) {
             echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>"; 
