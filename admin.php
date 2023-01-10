@@ -7,13 +7,28 @@
     <link rel="stylesheet" href="CSS/styleAdmin.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
     <link rel="icon" href="img/controller.png">
-    <script src="JS/mainScript.js"></script>
+    <script src="JS/script.js"></script>
 </head>
 
 <body>
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
+    <header>
+
+        <div>
+            <a href="index.php">
+                <button class="boutonRetour" onclick="connexionPage()">
+                    Retour 
+                </button>
+            </a>
+        </div>
+        
+    </header>
+    <section>
+    <h1>
+        Administrateur
+    </h1>
 
 <?php
 
@@ -46,7 +61,7 @@
     $result = $stmt->get_result();
 
     // Affichez le résultat
-    echo "<table border='1'>";
+    echo "<table>";
     echo "<tr><th>Identifiant</th><th>Tuple question</th><th>Indice</th><th>Bonne réponse</th><th>Mauvaise réponse 1</th><th>Mauvaise réponse 2</th><th>Mauvaise réponse 3</th></tr>";
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
@@ -62,54 +77,56 @@
     echo "</table>";
 
 ?>
-<form action="admin.php" method="post">
-    <div class="affichage">
-        <h3>
-            Identifiant
-        </h3>
-        <input type="text" name="identifiant" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Question 
-        </h3>
-        <input type="text" name="question" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Indice
-        </h3>
-        <input type="text" name="indice" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Bonne réponse
-        </h3>
-        <input type="text" name="bonneReponse" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 1
-        </h3>
-        <input type="text" name="mauvaiseReponse" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 2
-        </h3>
-        <input type="text" name="mauvaiseReponse2" id="">
-    </div>
-    <div class="affichage">
-        <h3>
-            Mauvaise Réponse 3
-        </h3>
-        <input type="text" name="mauvaiseReponse3" id="">
-    </div>
-    <div class="affichage">
-        <input type="submit" value="valider" name="valider">
-    </div>
-</form>
-
+    </section>
+    <section>
+        <form action="admin.php" method="post">
+            <div class="affichage">
+                <h3>
+                    Identifiant
+                </h3>
+                <input type="text" name="identifiant" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Question 
+                </h3>
+                <input type="text" name="question" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Indice
+                </h3>
+                <input type="text" name="indice" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Bonne réponse
+                </h3>
+                <input type="text" name="bonneReponse" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 1
+                </h3>
+                <input type="text" name="mauvaiseReponse" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 2
+                </h3>
+                <input type="text" name="mauvaiseReponse2" id="">
+            </div>
+            <div class="affichage">
+                <h3>
+                    Mauvaise Réponse 3
+                </h3>
+                <input type="text" name="mauvaiseReponse3" id="">
+            </div>
+            <div class="affichage">
+                <input type="submit" class="boutonValider" value="valider" name="valider">
+            </div>
+        </form>
+    </section>
 
 <?php
 
