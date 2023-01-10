@@ -152,6 +152,10 @@ object {
     display: none;
 }
 
+#pageAdmin {
+    display: none;
+}
+
 @media(max-width : 800px){
 
     .section {

@@ -70,11 +70,28 @@ function connexionPage() {
     }
     else {
         document.getElementById('pageConnexion').style.display = "none";
-        document.getElementById('boutonconnexion').textContent = "blabla";  
+        document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscire";  
         //btnconnexion.disabled = "disabled";  
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion
+
+var bool2 = false;
+
+function administrateurPage() {
+
+    if (bool === false) {
+        document.getElementById('pageAdmin').style.display = "block";
+        document.getElementById('boutonAdministrateur').textContent = "quitter";
+        bool = true;
+    }
+    else {
+        document.getElementById('pageAdmin').style.display = "none";
+        document.getElementById('boutonAdministrateur').textContent = "Administrateur";  
+        //btnconnexion.disabled = "disabled";  
+        bool = false;
+    }
+}//fonction pour afficher/cacher la page de connexion administrateur
 
 
 

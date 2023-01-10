@@ -12,7 +12,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login" id="partie1">
-                <span class="title">Connexion</span>
+                <span class="title">Administrateur</span>
 
                 <form action="./query/login.php" method="post">
                     <div class="input-field">
@@ -29,11 +29,6 @@
                         <input type="submit" name="login" value="Se connecter" onclick="connection()">
                     </div>
                 </form>
-                <div class="login-signup">
-                    <span class="text">Pas de compte ?
-                        <a href="#" class="text signup-link">Inscrivez-vous</a>
-                    </span>
-                </div>
             </div>
         </div>
     </div>
