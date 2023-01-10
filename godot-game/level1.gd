@@ -1,10 +1,11 @@
 extends Node2D
 
-
+var host = "http://127.0.0.1"
 func _get_question(idQuest):
 	var err = 0
 	var http = HTTPClient.new() # Create the Client.
-	err = http.connect_to_host("http://127.0.0.1", 80) # Connect to host/port.
+	print("là1")
+	err = http.connect_to_host(host, 80) # Connect to host/port.
 	assert(err == OK) # Make sure connection is OK.
 	
 	# Wait until resolved and connected.
@@ -24,7 +25,7 @@ func _get_question(idQuest):
 		"Accept: */*"
 	]
 	
-	err = http.request(HTTPClient.METHOD_GET, "/test2.php?command=get_question&idQuestion="+String(idQuest), headers) # Request a page from the site (this one was chunked..)
+	err = http.request(HTTPClient.METHOD_GET, "/query/commande.php?command=get_question&idQuestion="+String(idQuest), headers) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
@@ -87,7 +88,7 @@ func _submit_score():
 	var score = 13
 	var err = 0
 	var http = HTTPClient.new() # Create the Client.
-	err = http.connect_to_host("http://networkpark.alwaysdata.net", 80) # Connect to host/port.
+	err = http.connect_to_host(host, 80) # Connect to host/port.
 	assert(err == OK) # Make sure connection is OK.
 	
 	# Wait until resolved and connected.
@@ -107,13 +108,13 @@ func _submit_score():
 		"Accept: */*"
 	]
 	
-	err = http.request(HTTPClient.METHOD_GET, "/test2.php?command=add_score&score="+String(score), headers) # Request a page from the site (this one was chunked..)
+	err = http.request(HTTPClient.METHOD_GET, "/query/commande.php?command=add_score&score="+String(score), headers) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 	
 func _get_scores():
 	var err = 0
 	var http = HTTPClient.new() # Create the Client.
-	err = http.connect_to_host("http://networkpark.alwaysdata.net", 80) # Connect to host/port.
+	err = http.connect_to_host(host, 80) # Connect to host/port.
 	assert(err == OK) # Make sure connection is OK.
 	
 	# Wait until resolved and connected.
@@ -134,7 +135,7 @@ func _get_scores():
 	]
 	var score = 20
 	
-	err = http.request(HTTPClient.METHOD_GET, "/test2.php?command=get_score", headers) # Request a page from the site (this one was chunked..)
+	err = http.request(HTTPClient.METHOD_GET, "/query/commande.php?command=get_score", headers) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 	
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:

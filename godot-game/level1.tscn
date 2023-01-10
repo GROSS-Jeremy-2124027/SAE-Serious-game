@@ -622,6 +622,7 @@ editor_draw_drag_margin = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sombre" type="ColorRect" parent="CanvasLayer"]
+visible = false
 margin_left = -368.0
 margin_top = -200.0
 margin_right = 2568.0
@@ -857,6 +858,10 @@ margin_right = -1119.0
 margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
+
+[node name="debug" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
 
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
