@@ -64,7 +64,8 @@ var bool = false;
 function connexionPage() {
 
     if (bool === false) {
-        document.getElementById('pageConnexion').style.display = "block";
+        //document.getElementById('pageConnexion').style.display = "block";
+
         document.getElementById('boutonconnexion').textContent = "quitter";
         bool = true;
     }
@@ -83,6 +84,7 @@ function administrateurPage() {
     if (bool === false) {
         document.getElementById('pageAdmin').style.display = "block";
         document.getElementById('boutonAdministrateur').textContent = "quitter";
+       
         bool = true;
     }
     else {
