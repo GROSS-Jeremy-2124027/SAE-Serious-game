@@ -7,10 +7,10 @@
     <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !">
     <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game">
     <meta name="author" content="Groupe 1 Année 2" >
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
     <link rel="icon" href="img/controller.png">
-    <script src="JS/script.js"></script>
+    <script src="JS/mainScript.js"></script>
 </head>
 <body>
     <div id='stars'></div>
@@ -130,6 +130,6 @@
             </ul>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="mainScript.js"></script>
 </body>
 </html>

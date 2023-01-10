@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/styleAdmin.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
     <link rel="icon" href="img/controller.png">
-    <script src="JS/script.js"></script>
+    <script src="JS/mainScript.js"></script>
 </head>
 
 <body>
