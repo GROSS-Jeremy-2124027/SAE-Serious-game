@@ -154,6 +154,7 @@ object {
 
 #pageAdmin {
     display: none;
+    margin-left: 79%;
 }
 
 @media(max-width : 800px){
