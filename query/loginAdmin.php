@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -7,6 +8,11 @@ session_start();
 include "../connection/connection.php";
 $con = connect();
 
+function set_url()
+{
+    echo("<script>window.parent.location.href = '../admin.php'</script>");
+}
+
 // Si clic sur le bouton se connecter
 if (isset($_POST["login"])) {
 
@@ -14,24 +20,24 @@ if (isset($_POST["login"])) {
     $_SESSION['username'] = $_POST["username"];
     $_SESSION['password'] = $_POST["password"];
 
-    $mot_de_passe_hash = "SELECT mot_de_passe FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
-    $string = $con ->query($mot_de_passe_hash) ->fetch_assoc();
+    $mot_de_passe_hash = "SELECT mot_de_passe FROM `utilisateur` WHERE identifiant = '" . $_SESSION["username"] . "'";
+    $string = $con->query($mot_de_passe_hash)->fetch_assoc();
 
     if (password_verify($_SESSION['password'], current($string))) {
         // Envoi de la requête
-        $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
+        $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '" . $_SESSION["username"] . "' AND mot_de_passe = '" . $_SESSION["password"] . "' ";
 
-        $user = $con -> query($sql);
+        $user = $con->query($sql);
 
         // Si l'utilisateur existe
-        if ($user -> num_rows > 0) {
-            while($rows = $user -> fetch_assoc()) {
+        if ($user->num_rows > 0) {
+            while ($rows = $user->fetch_assoc()) {
                 echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+                set_url();
             }
-        }
-        else {
+        } else {
             echo "<script> alert('Identifiant invalide'); </script>";
         }
     }
 }
-?>
+
