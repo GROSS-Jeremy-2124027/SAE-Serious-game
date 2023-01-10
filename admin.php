@@ -128,19 +128,20 @@
         mysqli_begin_transaction($db);
 
         // Préparation de la requête de mise à jour de la table "question"
-        $query1 = "UPDATE question SET id_question = '$identifiant' tupleQuestion = '$question', indice = $indice";
-
+        $query1 = "UPDATE `question` SET `tupleQuestion` = '$question', `indice` = '$indice' WHERE `id_question` = '$identifiant'";
+        
         $updateQuestion = $db -> query($query1) or die ($db -> error);
 
         // Préparation de la requête de mise à jour de la table "reponse"
-        $query2 = "UPDATE reponse SET bonneReponse = '$bonneReponse', mauvaiseReponse = '$mauvaiseReponse', mauvaiseReponse2 = '$mauvaiseReponse2', 
-        mauvaiseReponse3 = '$mauvaiseReponse3' WHERE question_id = $identifiant";
+        $query2 = "UPDATE `reponse` SET `bonneReponse` = '$bonneReponse', `mauvaiseReponse` = '$mauvaiseReponse', `mauvaiseReponse2` = '$mauvaiseReponse2', 
+        `mauvaiseReponse3` = '$mauvaiseReponse3' WHERE `question_id` = '$identifiant'";
+
+        // Validation de la transaction
+        mysqli_commit($db);
 
         $updtateReponse = $db -> query($query2) or die ($db -> error);
         mysqli_close($db);
 
-        // Validation de la transaction
-        //mysqli_commit($db);
     }
 
 ?>
