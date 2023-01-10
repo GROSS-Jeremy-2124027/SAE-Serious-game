@@ -64,7 +64,7 @@ var bool = false;
 function connexionPage() {
 
     if (bool === false) {
-        //document.getElementById('pageConnexion').style.display = "block";
+        document.getElementById('pageConnexion').style.display = "block";
 
         document.getElementById('boutonconnexion').textContent = "quitter";
         bool = true;
