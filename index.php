@@ -10,9 +10,9 @@
     <script src="JS/mainScript.js"></script>
 </head>
 <body>
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
+    <div id='etoile'></div>
+    <div id='etoile2'></div>
+    <div id='etoile3'></div>
     <header>  
         <div>
             <button class="boutonAdministrateur" onclick="administrateurPage()" id="boutonAdministrateur">
