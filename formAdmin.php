@@ -14,7 +14,7 @@
             <div class="form login" id="partie1">
                 <span class="title">Administrateur</span>
 
-                <form action="./query/login.php" method="post">
+                <form action="./query/loginAdmin.php" method="post">
                     <div class="input-field">
                         <input type="text" name="username" placeholder="Entrez votre nom" required>
                         <i class="uil uil-envelope icon"></i>
@@ -26,7 +26,7 @@
                     </div>
                     <p id="erreurConnection"></p>
                     <div class="input-field button">
-                        <input type="submit" name="login" value="Se connecter" onclick="connection()">
+                        <input type="submit" name="loginAdmin" value="Se connecter" onclick="connection()">
                     </div>
                 </form>
             </div>

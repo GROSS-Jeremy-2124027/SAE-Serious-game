@@ -18,12 +18,7 @@ if (isset($_POST["signup"])) {
     $has_digit = false;
     $has_special_char = false;
 
-    $isHere = true;
 
-
-    if ($username === "SELECT identifiant FROM `utilisateur` WHERE identifiant = '$username'") {
-        echo "<script> alert('nom d\'utilisateur déjà utilisé'); </script>";
-    }
 
     // On parcourt chaque caractère du mot de passe
     for ($i = 0; $i < strlen($password); $i++) {
@@ -88,11 +83,10 @@ if (isset($_POST["signup"])) {
 
 
         if ($insert) {
-            //echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>";
-            echo "SELECT identifiant FROM `utilisateur` WHERE identifiant = '$username'";
+            echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>";
         }
         else {
-            echo "<script> alert('Error: '); </script>";
+            
         }
     }
 }
