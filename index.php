@@ -4,28 +4,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title> Network Park </title>
-    <meta name="description" content="Venez tout apprendre sur les réseaux informatique avec Network Park !">
-    <meta name="keywords" content="Network, Réseaux, Informatique, Serious-game">
-    <meta name="author" content="Groupe 1 Année 2" >
     <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
     <link rel="icon" href="img/controller.png">
     <script src="JS/mainScript.js"></script>
 </head>
 <body>
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
+    <div id='etoile'></div>
+    <div id='etoile2'></div>
+    <div id='etoile3'></div>
     <header>  
         <div>
-
-                <button class="boutonAdministrateur" onclick="administrateurPage()" id="boutonAdministrateur">
-                    Administrateur 
-                </button>
-                <div id="pageAdmin">
-                    <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
-                </div>
-
+            <button class="boutonAdministrateur" onclick="administrateurPage()" id="boutonAdministrateur">
+                Administrateur 
+            </button>
+            <div id="pageAdmin">
+                <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
+            </div>
         </div>
         <div>
             <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion">
