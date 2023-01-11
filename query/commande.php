@@ -3,6 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include "../connection/connection.php";
 $con = connect();
 
@@ -40,8 +43,7 @@ switch ($_REQUEST['command']) {
         while ( $row = $result->fetch_assoc())  {
             $dbdata=$row;
         }
-        echo json_encode($dbdata, JSON_UNESCAPED_UNICODE);
-        die;
+        echo json_encode($dbdata);
 }
 
 ?>

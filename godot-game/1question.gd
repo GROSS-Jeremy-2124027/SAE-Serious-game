@@ -27,9 +27,6 @@ func _process(delta):
 
 func reinit_for_next_pc() :
 	get_parent().get_node("KinematicBody2D").state = get_parent().get_node("KinematicBody2D").States.FLOOR
-	for i in range(0,get_parent().get_node("CanvasLayer/Sombre/Q1").get_child_count()):
-		get_parent().get_node("CanvasLayer/Sombre/Q1").get_child(i).set_block_signals(true)
-#		get_parent().get_node("CanvasLayer/Sombre").completed = true
 	get_node("check").visible = true
 	get_parent().get_node("CanvasLayer/Sombre").visible = false
 	get_node("PCshape").disabled = true
