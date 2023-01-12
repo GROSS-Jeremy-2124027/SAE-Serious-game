@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
 *{
-    margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
@@ -50,7 +49,7 @@ h2{
 
 p{
     font-family: 'Silkscreen', cursive;
-    text-align: center;
+    text-align: justify;
     color: #fff;
 }
 
