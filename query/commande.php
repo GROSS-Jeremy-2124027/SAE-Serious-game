@@ -14,7 +14,7 @@ switch ($_REQUEST['command']) {
     # Fetch a number of scores from our table:
     case "get_score":
         session_start();
-        $sql ="SELECT meilleurScore FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
+        $sql ="SELECT meilleurScore".$_REQUEST['level']." FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
 
         $result = $con->query($sql);
 
@@ -31,7 +31,7 @@ switch ($_REQUEST['command']) {
 
     case "add_score":
         session_start();
-        $sql ="UPDATE `utilisateur` SET meilleurScore =".$_REQUEST['score']." WHERE identifiant = '".$_SESSION["username"]."'";
+        $sql ="UPDATE `utilisateur` SET meilleurScore".$_REQUEST['level']." =".$_REQUEST['score']." WHERE identifiant = '".$_SESSION["username"]."'";
 
         $con->query($sql);
         session_abort();

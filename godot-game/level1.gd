@@ -29,19 +29,19 @@ func _on_request_completed_get_score(result, response_code, headers, body):
 	httpActive = false
 	pass
 
-func get_score():
+func get_score(level):
 	if isGetQuestionFinished :
 		$HTTPRequest.connect("request_completed", self, "_on_request_completed_get_score")
 		httpActive = true
-		$HTTPRequest.request(String(host)+"/query/commande.php?command=get_score")
+		$HTTPRequest.request(String(host)+"/query/commande.php?command=get_score&level="+String(level))
 		while(httpActive):
 			yield(get_tree(), "idle_frame")
 		$HTTPRequest.disconnect("request_completed", self, "_on_request_completed_get_score")
 
-func add_score(score):
+func add_score(level, score):
 	$HTTPRequest.connect("request_completed", self, "disconnect")
 	httpActive = true
-	$HTTPRequest.request(String(host)+"/query/commande.php?command=add_score&score="+String(score))
+	$HTTPRequest.request(String(host)+"/query/commande.php?command=add_score&level="+String(level)+"&score="+String(score))
 	while(httpActive):
 		yield(get_tree(), "idle_frame")
 	$HTTPRequest.disconnect("request_completed", self, "disconnect")
@@ -60,7 +60,7 @@ func _ready():
 	while !isGetQuestionFinished:
 		yield(get_tree(), "idle_frame")
 	set_next_pc()
-	get_score()
+	get_score(int(name[-1]))
 	get_node("CanvasLayer/Blackwait").visible = false
 	get_node("CanvasLayer/Temps").visible = true
 	# player can now move
@@ -94,7 +94,6 @@ func set_next_pc():
 
 func end_game() :
 	# Fin de partie
-	#JavaScript.eval("window.location.href='../index.php'")
 	var newScore = (1000000000/get_node("CanvasLayer/Temps/Valeur").time)*2 / (nbErrors+2)
 	get_node("CanvasLayer/Temps/Valeur").gameRunning = false
 	get_node("CanvasLayer/GameOver").visible = true
@@ -103,4 +102,5 @@ func end_game() :
 	get_node("CanvasLayer/GameOver/Score/ScoreValeur").text = String(newScore)
 	if (newScore > actualScore) :
 		get_node("CanvasLayer/GameOver/NewHighScore").visible = true
-		add_score(newScore)
+		get_node("CanvasLayer/GameOver/NewHighScore/Timer").start()
+		add_score(int(name[-1]), newScore)

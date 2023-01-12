@@ -100,7 +100,7 @@
                 }*/
 
                 // Envoi de la requête pour les meilleurs scores
-                $query = "SELECT identifiant, meilleurScore FROM utilisateur ORDER BY meilleurScore DESC limit 5";
+                $query = "SELECT identifiant, meilleurScore1 FROM utilisateur ORDER BY meilleurScore1 DESC limit 5";
                 $result = $db->query($query);
                 
                 
@@ -110,7 +110,7 @@
                 ?>
                     <li>
                         <?php
-                            echo $row['identifiant'] . " : " . $row['meilleurScore'] . "<br>";
+                            echo $row['identifiant'] . " : " . $row['meilleurScore1'] . "<br>";
                         ?>
                     </li>
 

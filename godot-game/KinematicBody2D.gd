@@ -110,6 +110,14 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
+			if Input.is_action_just_pressed("1") :
+				get_parent().get_node("CanvasLayer/Sombre/Q1/R1").selected()
+			if Input.is_action_just_pressed("2") :
+				get_parent().get_node("CanvasLayer/Sombre/Q1/R2").selected()
+			if Input.is_action_just_pressed("3") :
+				get_parent().get_node("CanvasLayer/Sombre/Q1/R3").selected()
+			if Input.is_action_just_pressed("4") :
+				get_parent().get_node("CanvasLayer/Sombre/Q1/R4").selected()
 			if (Input.is_action_just_pressed("ui_select") or get_parent().get_node("CanvasLayer/Sombre").visible == false) :
 				#get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
 				get_parent().get_node("CanvasLayer/Sombre").set("visible", false)
