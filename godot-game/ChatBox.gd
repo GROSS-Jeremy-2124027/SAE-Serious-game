@@ -7,14 +7,7 @@ onready var inputField = get_node("VBoxContainer/HBoxContainer/LineEdit")
 
 var group_index = 0
 var user_name = 'Player'
-
-
-
-const indice1 = "Indice de la 1ere question"
-const indice2 = 'Indice de la 2eme question'
-const indice3 = 'Indice de la 3eme question'
-const indice4 = 'Indice de la 4eme question'
-const indice5 = 'Indice de la 5eme question'
+var indice
 
 func _ready():
 	
@@ -62,16 +55,4 @@ func text_entered(text):
 	chatLog.percent_visible = 0
 
 func envoie_indice(numeroIndice):
-	var stock = ""
-	match numeroIndice:
-		1: 
-			stock += indice1
-		2:
-			stock += indice2
-		3:
-			stock += indice3
-		4:
-			stock += indice4
-		5:
-			stock += indice5
-	return stock
+	return indice

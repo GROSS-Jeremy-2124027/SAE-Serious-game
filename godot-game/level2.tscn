@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 2/continue.png" type="Texture" id=2]
@@ -25,15 +25,14 @@
 [ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=23]
 [ext_resource path="res://ASSETS/Spring/Spring_02.png" type="Texture" id=24]
 [ext_resource path="res://ASSETS/Spring/Spring_04.png" type="Texture" id=25]
-[ext_resource path="res://R1.gd" type="Script" id=26]
-[ext_resource path="res://Q2.gd" type="Script" id=27]
-[ext_resource path="res://Q3.gd" type="Script" id=28]
-[ext_resource path="res://Q1.gd" type="Script" id=29]
-[ext_resource path="res://R2.gd" type="Script" id=30]
+[ext_resource path="res://2q_Reponse.gd" type="Script" id=26]
+[ext_resource path="res://1question.gd" type="Script" id=27]
+[ext_resource path="res://font1.tres" type="DynamicFont" id=28]
+[ext_resource path="res://Panel.gd" type="Script" id=29]
+[ext_resource path="res://Sombre-2q.gd" type="Script" id=30]
 [ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=31]
-[ext_resource path="res://WordToDef.gd" type="Script" id=32]
-[ext_resource path="res://R3.gd" type="Script" id=33]
-[ext_resource path="res://Sombre.gd" type="Script" id=34]
+[ext_resource path="res://Temps.gd" type="Script" id=32]
+[ext_resource path="res://level1.gd" type="Script" id=33]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=35]
 [ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=36]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=37]
@@ -273,10 +272,17 @@ points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
 } ]
 8/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=50]
+[sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 96, 68 )
 
-[sub_resource type="StyleBoxFlat" id=51]
+[sub_resource type="DynamicFont" id=91]
+size = 40
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=96]
+default_font = SubResource( 91 )
+
+[sub_resource type="StyleBoxFlat" id=97]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -284,30 +290,52 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="DynamicFont" id=57]
+[sub_resource type="Theme" id=98]
+default_font = ExtResource( 28 )
+
+[sub_resource type="RectangleShape2D" id=99]
+extents = Vector2( 532, 64.5 )
+
+[sub_resource type="RectangleShape2D" id=100]
+
+[sub_resource type="RectangleShape2D" id=101]
+
+[sub_resource type="RectangleShape2D" id=102]
+extents = Vector2( 192, 60 )
+
+[sub_resource type="DynamicFont" id=92]
 size = 32
 font_data = ExtResource( 31 )
 
-[sub_resource type="Theme" id=52]
-default_font = SubResource( 57 )
+[sub_resource type="Theme" id=103]
+default_font = SubResource( 92 )
 
-[sub_resource type="RectangleShape2D" id=53]
-extents = Vector2( 192, 60 )
-
-[sub_resource type="CanvasItemMaterial" id=54]
-blend_mode = 1
-
-[sub_resource type="DynamicFont" id=58]
-size = 24
+[sub_resource type="DynamicFont" id=93]
+size = 50
 font_data = ExtResource( 31 )
 
-[sub_resource type="Theme" id=55]
-default_font = SubResource( 58 )
+[sub_resource type="Theme" id=104]
+default_font = SubResource( 93 )
 
-[sub_resource type="RectangleShape2D" id=56]
-extents = Vector2( 300, 100 )
+[sub_resource type="DynamicFont" id=94]
+size = 100
+font_data = ExtResource( 31 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Theme" id=105]
+default_font = SubResource( 94 )
+
+[sub_resource type="DynamicFont" id=95]
+size = 50
+font_data = ExtResource( 31 )
+
+[sub_resource type="Theme" id=106]
+default_font = SubResource( 95 )
+
+[sub_resource type="Theme" id=107]
+default_font = SubResource( 94 )
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 33 )
 
 [node name="Ladder" type="TileMap" parent="."]
 position = Vector2( 0, -32 )
@@ -368,20 +396,20 @@ shape = SubResource( 12 )
 tile_set = SubResource( 7 )
 cell_size = Vector2( 160, 160 )
 format = 1
-tile_data = PoolIntArray( -1441799, -1610612732, 0, -1507328, -536870911, 0, -1376287, -1073741823, 0, -1376263, -1610612732, 0, -1441792, -536870911, 0, -1310751, -1073741823, 0, -1310727, -1610612732, 0, -1376256, -536870911, 0, -1245215, -1073741823, 0, -1245191, -536870908, 0, -1310720, -536870911, 0, -1179679, -1073741823, 0, -1179655, -536870908, 0, -1245184, -536870911, 0, -1114143, -1073741823, 0, -1114119, -536870908, 0, -1179648, -536870911, 0, -1048607, -1073741823, 0, -1048583, -1610612732, 0, -1114112, -536870911, 0, -983071, -1073741823, 0, -983047, -1610612732, 0, -1048576, -536870911, 0, -917535, -1073741823, 0, -983040, -536870911, 0, -851999, -1073741823, 0, -917504, -536870911, 0, -786463, -1073741823, 0, -786444, 536870914, 0, -786443, -536870904, 0, -786439, -1610612732, 0, -851968, -536870911, 0, -720927, -1073741823, 0, -720909, 536870914, 0, -720908, 536870912, 0, -720903, -1610612732, 0, -786432, -536870911, 0, -655391, -1073741823, 0, -655390, 4, 0, -655381, 8, 0, -655374, 536870914, 0, -655373, 536870912, 0, -655367, -1610612732, 0, -720896, -536870911, 0, -589855, -1073741823, 0, -589850, -1610612731, 0, -589849, 1610612740, 0, -589845, -1610612735, 0, -589844, 536870920, 0, -589839, 536870914, 0, -589838, 536870912, 0, -589831, 5, 0, -589830, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 4, 0, -655360, -536870911, 0, -524319, -1073741823, 0, -524314, -1610612732, 0, -524309, 0, 0, -524308, -1073741824, 0, -524307, 536870913, 0, -524306, 536870913, 0, -524305, 536870913, 0, -524304, 536870913, 0, -524303, 536870912, 0, -589824, -536870911, 0, -458783, -1073741823, 0, -458779, 4, 0, -458778, -1610612732, 0, -524288, -536870911, 0, -393247, -1073741823, 0, -393242, -1610612732, 0, -458752, -536870911, 0, -327711, -1073741823, 0, -327710, 4, 0, -327708, 1073741829, 0, -327707, 1073741828, 0, -327706, 1073741831, 0, -327692, 1073741824, 0, -327691, 1610612737, 0, -327690, 1610612736, 0, -327686, 1073741829, 0, -327685, 1073741828, 0, -327684, 1073741828, 0, -393216, -536870911, 0, -262175, -1073741823, 0, -262172, -1610612732, 0, -262156, -1610612735, 0, -262155, 1073741830, 0, -262154, -2147483647, 0, -262150, -536870908, 0, -327680, -536870911, 0, -196639, -1073741823, 0, -196636, -1610612732, 0, -196632, 1073741824, 0, -196631, 1073741825, 0, -196630, 1610612736, 0, -196620, -1610612735, 0, -196619, 1073741830, 0, -196618, -2147483647, 0, -196614, -536870908, 0, -196612, 4, 0, -196611, 4, 0, -196610, 536870916, 0, -196609, 536870916, 0, -262144, -536870911, 0, -131103, -1073741823, 0, -131101, 1073741828, 0, -131100, -1610612732, 0, -131096, -536870911, 0, -131095, 1610612742, 0, -131094, -1073741823, 0, -131088, 536870916, 0, -131084, -1610612735, 0, -131083, 1073741830, 0, -131082, -2147483647, 0, -131078, -536870908, 0, -196608, -536870911, 0, -65567, -1073741823, 0, -65560, -536870911, 0, -65559, 1610612742, 0, -65558, -1073741823, 0, -65548, -1610612735, 0, -65547, 1073741830, 0, -65546, -2147483647, 0, -65542, -536870908, 0, -131072, -536870911, 0, -31, -1073741823, 0, -30, 4, 0, -24, -536870911, 0, -23, 1610612742, 0, -22, -1073741823, 0, -12, -1610612735, 0, -11, 1073741830, 0, -10, -2147483647, 0, -6, -536870908, 0, -65536, -536870911, 0, 65505, -1073741823, 0, 65512, -536870911, 0, 65513, 1610612742, 0, 65514, -1073741823, 0, 65524, -1610612735, 0, 65525, 1073741830, 0, 65526, -2147483647, 0, 0, -536870911, 0, 131041, -1073741823, 0, 131048, -536870911, 0, 131049, 1610612742, 0, 131050, -1073741823, 0, 131060, -1610612735, 0, 131061, 1073741830, 0, 131062, -2147483647, 0, 65536, -536870911, 0, 196577, 1610612738, 0, 196578, 1073741825, 0, 196579, 1073741825, 0, 196580, 1073741825, 0, 196581, 1073741825, 0, 196582, 1073741825, 0, 196583, 1073741825, 0, 196584, 1073741826, 0, 196585, 1610612742, 0, 196586, 1610612738, 0, 196587, 1073741825, 0, 196588, 1073741825, 0, 196589, 1073741825, 0, 196590, 1073741825, 0, 196591, 1610612737, 0, 196592, 1073741825, 0, 196593, 1073741825, 0, 196594, 1073741825, 0, 196595, 1073741825, 0, 196596, 1073741826, 0, 196597, 1073741830, 0, 196598, -2147483646, 0, 196599, 1073741825, 0, 196600, 1073741825, 0, 196601, 1073741825, 0, 196602, 1073741825, 0, 196603, 1073741825, 0, 196604, 1073741825, 0, 196605, 1073741825, 0, 196606, 1073741825, 0, 196607, 1073741825, 0, 131072, 1073741826, 0 )
+tile_data = PoolIntArray( -1441799, -1610612732, 0, -1507328, -536870911, 0, -1376287, -1073741823, 0, -1376263, -1610612732, 0, -1441792, -536870911, 0, -1310751, -1073741823, 0, -1310727, -1610612732, 0, -1376256, -536870911, 0, -1245215, -1073741823, 0, -1245191, -536870908, 0, -1310720, -536870911, 0, -1179679, -1073741823, 0, -1179655, -536870908, 0, -1245184, -536870911, 0, -1114143, -1073741823, 0, -1114119, -536870908, 0, -1179648, -536870911, 0, -1048607, -1073741823, 0, -1048583, -1610612732, 0, -1114112, -536870911, 0, -983071, -1073741823, 0, -983047, -1610612732, 0, -1048576, -536870911, 0, -917535, -1073741823, 0, -983040, -536870911, 0, -851999, -1073741823, 0, -917504, -536870911, 0, -786463, -1073741823, 0, -786444, 536870914, 0, -786443, -536870904, 0, -786439, -1610612732, 0, -851968, -536870911, 0, -720927, -1073741823, 0, -720909, 536870914, 0, -720908, 536870912, 0, -720903, -1610612732, 0, -786432, -536870911, 0, -655391, -1073741823, 0, -655390, 4, 0, -655389, 4, 0, -655381, 8, 0, -655374, 536870914, 0, -655373, 536870912, 0, -655367, -1610612732, 0, -720896, -536870911, 0, -589855, -1073741823, 0, -589850, -1610612731, 0, -589849, 1610612740, 0, -589845, -1610612735, 0, -589844, 536870920, 0, -589839, 536870914, 0, -589838, 536870912, 0, -589831, 5, 0, -589830, 4, 0, -589829, 4, 0, -589828, 4, 0, -589827, 4, 0, -589826, 4, 0, -655360, -536870911, 0, -524319, -1073741823, 0, -524314, -1610612732, 0, -524309, 0, 0, -524308, -1073741824, 0, -524307, 536870913, 0, -524306, 536870913, 0, -524305, 536870913, 0, -524304, 536870913, 0, -524303, 536870912, 0, -589824, -536870911, 0, -458783, -1073741823, 0, -458779, 4, 0, -458778, -1610612732, 0, -524288, -536870911, 0, -393247, -1073741823, 0, -393242, -1610612732, 0, -458752, -536870911, 0, -327711, -1073741823, 0, -327710, 4, 0, -327708, 1073741829, 0, -327707, 1073741828, 0, -327706, 1073741831, 0, -327692, 1073741824, 0, -327691, 1610612737, 0, -327690, 1610612736, 0, -327686, 1073741829, 0, -327685, 1073741828, 0, -327684, 1073741828, 0, -393216, -536870911, 0, -262175, -1073741823, 0, -262172, -1610612732, 0, -262156, -1610612735, 0, -262155, 1073741830, 0, -262154, -2147483647, 0, -262150, -536870908, 0, -327680, -536870911, 0, -196639, -1073741823, 0, -196636, -1610612732, 0, -196632, 1073741824, 0, -196631, 1073741825, 0, -196630, 1610612736, 0, -196620, -1610612735, 0, -196619, 1073741830, 0, -196618, -2147483647, 0, -196614, -536870908, 0, -196612, 4, 0, -196611, 4, 0, -196610, 536870916, 0, -196609, 536870916, 0, -262144, -536870911, 0, -131103, -1073741823, 0, -131101, 1073741828, 0, -131100, -1610612732, 0, -131096, -536870911, 0, -131095, 1610612742, 0, -131094, -1073741823, 0, -131088, 536870916, 0, -131084, -1610612735, 0, -131083, 1073741830, 0, -131082, -2147483647, 0, -131078, -536870908, 0, -196608, -536870911, 0, -65567, -1073741823, 0, -65560, -536870911, 0, -65559, 1610612742, 0, -65558, -1073741823, 0, -65548, -1610612735, 0, -65547, 1073741830, 0, -65546, -2147483647, 0, -65542, -536870908, 0, -131072, -536870911, 0, -31, -1073741823, 0, -30, 4, 0, -24, -536870911, 0, -23, 1610612742, 0, -22, -1073741823, 0, -12, -1610612735, 0, -11, 1073741830, 0, -10, -2147483647, 0, -6, -536870908, 0, -65536, -536870911, 0, 65505, -1073741823, 0, 65512, -536870911, 0, 65513, 1610612742, 0, 65514, -1073741823, 0, 65524, -1610612735, 0, 65525, 1073741830, 0, 65526, -2147483647, 0, 0, -536870911, 0, 131041, -1073741823, 0, 131048, -536870911, 0, 131049, 1610612742, 0, 131050, -1073741823, 0, 131060, -1610612735, 0, 131061, 1073741830, 0, 131062, -2147483647, 0, 65536, -536870911, 0, 196577, 1610612738, 0, 196578, 1073741825, 0, 196579, 1073741825, 0, 196580, 1073741825, 0, 196581, 1073741825, 0, 196582, 1073741825, 0, 196583, 1073741825, 0, 196584, 1073741826, 0, 196585, 1610612742, 0, 196586, 1610612738, 0, 196587, 1073741825, 0, 196588, 1073741825, 0, 196589, 1073741825, 0, 196590, 1073741825, 0, 196591, 1610612737, 0, 196592, 1073741825, 0, 196593, 1073741825, 0, 196594, 1073741825, 0, 196595, 1073741825, 0, 196596, 1073741826, 0, 196597, 1073741830, 0, 196598, -2147483646, 0, 196599, 1073741825, 0, 196600, 1073741825, 0, 196601, 1073741825, 0, 196602, 1073741825, 0, 196603, 1073741825, 0, 196604, 1073741825, 0, 196605, 1073741825, 0, 196606, 1073741825, 0, 196607, 1073741825, 0, 131072, 1073741826, 0 )
 
 [node name="PC1" type="StaticBody2D" parent="."]
-position = Vector2( -1281, -737 )
+position = Vector2( -2744, -1152 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 32 )
+script = ExtResource( 27 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="PCshape" type="CollisionShape2D" parent="PC1"]
 position = Vector2( 1056, 76 )
-shape = SubResource( 50 )
+shape = SubResource( 78 )
 disabled = true
 
 [node name="PCsprite" type="Sprite" parent="PC1"]
@@ -389,393 +417,82 @@ position = Vector2( 1056, 78 )
 scale = Vector2( 3, 2.1875 )
 texture = ExtResource( 35 )
 
-[node name="Sombre" type="ColorRect" parent="PC1"]
-visible = false
-margin_left = -580.0
-margin_top = -776.0
-margin_right = 2356.0
-margin_bottom = 632.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 0.878431 )
-script = ExtResource( 34 )
-
-[node name="Q1" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 29 )
-
-[node name="Monodiffusion" type="MarginContainer" parent="PC1/Sombre/Q1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q1/Monodiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q1/Monodiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 52 )
-text = "Monodiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q1"]
-visible = false
-light_mask = 17
-position = Vector2( 472, -252 )
-shape = SubResource( 53 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q1"]
-material = SubResource( 54 )
-margin_left = 280.0
-margin_top = -312.0
-margin_right = 664.0
-margin_bottom = -192.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q2" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 584, 808 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 27 )
-
-[node name="Multidiffusion" type="MarginContainer" parent="PC1/Sombre/Q2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q2/Multidiffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q2/Multidiffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 52 )
-text = "Multidiffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q2"]
-visible = false
-light_mask = 17
-position = Vector2( 472, 4 )
-shape = SubResource( 53 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q2"]
-material = SubResource( 54 )
-margin_left = 280.0
-margin_top = -56.0
-margin_right = 664.0
-margin_bottom = 64.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Q3" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 28 )
-
-[node name="Diffusion" type="MarginContainer" parent="PC1/Sombre/Q3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/Q3/Diffusion"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/Q3/Diffusion/MarginContainer"]
-margin_right = 384.0
-margin_bottom = 120.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/Q3/Diffusion/MarginContainer/HBoxContainer"]
-margin_top = 39.0
-margin_right = 384.0
-margin_bottom = 80.0
-size_flags_horizontal = 3
-theme = SubResource( 52 )
-text = "Diffusion"
-align = 1
-valign = 1
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/Q3"]
-visible = false
-light_mask = 17
-position = Vector2( -112, -556 )
-shape = SubResource( 53 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/Q3"]
-material = SubResource( 54 )
-margin_left = -304.0
-margin_top = -616.0
-margin_right = 80.0
-margin_bottom = -496.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="R1" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 26 )
-
-[node name="DiffusionRep" type="MarginContainer" parent="PC1/Sombre/R1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer10" type="MarginContainer" parent="PC1/Sombre/R1/DiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-grow_horizontal = 0
-rect_clip_content = true
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R1/DiffusionRep/MarginContainer10/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = SubResource( 55 )
-text = "Envoyer des paquets de 
-données dans les réseaux IP à tous les participants d’un réseau local."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R1"]
-light_mask = 17
-position = Vector2( 868, -1092 )
-shape = SubResource( 56 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R1"]
-visible = false
-material = SubResource( 54 )
-margin_left = 568.0
-margin_top = -1192.0
-margin_right = 1168.0
-margin_bottom = -992.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R2" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 30 )
-
-[node name="MonodiffusionRep" type="MarginContainer" parent="PC1/Sombre/R2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R2/MonodiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R2/MonodiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 55 )
-text = "Les paquets sont envoyés à une seule destination réseau avec une adresse particulière."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R2"]
-light_mask = 17
-position = Vector2( 868, -812 )
-shape = SubResource( 56 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R2"]
-visible = false
-material = SubResource( 54 )
-margin_left = 568.0
-margin_top = -912.0
-margin_right = 1168.0
-margin_bottom = -712.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
-[node name="R3" type="Area2D" parent="PC1/Sombre"]
-position = Vector2( 1168, 1616 )
-collision_layer = 17
-collision_mask = 17
-script = ExtResource( 33 )
-
-[node name="MultidiffusionRep" type="MarginContainer" parent="PC1/Sombre/R3"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel" type="Panel" parent="PC1/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-custom_styles/panel = SubResource( 51 )
-
-[node name="MarginContainer" type="MarginContainer" parent="PC1/Sombre/R3/MultidiffusionRep"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="PC1/Sombre/R3/MultidiffusionRep/MarginContainer/HBoxContainer"]
-margin_right = 600.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 9
-theme = SubResource( 55 )
-text = "envoyer un même paquet à plusieurs utilisateurs."
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
-
-[node name="CollisionMouse" type="CollisionShape2D" parent="PC1/Sombre/R3"]
-light_mask = 17
-position = Vector2( 868, -516 )
-shape = SubResource( 56 )
-
-[node name="ColorRect" type="ColorRect" parent="PC1/Sombre/R3"]
-visible = false
-material = SubResource( 54 )
-margin_left = 568.0
-margin_top = -616.0
-margin_right = 1168.0
-margin_bottom = -416.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
 [node name="check" type="Sprite" parent="PC1"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 36 )
+
+[node name="PC2" type="StaticBody2D" parent="."]
+position = Vector2( -5712, -1856 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PCshape" type="CollisionShape2D" parent="PC2"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 78 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC2"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 35 )
+
+[node name="check" type="Sprite" parent="PC2"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 36 )
+
+[node name="PC3" type="StaticBody2D" parent="."]
+position = Vector2( -3864, -1632 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PCshape" type="CollisionShape2D" parent="PC3"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 78 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC3"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 35 )
+
+[node name="check" type="Sprite" parent="PC3"]
+visible = false
+position = Vector2( 1064, 56 )
+scale = Vector2( 0.475, 0.405964 )
+texture = ExtResource( 36 )
+
+[node name="PC4" type="StaticBody2D" parent="."]
+position = Vector2( -1528, -1696 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PCshape" type="CollisionShape2D" parent="PC4"]
+position = Vector2( 1056, 76 )
+shape = SubResource( 78 )
+disabled = true
+
+[node name="PCsprite" type="Sprite" parent="PC4"]
+position = Vector2( 1056, 78 )
+scale = Vector2( 3, 2.1875 )
+texture = ExtResource( 35 )
+
+[node name="check" type="Sprite" parent="PC4"]
 visible = false
 position = Vector2( 1064, 56 )
 scale = Vector2( 0.475, 0.405964 )
@@ -839,7 +556,242 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 10 )
 centered = false
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sombre" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_left = -368.0
+margin_top = -200.0
+margin_right = 2568.0
+margin_bottom = 1449.0
+rect_scale = Vector2( 0.65, 0.65 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.878431 )
+script = ExtResource( 30 )
+
+[node name="Q1" type="Label" parent="CanvasLayer/Sombre"]
+margin_left = 615.0
+margin_top = 345.0
+margin_right = 2105.0
+margin_bottom = 397.0
+size_flags_horizontal = 3
+theme = SubResource( 96 )
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ?"
+valign = 1
+
+[node name="R1" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( 0, 196.539 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 26 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R1/box"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 97 )
+script = ExtResource( 29 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1/box"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer"]
+margin_right = 1064.0
+margin_bottom = 129.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer/HBoxContainer"]
+margin_right = 1064.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+theme = SubResource( 98 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cdc
+cecr"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R1"]
+light_mask = 17
+position = Vector2( 532, 64.5 )
+shape = SubResource( 99 )
+
+[node name="R2" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( 0, 396.539 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 26 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R2/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 97 )
+script = ExtResource( 29 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R2/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R2/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 98 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "32"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R2"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 100 )
+
+[node name="R3" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( 0, 596.539 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 26 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R3/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 97 )
+script = ExtResource( 29 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R3/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R3/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 98 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "64"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R3"]
+light_mask = 17
+shape = SubResource( 101 )
+
+[node name="R4" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
+position = Vector2( 0, 796.539 )
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 26 )
+
+[node name="box" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R4/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 97 )
+script = ExtResource( 29 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4/box"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R4/box/MarginContainer"]
+margin_right = 384.0
+margin_bottom = 120.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R4/box/MarginContainer/HBoxContainer"]
+margin_top = 39.0
+margin_right = 384.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+theme = SubResource( 98 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "128"
+align = 1
+valign = 1
+
+[node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R4"]
+light_mask = 17
+position = Vector2( 192, 60 )
+shape = SubResource( 102 )
+
+[node name="debug" type="Label" parent="CanvasLayer"]
+margin_left = 328.0
+margin_top = 584.0
+margin_right = 552.0
+margin_bottom = 688.0
 
 [node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 38 )]
 margin_left = 11.0
@@ -849,16 +801,106 @@ margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
 
-[connection signal="visibility_changed" from="PC1/Sombre" to="PC1/Sombre" method="_on_Sombre_visibility_changed"]
-[connection signal="input_event" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q1" to="PC1/Sombre/Q1" method="_on_MonoArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q2" to="PC1/Sombre/Q2" method="_on_MultiArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/Q3" to="PC1/Sombre/Q3" method="_on_DiffuArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R1" to="PC1/Sombre/R1" method="_on_DiffuRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R2" to="PC1/Sombre/R2" method="_on_MonoRepArea2D_mouse_exited"]
-[connection signal="input_event" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_input_event"]
-[connection signal="mouse_exited" from="PC1/Sombre/R3" to="PC1/Sombre/R3" method="_on_MultiRepArea2D_mouse_exited"]
+[node name="Temps" type="Label" parent="CanvasLayer"]
+margin_left = 1080.0
+margin_top = 16.0
+margin_right = 1216.0
+margin_bottom = 57.0
+theme = SubResource( 103 )
+text = "TEMPS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Valeur" type="Label" parent="CanvasLayer/Temps"]
+margin_left = -48.0
+margin_top = 48.0
+margin_right = 180.0
+margin_bottom = 89.0
+theme = SubResource( 103 )
+text = "00:00:000"
+script = ExtResource( 32 )
+
+[node name="Blackwait" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_right = 1528.0
+margin_bottom = 880.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="textwait" type="Label" parent="CanvasLayer/Blackwait"]
+margin_left = 176.0
+margin_top = 288.0
+margin_right = 1107.0
+margin_bottom = 353.0
+theme = SubResource( 104 )
+text = "Patientez s'il vous plait"
+
+[node name="GameOver" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_right = 1528.0
+margin_bottom = 880.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Erreurs" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 168.0
+margin_right = 844.0
+margin_bottom = 209.0
+theme = SubResource( 103 )
+text = "Erreurs : 0"
+valign = 1
+
+[node name="Temps" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 216.0
+margin_right = 892.0
+margin_bottom = 257.0
+theme = SubResource( 103 )
+text = "TEMPS : 00:00:000"
+valign = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 424.0
+margin_top = 296.0
+margin_right = 851.0
+margin_bottom = 424.0
+theme = SubResource( 105 )
+text = "Score"
+align = 1
+
+[node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 428.0
+margin_bottom = 185.0
+theme = SubResource( 106 )
+text = "000000"
+align = 1
+valign = 1
+
+[node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
+visible = false
+margin_left = 56.0
+margin_top = 528.0
+margin_right = 1222.0
+margin_bottom = 656.0
+theme = SubResource( 107 )
+text = "New High Score!"
+align = 1
+
+[connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/Sombre/Q1/R1/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R2" to="CanvasLayer/Sombre/Q1/R2" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R2" to="CanvasLayer/Sombre/Q1/R2" method="_on_R1_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/Sombre/Q1/R2/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R3" to="CanvasLayer/Sombre/Q1/R3" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R3" to="CanvasLayer/Sombre/Q1/R3" method="_on_R1_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/Sombre/Q1/R3/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
+[connection signal="input_event" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
+[connection signal="resized" from="CanvasLayer/Sombre/Q1/R4/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
+[connection signal="visibility_changed" from="CanvasLayer/Temps/Valeur" to="CanvasLayer/Temps/Valeur" method="_on_Valeur_visibility_changed"]

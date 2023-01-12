@@ -110,7 +110,6 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
-			$Sprite.visible = false
 			if (Input.is_action_just_pressed("ui_select") or get_parent().get_node("CanvasLayer/Sombre").visible == false) :
 				#get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
 				get_parent().get_node("CanvasLayer/Sombre").set("visible", false)
