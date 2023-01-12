@@ -29,6 +29,13 @@
     <h1>
         Administrateur
     </h1>
+    <h2>
+        Informations
+    </h2>
+    <p>
+        Pour modifier les questions et réponses il suffit de mettre l'id correspondant à la question dans la première case
+        puis remplir les autres case comme vous le souhaitez.
+    </p>
 
 <?php
 

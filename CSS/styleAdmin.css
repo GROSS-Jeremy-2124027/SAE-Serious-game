@@ -29,6 +29,7 @@ h1{
 
 h2{
     text-align: center;
+    font-family: 'Silkscreen', cursive;
     font-size: 2.5em;
     margin-bottom: 40px;
 }
@@ -37,6 +38,13 @@ h3{
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 40px;
+}
+
+p{
+    text-align: center;
+    font-family: 'Silkscreen', cursive;
+    font-size: medium;
+    margin-bottom: 100px;
 }
 
 .boutonRetour, .boutonValider{
