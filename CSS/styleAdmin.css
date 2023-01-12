@@ -29,6 +29,7 @@ h1{
 
 h2{
     text-align: center;
+    font-family: 'Silkscreen', cursive;
     font-size: 2.5em;
     margin-bottom: 40px;
 }
@@ -37,6 +38,13 @@ h3{
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 40px;
+}
+
+p{
+    text-align: center;
+    font-family: 'Silkscreen', cursive;
+    font-size: medium;
+    margin: 0 20% 100px 20%;
 }
 
 .boutonRetour, .boutonValider{
@@ -86,4 +94,8 @@ form{
 
 .affichage input{
     color: #000;
+}
+
+.boutonValider{
+    color: #fff !important;
 }
