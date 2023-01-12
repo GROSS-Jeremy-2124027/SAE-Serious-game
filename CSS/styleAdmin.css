@@ -44,7 +44,7 @@ p{
     text-align: center;
     font-family: 'Silkscreen', cursive;
     font-size: medium;
-    margin-bottom: 100px;
+    margin: 0 20% 100px 20%;
 }
 
 .boutonRetour, .boutonValider{
