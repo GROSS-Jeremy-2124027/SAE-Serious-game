@@ -19,9 +19,9 @@ if (isset($_POST["loginAdmin"])) {
     $_SESSION['username'] = $_POST["username"];
     $_SESSION['password'] = $_POST["password"];
 
-    $mot_de_passe_hash = "SELECT mot_de_passe FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
+    $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
     $string = $con ->query($mot_de_passe_hash) ->fetch_assoc();
-    $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
+    $sql = " SELECT * FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
 
     $user = $con -> query($sql);
 
@@ -33,6 +33,7 @@ if (isset($_POST["loginAdmin"])) {
                 echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
                 echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
                 echo "<script type='text/javascript'>window.parent.document.getElementById('boutonAdministrateur').textContent = 'Se déconnecter';</script>";
+                set_url();
             }
         }
     }
