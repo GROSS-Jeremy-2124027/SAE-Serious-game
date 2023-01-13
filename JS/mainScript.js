@@ -22,10 +22,6 @@ function menuLvl() {
     //on supprime tout les éléments présent au début
 
     aide.textContent = "Vous êtes sur le point d'entrer dans le vaisseau. Utilisez les touches directionnelles  de votre clavier pour accéder au différentes machines du vaisseau. Positionnez vous dessus et et appuyer sur la barre d'espace et répondez aux questions. Si vous avez la bonne réponse, vous pourrez continuer votre aventure ! Taper aide si vous en avez besoin, le chatbot vous donnera un indice.";
-    aide.style.color = '#fff';
-    aide.style.width = '800px';
-    aide.style.marginTop = '100px';
-    aide.style.textAlign = 'center';
     document.getElementById("menulvl").appendChild(aide);
 
 
