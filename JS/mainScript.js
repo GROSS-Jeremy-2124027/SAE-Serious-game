@@ -59,38 +59,64 @@ function removeAllChildNodes(parent) {
     }
 }//fonction pour supprimer tout les enfants d'un élément
 
-var bool = false;
+var estConnecte = false;
 
 function connexionPage() {
-
-    if (bool === false) {
-        document.getElementById('pageConnexion').style.display = "block";
-
-        document.getElementById('boutonconnexion').textContent = "quitter";
-        bool = true;
+    if (document.getElementById('boutonconnexion').textContent == 'Se déconnecter') {
+        estConnecte = true;
+        var paragraph = document.createElement('p');
+        paragraph.textContent = "Voulez-vous vraiment vous déconnecter ?"
+        var bouton = document.createElement('button')
+        bouton.textContent = "Oui"
+        bouton.onclick = function () {
+            estConnecte = false;
+            document.getElementById('pageConnexion').removeChild(paragraph);
+            document.getElementById('pageConnexion').removeChild(bouton);
+        }
+        document.getElementById('pageConnexion').appendChild(paragraph)
+        document.getElementById('pageConnexion').appendChild(bouton)
+        document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
     }
     else {
-        document.getElementById('pageConnexion').style.display = "none";
-        document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscire";  
-        //btnconnexion.disabled = "disabled";  
-        bool = false;
+        if (document.getElementById('htmlpage').style.display == "none") {
+            document.getElementById('htmlpage').style.display = "block";
+            document.getElementById('boutonconnexion').textContent = "quitter";
+            document.getElementById('pageAdmin').style.display = "none";
+            document.getElementById('boutonAdministrateur').textContent = "Administrateur";
+            bool = false;
+        }
+        else {
+            window.document.getElementById('htmlpage').style.display = "none";
+            if (estConnecte) {
+                document.getElementById('boutonconnexion').textContent = "Se déconnecter";
+            }
+            else {
+                document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
+            }
+        }
     }
+
 }//fonction pour afficher/cacher la page de connexion
 
-var bool2 = false;
+var bool = false;
 
 function administrateurPage() {
 
     if (bool === false) {
         document.getElementById('pageAdmin').style.display = "block";
         document.getElementById('boutonAdministrateur').textContent = "quitter";
-       
         bool = true;
+        document.getElementById('htmlpage').style.display = "none"
+        if (estConnecte) {
+            document.getElementById('boutonconnexion').textContent = "Se déconnecter";
+        }
+        else {
+            document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
+        }
     }
     else {
         document.getElementById('pageAdmin').style.display = "none";
         document.getElementById('boutonAdministrateur').textContent = "Administrateur";  
-        //btnconnexion.disabled = "disabled";  
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion administrateur
