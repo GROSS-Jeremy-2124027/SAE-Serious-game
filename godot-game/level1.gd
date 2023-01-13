@@ -66,7 +66,6 @@ func _ready():
 	get_node("CanvasLayer/Temps").visible = true
 	# detect if user is on mobile
 	userAgent = String(JavaScript.eval("navigator.userAgent")).to_lower()
-	get_node("CanvasLayer/debug").text = userAgent
 	if ("android" in userAgent || "webos" in userAgent || "iphone" in userAgent || "ipad" in userAgent || "ipod" in userAgent || "blackberry" in userAgent || "windows phone" in userAgent) :
 		get_node("CanvasLayer/Mobile").visible = true
 		get_node("CanvasLayer/ChatBox").visible = false

@@ -345,12 +345,12 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 } ]
 9/z_index = 0
 
-[sub_resource type="DynamicFont" id=79]
+[sub_resource type="DynamicFont" id=98]
 size = 40
 font_data = ExtResource( 31 )
 
 [sub_resource type="Theme" id=80]
-default_font = SubResource( 79 )
+default_font = SubResource( 98 )
 
 [sub_resource type="StyleBoxFlat" id=81]
 bg_color = Color( 0, 0, 0, 1 )
@@ -373,36 +373,36 @@ extents = Vector2( 532, 64.5 )
 [sub_resource type="RectangleShape2D" id=86]
 extents = Vector2( 192, 60 )
 
-[sub_resource type="DynamicFont" id=87]
+[sub_resource type="DynamicFont" id=99]
 size = 32
 font_data = ExtResource( 31 )
 
 [sub_resource type="Theme" id=88]
-default_font = SubResource( 87 )
+default_font = SubResource( 99 )
 
-[sub_resource type="DynamicFont" id=89]
+[sub_resource type="DynamicFont" id=100]
 size = 50
 font_data = ExtResource( 31 )
 
 [sub_resource type="Theme" id=90]
-default_font = SubResource( 89 )
+default_font = SubResource( 100 )
 
-[sub_resource type="DynamicFont" id=91]
+[sub_resource type="DynamicFont" id=101]
 size = 100
 font_data = ExtResource( 31 )
 
 [sub_resource type="Theme" id=92]
-default_font = SubResource( 91 )
+default_font = SubResource( 101 )
 
-[sub_resource type="DynamicFont" id=93]
+[sub_resource type="DynamicFont" id=102]
 size = 50
 font_data = ExtResource( 31 )
 
 [sub_resource type="Theme" id=94]
-default_font = SubResource( 93 )
+default_font = SubResource( 102 )
 
 [sub_resource type="Theme" id=95]
-default_font = SubResource( 91 )
+default_font = SubResource( 101 )
 
 [sub_resource type="RectangleShape2D" id=96]
 extents = Vector2( 108, 60 )
