@@ -40,7 +40,7 @@
 [ext_resource path="res://Home.gd" type="Script" id=38]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=39]
 [ext_resource path="res://level1.gd" type="Script" id=40]
-[ext_resource path="res://ASSETS/left-arrow.png" type="Texture" id=41]
+[ext_resource path="res://Next.gd" type="Script" id=41]
 
 [sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -461,7 +461,7 @@ default_font = SubResource( 75 )
 default_font = SubResource( 73 )
 
 [sub_resource type="RectangleShape2D" id=78]
-extents = Vector2( 88, 60 )
+extents = Vector2( 108, 60 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 40 )
@@ -954,7 +954,7 @@ margin_bottom = 688.0
 [node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
 margin_left = 11.0
 margin_top = 167.0
-margin_right = -1119.0
+margin_right = -1050.0
 margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
@@ -1056,14 +1056,36 @@ wait_time = 0.4
 [node name="Home" type="Area2D" parent="CanvasLayer/GameOver"]
 script = ExtResource( 38 )
 
-[node name="Arrow" type="Sprite" parent="CanvasLayer/GameOver/Home"]
-position = Vector2( 152, 136 )
-scale = Vector2( 0.332031, 0.265625 )
-texture = ExtResource( 41 )
-normal_map = ExtResource( 41 )
+[node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
+margin_left = 96.0
+margin_top = 112.0
+margin_right = 216.0
+margin_bottom = 153.0
+theme = SubResource( 70 )
+text = "Menu"
+valign = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
 position = Vector2( 152, 132 )
+shape = SubResource( 78 )
+
+[node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
+position = Vector2( 976, 0 )
+script = ExtResource( 41 )
+
+[node name="Suivant" type="Label" parent="CanvasLayer/GameOver/Next"]
+margin_left = 40.0
+margin_top = 88.0
+margin_right = 256.0
+margin_bottom = 173.0
+theme = SubResource( 70 )
+text = "Prochain
+Niveau"
+align = 1
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
+position = Vector2( 148, 132 )
 shape = SubResource( 78 )
 
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
@@ -1083,3 +1105,5 @@ shape = SubResource( 78 )
 [connection signal="timeout" from="CanvasLayer/GameOver/NewHighScore/Timer" to="CanvasLayer/GameOver/NewHighScore" method="_on_Timer_timeout"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
+[connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
+[connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]

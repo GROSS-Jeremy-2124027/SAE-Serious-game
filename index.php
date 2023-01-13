@@ -101,7 +101,7 @@
                 }
 
                 // Envoi de la requête pour les meilleurs scores
-                $query = "Select identifiant, ROUND((meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4)/4) as Average from utilisateur order by Average desc limit 5";
+                $query = "Select identifiant, (meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4) as Sommes from utilisateur order by Sommes desc limit 5";
                 $result = $db->query($query);
                 
                 
@@ -111,7 +111,7 @@
                 ?>
                     <li>
                         <?php
-                            echo $row['identifiant'] . " : " . $row['Average'] . "<br>";
+                            echo $row['identifiant'] . " : " . $row['Sommes'] . "<br>";
                         ?>
                     </li>
 

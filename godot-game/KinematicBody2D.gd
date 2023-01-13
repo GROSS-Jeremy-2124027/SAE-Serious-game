@@ -8,7 +8,7 @@ var GRAVITY_FORCE = 70
 var MAX_GRAVITY_FORCE = 2000
 var JUMP_FORCE = 1100
 
-enum States {AIR = 1, FLOOR, LADDER, PC}
+enum States {AIR = 1, FLOOR, LADDER, PC, CHATBOT}
 var state = States.AIR
 var jumpTime = 0
 var jumpTopLadderTime = 0
@@ -110,6 +110,7 @@ func _physics_process(delta):
 			velocity = move_and_slide(velocity, Vector2.UP)
 		States.PC:
 			$Sprite.play("Watch")
+			get_parent().get_node("CanvasLayer/ChatBox").rect_position.x = 825
 			if Input.is_action_just_pressed("1") :
 				get_parent().get_node("CanvasLayer/Sombre/Q1/R1").selected()
 			if Input.is_action_just_pressed("2") :
@@ -122,6 +123,12 @@ func _physics_process(delta):
 				#get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
 				get_parent().get_node("CanvasLayer/Sombre").set("visible", false)
 				state = States.FLOOR
+				get_parent().get_node("CanvasLayer/ChatBox").rect_position.x = 11
+		States.CHATBOT:
+			$Sprite.play("Watch")
+			velocity.x = 0
+			velocity.y = 0
+			velocity = move_and_slide(velocity, Vector2.UP)
 
 func should_climb_ladder() -> bool:
 	if onLadder and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")):

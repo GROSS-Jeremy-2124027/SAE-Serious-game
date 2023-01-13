@@ -1,6 +1,6 @@
 extends Node2D
 
-var host = "http://127.0.0.1" # Sans le '/' à la fin
+var host = "https://networkpark.alwaysdata.net" # Sans le '/' à la fin
 var actualScore
 var questions = []
 var httpActive : bool = false;
