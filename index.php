@@ -19,7 +19,7 @@
                 Administrateur 
             </button>
             <div id="pageAdmin">
-                <object id="htmlpage" type="text/html" data="formAdmin.php" width="436" height="500"></object>
+                <object id="htmlpageAdmin" type="text/html" data="formAdmin.php" width="436" height="500"></object>
             </div>
         </div>
         <div>
@@ -27,7 +27,7 @@
                 Se connecter / S'inscrire 
             </button>
             <div id="pageConnexion">
-                <object id="htmlpage" type="text/html" data="form.php" width="436" height="500"></object>
+                <object id="htmlpage" type="text/html" data="query/login.php" width="436" height="500"></object>
             </div>
         </div>
     </header>
@@ -126,6 +126,6 @@
             </ul>
         </div>
     </div>
-    <script src="mainScript.js"></script>
+    <script src="JS/mainScript.js"></script>
 </body>
 </html>
