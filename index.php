@@ -89,18 +89,19 @@
                 }
                 
                 // Envoi de la requête pour savoir si les cookies correspondent à un utilisateur
-                $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
-                $user = $db -> query($sql);
-
-                //Si l'utilisateur existe
-                /*if ($user -> num_rows > 0) {
-                    while($rows = $user -> fetch_assoc()) {
-                        echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
-                    }
-                }*/
+                if (isset($_SESSION["username"]) && isset($_SESSION["password"])){
+                    $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
+                    $user = $db -> query($sql);
+                    //Si l'utilisateur existe
+                    /*if ($user -> num_rows > 0) {
+                        while($rows = $user -> fetch_assoc()) {
+                            echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+                        }
+                    }*/
+                }
 
                 // Envoi de la requête pour les meilleurs scores
-                $query = "SELECT identifiant, meilleurScore1 FROM utilisateur ORDER BY meilleurScore1 DESC limit 5";
+                $query = "Select identifiant, ROUND((meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4)/4) as Average from utilisateur order by Average desc limit 5";
                 $result = $db->query($query);
                 
                 
@@ -110,7 +111,7 @@
                 ?>
                     <li>
                         <?php
-                            echo $row['identifiant'] . " : " . $row['meilleurScore1'] . "<br>";
+                            echo $row['identifiant'] . " : " . $row['Average'] . "<br>";
                         ?>
                     </li>
 
