@@ -78,6 +78,10 @@ button{
     transition: 0.4s;
 }
 
+#Deconnexion{
+    width: 175px;
+}
+
 .boutonConnexion{
     font-size: 1em;
     margin-top: 20px !important;

@@ -67,6 +67,7 @@ function connexionPage() {
         var paragraph = document.createElement('p');
         paragraph.textContent = "Voulez-vous vraiment vous déconnecter ?"
         var bouton = document.createElement('button')
+        bouton.id = 'Deconnexion'
         bouton.textContent = "Oui"
         bouton.onclick = function () {
             estConnecte = false;
