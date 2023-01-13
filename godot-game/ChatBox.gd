@@ -39,12 +39,20 @@ func _ready():
 	yield(get_tree().create_timer(5.0), "timeout")
 	chatLog.percent_visible = 0
 
+func _on_ChatBot_pressed():
+	var stateOfPlayer = get_parent().get_parent().get_node("KinematicBody2D").state
+	enable(stateOfPlayer)
+
+func _on_NotChatBot_pressed():
+	var stateOfPlayer = get_parent().get_parent().get_node("KinematicBody2D").state
+	disable(stateOfPlayer)
+
 func _input(event):
 	if event is InputEventKey:
 		var stateOfPlayer = get_parent().get_parent().get_node("KinematicBody2D").state
-		if event.pressed and event.scancode == KEY_ENTER and (stateOfPlayer == 2 or stateOfPlayer == 4) :
+		if event.pressed and Input.is_action_just_pressed("ui_accept") and (stateOfPlayer == 2 or stateOfPlayer == 4) :
 			enable(stateOfPlayer)
-		elif event.pressed and (event.scancode == KEY_ESCAPE or (event.scancode == KEY_ENTER and get_node("VBoxContainer/HBoxContainer/LineEdit").text == "")):
+		elif event.pressed and (event.scancode == KEY_ESCAPE or (Input.is_action_just_pressed("ui_accept") and get_node("VBoxContainer/HBoxContainer/LineEdit").text == "")):
 			disable(stateOfPlayer)
 
 func add_message(username, text, color = ''):
@@ -72,7 +80,6 @@ func text_entered(text):
 
 func envoie_indice():
 	return indice
-
 
 
 

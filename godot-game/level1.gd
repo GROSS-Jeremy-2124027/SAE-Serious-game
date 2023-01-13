@@ -6,6 +6,7 @@ var questions = []
 var httpActive : bool = false;
 var isGetQuestionFinished : bool = false;
 var nbErrors = 0
+var userAgent
 
 func _on_request_completed_get_question(result, response_code, headers, body):
 	var response = parse_json(body.get_string_from_utf8())
@@ -63,8 +64,19 @@ func _ready():
 	get_score(int(name[-1]))
 	get_node("CanvasLayer/Blackwait").visible = false
 	get_node("CanvasLayer/Temps").visible = true
+	# detect if user is on mobile
+	userAgent = String(JavaScript.eval("navigator.userAgent")).to_lower()
+	get_node("CanvasLayer/debug").text = userAgent
+	if ("android" in userAgent || "webos" in userAgent || "iphone" in userAgent || "ipad" in userAgent || "ipod" in userAgent || "blackberry" in userAgent || "windows phone" in userAgent) :
+		get_node("CanvasLayer/Mobile").visible = true
+		get_node("CanvasLayer/ChatBox").visible = false
+		userAgent = true
+	else :
+		userAgent = false
+		get_node("CanvasLayer/ChatBox").visible = true
 	# player can now move
 	get_node("KinematicBody2D").set_physics_process(true)
+	
 
 func set_next_pc():
 	if questions.size() >= get_node("KinematicBody2D").pcid :

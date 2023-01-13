@@ -53,6 +53,8 @@ func _physics_process(delta):
 				jumpTopLadderTime = 0
 			move_and_fall()
 		States.FLOOR:
+			if Input.is_action_pressed("ui_select") :
+				print("ui_select")
 			$Sprite.visible = true
 			if not is_on_floor():
 				state = States.AIR

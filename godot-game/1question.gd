@@ -59,6 +59,7 @@ func incorrect_answer(delta) :
 		wait_time_wrong-=delta
 	
 func reinit_for_next_pc() :
+	get_parent().get_node("CanvasLayer/ChatBox").rect_position.x = 11
 	get_parent().get_node("KinematicBody2D").state = get_parent().get_node("KinematicBody2D").States.FLOOR
 	get_node("check").visible = true
 	get_parent().get_node("CanvasLayer/Sombre").visible = false

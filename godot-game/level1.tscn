@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/angle.png" type="Texture" id=2]
@@ -23,20 +23,15 @@
 [ext_resource path="res://ASSETS/texture blocks level 1/gaucheversbas.png" type="Texture" id=21]
 [ext_resource path="res://ASSETS/texture blocks level 1/coin_low_platform.png" type="Texture" id=22]
 [ext_resource path="res://ASSETS/texture blocks level 1/pilierdroite.png" type="Texture" id=23]
-[ext_resource path="res://ASSETS/Spring/Spring_06.png" type="Texture" id=24]
-[ext_resource path="res://ASSETS/Spring/Spring_05.png" type="Texture" id=25]
+[ext_resource path="res://ASSETS/mobile ui/wifi-red.png" type="Texture" id=24]
+[ext_resource path="res://ASSETS/mobile ui/arrow-up.png" type="Texture" id=25]
 [ext_resource path="res://ASSETS/Spring/Spring_01.png" type="Texture" id=26]
-[ext_resource path="res://ASSETS/Spring/Spring_02.png" type="Texture" id=27]
-[ext_resource path="res://ASSETS/Spring/Spring_08.png" type="Texture" id=28]
-[ext_resource path="res://ASSETS/Spring/Spring_15.png" type="Texture" id=29]
-[ext_resource path="res://ASSETS/Spring/Spring_12.png" type="Texture" id=30]
-[ext_resource path="res://ASSETS/Spring/Spring_11.png" type="Texture" id=31]
-[ext_resource path="res://ASSETS/Spring/Spring_04.png" type="Texture" id=32]
-[ext_resource path="res://ASSETS/Spring/Spring_09.png" type="Texture" id=33]
-[ext_resource path="res://ASSETS/Spring/Spring_03.png" type="Texture" id=34]
-[ext_resource path="res://ASSETS/Spring/Spring_10.png" type="Texture" id=35]
-[ext_resource path="res://ASSETS/Spring/Spring_13.png" type="Texture" id=36]
-[ext_resource path="res://ASSETS/Spring/Spring_07.png" type="Texture" id=37]
+[ext_resource path="res://ASSETS/mobile ui/arrow-right-red.png" type="Texture" id=27]
+[ext_resource path="res://ASSETS/mobile ui/arrow-up-red.png" type="Texture" id=28]
+[ext_resource path="res://ASSETS/mobile ui/arrow-right.png" type="Texture" id=29]
+[ext_resource path="res://ASSETS/mobile ui/wifi.png" type="Texture" id=30]
+[ext_resource path="res://ASSETS/mobile ui/arrow-left.png" type="Texture" id=31]
+[ext_resource path="res://ASSETS/mobile ui/arrow-left-red.png" type="Texture" id=32]
 [ext_resource path="res://Home.gd" type="Script" id=38]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=39]
 [ext_resource path="res://level1.gd" type="Script" id=40]
@@ -384,11 +379,6 @@ points = PoolVector2Array( 160, 160, 0, 160, 0, 0, 160, 0 )
 
 [sub_resource type="SpriteFrames" id=55]
 animations = [ {
-"frames": [ ExtResource( 27 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 36 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "boing",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
 "name": "idle",
@@ -462,6 +452,10 @@ default_font = SubResource( 73 )
 
 [sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 108, 60 )
+
+[sub_resource type="ImageTexture" id=79]
+lossy_quality = 0.83
+size = Vector2( 100, 100 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 40 )
@@ -946,18 +940,11 @@ position = Vector2( 192, 60 )
 shape = SubResource( 68 )
 
 [node name="debug" type="Label" parent="CanvasLayer"]
-margin_left = 328.0
-margin_top = 584.0
-margin_right = 552.0
-margin_bottom = 688.0
-
-[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
-margin_left = 11.0
-margin_top = 167.0
-margin_right = -1050.0
-margin_bottom = -353.0
-rect_scale = Vector2( 2, 2 )
-mouse_filter = 2
+visible = false
+margin_left = 248.0
+margin_top = 288.0
+margin_right = 472.0
+margin_bottom = 392.0
 
 [node name="Temps" type="Label" parent="CanvasLayer"]
 margin_left = 1080.0
@@ -1088,6 +1075,67 @@ valign = 1
 position = Vector2( 148, 132 )
 shape = SubResource( 78 )
 
+[node name="Mobile" type="Label" parent="CanvasLayer"]
+visible = false
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 48, 450 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 31 )
+pressed = ExtResource( 32 )
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 296, 450 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 29 )
+pressed = ExtResource( 27 )
+action = "ui_right"
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 800, 456 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 28 )
+action = "ui_up"
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 1024, 456 )
+scale = Vector2( 0.153975, 0.201327 )
+normal = ExtResource( 30 )
+pressed = ExtResource( 24 )
+passby_press = true
+action = "ui_select"
+
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1050.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
+mouse_filter = 2
+
+[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -477.5, -379.5 )
+scale = Vector2( 11.12, 6.24 )
+normal = SubResource( 79 )
+action = "ui_accept"
+
+[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1.5, 248.5 )
+scale = Vector2( 2.2, 0.24 )
+normal = SubResource( 79 )
+action = "ui_accept"
+
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_mouse_exited"]
@@ -1107,3 +1155,5 @@ shape = SubResource( 78 )
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
