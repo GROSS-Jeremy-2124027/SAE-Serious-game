@@ -387,6 +387,10 @@ font_data = ExtResource( 31 )
 [sub_resource type="Theme" id=90]
 default_font = SubResource( 100 )
 
+[sub_resource type="ImageTexture" id=97]
+lossy_quality = 0.83
+size = Vector2( 100, 100 )
+
 [sub_resource type="DynamicFont" id=101]
 size = 100
 font_data = ExtResource( 31 )
@@ -406,10 +410,6 @@ default_font = SubResource( 101 )
 
 [sub_resource type="RectangleShape2D" id=96]
 extents = Vector2( 108, 60 )
-
-[sub_resource type="ImageTexture" id=97]
-lossy_quality = 0.83
-size = Vector2( 100, 100 )
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 30 )
@@ -856,6 +856,7 @@ margin_right = 472.0
 margin_bottom = 392.0
 
 [node name="Temps" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 1080.0
 margin_top = 16.0
 margin_right = 1216.0
@@ -890,6 +891,67 @@ margin_right = 1107.0
 margin_bottom = 353.0
 theme = SubResource( 90 )
 text = "Patientez s'il vous plait"
+
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 40 )]
+visible = false
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1050.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
+mouse_filter = 2
+
+[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -477.5, -379.5 )
+scale = Vector2( 11.12, 6.24 )
+normal = SubResource( 97 )
+action = "ui_accept"
+
+[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1.5, 248.5 )
+scale = Vector2( 2.2, 0.24 )
+normal = SubResource( 97 )
+action = "ui_accept"
+
+[node name="Mobile" type="Label" parent="CanvasLayer"]
+visible = false
+margin_top = 56.0
+margin_right = 40.0
+margin_bottom = 70.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 48, 450 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 50 )
+pressed = ExtResource( 51 )
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 296, 450 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 48 )
+pressed = ExtResource( 46 )
+action = "ui_right"
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 800, 456 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 45 )
+pressed = ExtResource( 47 )
+action = "ui_up"
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 1024, 456 )
+scale = Vector2( 0.153975, 0.201327 )
+normal = ExtResource( 49 )
+pressed = ExtResource( 44 )
+passby_press = true
+action = "ui_select"
 
 [node name="GameOver" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -984,67 +1046,6 @@ valign = 1
 position = Vector2( 148, 132 )
 shape = SubResource( 96 )
 
-[node name="Mobile" type="Label" parent="CanvasLayer"]
-visible = false
-margin_top = 56.0
-margin_right = 40.0
-margin_bottom = 70.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Left" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 48, 450 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 50 )
-pressed = ExtResource( 51 )
-action = "ui_left"
-
-[node name="Right" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 296, 450 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 48 )
-pressed = ExtResource( 46 )
-action = "ui_right"
-
-[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 800, 456 )
-scale = Vector2( 0.5, 0.5 )
-normal = ExtResource( 45 )
-pressed = ExtResource( 47 )
-action = "ui_up"
-
-[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1024, 456 )
-scale = Vector2( 0.153975, 0.201327 )
-normal = ExtResource( 49 )
-pressed = ExtResource( 44 )
-passby_press = true
-action = "ui_select"
-
-[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 40 )]
-visible = false
-margin_left = 11.0
-margin_top = 167.0
-margin_right = -1050.0
-margin_bottom = -353.0
-rect_scale = Vector2( 2, 2 )
-mouse_filter = 2
-
-[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -477.5, -379.5 )
-scale = Vector2( 11.12, 6.24 )
-normal = SubResource( 97 )
-action = "ui_accept"
-
-[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -1.5, 248.5 )
-scale = Vector2( 2.2, 0.24 )
-normal = SubResource( 97 )
-action = "ui_accept"
-
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_mouse_exited"]
@@ -1059,10 +1060,10 @@ action = "ui_accept"
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
 [connection signal="resized" from="CanvasLayer/Sombre/Q1/R4/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
 [connection signal="visibility_changed" from="CanvasLayer/Temps/Valeur" to="CanvasLayer/Temps/Valeur" method="_on_Valeur_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
 [connection signal="timeout" from="CanvasLayer/GameOver/NewHighScore/Timer" to="CanvasLayer/GameOver/NewHighScore" method="_on_Timer_timeout"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]

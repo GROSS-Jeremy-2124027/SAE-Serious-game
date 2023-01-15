@@ -308,14 +308,14 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 [sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 96, 68 )
 
-[sub_resource type="DynamicFont" id=79]
+[sub_resource type="DynamicFont" id=98]
 size = 40
 font_data = ExtResource( 19 )
 
-[sub_resource type="Theme" id=94]
-default_font = SubResource( 79 )
+[sub_resource type="Theme" id=103]
+default_font = SubResource( 98 )
 
-[sub_resource type="StyleBoxFlat" id=95]
+[sub_resource type="StyleBoxFlat" id=104]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -323,56 +323,56 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Theme" id=96]
+[sub_resource type="Theme" id=105]
 default_font = ExtResource( 21 )
 
-[sub_resource type="RectangleShape2D" id=97]
+[sub_resource type="RectangleShape2D" id=106]
 extents = Vector2( 532, 64.5 )
 
-[sub_resource type="RectangleShape2D" id=98]
+[sub_resource type="RectangleShape2D" id=107]
 
-[sub_resource type="RectangleShape2D" id=99]
+[sub_resource type="RectangleShape2D" id=108]
 
-[sub_resource type="RectangleShape2D" id=100]
+[sub_resource type="RectangleShape2D" id=109]
 extents = Vector2( 192, 60 )
 
-[sub_resource type="DynamicFont" id=87]
+[sub_resource type="DynamicFont" id=99]
 size = 32
 font_data = ExtResource( 19 )
 
-[sub_resource type="Theme" id=101]
-default_font = SubResource( 87 )
+[sub_resource type="Theme" id=110]
+default_font = SubResource( 99 )
 
-[sub_resource type="DynamicFont" id=89]
+[sub_resource type="DynamicFont" id=100]
 size = 50
 font_data = ExtResource( 19 )
 
-[sub_resource type="Theme" id=102]
-default_font = SubResource( 89 )
+[sub_resource type="Theme" id=111]
+default_font = SubResource( 100 )
 
-[sub_resource type="DynamicFont" id=91]
+[sub_resource type="ImageTexture" id=112]
+lossy_quality = 0.83
+size = Vector2( 100, 100 )
+
+[sub_resource type="DynamicFont" id=101]
 size = 100
 font_data = ExtResource( 19 )
 
-[sub_resource type="Theme" id=103]
-default_font = SubResource( 91 )
+[sub_resource type="Theme" id=113]
+default_font = SubResource( 101 )
 
-[sub_resource type="DynamicFont" id=93]
+[sub_resource type="DynamicFont" id=102]
 size = 50
 font_data = ExtResource( 19 )
 
-[sub_resource type="Theme" id=104]
-default_font = SubResource( 93 )
+[sub_resource type="Theme" id=114]
+default_font = SubResource( 102 )
 
-[sub_resource type="Theme" id=105]
-default_font = SubResource( 91 )
+[sub_resource type="Theme" id=115]
+default_font = SubResource( 101 )
 
-[sub_resource type="RectangleShape2D" id=106]
+[sub_resource type="RectangleShape2D" id=116]
 extents = Vector2( 108, 60 )
-
-[sub_resource type="ImageTexture" id=107]
-lossy_quality = 0.83
-size = Vector2( 100, 100 )
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 25 )
@@ -579,7 +579,7 @@ margin_top = 345.0
 margin_right = 2105.0
 margin_bottom = 397.0
 size_flags_horizontal = 3
-theme = SubResource( 94 )
+theme = SubResource( 103 )
 text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ?"
 valign = 1
 
@@ -605,7 +605,7 @@ __meta__ = {
 margin_right = 1064.0
 margin_bottom = 129.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 95 )
+custom_styles/panel = SubResource( 104 )
 script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1/box"]
@@ -622,7 +622,7 @@ mouse_filter = 2
 margin_right = 1064.0
 margin_bottom = 129.0
 size_flags_horizontal = 3
-theme = SubResource( 96 )
+theme = SubResource( 105 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cdc
@@ -633,7 +633,7 @@ valign = 1
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R1"]
 light_mask = 17
 position = Vector2( 532, 64.5 )
-shape = SubResource( 97 )
+shape = SubResource( 106 )
 
 [node name="R2" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 396.539 )
@@ -657,7 +657,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 95 )
+custom_styles/panel = SubResource( 104 )
 script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2/box"]
@@ -675,7 +675,7 @@ margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-theme = SubResource( 96 )
+theme = SubResource( 105 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "32"
 align = 1
@@ -684,7 +684,7 @@ valign = 1
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R2"]
 light_mask = 17
 position = Vector2( 192, 60 )
-shape = SubResource( 98 )
+shape = SubResource( 107 )
 
 [node name="R3" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 596.539 )
@@ -709,7 +709,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 95 )
+custom_styles/panel = SubResource( 104 )
 script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3/box"]
@@ -727,7 +727,7 @@ margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-theme = SubResource( 96 )
+theme = SubResource( 105 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "64"
 align = 1
@@ -735,7 +735,7 @@ valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R3"]
 light_mask = 17
-shape = SubResource( 99 )
+shape = SubResource( 108 )
 
 [node name="R4" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 796.539 )
@@ -760,7 +760,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 95 )
+custom_styles/panel = SubResource( 104 )
 script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4/box"]
@@ -778,7 +778,7 @@ margin_top = 39.0
 margin_right = 384.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
-theme = SubResource( 96 )
+theme = SubResource( 105 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "128"
 align = 1
@@ -787,7 +787,7 @@ valign = 1
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R4"]
 light_mask = 17
 position = Vector2( 192, 60 )
-shape = SubResource( 100 )
+shape = SubResource( 109 )
 
 [node name="debug" type="Label" parent="CanvasLayer"]
 visible = false
@@ -797,11 +797,12 @@ margin_right = 472.0
 margin_bottom = 392.0
 
 [node name="Temps" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 1080.0
 margin_top = 16.0
 margin_right = 1216.0
 margin_bottom = 57.0
-theme = SubResource( 101 )
+theme = SubResource( 110 )
 text = "TEMPS"
 align = 1
 valign = 1
@@ -814,7 +815,7 @@ margin_left = -48.0
 margin_top = 48.0
 margin_right = 180.0
 margin_bottom = 89.0
-theme = SubResource( 101 )
+theme = SubResource( 110 )
 text = "00:00:000"
 script = ExtResource( 22 )
 
@@ -829,101 +830,31 @@ margin_left = 176.0
 margin_top = 288.0
 margin_right = 1107.0
 margin_bottom = 353.0
-theme = SubResource( 102 )
+theme = SubResource( 111 )
 text = "Patientez s'il vous plait"
 
-[node name="GameOver" type="ColorRect" parent="CanvasLayer"]
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 20 )]
 visible = false
-margin_right = 1528.0
-margin_bottom = 880.0
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1050.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
 
-[node name="Erreurs" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 432.0
-margin_top = 168.0
-margin_right = 844.0
-margin_bottom = 209.0
-theme = SubResource( 101 )
-text = "Erreurs : 0"
-valign = 1
+[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -477.5, -379.5 )
+scale = Vector2( 11.12, 6.24 )
+normal = SubResource( 112 )
+action = "ui_accept"
 
-[node name="Temps" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 432.0
-margin_top = 216.0
-margin_right = 892.0
-margin_bottom = 257.0
-theme = SubResource( 101 )
-text = "TEMPS : 00:00:000"
-valign = 1
-
-[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 424.0
-margin_top = 296.0
-margin_right = 851.0
-margin_bottom = 424.0
-theme = SubResource( 103 )
-text = "Score"
-align = 1
-
-[node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
-margin_left = 16.0
-margin_top = 120.0
-margin_right = 428.0
-margin_bottom = 185.0
-theme = SubResource( 104 )
-text = "000000"
-align = 1
-valign = 1
-
-[node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
-visible = false
-margin_left = 56.0
-margin_top = 528.0
-margin_right = 1222.0
-margin_bottom = 656.0
-theme = SubResource( 105 )
-text = "New High Score!"
-align = 1
-script = ExtResource( 26 )
-
-[node name="Timer" type="Timer" parent="CanvasLayer/GameOver/NewHighScore"]
-wait_time = 0.4
-
-[node name="Home" type="Area2D" parent="CanvasLayer/GameOver"]
-script = ExtResource( 27 )
-
-[node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
-margin_left = 96.0
-margin_top = 112.0
-margin_right = 216.0
-margin_bottom = 153.0
-theme = SubResource( 101 )
-text = "Menu"
-valign = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
-position = Vector2( 152, 132 )
-shape = SubResource( 106 )
-
-[node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
-position = Vector2( 976, 0 )
-script = ExtResource( 28 )
-
-[node name="Suivant" type="Label" parent="CanvasLayer/GameOver/Next"]
-margin_left = 40.0
-margin_top = 88.0
-margin_right = 256.0
-margin_bottom = 173.0
-theme = SubResource( 101 )
-text = "Prochain
-Niveau"
-align = 1
-valign = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
-position = Vector2( 148, 132 )
-shape = SubResource( 106 )
+[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1.5, 248.5 )
+scale = Vector2( 2.2, 0.24 )
+normal = SubResource( 112 )
+action = "ui_accept"
 
 [node name="Mobile" type="Label" parent="CanvasLayer"]
 visible = false
@@ -963,28 +894,98 @@ pressed = ExtResource( 29 )
 passby_press = true
 action = "ui_select"
 
-[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 20 )]
+[node name="GameOver" type="ColorRect" parent="CanvasLayer"]
 visible = false
-margin_left = 11.0
-margin_top = 167.0
-margin_right = -1050.0
-margin_bottom = -353.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 1528.0
+margin_bottom = 880.0
 mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 
-[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -477.5, -379.5 )
-scale = Vector2( 11.12, 6.24 )
-normal = SubResource( 107 )
-action = "ui_accept"
+[node name="Erreurs" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 168.0
+margin_right = 844.0
+margin_bottom = 209.0
+theme = SubResource( 110 )
+text = "Erreurs : 0"
+valign = 1
 
-[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -1.5, 248.5 )
-scale = Vector2( 2.2, 0.24 )
-normal = SubResource( 107 )
-action = "ui_accept"
+[node name="Temps" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 216.0
+margin_right = 892.0
+margin_bottom = 257.0
+theme = SubResource( 110 )
+text = "TEMPS : 00:00:000"
+valign = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 424.0
+margin_top = 296.0
+margin_right = 851.0
+margin_bottom = 424.0
+theme = SubResource( 113 )
+text = "Score"
+align = 1
+
+[node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 428.0
+margin_bottom = 185.0
+theme = SubResource( 114 )
+text = "000000"
+align = 1
+valign = 1
+
+[node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
+visible = false
+margin_left = 56.0
+margin_top = 528.0
+margin_right = 1222.0
+margin_bottom = 656.0
+theme = SubResource( 115 )
+text = "New High Score!"
+align = 1
+script = ExtResource( 26 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer/GameOver/NewHighScore"]
+wait_time = 0.4
+
+[node name="Home" type="Area2D" parent="CanvasLayer/GameOver"]
+script = ExtResource( 27 )
+
+[node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
+margin_left = 96.0
+margin_top = 112.0
+margin_right = 216.0
+margin_bottom = 153.0
+theme = SubResource( 110 )
+text = "Menu"
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
+position = Vector2( 152, 132 )
+shape = SubResource( 116 )
+
+[node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
+position = Vector2( 976, 0 )
+script = ExtResource( 28 )
+
+[node name="Suivant" type="Label" parent="CanvasLayer/GameOver/Next"]
+margin_left = 40.0
+margin_top = 88.0
+margin_right = 256.0
+margin_bottom = 173.0
+theme = SubResource( 110 )
+text = "Prochain
+Niveau"
+align = 1
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
+position = Vector2( 148, 132 )
+shape = SubResource( 116 )
 
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
@@ -1000,10 +1001,10 @@ action = "ui_accept"
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
 [connection signal="resized" from="CanvasLayer/Sombre/Q1/R4/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
 [connection signal="visibility_changed" from="CanvasLayer/Temps/Valeur" to="CanvasLayer/Temps/Valeur" method="_on_Valeur_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
 [connection signal="timeout" from="CanvasLayer/GameOver/NewHighScore/Timer" to="CanvasLayer/GameOver/NewHighScore" method="_on_Timer_timeout"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]

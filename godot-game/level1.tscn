@@ -433,29 +433,29 @@ font_data = ExtResource( 7 )
 [sub_resource type="Theme" id=72]
 default_font = SubResource( 71 )
 
-[sub_resource type="DynamicFont" id=73]
+[sub_resource type="ImageTexture" id=73]
+lossy_quality = 0.83
+size = Vector2( 100, 100 )
+
+[sub_resource type="DynamicFont" id=74]
 size = 100
 font_data = ExtResource( 7 )
 
-[sub_resource type="Theme" id=74]
-default_font = SubResource( 73 )
+[sub_resource type="Theme" id=75]
+default_font = SubResource( 74 )
 
-[sub_resource type="DynamicFont" id=75]
+[sub_resource type="DynamicFont" id=76]
 size = 50
 font_data = ExtResource( 7 )
 
-[sub_resource type="Theme" id=76]
-default_font = SubResource( 75 )
-
 [sub_resource type="Theme" id=77]
-default_font = SubResource( 73 )
+default_font = SubResource( 76 )
 
-[sub_resource type="RectangleShape2D" id=78]
+[sub_resource type="Theme" id=78]
+default_font = SubResource( 74 )
+
+[sub_resource type="RectangleShape2D" id=79]
 extents = Vector2( 108, 60 )
-
-[sub_resource type="ImageTexture" id=79]
-lossy_quality = 0.83
-size = Vector2( 100, 100 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 40 )
@@ -947,6 +947,7 @@ margin_right = 472.0
 margin_bottom = 392.0
 
 [node name="Temps" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 1080.0
 margin_top = 16.0
 margin_right = 1216.0
@@ -982,98 +983,28 @@ margin_bottom = 353.0
 theme = SubResource( 72 )
 text = "Patientez s'il vous plait"
 
-[node name="GameOver" type="ColorRect" parent="CanvasLayer"]
+[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
-margin_right = 1528.0
-margin_bottom = 880.0
+margin_left = 11.0
+margin_top = 167.0
+margin_right = -1050.0
+margin_bottom = -353.0
+rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
 
-[node name="Erreurs" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 432.0
-margin_top = 168.0
-margin_right = 844.0
-margin_bottom = 209.0
-theme = SubResource( 70 )
-text = "Erreurs : 0"
-valign = 1
+[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -477.5, -379.5 )
+scale = Vector2( 11.12, 6.24 )
+normal = SubResource( 73 )
+action = "ui_accept"
 
-[node name="Temps" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 432.0
-margin_top = 216.0
-margin_right = 892.0
-margin_bottom = 257.0
-theme = SubResource( 70 )
-text = "TEMPS : 00:00:000"
-valign = 1
-
-[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
-margin_left = 424.0
-margin_top = 296.0
-margin_right = 851.0
-margin_bottom = 424.0
-theme = SubResource( 74 )
-text = "Score"
-align = 1
-
-[node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
-margin_left = 16.0
-margin_top = 120.0
-margin_right = 428.0
-margin_bottom = 185.0
-theme = SubResource( 76 )
-text = "000000"
-align = 1
-valign = 1
-
-[node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
-visible = false
-margin_left = 56.0
-margin_top = 528.0
-margin_right = 1222.0
-margin_bottom = 656.0
-theme = SubResource( 77 )
-text = "New High Score!"
-align = 1
-script = ExtResource( 18 )
-
-[node name="Timer" type="Timer" parent="CanvasLayer/GameOver/NewHighScore"]
-wait_time = 0.4
-
-[node name="Home" type="Area2D" parent="CanvasLayer/GameOver"]
-script = ExtResource( 38 )
-
-[node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
-margin_left = 96.0
-margin_top = 112.0
-margin_right = 216.0
-margin_bottom = 153.0
-theme = SubResource( 70 )
-text = "Menu"
-valign = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
-position = Vector2( 152, 132 )
-shape = SubResource( 78 )
-
-[node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
-position = Vector2( 976, 0 )
-script = ExtResource( 41 )
-
-[node name="Suivant" type="Label" parent="CanvasLayer/GameOver/Next"]
-margin_left = 40.0
-margin_top = 88.0
-margin_right = 256.0
-margin_bottom = 173.0
-theme = SubResource( 70 )
-text = "Prochain
-Niveau"
-align = 1
-valign = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
-position = Vector2( 148, 132 )
-shape = SubResource( 78 )
+[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1.5, 248.5 )
+scale = Vector2( 2.2, 0.24 )
+normal = SubResource( 73 )
+action = "ui_accept"
 
 [node name="Mobile" type="Label" parent="CanvasLayer"]
 visible = false
@@ -1113,28 +1044,98 @@ pressed = ExtResource( 24 )
 passby_press = true
 action = "ui_select"
 
-[node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 12 )]
+[node name="GameOver" type="ColorRect" parent="CanvasLayer"]
 visible = false
-margin_left = 11.0
-margin_top = 167.0
-margin_right = -1050.0
-margin_bottom = -353.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 1528.0
+margin_bottom = 880.0
 mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 
-[node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -477.5, -379.5 )
-scale = Vector2( 11.12, 6.24 )
-normal = SubResource( 79 )
-action = "ui_accept"
+[node name="Erreurs" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 168.0
+margin_right = 844.0
+margin_bottom = 209.0
+theme = SubResource( 70 )
+text = "Erreurs : 0"
+valign = 1
 
-[node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
-self_modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -1.5, 248.5 )
-scale = Vector2( 2.2, 0.24 )
-normal = SubResource( 79 )
-action = "ui_accept"
+[node name="Temps" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 432.0
+margin_top = 216.0
+margin_right = 892.0
+margin_bottom = 257.0
+theme = SubResource( 70 )
+text = "TEMPS : 00:00:000"
+valign = 1
+
+[node name="Score" type="Label" parent="CanvasLayer/GameOver"]
+margin_left = 424.0
+margin_top = 296.0
+margin_right = 851.0
+margin_bottom = 424.0
+theme = SubResource( 75 )
+text = "Score"
+align = 1
+
+[node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 428.0
+margin_bottom = 185.0
+theme = SubResource( 77 )
+text = "000000"
+align = 1
+valign = 1
+
+[node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
+visible = false
+margin_left = 56.0
+margin_top = 528.0
+margin_right = 1222.0
+margin_bottom = 656.0
+theme = SubResource( 78 )
+text = "New High Score!"
+align = 1
+script = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="CanvasLayer/GameOver/NewHighScore"]
+wait_time = 0.4
+
+[node name="Home" type="Area2D" parent="CanvasLayer/GameOver"]
+script = ExtResource( 38 )
+
+[node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
+margin_left = 96.0
+margin_top = 112.0
+margin_right = 216.0
+margin_bottom = 153.0
+theme = SubResource( 70 )
+text = "Menu"
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
+position = Vector2( 152, 132 )
+shape = SubResource( 79 )
+
+[node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
+position = Vector2( 976, 0 )
+script = ExtResource( 41 )
+
+[node name="Suivant" type="Label" parent="CanvasLayer/GameOver/Next"]
+margin_left = 40.0
+margin_top = 88.0
+margin_right = 256.0
+margin_bottom = 173.0
+theme = SubResource( 70 )
+text = "Prochain
+Niveau"
+align = 1
+valign = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
+position = Vector2( 148, 132 )
+shape = SubResource( 79 )
 
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
@@ -1150,10 +1151,10 @@ action = "ui_accept"
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
 [connection signal="resized" from="CanvasLayer/Sombre/Q1/R4/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
 [connection signal="visibility_changed" from="CanvasLayer/Temps/Valeur" to="CanvasLayer/Temps/Valeur" method="_on_Valeur_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
+[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
 [connection signal="timeout" from="CanvasLayer/GameOver/NewHighScore/Timer" to="CanvasLayer/GameOver/NewHighScore" method="_on_Timer_timeout"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
-[connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
