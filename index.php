@@ -69,7 +69,7 @@
     <div class="section" id="sectionScore">
         <div id="scores">
             <h2>
-                Meilleurs scores :
+                Meilleurs joueurs :
             </h2>
             <ul>
             <?php
