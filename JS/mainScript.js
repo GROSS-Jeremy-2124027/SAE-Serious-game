@@ -21,7 +21,7 @@ function menuLvl() {
     removeAllChildNodes(document.getElementById('sectionScore'));
     //on supprime tout les éléments présent au début
 
-    aide.textContent = "Vous êtes sur le point d'entrer dans le vaisseau. Utilisez les touches directionnelles  de votre clavier pour accéder au différentes machines du vaisseau. Positionnez vous sur une machine et appuyez sur la barre d'espace pour répondre aux questions. Si vous avez la bonne réponse, vous pourrez continuer votre aventure ! Taper aide si vous en avez besoin, le chatbot vous donnera un indice.";
+    aide.textContent = "Vous êtes sur le point d'entrer dans le vaisseau. Utilisez les touches directionnelles de votre clavier pour accéder au différentes machines du vaisseau. Positionnez vous sur une machine et appuyez sur la barre d'espace pour répondre aux questions. Si vous avez la bonne réponse, vous pourrez continuer votre aventure ! Taper aide si vous en avez besoin, le chatbot vous donnera un indice.";
     document.getElementById("menulvl").appendChild(aide);
 
 
@@ -64,27 +64,29 @@ function removeAllChildNodes(parent) {
     }
 }//fonction pour supprimer tout les enfants d'un élément
 
-var estConnecte = false;
+var veutDeconnecte = false;
 
 function connexionPage() {
     if (document.getElementById('boutonconnexion').textContent == 'Se déconnecter') {
-        estConnecte = true;
         var paragraph = document.createElement('p');
         paragraph.textContent = "Voulez-vous vraiment vous déconnecter ?"
+        paragraph.id = "pDeconnexion"
         var bouton = document.createElement('button')
-        bouton.id = 'Deconnexion'
+        bouton.id = 'btnDeconnexion'
         bouton.textContent = "Oui"
+        bouton.name = 'btnDeconnexion'
         bouton.onclick = function () {
-            estConnecte = false;
+            veutDeconnecte = true;
             document.getElementById('pageConnexion').removeChild(paragraph);
             document.getElementById('pageConnexion').removeChild(bouton);
+            document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
         }
-        document.getElementById('pageConnexion').appendChild(paragraph)
-        document.getElementById('pageConnexion').appendChild(bouton)
-        document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
+        document.getElementById('formConnexion').appendChild(paragraph)
+        document.getElementById('formConnexion').appendChild(bouton)
+        document.getElementById('boutonconnexion').textContent = "quitter";
     }
     else {
-        if (document.getElementById('htmlpage').style.display == "none") {
+        if (document.getElementById('boutonconnexion').textContent == 'Se connecter / S\'inscrire') {
             document.getElementById('htmlpage').style.display = "block";
             document.getElementById('boutonconnexion').textContent = "quitter";
             document.getElementById('pageAdmin').style.display = "none";
@@ -93,12 +95,11 @@ function connexionPage() {
         }
         else {
             window.document.getElementById('htmlpage').style.display = "none";
-            if (estConnecte) {
-                document.getElementById('boutonconnexion').textContent = "Se déconnecter";
+            if (veutDeconnecte) {
+                document.getElementById('pageConnexion').removeChild(document.getElementById('btnDeconnexion'));
+                document.getElementById('pageConnexion').removeChild(document.getElementById('pDeconnexion'));
             }
-            else {
-                document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
-            }
+            document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
         }
     }
 
@@ -122,10 +123,9 @@ function administrateurPage() {
     }
     else {
         document.getElementById('pageAdmin').style.display = "none";
-        document.getElementById('boutonAdministrateur').textContent = "Administrateur";  
+        document.getElementById('boutonAdministrateur').textContent = "Administrateur";
         bool = false;
     }
 }//fonction pour afficher/cacher la page de connexion administrateur
-
 
 

@@ -20,6 +20,8 @@ if (isset($_POST["login"])) {
 
     $user = $con -> query($sql);
 
+    $_SESSION['connecter'] = false;
+
     // Si l'utilisateur existe
     if ($user -> num_rows > 0) {
         while($rows = $user -> fetch_assoc()) {
@@ -28,12 +30,12 @@ if (isset($_POST["login"])) {
                 echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
                 echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
                 echo "<script type='text/javascript'>window.parent.document.getElementById('boutonconnexion').textContent = 'Se déconnecter';</script>";
+                $_SESSION['connecter'] = true;
             }
         }
     }
     else {
         echo "<script> alert('Identifiant invalide'); </script>";
-        session_abort();
     }
 
 }
