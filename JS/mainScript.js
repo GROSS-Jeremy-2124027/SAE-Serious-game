@@ -67,7 +67,7 @@ function removeAllChildNodes(parent) {
 var veutDeconnecte = false;
 
 function connexionPage() {
-    if (document.getElementById('boutonconnexion').textContent == 'Se déconnecter') {
+    if (document.getElementById('boutonconnexion').textContent == 'Se déconnecter') {  //si le client est connecté normalement
         var paragraph = document.createElement('p');
         paragraph.textContent = "Voulez-vous vraiment vous déconnecter ?"
         paragraph.id = "pDeconnexion"
@@ -86,8 +86,8 @@ function connexionPage() {
         document.getElementById('formConnexion').appendChild(bouton)
         document.getElementById('boutonconnexion').textContent = "quitter";
     }
-    else {
-        if (document.getElementById('boutonconnexion').textContent == 'Se connecter / S\'inscrire') {
+    else { //si le client est pas connecté
+        if (document.getElementById('boutonconnexion').textContent == 'Se connecter / S\'inscrire') {  // si le texte précédant n'était pas "quiiter"
             document.getElementById('htmlpage').style.display = "block";
             document.getElementById('boutonconnexion').textContent = "quitter";
             document.getElementById('pageAdmin').style.display = "none";
@@ -96,7 +96,7 @@ function connexionPage() {
         }
         else {
             window.document.getElementById('htmlpage').style.display = "none";
-            if (veutDeconnecte) {
+            if (veutDeconnecte) { //si le client veut se déconnecter
                 document.getElementById('pageConnexion').removeChild(document.getElementById('btnDeconnexion'));
                 document.getElementById('pageConnexion').removeChild(document.getElementById('pDeconnexion'));
             }
