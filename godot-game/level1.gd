@@ -65,14 +65,14 @@ func _ready():
 	get_node("CanvasLayer/Blackwait").visible = false
 	get_node("CanvasLayer/Temps").visible = true
 	# detect if user is on mobile
-#	userAgent = String(JavaScript.eval("navigator.userAgent")).to_lower()
-#	if ("android" in userAgent || "webos" in userAgent || "iphone" in userAgent || "ipad" in userAgent || "ipod" in userAgent || "blackberry" in userAgent || "windows phone" in userAgent) :
-#		get_node("CanvasLayer/Mobile").visible = true
-#		get_node("CanvasLayer/ChatBox").visible = false
-#		userAgent = true
-#	else :
-#		userAgent = false
-#		get_node("CanvasLayer/ChatBox").visible = true
+	userAgent = String(JavaScript.eval("navigator.userAgent")).to_lower()
+	if ("android" in userAgent || "webos" in userAgent || "iphone" in userAgent || "ipad" in userAgent || "ipod" in userAgent || "blackberry" in userAgent || "windows phone" in userAgent) :
+		get_node("CanvasLayer/Mobile").visible = true
+		get_node("CanvasLayer/ChatBox").visible = false
+		userAgent = true
+	else :
+		userAgent = false
+		get_node("CanvasLayer/ChatBox").visible = true
 	# player can now move
 	get_node("KinematicBody2D").set_physics_process(true)
 	

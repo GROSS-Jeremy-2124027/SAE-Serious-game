@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Network Park"
-run/main_scene="res://level4.tscn"
+run/main_scene="res://level1.tscn"
 config/icon="res://ASSETS/controller.png"
 
 [compression]
