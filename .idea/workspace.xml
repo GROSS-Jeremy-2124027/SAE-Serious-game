@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JS/mainScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/mainScript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/query/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/query/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +87,7 @@
       <workItem from="1673624038052" duration="5070000" />
       <workItem from="1673639429428" duration="72000" />
       <workItem from="1673889164206" duration="538000" />
+      <workItem from="1673897009877" duration="486000" />
     </task>
     <servers />
   </component>

@@ -80,6 +80,7 @@ function connexionPage() {
             document.getElementById('pageConnexion').removeChild(paragraph);
             document.getElementById('pageConnexion').removeChild(bouton);
             document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
+            window.location.href = window.location.href
         }
         document.getElementById('formConnexion').appendChild(paragraph)
         document.getElementById('formConnexion').appendChild(bouton)

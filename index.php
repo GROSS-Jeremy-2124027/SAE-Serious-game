@@ -82,8 +82,8 @@
             }
             if (isset($_POST['btnDeconnexion'])) {
                 session_unset();
-                $_POST['btnDeconnexion'] = null;
                 echo "<script>document.getElementById('boutonconnexion').textContent = 'Se connecter / S\'inscrire'</script>";
+                echo "<script>window.location.href = window.location.href</script>";
             }
             
             // Connexion à la base de données
