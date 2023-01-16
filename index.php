@@ -85,7 +85,7 @@
                 $_POST['btnDeconnexion'] = null;
                 echo "<script>document.getElementById('boutonconnexion').textContent = 'Se connecter / S\'inscrire'</script>";
             }
-            var_dump(isset($_POST['btnDeconnexion']));
+            
             // Connexion à la base de données
             $servername = "mysql-networkpark.alwaysdata.net";
             $username = "291361";
