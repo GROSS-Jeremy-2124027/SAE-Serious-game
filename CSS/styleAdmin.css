@@ -94,8 +94,11 @@ form{
 
 .affichage input{
     color: #000;
+    border: none;
+    padding: 10px 5px;
 }
 
 .boutonValider{
     color: #fff !important;
+    padding: 20px !important;
 }
