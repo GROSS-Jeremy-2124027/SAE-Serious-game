@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="64057d24-481b-4f44-9776-1fbc00b9ab5b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JS/mainScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/mainScript.js" afterDir="false" />
-    </list>
+    <list default="true" id="87ea1a2c-4552-4328-842d-8a4a11172e26" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,94 +10,35 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="Sass File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2GVEl0hcwmtnHxHjJKYTv0oQh9z" />
+  <component name="ProjectId" id="2MeNSnVbbE8Ko0c2ozvOw3ySmNe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/antoine/SAE/SAE-Serious-game&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;Sass&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="64057d24-481b-4f44-9776-1fbc00b9ab5b" name="Changes" comment="" />
-      <created>1666465497979</created>
+      <changelist id="87ea1a2c-4552-4328-842d-8a4a11172e26" name="Changes" comment="" />
+      <created>1678124090821</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666465497979</updated>
-      <workItem from="1666465500569" duration="22000" />
-      <workItem from="1666470123451" duration="2248000" />
-      <workItem from="1666473553748" duration="377000" />
-      <workItem from="1666512086577" duration="3468000" />
-      <workItem from="1666611447703" duration="123000" />
-      <workItem from="1666613968619" duration="1218000" />
-      <workItem from="1668595720973" duration="1540000" />
-      <workItem from="1668621272459" duration="5802000" />
-      <workItem from="1668673454169" duration="5533000" />
-      <workItem from="1668720288454" duration="908000" />
-      <workItem from="1669642255284" duration="3023000" />
-      <workItem from="1669645513680" duration="5203000" />
-      <workItem from="1669707952650" duration="289000" />
-      <workItem from="1669708242919" duration="159000" />
-      <workItem from="1669708410894" duration="8985000" />
-      <workItem from="1669725469300" duration="1377000" />
-      <workItem from="1669967378291" duration="1224000" />
-      <workItem from="1669968686267" duration="2154000" />
-      <workItem from="1670227101991" duration="39000" />
-      <workItem from="1673172493129" duration="7630000" />
-      <workItem from="1673252047022" duration="29000" />
-      <workItem from="1673275695808" duration="5356000" />
-      <workItem from="1673335637964" duration="1843000" />
-      <workItem from="1673358995929" duration="673000" />
-      <workItem from="1673359791980" duration="304000" />
-      <workItem from="1673553155063" duration="4713000" />
-      <workItem from="1673594096495" duration="13000" />
-      <workItem from="1673624038052" duration="5070000" />
-      <workItem from="1673639429428" duration="72000" />
-      <workItem from="1673889164206" duration="538000" />
-      <workItem from="1673897009877" duration="960000" />
-      <workItem from="1673898024298" duration="223000" />
-      <workItem from="1673898789166" duration="399000" />
+      <updated>1678124090821</updated>
+      <workItem from="1678124092029" duration="4085000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

@@ -76,6 +76,7 @@
             <?php
             include "connection/AccesDonnees.php";
             session_start();
+
             $_SESSION['connecter'] = false;
             if ($_SESSION['connecter'] === true) {
                 echo "<script>document.getElementById('boutonconnexion').textContent = 'Se déconnecter'</script>";
@@ -102,11 +103,11 @@
             $result = $bd->run($sql);
 
             // Affichage des meilleurs scores
-            while ($row = $result->fetch()) {
+            for ($i = 0; $i < count($result); $i++) {
                 ?>
                 <li>
                     <?php
-                    echo $row['identifiant'] . " : " . $row['Sommes'] . "<br>";
+                        echo $result[$i]['identifiant'] . " : " . $result[$i]['Sommes'] . "<br>";
                     ?>
                 </li>
 

@@ -20,18 +20,18 @@ if (isset($_POST["login"])) {
 
     $user = $con->run($sql);
 
+
+
     $_SESSION['connecter'] = false;
     // Si l'utilisateur existe
     if (count($user) > 0) {
-        //while($rows = $user->fetch()) {
-            if (password_verify($_SESSION['password'], $string[0]["mot_de_passe"])) {
-                // Envoi de la requête
-                echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
-                echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
-                echo "<script type='text/javascript'>window.parent.document.getElementById('boutonconnexion').textContent = 'Se déconnecter';</script>";
-                $_SESSION['connecter'] = true;
-            }
-        //}
+        if (password_verify($_SESSION['password'], $string[0]["mot_de_passe"])) {
+            // Envoi de la requête
+            echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+            echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
+            echo "<script type='text/javascript'>window.parent.document.getElementById('boutonconnexion').textContent = 'Se déconnecter';</script>";
+            $_SESSION['connecter'] = true;
+        }
     }
     else {
         echo "<script> alert('Identifiant invalide'); </script>";

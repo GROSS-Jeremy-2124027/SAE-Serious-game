@@ -38,47 +38,27 @@
     </p>
 
 <?php
+    include_once "connection/AccesDonnees.php";
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    $db = new AccesDonnees();
 
-    // Informations de connexion à la base de données
-    define("DB_SERVERNAME", "mysql-networkpark.alwaysdata.net");
-    define("DB_USERNAME", "291361");
-    define("DB_PASSWORD", "coucou18?");
-    define("DB_DATABASE", "networkpark_bd");
-
-    // Connexion à la base de données
-    $db = new mysqli(DB_SERVERNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
-    // Vérifiez si la connexion a réussi
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-    }
-
-    // Préparez la requête
+    // Préparez la requête et envoyez la requête
     $query = "SELECT * FROM question, reponse WHERE question.id_question = reponse.question_id";
-    $stmt = $db->prepare($query);
+    $result = $db->run($query);
 
-    // Exécutez la requête
-    $stmt->execute();
-
-    // Récupérez le résultat
-    $result = $stmt->get_result();
 
     // Affichez le résultat
     echo "<table>";
     echo "<tr><th>Identifiant</th><th>Tuple question</th><th>Indice</th><th>Bonne réponse</th><th>Mauvaise réponse 1</th><th>Mauvaise réponse 2</th><th>Mauvaise réponse 3</th></tr>";
-    while ($row = $result->fetch_assoc()) {
+    for ($i = 0; $i < count($result); $i++) {
         echo "<tr>";
-        echo "<td>" . $row['id_question'] . "</td>";
-        echo "<td>" . $row['tupleQuestion'] . "</td>";
-        echo "<td>" . $row['indice'] . "</td>";
-        echo "<td>" . $row['bonneReponse'] . "</td>";
-        echo "<td>" . $row['mauvaiseReponse'] . "</td>";
-        echo "<td>" . $row['mauvaiseReponse2'] . "</td>";
-        echo "<td>" . $row['mauvaiseReponse3'] . "</td>";
+        echo "<td>" . $result[$i]['id_question'] . "</td>";
+        echo "<td>" . $result[$i]['tupleQuestion'] . "</td>";
+        echo "<td>" . $result[$i]['indice'] . "</td>";
+        echo "<td>" . $result[$i]['bonneReponse'] . "</td>";
+        echo "<td>" . $result[$i]['mauvaiseReponse'] . "</td>";
+        echo "<td>" . $result[$i]['mauvaiseReponse2'] . "</td>";
+        echo "<td>" . $result[$i]['mauvaiseReponse3'] . "</td>";
         echo "</tr>";
     }
     echo "</table>";
@@ -130,13 +110,12 @@
                 <input type="text" name="mauvaiseReponse3" id="">
             </div>
             <div class="affichage">
-                <input type="submit" class="boutonValider" value="valider" name="valider">
+                <button class="boutonValider" value="valider" name="valider">Valider</button>
             </div>
         </form>
     </section>
 
 <?php
-
     if (isset($_POST["valider"])) {
 
 
@@ -148,24 +127,17 @@
         $mauvaiseReponse2 = $_POST["mauvaiseReponse2"];
         $mauvaiseReponse3 = $_POST["mauvaiseReponse3"];
 
-        // Début de la transaction
-        mysqli_begin_transaction($db);
 
         // Préparation de la requête de mise à jour de la table "question"
         $query1 = "UPDATE `question` SET `tupleQuestion` = '$question', `indice` = '$indice' WHERE `id_question` = '$identifiant'";
         
-        $updateQuestion = $db -> query($query1) or die ($db -> error);
+        $updateQuestion = $db -> runInsert($query1);
 
         // Préparation de la requête de mise à jour de la table "reponse"
         $query2 = "UPDATE `reponse` SET `bonneReponse` = '$bonneReponse', `mauvaiseReponse` = '$mauvaiseReponse', `mauvaiseReponse2` = '$mauvaiseReponse2', 
         `mauvaiseReponse3` = '$mauvaiseReponse3' WHERE `question_id` = '$identifiant'";
 
-        // Validation de la transaction
-        mysqli_commit($db);
-
-        $updtateReponse = $db -> query($query2) or die ($db -> error);
-        mysqli_close($db);
-
+        $updtateReponse = $db -> runInsert($query2);
     }
 
 ?>

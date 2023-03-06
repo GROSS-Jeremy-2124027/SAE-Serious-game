@@ -4,9 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include "../connection/connection.php";
-$con = connect();
-
+include "../connection/AccesDonnees.php";
+$bd = new AccesDonnees();
 function set_url()
 {
     echo("<script> window.parent.location.href = '../admin.php' </script>");
@@ -20,21 +19,19 @@ if (isset($_POST["loginAdmin"])) {
     $_SESSION['password'] = $_POST["password"];
 
     $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
-    $string = $con ->query($mot_de_passe_hash) ->fetch_assoc();
+    $string = $bd ->run($mot_de_passe_hash);
     $sql = " SELECT * FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
 
-    $user = $con -> query($sql);
+    $user = $bd -> run($sql);
 
     // Si l'utilisateur existe
-    if ($user -> num_rows > 0) {
-        while($rows = $user -> fetch_assoc()) {
-            if (password_verify($_SESSION['password'], current($string))) {
-                // Envoi de la requête
-                echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
-                echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
-                echo "<script type='text/javascript'>window.parent.document.getElementById('boutonAdministrateur').textContent = 'Se déconnecter';</script>";
-                set_url();
-            }
+    if (count($user) > 0) {
+        if (password_verify($_SESSION['password'], $string[0]["mot_de_passe"])) {
+            // Envoi de la requête
+            echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
+            echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";
+            echo "<script type='text/javascript'>window.parent.document.getElementById('boutonAdministrateur').textContent = 'Se déconnecter';</script>";
+            set_url();
         }
     }
     else {

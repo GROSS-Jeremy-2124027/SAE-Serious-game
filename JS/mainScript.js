@@ -3,7 +3,6 @@ var btn = [];
 var btnid;
 var btnCampagne;
 var btnRetour = document.createElement("button")
-var btnconnexion
 var aide = document.createElement("p")
 
 
