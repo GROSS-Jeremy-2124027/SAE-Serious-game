@@ -7,7 +7,8 @@ error_reporting(E_ALL);
 //header("Access-Control-Allow-Headers: *");
 
 include "../connection/connection.php";
-$con = connect();
+$bd = new AccesDonnees();
+$con = $bd->connection();
 
 
 switch ($_REQUEST['command']) {
@@ -15,11 +16,11 @@ switch ($_REQUEST['command']) {
     case "get_score":
         session_start();
         $sql ="SELECT meilleurScore".$_REQUEST['level']." FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."'";
-
-        $result = $con->query($sql);
+        $sql = $con->prepare($sql);
+        $result = $con->execute();
 
         //Fetch into associative array
-        while ( $row = $result->fetch_assoc())  {
+        while ( $row = $result->fetch())  {
             $dbdata=$row;
         }
         /* current() sert à avoir l'index actuel donc dans ce cas la derniere case de $dbdata car on l'a parcouru dans la boucle while

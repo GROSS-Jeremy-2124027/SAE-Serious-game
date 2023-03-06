@@ -2,8 +2,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-include "../connection/connection.php";
-$con = connect();
+
+include "../connection/AccesDonnees.php";
+$con = new AccesDonnees();
 
 // Si clic sur le bouton s'inscrire
 if (isset($_POST["signup"])) {
@@ -17,8 +18,6 @@ if (isset($_POST["signup"])) {
     $has_uppercase = false;
     $has_digit = false;
     $has_special_char = false;
-
-
 
     // On parcourt chaque caractère du mot de passe
     for ($i = 0; $i < strlen($password); $i++) {
@@ -64,16 +63,17 @@ if (isset($_POST["signup"])) {
 
     // Si tout les critères sont remplis
     if (strlen($password) >= 8 && strlen($username) <= 10 && $has_uppercase && $has_digit && $has_special_char && ($password === $passwordConfirm)) {
+        
         $hash = password_hash($password, PASSWORD_BCRYPT);
         // Envoi de la requête
-        $sql = "INSERT INTO `utilisateur`(`identifiant`, `mot_de_passe`) 
-                VALUES ('$username', '$hash')";
 
         $verification = "SELECT identifiant FROM `utilisateur` WHERE identifiant = '".$_POST["username"]."' ";
-        $user = $con -> query($verification);
+        $user = $con->run($verification);
 
-        if($user -> num_rows < 1){
-            $insert = $con -> query($sql) or die ($con -> error);
+        if(count($user) < 1){
+            $sql = "INSERT INTO `utilisateur`(`identifiant`, `mot_de_passe`) 
+                VALUES ('$username', '$hash')";
+            $insert = $con->runInsert($sql);
             if ($insert) {
                 echo "<script> alert('Nouveau compte créé ! Veuillez vous connecter à l\'aide de vos identifiants'); </script>";
                 echo "<script>window.parent.document.getElementById('htmlpage').style.display = 'none';</script>";

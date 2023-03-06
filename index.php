@@ -74,8 +74,9 @@
         </h2>
         <ul>
             <?php
+            include "connection/AccesDonnees.php";
             session_start();
-
+            $_SESSION['connecter'] = false;
             if ($_SESSION['connecter'] === true) {
                 echo "<script>document.getElementById('boutonconnexion').textContent = 'Se déconnecter'</script>";
                 echo "<script>document.getElementById('htmlpage').style.display='none'</script>";
@@ -87,38 +88,21 @@
             }
             
             // Connexion à la base de données
-            $servername = "mysql-networkpark.alwaysdata.net";
-            $username = "291361";
-            $password = "coucou18?";
-            $database = "networkpark_bd";
-
-            $db = new mysqli($servername, $username, $password, $database);
-
-            // Checker les erreurs
-            if ($db->connect_error) {
-                die("Connection failed: " . $db->connect_error);
-            }
+            $bd = new AccesDonnees();
 
             // Envoi de la requête pour savoir si les cookies correspondent à un utilisateur
             if (isset($_SESSION["username"]) && isset($_SESSION["password"])){
                 $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
-                $user = $db -> query($sql);
-                //Si l'utilisateur existe
-                /*if ($user -> num_rows > 0) {
-                    while($rows = $user -> fetch_assoc()) {
-                        echo "<script> alert('Vous êtes connecté" . " " . $_SESSION["username"] . "'); </script>";
-                    }
-                }*/
+                //$sql = $con->prepare($sql);
+                $result = $bd->execute();                
             }
 
             // Envoi de la requête pour les meilleurs scores
-            $query = "Select identifiant, (meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4) as Sommes from utilisateur order by Sommes desc limit 5";
-            $result = $db->query($query);
-
+            $sql = "Select identifiant, (meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4) as Sommes from utilisateur order by Sommes desc limit 5";
+            $result = $bd->run($sql);
 
             // Affichage des meilleurs scores
-            while ($row = $result->fetch_assoc()) {
-
+            while ($row = $result->fetch()) {
                 ?>
                 <li>
                     <?php
@@ -130,7 +114,7 @@
             }
 
             // Fermer la connection
-            $db->close();
+            $bd->fermerConnexion();
 
             ?>
 
