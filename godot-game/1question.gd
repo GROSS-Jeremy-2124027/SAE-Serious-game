@@ -6,7 +6,7 @@ var RED = Color('c80000')
 var time = 0
 var correct = false
 var wait_time = 3
-var idReponse
+var idGoodAnswer
 var ready = false
 var wrong = 0
 var wait_time_wrong = 3
@@ -17,13 +17,13 @@ func _process(delta):
 		if (get_parent().get_node("KinematicBody2D").pcid >= int(name[-1])):
 			get_node("PCsprite").texture = load("res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2.png")
 			get_node("PCshape").disabled = false
-		if (get_parent().get_node("CanvasLayer/Sombre/Q1/R" + String(idReponse) + "/box/Panel").bg == WHITE) :
+		if (get_parent().get_node("CanvasLayer/Sombre/Q1/R" + String(idGoodAnswer) + "/box/Panel").bg == WHITE) :
 			correct = true
 			wrong = 0
 		else :
 			correct = false
 		for id in range(4):
-			if id+1 != idReponse :
+			if id+1 != idGoodAnswer :
 				if (get_parent().get_node("CanvasLayer/Sombre/Q1/R" + String(id+1) + "/box/Panel").bg == WHITE) :
 					if wrong != id+1 :
 						wait_time_wrong = 3

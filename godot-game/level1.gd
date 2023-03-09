@@ -79,8 +79,8 @@ func _ready():
 
 func set_next_pc():
 	if questions.size() >= get_node("KinematicBody2D").pcid :
-		var idResponses = [1,2,3,4]
-		idResponses.shuffle()
+		var responses = ["bonneReponse", "mauvaiseReponse", "mauvaiseReponse2", "mauvaiseReponse3"]
+		responses.shuffle()
 		get_node("CanvasLayer/ChatBox").indice = questions[get_node("KinematicBody2D").pcid-1]["indice"]
 		var question = String(questions[get_node("KinematicBody2D").pcid-1]["tupleQuestion"])
 		if question.length() > 45 :
@@ -90,16 +90,18 @@ func set_next_pc():
 				get_node("CanvasLayer/Sombre/Q1").text = question.insert(45,"\n")
 		else :
 			get_node("CanvasLayer/Sombre/Q1").text = question
-		while idResponses.size() > 0 : # On met les réponses dans les pc
-			if String(questions[get_node("KinematicBody2D").pcid-1].values()[6-idResponses.size()]) != "" :
-				get_node("CanvasLayer/Sombre/Q1/R" + String(idResponses[0])).visible = true
-				get_node("CanvasLayer/Sombre/Q1/R" + String(idResponses[0]) + "/box/MarginContainer/HBoxContainer/Label").text = " " + String(questions[get_node("KinematicBody2D").pcid-1].values()[6-idResponses.size()]) + " "
+		var nbEmptyAnswer = 0
+		while responses.size() > 0 : # On met les réponses dans les pc
+			if String(questions[get_node("KinematicBody2D").pcid-1][responses[0]]) != "" :
+				get_node("CanvasLayer/Sombre/Q1/R" + String(5-responses.size()-nbEmptyAnswer)).visible = true
+				get_node("CanvasLayer/Sombre/Q1/R" + String(5-responses.size()-nbEmptyAnswer) + "/box/MarginContainer/HBoxContainer/Label").text = " " + String(questions[get_node("KinematicBody2D").pcid-1][responses[0]]) + " "
 			else :
-				get_node("CanvasLayer/Sombre/Q1/R" + String(idResponses[0])).visible = false
-			if questions[get_node("KinematicBody2D").pcid-1].values()[6-idResponses.size()] == questions[get_node("KinematicBody2D").pcid-1]["bonneReponse"] : # Si c'est la bonne réponse, on l'indique au script du pc
-				get_node("PC" + String(get_node("KinematicBody2D").pcid)).idReponse = idResponses[0]
+				nbEmptyAnswer += 1
+				get_node("CanvasLayer/Sombre/Q1/R" + String(5-nbEmptyAnswer)).visible = false
+			if responses[0] == "bonneReponse" : # Si c'est la bonne réponse, on l'indique au script du pc
+				get_node("PC" + String(get_node("KinematicBody2D").pcid)).idGoodAnswer = 5-responses.size()-nbEmptyAnswer
 				get_node("PC" + String(get_node("KinematicBody2D").pcid)).ready = true
-			idResponses.pop_front()
+			responses.pop_front()
 	else :
 		end_game()
 

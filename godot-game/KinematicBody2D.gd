@@ -111,14 +111,10 @@ func _physics_process(delta):
 		States.PC:
 			$Sprite.play("Watch")
 			get_parent().get_node("CanvasLayer/ChatBox").rect_position.x = 825
-			if Input.is_action_just_pressed("1") :
-				get_parent().get_node("CanvasLayer/Sombre/Q1/R1").selected()
-			if Input.is_action_just_pressed("2") :
-				get_parent().get_node("CanvasLayer/Sombre/Q1/R2").selected()
-			if Input.is_action_just_pressed("3") :
-				get_parent().get_node("CanvasLayer/Sombre/Q1/R3").selected()
-			if Input.is_action_just_pressed("4") :
-				get_parent().get_node("CanvasLayer/Sombre/Q1/R4").selected()
+			if (get_parent().get_node("PC"+String(pcid)).wait_time_wrong > 1) :
+				for i in range(1,5):
+					if Input.is_action_just_pressed(String(i)) && get_parent().get_node("CanvasLayer/Sombre/Q1/R"+String(i)).visible :
+						get_parent().get_node("CanvasLayer/Sombre/Q1/R"+String(i)).selected()
 			if ((Input.is_action_just_pressed("ui_select") and get_parent().get_node("PC"+String(pcid)).wait_time_wrong > 1) or get_parent().get_node("CanvasLayer/Sombre").visible == false) :
 				#get_parent().get_node("PC" + str(pcid) + "/Sombre").set("visible", false)
 				get_parent().get_node("CanvasLayer/Sombre").set("visible", false)
