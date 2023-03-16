@@ -20,6 +20,7 @@ switch ($_REQUEST['command']) {
         /* current() sert à avoir l'index actuel donc dans ce cas la derniere case de $result car on l'a parcouru dans la boucle while
         *  au-dessus, le reste sert à transformer la valeur de score de string a int
         */
+        
         echo json_encode((int) filter_var(current($result), FILTER_SANITIZE_NUMBER_INT)); //affiche le score de l'utilisateur
         session_abort();
         die;
