@@ -13,45 +13,37 @@ var str2;
 var b = false;
 var btnconnexion;
 
-    //partie pour cacher/montrer le/les mot(s) de passe
-    pwShowHide.forEach(eyeIcon =>{
-        eyeIcon.addEventListener("click", ()=>{
-            pwFields.forEach(pwField =>{
-                if(pwField.type ==="password"){
-                    pwField.type = "text";
+/**
+ * partie pour cacher/montrer le/les mot(s) de passe
+ */
+pwShowHide.forEach(eyeIcon =>{
+    eyeIcon.addEventListener("click", ()=>{
+        pwFields.forEach(pwField =>{
+            if(pwField.type ==="password"){
+                pwField.type = "text";
 
-                    pwShowHide.forEach(icon =>{
-                        icon.classList.replace("uil-eye-slash", "uil-eye");
-                    })
-                }else{
-                    pwField.type = "password";
+                pwShowHide.forEach(icon =>{
+                    icon.classList.replace("uil-eye-slash", "uil-eye");
+                })
+            }else{
+                pwField.type = "password";
 
-                    pwShowHide.forEach(icon =>{
-                        icon.classList.replace("uil-eye", "uil-eye-slash");
-                    })
-                }
-            }) 
-        })
+                pwShowHide.forEach(icon =>{
+                    icon.classList.replace("uil-eye", "uil-eye-slash");
+                })
+            }
+        }) 
     })
+})
 
-    //partie pour afficher la partie inscription ou connection
-    signUp.addEventListener("click", ( )=>{
-        partie1.style.display = "none";
-        container.classList.add("active");
-    });
-    login.addEventListener("click", ( )=>{
-        partie1.style.display = "initial"
-        container.classList.remove("active");
-    });
-
-    createPassword.addEventListener('input', updateValue);
-
-    function updateValue(e) {
-        str = e.target.value;
-    }
-
-    confirmPassword.addEventListener('input', updateValue);
-
-    function updateValue(e) {
-        str2 = e.target.value;
-    }
+/**
+ * partie pour afficher la partie inscription ou connection
+ */
+signUp.addEventListener("click", ( )=>{
+    partie1.style.display = "none";
+    container.classList.add("active");
+});
+login.addEventListener("click", ( )=>{
+    partie1.style.display = "initial"
+    container.classList.remove("active");
+});

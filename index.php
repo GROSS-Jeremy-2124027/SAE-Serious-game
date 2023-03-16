@@ -6,7 +6,7 @@
     <title> Network Park </title>
     <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
-    <link rel="icon" href="img/alien.png">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1085925058301677579/1085925109526708235/alien.png">
     <script src="JS/mainScript.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <div id='etoile3'></div>
 <header>
     <div>
-        <button class="boutonAdministrateur" onclick="administrateurPage()" id="boutonAdministrateur">
+        <button class="boutonAdministrateur" onclick="page.administrateurPage()" id="boutonAdministrateur">
             Administrateur
         </button>
         <div id="pageAdmin">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div>
-        <button class="boutonConnexion" onclick="connexionPage()" id="boutonconnexion" name="boutonConnexion">
+        <button class="boutonConnexion" onclick="page.connexionPage()" id="boutonconnexion" name="boutonConnexion">
             Se connecter / S'inscrire
         </button>
         <div id="pageConnexion" >
@@ -49,7 +49,7 @@
                 Histoire
             </h2>
             <div id="histoire-image-text">
-                <img id="imgAlien" src="img/alien.png" alt="Image de l'Alien">
+                <img id="imgAlien" src="https://cdn.discordapp.com/attachments/1085925058301677579/1085925109526708235/alien.png" alt="Image de l'Alien">
                 <p id="textHistoire">
                     Je suis Bloop l'extraterrestre, spaceTrooper. Un vaisseau a été percuté par un astéroïde et maintenant
                     plusieurs personnes sont bloquées dans plusieurs pièces du vaisseau. Chaque niveau correspond à une pièce
@@ -60,7 +60,7 @@
     </div>
 
     <div id="menu">
-        <button class="boutonJouer" onclick="menuLvl()" id="boutonJouer">
+        <button class="boutonJouer" onclick="menu.menuLvl()" id="boutonJouer">
             Commencer
         </button>
     </div>
