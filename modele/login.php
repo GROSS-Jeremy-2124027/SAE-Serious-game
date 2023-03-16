@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-include "../connection/AccesDonnees.php";
+include "AccesDonnees.php";
 $con = new AccesDonnees();
 
 // Si clic sur le bouton se connecter
