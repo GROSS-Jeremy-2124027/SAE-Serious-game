@@ -6,7 +6,7 @@
     <title> Network Park </title>
     <link rel="stylesheet" href="CSS/mainStyle.css">
     <link rel="stylesheet" href="CSS/styleBack.css">
-    <link rel="icon" href="img/controller.png">
+    <link rel="icon" href="img/alien.png">
     <script src="JS/mainScript.js"></script>
 </head>
 <body>
