@@ -53,7 +53,7 @@ function menuLvl() {
 }
 
 function warpLvl() {
-    let niveau = "level-" + btnid + "/"
+    let niveau = "Levels/level-" + btnid + "/"
     window.location.href = niveau;
 }//fonction pour acceder au niveau selon le bouton
 
