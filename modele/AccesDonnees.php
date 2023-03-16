@@ -15,7 +15,9 @@ class AccesDonnees{
     function run($sql){
         $nom = $this->bdd->prepare($sql);
         $nom->execute();
-        $result = $nom->fetch(PDO::FETCH_ASSOC);
+        while($row=$nom->fetch()){
+            $result[] = $row;
+        }
         return $result;
     }
 

@@ -74,7 +74,7 @@
         </h2>
         <ul>
             <?php
-            include "connection/AccesDonnees.php";
+            include "modele/AccesDonnees.php";
             session_start();
 
             $_SESSION['connecter'] = false;
@@ -95,7 +95,7 @@
             if (isset($_SESSION["username"]) && isset($_SESSION["password"])){
                 $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
                 //$sql = $con->prepare($sql);
-                $result = $bd->execute();                
+                $result = $bd->run();               
             }
 
             // Envoi de la requête pour les meilleurs scores
