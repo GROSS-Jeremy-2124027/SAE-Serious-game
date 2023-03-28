@@ -70,5 +70,17 @@ class VueAccueil extends Vue{
                     Meilleurs joueurs :
                 </h2>
                 <ul>';
+
+        /*// Affichage des meilleurs scores
+for ($i = 0; $i < count($result); $i++) {
+    ?>
+    <li>
+        <?php
+            echo $result[$i]['identifiant'] . " : " . $result[$i]['Sommes'] . "<br>";
+        ?>
+    </li>
+
+    <?php
+}*/
     }
 }
