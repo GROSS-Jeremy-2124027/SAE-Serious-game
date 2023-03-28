@@ -2,7 +2,7 @@
 
 include_once "Layout.php";
 
-abstract class View {
+abstract class Vue {
     protected $content = '';
     protected $layout;
 

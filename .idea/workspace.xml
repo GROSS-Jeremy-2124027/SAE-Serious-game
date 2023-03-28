@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ea1a2c-4552-4328-842d-8a4a11172e26" name="Changes" comment="" />
+    <list default="true" id="87ea1a2c-4552-4328-842d-8a4a11172e26" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/Vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/Vue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/VueConnexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueConnexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/VueConnexionAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueConnexionAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vue/VueInscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueInscription.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +18,9 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -18,14 +30,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -35,10 +52,21 @@
       <option name="presentableId" value="Default" />
       <updated>1678124090821</updated>
       <workItem from="1678124092029" duration="4085000" />
+      <workItem from="1678971061743" duration="4522000" />
+      <workItem from="1678979784483" duration="3442000" />
+      <workItem from="1679038531234" duration="62000" />
+      <workItem from="1679051227956" duration="1000" />
+      <workItem from="1679128023936" duration="6000" />
+      <workItem from="1679670651288" duration="48000" />
+      <workItem from="1679985259803" duration="1167000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
