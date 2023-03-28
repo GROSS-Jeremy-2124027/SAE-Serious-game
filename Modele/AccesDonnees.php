@@ -27,7 +27,6 @@ class AccesDonnees{
         return $nom;
     }
 
-
     function fermerConnexion(){
         $this->bdd = null;
     }

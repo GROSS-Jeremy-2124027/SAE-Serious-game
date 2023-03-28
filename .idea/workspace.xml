@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ea1a2c-4552-4328-842d-8a4a11172e26" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controleurs/Presenter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Service.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/Vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/Vue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/VueConnexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueConnexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/VueConnexionAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueConnexionAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vue/VueInscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vue/VueInscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modele/AccesDonnees.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/AccesDonnees.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modele/AccesScore.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modele/AccesScore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <workItem from="1679051227956" duration="1000" />
       <workItem from="1679128023936" duration="6000" />
       <workItem from="1679670651288" duration="48000" />
-      <workItem from="1679985259803" duration="1167000" />
+      <workItem from="1679985259803" duration="4941000" />
     </task>
     <servers />
   </component>
