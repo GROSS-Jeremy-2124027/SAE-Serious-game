@@ -30,10 +30,14 @@ $controleur = new Controleur();
 // initilisation du presenter
 $presenter = new Presenter();
 
-// intialisation du cas d'utilisation utilisateurCheck
-$utilisateurCheck = new utilisateurCheck() ;
+// intialisation du cas d'utilisation UtilisateurCheck
+$utilisateurCheck = new UtilisateurCheck() ;
+
+// intialisation du cas d'utilisation Service
+$service = new Service() ;
 
 // initilisation de l'accès au données
+$donnees = null;
 try{
     $bd = new AccesDonnees();
     $scores = new AccesScore();
@@ -65,7 +69,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 // page d'accueil
 if ('/index.php' == $uri){
 
-    $controleur->accueilAction();
+    $controleur->scoreAction($donnees, $scores);
 
     $layout = new Layout("Vue/layout.html");
     $vueAccueil = new VueAccueil($layout, $presenter);

@@ -1,7 +1,7 @@
 <?php
 
 namespace service;
-class utilisateurCheck
+class UtilisateurCheck
 {
     public function identification($login, $password, $donnees)
     {
