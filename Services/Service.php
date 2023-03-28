@@ -1,11 +1,12 @@
 <?php
 
-namespace service;
+namespace Service;
 
 class Service
 {
 
     protected $scores;
+
 
     public function estConnecte() {
         if ($_SESSION['connecter'] === true) {
@@ -21,7 +22,7 @@ class Service
     }
 
     public function getMeilleursScores($donnees) {
-        $this->scores = $donnees -> getMeilleursScores();
+        $this->scores = $donnees -> getMeilleurScore();
     }
 
     public function getScores() {

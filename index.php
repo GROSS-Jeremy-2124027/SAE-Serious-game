@@ -2,27 +2,25 @@
 
 // chargement et initilation des bibliothèques globales
 include_once 'Controleurs/Controleur.php';
+include_once 'Controleurs/Presenter.php';
 
-include_once 'service/AnnoncesChecking.php';
-include_once 'service/UserChecking.php';
-include_once 'service/AnnonceCreation.php';
+
+include_once 'Service/Service.php';
 
 include_once 'Modele/AccesDonnees.php';
-include_once 'Modele/AccesUtilisateur.php';
 include_once 'Modele/AccesScore.php';
 
 include_once 'Vue/Layout.php';
 include_once 'Vue/VueAccueil.php';
-include_once 'Vue/VueConnexion.php';
-include_once 'Vue/VueConnexionAdmin.php';
-include_once 'Vue/VueInscription.php';
+//include_once 'Vue/VueConnexion.php';
+//include_once 'Vue/VueConnexionAdmin.php';
+//include_once 'Vue/VueInscription.php';
 
 
 use Controleurs\{Controleur, Presenter};
-use service\{utilisateurCheck, AnnonceCreation};
-use Modele\{AccesDonnees, AccesScore, AccesUtilisateur};
+use Service\{Service};
+use Modele\{AccesDonnees, AccesScore};
 use Vue\{Layout, VueAccueil, VueConnexion, VueConnexionAdmin, VueInscription};
-
 
 // initialisation du controleur
 $controleur = new Controleur();
@@ -30,18 +28,14 @@ $controleur = new Controleur();
 // initilisation du presenter
 $presenter = new Presenter();
 
-// intialisation du cas d'utilisation UtilisateurCheck
-$utilisateurCheck = new UtilisateurCheck() ;
-
 // intialisation du cas d'utilisation Service
 $service = new Service() ;
 
 // initilisation de l'accès au données
 $donnees = null;
 try{
-    $bd = new AccesDonnees();
-    $scores = new AccesScore();
-    $utilisateur = new AccesUtilisateur();
+    $bd = new PDO('mysql:host=mysql-networkpark.alwaysdata.net;dbname=networkpark_bd', '291361', 'coucou18?');
+    $scores = new AccesScore($bd);
 } catch (PDOException $e) {
     print "Erreur de connexion : " . $e->getMessage() . "</br>";
     die();
@@ -67,7 +61,7 @@ if (isset($_POST['btnDeconnexion'])) {
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
-if ('/index.php' == $uri){
+if ('/annonces/annonces/' == $uri){
 
     $controleur->scoreAction($donnees, $scores);
 
@@ -78,14 +72,14 @@ if ('/index.php' == $uri){
 
 }
 // page administrateur
-elseif('/index.php/admin' == $uri){
+elseif('/annonces/annonces/admin' == $uri){
 
     $controleur->adminAction();
 
     $layout = new Layout("Vue/layout.html");
-    $vueAnnoncesEmploi = new ViewAnnoncesEmploi($layout, $_SESSION['login'], $presenter);
+    $vueAdmin = new VueAdmin();
 
-    $vueAnnoncesEmploi->display();
+    $vueAdmin->display();
 
 }
 // page des différents niveaux
@@ -112,7 +106,6 @@ if (isset($_SESSION["username"]) && isset($_SESSION["password"])){
     //$sql = $con->prepare($sql);
     $result = $bd->run();
 }
-
 // Envoi de la requête pour les meilleurs scores
 $sql = "Select identifiant, (meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4) as Sommes from utilisateur order by Sommes desc limit 5";
 $result = $bd->run($sql);
@@ -120,4 +113,4 @@ $result = $bd->run($sql);
 
 
 // On ferme la connection
-$bd->fermerConnexion();
+$bd = null;
