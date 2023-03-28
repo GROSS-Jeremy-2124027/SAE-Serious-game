@@ -1,6 +1,6 @@
 <?php
 
-// charge et initialise les bibliothèques globales
+// chargement et initilation des bibliothèques globales
 include_once 'Controleurs/Controleur.php';
 
 include_once 'service/AnnoncesChecking.php';
@@ -18,7 +18,7 @@ include_once 'Vue/VueConnexionAdmin.php';
 include_once 'Vue/VueInscription.php';
 
 
-use Controleurs\Controleur;
+use Controleurs\{Controleur, Presenter};
 use service\{utilisateurCheck, AnnonceCreation};
 use Modele\{AccesDonnees, AccesScore, AccesUtilisateur};
 use Vue\{Layout, VueAccueil, VueConnexion, VueConnexionAdmin, VueInscription};
@@ -27,9 +27,13 @@ use Vue\{Layout, VueAccueil, VueConnexion, VueConnexionAdmin, VueInscription};
 // initialisation du controleur
 $controleur = new Controleur();
 
-// intialisation du cas d'utilisation service\UserChecking
+// initilisation du presenter
+$presenter = new Presenter();
+
+// intialisation du cas d'utilisation utilisateurCheck
 $utilisateurCheck = new utilisateurCheck() ;
 
+// initilisation de l'accès au données
 try{
     $bd = new AccesDonnees();
     $scores = new AccesScore();
@@ -39,6 +43,9 @@ try{
     die();
 }
 
+// définition d'une session d'une heure
+ini_set('session.gc_maxlifetime', 3600);
+session_set_cookie_params(3600);
 session_start();
 
 $_SESSION['connecter'] = false;
@@ -52,17 +59,46 @@ if (isset($_POST['btnDeconnexion'])) {
     echo "<script>window.location.href = window.location.href</script>";
 }
 
-// Authentification et création du compte (sauf pour le formulaire de connexion et la route de déconnexion)
-if ( '/annonces/' != $uri and '/annonces/index.php' != $uri and '/annonces/index.php/logout' != $uri ){
+// chemin de l'URL demandée au navigateur
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-    $error = $controller->authenticateAction($userCheck, $dataUsers);
+// page d'accueil
+if ('/index.php' == $uri){
 
-    if( $error != null )
-    {
-        $uri='/annonces/index.php/error' ;
-        if( $error == 'bad login or pwd' or $error == 'not connected')
-            $redirect = '/annonces/index.php';
-    }
+    $controleur->accueilAction();
+
+    $layout = new Layout("Vue/layout.html");
+    $vueAccueil = new VueAccueil($layout, $presenter);
+
+    $vueAccueil->display();
+
+}
+// page administrateur
+elseif('/index.php/admin' == $uri){
+
+    $controleur->adminAction();
+
+    $layout = new Layout("Vue/layout.html");
+    $vueAnnoncesEmploi = new ViewAnnoncesEmploi($layout, $_SESSION['login'], $presenter);
+
+    $vueAnnoncesEmploi->display();
+
+}
+// page des différents niveaux
+elseif('/index.php/niveaux' == $uri){
+
+    $controleur->adminAction();
+
+    $layout = new Layout("Vue/layout.html");
+    $vueAdmin = new VueAdmin($layout, $presenter);
+
+    //$vueAnnoncesEmploi->display();
+
+}
+// page d'erreur
+else {
+    header('Status: 404 Not Found');
+    echo '<html><body><h1>Page introuvable</h1></body></html>';
 }
 
 
@@ -79,121 +115,5 @@ $result = $bd->run($sql);
 */
 
 
-// Fermer la connection
+// On ferme la connection
 $bd->fermerConnexion();
-
-
-
-
-
-// chemin de l'URL demandée au navigateur
-// (p.ex. /annonces/index.php)
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-// définition d'une session d'une heure
-ini_set('session.gc_maxlifetime', 3600);
-session_set_cookie_params(3600);
-session_start();
-
-
-
-
-// route la requête en interne
-// i.e. lance le bon contrôleur en fonction de la requête effectuée
-if ( '/annonces/' == $uri || '/annonces/index.php' == $uri || '/annonces/index.php/logout' == $uri) {
-    // affichage de la page de connexion
-
-    session_destroy();
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vueLogin = new ViewLogin( $layout );
-
-    $vueLogin->display();
-}
-elseif ( '/annonces/index.php/annonces' == $uri ){
-
-    //traitement de l'insertion d'una annonce si necessaire
-    if (isset($_POST['contractType'])){
-        $controller->annonceCreationAction($_SESSION['login'], $_POST, $dataAnnonces, $annonceCreation);
-    }
-
-    // affichage de toutes les annonces
-
-    $controller->annoncesAction($dataAnnonces, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vueAnnonces= new ViewAnnonces( $layout,  $_SESSION['login'], $presenter);
-
-    $vueAnnonces->display();
-}
-elseif ( '/annonces/index.php/post' == $uri
-    && isset($_GET['id'])) {
-    // Affichage d'une annonce
-
-    $controller->postAction($_GET['id'], $dataAnnonces, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vuePost= new ViewPost( $layout,  $presenter );
-
-    $vuePost->display();
-}
-elseif('/annonces/index.php/annoncesEmploi' == $uri){
-
-    $controller->annoncesAction($apiEmploi, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html");
-    $vueAnnoncesEmploi = new ViewAnnoncesEmploi($layout, $_SESSION['login'], $presenter);
-
-    $vueAnnoncesEmploi->display();
-}
-elseif ('/annonces/index.php/offreEmploi' == $uri
-    && isset($_GET['id'])){
-    $controller->postAction($_GET['id'], $apiEmploi, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html");
-    $vuePostEmploi = new ViewOffreEmploi($layout, $_SESSION['login'], $presenter);
-
-    $vuePostEmploi->display();
-}
-elseif ( '/annonces/index.php/annoncesAlternance' == $uri ){
-    // Affichage de toutes les entreprises offrant de l'alternance
-
-    $controller->annoncesAction($apiAlternance, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vueAnnoncesAlternance= new ViewAnnoncesAlternance( $layout,  $_SESSION['login'], $presenter);
-
-    $vueAnnoncesAlternance->display();
-}
-elseif ( '/annonces/index.php/companyAlternance' == $uri
-    && isset($_GET['id'])) {
-    // Affichage d'une entreprise offrant de l'alternance
-
-    //$controller->postAction($_GET['id'], $apiAlternance, $annoncesCheck);
-
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vuePostAlternance = new ViewCompanyAlternance( $layout,  $_SESSION['login'], $presenter );
-
-    $vuePostAlternance->display();
-}
-elseif ( '/annonces/index.php/createAnnonce' == $uri ){
-    // Affichage du formulaire de création d'annonce
-
-    $layout = new Layout("gui/layoutLogged.html" );
-    $vueCreatAnnonce = new ViewCreateAnnonce( $layout );
-
-    $vueCreatAnnonce->display();
-}
-elseif ( '/annonces/index.php/error' == $uri ){
-    // Affichage d'un message d'erreur
-
-    $layout = new Layout("gui/layout.html" );
-    $vueError = new ViewError( $layout, $error, $redirect );
-
-    $vueError->display();
-}
-else {
-    header('Status: 404 Not Found');
-    echo '<html><body><h1>My Page NotFound</h1></body></html>';
-}
-
-?>
