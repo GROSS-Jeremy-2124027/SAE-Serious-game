@@ -1,8 +1,9 @@
 <?php
-
+namespace Vue;
 include_once "Layout.php";
-
 abstract class Vue {
+
+    protected $title = '';
     protected $content = '';
     protected $layout;
 
@@ -11,7 +12,7 @@ abstract class Vue {
     }
 
     public function display(){
-        $this->layout->display($this->content);
+        $this->layout->display($this->title,$this->content);
     }
     
 }

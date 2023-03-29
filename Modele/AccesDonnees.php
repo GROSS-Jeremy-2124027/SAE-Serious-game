@@ -1,4 +1,5 @@
 <?php
+namespace Modele;
 class AccesDonnees{
     protected $bdd;
 

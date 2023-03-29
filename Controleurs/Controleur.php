@@ -1,5 +1,7 @@
 <?php
-include "../Modele/AccesUtilisateur.php";
+
+namespace Controleurs;
+
 class Controleur{
 
     // Méthode pour vérifier une connexion

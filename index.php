@@ -5,14 +5,14 @@ include_once 'Controleurs/Controleur.php';
 include_once 'Controleurs/Presenter.php';
 
 
-include_once 'Service/Service.php';
+include_once 'Services/Service.php';
 
 include_once 'Modele/AccesDonnees.php';
 include_once 'Modele/AccesScore.php';
 
 include_once 'Vue/Layout.php';
 include_once 'Vue/VueAccueil.php';
-//include_once 'Vue/VueConnexion.php';
+include_once 'Vue/VueConnexion.php';
 //include_once 'Vue/VueConnexionAdmin.php';
 //include_once 'Vue/VueInscription.php';
 
@@ -60,19 +60,20 @@ if (isset($_POST['btnDeconnexion'])) {
 // chemin de l'URL demandée au navigateur
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+var_dump($uri);
+
 // page d'accueil
-if ('/annonces/annonces/' == $uri){
+if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri){
 
     $controleur->scoreAction($donnees, $scores);
 
     $layout = new Layout("Vue/layout.html");
-    $vueAccueil = new VueAccueil($layout, $presenter);
+    $vueConnexion = new VueConnexion($layout);
 
-    $vueAccueil->display();
-
+    $vueConnexion->display();
 }
 // page administrateur
-elseif('/annonces/annonces/admin' == $uri){
+elseif('/sae/SAE-Serious-game/index.php/admin' == $uri){
 
     $controleur->adminAction();
 
@@ -83,7 +84,7 @@ elseif('/annonces/annonces/admin' == $uri){
 
 }
 // page des différents niveaux
-elseif('/index.php/niveaux' == $uri){
+elseif('/sae/SAE-Serious-game/index.php/niveaux' == $uri){
 
     $controleur->adminAction();
 

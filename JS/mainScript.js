@@ -63,8 +63,6 @@ class Menu {
         }
     }//fonction pour supprimer tout les enfants d'un élément
 }
-
-
 class Page {
     veutDeconnecte = false;
     bool = false;
@@ -96,6 +94,7 @@ class Page {
                 document.getElementById('boutonconnexion').textContent = "quitter";
                 document.getElementById('pageAdmin').style.display = "none";
                 document.getElementById('boutonAdministrateur').textContent = "Administrateur";
+                console.log(document.getElementById('htmlpage').style)
             }
             else {
                 window.document.getElementById('htmlpage').style.display = "none";
@@ -110,7 +109,8 @@ class Page {
                 }
             }
         }//fonction pour afficher/cacher la page de connexion
-    }
+        console.log('a');
+     }
 
 
 
@@ -138,3 +138,5 @@ class Page {
 
 const menu = new Menu();
 const page = new Page();
+
+document.getElementById('boutonconnexion').onclick = function () {page.connexionPage()}

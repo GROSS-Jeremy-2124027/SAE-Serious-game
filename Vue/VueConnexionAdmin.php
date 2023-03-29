@@ -1,4 +1,6 @@
 <?php
+namespace Vue;
+
 
 class VueConnexionAdmin extends Vue {
 

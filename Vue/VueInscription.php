@@ -1,4 +1,5 @@
-<<?php
+<?php
+namespace Vue;
 
 class VueInscription extends Vue {
     public function __construct($layout)

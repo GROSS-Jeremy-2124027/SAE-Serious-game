@@ -1,10 +1,13 @@
 <?php
+namespace Vue;
+
 class VueConnexion extends Vue {
     public function __construct($layout)
     {
         parent::__construct($layout);
 
-        $this->content = '
+        $connexion = '
+<object id="htmlpage" type="text/html" width="436" height="500">
     <div class="container">
         <div class="forms">
             <div class="form login" id="partie1">
@@ -62,6 +65,10 @@ class VueConnexion extends Vue {
             </div>
         </div>
     </div>
-</div> ';
+</div> 
+</object>';
+
+        $page = file_get_contents('Vue/VueAccueil.html');
+        $this->content = str_replace('%pageConnexion%', $connexion, $page);
     }
 }

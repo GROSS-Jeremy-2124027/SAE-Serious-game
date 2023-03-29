@@ -1,4 +1,6 @@
 <?php
+namespace Vue;
+
 
 include_once "Vue.php";
 
@@ -23,9 +25,9 @@ class VueAccueil extends Vue{
                 <button class="boutonConnexion" onclick="page.connexionPage()" id="boutonconnexion" name="boutonConnexion">
                     Se connecter / S\'inscrire
                 </button>
-                <div id="pageConnexion" >
+                <div id="pageConnexion">
                     <form method="post" id="formConnexion"></form>
-                    <object id="htmlpage" type="text/html" data="Vue/VueConnexion.php" width="436" height="500"></object>
+                    %pageConnexion%
                 </div>
             </div>
         </header>

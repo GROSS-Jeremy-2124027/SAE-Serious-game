@@ -70,22 +70,7 @@ func text_entered(text):
 	elif text =='indice':
 		add_message('', envoie_indice(), '#ff5757')
 		inputField.text = ''
-	elif text.to_lower() == "bonjour" or text.to_lower() == "salut" or text.to_lower() == "coucou" or text.to_lower() == "hello" or text.to_lower() == "hi" or text.to_lower() == "hey" or text.to_lower() == "yo":
-		var responses = ["Bonjour ! Comment ça va ?", "Salut ! Quoi de neuf ?", "Coucou ! Comment tu vas ?", "Hello ! Comment s'est passé ta journée ?", "Salut ! Quoi de beau ?", "Hey ! Comment vas-tu ?", "Yo ! Comment ça roule ?"]
-		response = responses[randi() % responses.size()]
-		add_message('BOT', response, '#ffffff')
-		inputField.text = ''
-	elif text.to_lower() == "comment ça va" or text.to_lower() == "ça va" or text.to_lower() == "comment vas-tu" or text.to_lower() == "tu vas bien":
-		var responses = ["Je vais bien, merci ! Et toi ?", "Je me sens super bien ! Et toi ?", "Je vais bien, merci de demander ! Et toi ?", "Je suis en forme, merci ! Et toi ?"]
-		response = responses[randi() % responses.size()]
-		add_message('BOT', response, '#ffffff')
-		inputField.text = ''
-	elif text.to_lower() == "quoi de neuf" or text.to_lower() == "qu'est-ce qui se passe" or text.to_lower() == "tu fais quoi":
-		var responses = ["Pas grand-chose, et toi ?", "Rien de spécial, et toi ?", "Je suis là, en train de discuter avec toi ! Et toi ?", "Je ne fais rien de particulier, et toi ?"]
-		response = responses[randi() % responses.size()]
-		add_message('BOT', response, '#ffffff')
-		inputField.text = ''
-	elif text =='sortir' or text.to_lower() == "au revoir" or text.to_lower() == "à plus" or text.to_lower() == "à la prochaine" or text.to_lower() == "ciao":
+	elif text =='sortir':
 		JavaScript.eval("window.location.href='../index.php'")
 		inputField.text = ''
 	elif text != '':

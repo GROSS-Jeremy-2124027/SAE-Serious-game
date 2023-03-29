@@ -1,4 +1,5 @@
 <?php
+namespace Vue;
 
 class Layout {
     protected $templateFile;
