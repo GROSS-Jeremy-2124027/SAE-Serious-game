@@ -1,5 +1,7 @@
 <?php
 namespace Modele;
+use PDO;
+
 class AccesDonnees{
     protected $bdd;
 

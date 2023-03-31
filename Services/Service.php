@@ -22,7 +22,7 @@ class Service
     }
 
     public function getMeilleursScores($donnees) {
-        $this->scores = $donnees -> getMeilleurScore();
+        $this->scores = $donnees -> getMeilleursScores();
     }
 
     public function getScores() {

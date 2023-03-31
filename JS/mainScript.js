@@ -29,8 +29,7 @@ class Menu {
             this.btn[i].id = j;
             this.btn[i].textContent = j.toString();
             this.btn[i].onclick = function () {
-                this.btnid = this.id
-                this.warpLvl()
+                menu.warpLvl(this.id)
             }
             document.getElementById("menulvl").appendChild(this.btn[i]);
         }
@@ -52,8 +51,8 @@ class Menu {
         //créer et ajoute le bouton retour à la suite
     }
 
-    warpLvl() {
-        let niveau = "Levels/level-" + this.btnid + "/"
+    warpLvl(id) {
+        let niveau = "Levels/level-" + id + "/"
         window.location.href = niveau;
     }//fonction pour acceder au niveau selon le bouton
     
@@ -109,7 +108,6 @@ class Page {
                 }
             }
         }//fonction pour afficher/cacher la page de connexion
-        console.log('a');
      }
 
 
@@ -121,6 +119,7 @@ class Page {
             document.getElementById('boutonAdministrateur').textContent = "quitter";
             this.bool = true;
             document.getElementById('htmlpage').style.display = "none"
+            document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
             if (estConnecte) {
                 document.getElementById('boutonconnexion').textContent = "Se déconnecter";
             }
@@ -138,5 +137,3 @@ class Page {
 
 const menu = new Menu();
 const page = new Page();
-
-document.getElementById('boutonconnexion').onclick = function () {page.connexionPage()}

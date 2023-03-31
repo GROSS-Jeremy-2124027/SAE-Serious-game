@@ -6,36 +6,41 @@ include_once 'Controleurs/Presenter.php';
 
 
 include_once 'Services/Service.php';
+include_once "Services/UtilisateurCheck.php";
 
 include_once 'Modele/AccesDonnees.php';
 include_once 'Modele/AccesScore.php';
+include_once "Modele/AccesUtilisateur.php";
 
 include_once 'Vue/Layout.php';
 include_once 'Vue/VueAccueil.php';
-include_once 'Vue/VueConnexion.php';
 //include_once 'Vue/VueConnexionAdmin.php';
 //include_once 'Vue/VueInscription.php';
 
 
 use Controleurs\{Controleur, Presenter};
-use Service\{Service};
-use Modele\{AccesDonnees, AccesScore};
+use Service\{Service, UtilisateurCheck};
+use Modele\{AccesDonnees, AccesScore, AccesUtilisateur};
 use Vue\{Layout, VueAccueil, VueConnexion, VueConnexionAdmin, VueInscription};
 
 // initialisation du controleur
 $controleur = new Controleur();
 
-// initilisation du presenter
-$presenter = new Presenter();
-
 // intialisation du cas d'utilisation Service
 $service = new Service() ;
+
+// initilisation du presenter
+$presenter = new Presenter($service);
+
+$utilisateurCheck = new UtilisateurCheck();
+
 
 // initilisation de l'accès au données
 $donnees = null;
 try{
-    $bd = new PDO('mysql:host=mysql-networkpark.alwaysdata.net;dbname=networkpark_bd', '291361', 'coucou18?');
+    $bd = new AccesDonnees();
     $scores = new AccesScore($bd);
+    $AccesUtilisateur = new AccesUtilisateur($bd);
 } catch (PDOException $e) {
     print "Erreur de connexion : " . $e->getMessage() . "</br>";
     die();
@@ -60,17 +65,19 @@ if (isset($_POST['btnDeconnexion'])) {
 // chemin de l'URL demandée au navigateur
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-var_dump($uri);
-
 // page d'accueil
 if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri){
 
-    $controleur->scoreAction($donnees, $scores);
+    $controleur->scoreAction($scores, $service);
+
+    if (isset($_POST['loginButton']) && isset($_POST['login'])) {
+        $controleur->identificationAction($utilisateurCheck, $AccesUtilisateur);
+    }
 
     $layout = new Layout("Vue/layout.html");
-    $vueConnexion = new VueConnexion($layout);
+    $vueAccueil = new VueAccueil($layout, $presenter);
 
-    $vueConnexion->display();
+    $vueAccueil->display();
 }
 // page administrateur
 elseif('/sae/SAE-Serious-game/index.php/admin' == $uri){

@@ -5,7 +5,7 @@ namespace Vue;
 include_once "Vue.php";
 
 class VueAccueil extends Vue{
-    public function __construct($layout){
+    public function __construct($layout, $presenter){
         parent::__construct($layout);
 
         $this->title = 'NetworkPark | Accueil';
@@ -14,31 +14,111 @@ class VueAccueil extends Vue{
         <div id="etoile3"></div>
         <header>
             <div>
-                <button class="boutonAdministrateur" onclick="page.administrateurPage()" id="boutonAdministrateur">
+                <button class="boutonAdministrateur" id="boutonAdministrateur" onclick="{page.administrateurPage()}">
                     Administrateur
                 </button>
                 <div id="pageAdmin">
-                    <object id="htmlpageAdmin" type="text/html" data="formAdmin.php" width="436" height="500"></object>
+                    <object id="htmlpageAdmin" type="text/html" width="436" height="500">
+                    <div class="container">
+                  <div class="forms">
+                    <div class="form login" id="partie1">
+                      <span class="title">Administrateur</span>
+                
+                      <form action="loginAdmin.php" method="post">
+                        <div class="input-field">
+                          <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
+                          <i class="uil uil-envelope icon"></i>
+                        </div>
+                        <div class="input-field">
+                          <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
+                          <i class="uil uil-lock icon"></i>
+                          <i class="uil uil-eye-slash showHidePw"></i>
+                        </div>
+                        <p id="erreurConnection"></p>
+                        <div class="input-field button">
+                          <input type="button" name="loginAdmin" value="Se connecter">
+                        </div>  
+                      </form>
+                    </div>
+                  </div>
+                </div>
+</object>
                 </div>
             </div>
-            <div>
-                <button class="boutonConnexion" onclick="page.connexionPage()" id="boutonconnexion" name="boutonConnexion">
+            <div id="connexionDiv">
+                <button class="boutonConnexion" id="boutonconnexion" name="boutonConnexion" onclick="{page.connexionPage()}">
                     Se connecter / S\'inscrire
                 </button>
                 <div id="pageConnexion">
-                    <form method="post" id="formConnexion"></form>
-                    %pageConnexion%
+                    <object id="htmlpage" type="text/html" width="436" height="500">
+                    <div class="container">
+                    <div class="forms">
+                        <div class="form login" id="partie1">
+                            <span class="title">Connexion</span>
+                            <form method="post">
+                                <div class="input-field">
+                                    <input type="text" name="login" placeholder="Entrez votre nom" required>
+                                    <i class="uil uil-envelope icon"></i>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
+                                    <i class="uil uil-lock icon"></i>
+                                    <i class="uil uil-eye-slash showHidePw"></i>
+                                </div>
+                                <p id="erreurConnection"></p>
+                                <div class="input-field button">
+                                    <input type="submit" name="loginButton" value="Se connecter">
+                                </div>
+                            </form>
+                            <div class="login-signup">
+                                    <span class="text">Pas de compte ?
+                                        <a href="#" class="text signup-link">Inscrivez-vous</a>
+                                    </span>
+                            </div>
+                    </div>
+                    <!-- Formulaire d\'inscription -->
+                    <div class="form signup" id="partie2">
+                        <span class="title">Inscription</span>
+                        <form action="signup.php" method="post">
+                            <div class="input-field">
+                                <input type="text" name="username" placeholder="Entrez votre nom" required>
+                                <i class="uil uil-envelope icon"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="password" class="password" id="createPassword" placeholder="Entrez votre mot de passe" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name ="confirmPassword" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
+                            <p id="erreur"></p>
+                            <div class="input-field button">
+                                <input type="submit" name="signup" value="S\'inscrire">
+                            </div>
+                        </form>
+                        <div class="login-signup">
+                                <span class="text"> Vous avez déjà un compte?
+                                    <a href="#" class="text login-link"> Connectez-vous </a>
+                                </span>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </object>
                 </div>
             </div>
         </header>
         <h1>
-            Network Park
-        </h1>
+                Network Park
+                </h1>
         <div class="section" id="sectionMenu">
             <div id="description">
                 <p id="textDescription">
                     Network Park est un serious game pour tout apprendre sur les Réseaux informatique !
-                    Apprenez à résoudre des tâches d\'adressage IP, les différents modèles (TCP/UDP, OSI, IP)...
+                Apprenez à résoudre des tâches d\'adressage IP, les différents modèles (TCP/UDP, OSI, IP)...
                 </p>
             </div>
         
@@ -71,18 +151,10 @@ class VueAccueil extends Vue{
                 <h2>
                     Meilleurs joueurs :
                 </h2>
-                <ul>';
-
-        /*// Affichage des meilleurs scores
-for ($i = 0; $i < count($result); $i++) {
-    ?>
-    <li>
-        <?php
-            echo $result[$i]['identifiant'] . " : " . $result[$i]['Sommes'] . "<br>";
-        ?>
-    </li>
-
-    <?php
-}*/
+                <ul>
+                '. $presenter->getMeilleursScoresHTML() .'
+                </ul>
+            </div>
+        </div>';
     }
 }

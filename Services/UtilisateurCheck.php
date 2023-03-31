@@ -5,6 +5,6 @@ class UtilisateurCheck
 {
     public function identification($login, $password, $donnees)
     {
-        return ($donnees->getUser($login, $password) != null);
+        return ($donnees->connexion($login, $password) != null);
     }
 }
