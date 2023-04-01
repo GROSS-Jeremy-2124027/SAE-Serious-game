@@ -4,8 +4,13 @@ namespace Vue;
 
 include_once "Vue.php";
 
-class VueAccueil extends Vue{
-    public function __construct($layout, $presenter){
+/**
+ * Classe représentant la vue Accueil
+ */
+class VueAccueil extends Vue
+{
+    public function __construct($layout, $presenter)
+    {
         parent::__construct($layout);
 
         $this->title = 'NetworkPark | Accueil';
@@ -152,7 +157,7 @@ class VueAccueil extends Vue{
                     Meilleurs joueurs :
                 </h2>
                 <ul>
-                '. $presenter->getMeilleursScoresHTML() .'
+                ' . $presenter->getMeilleursScoresHTML() . '
                 </ul>
             </div>
         </div>';

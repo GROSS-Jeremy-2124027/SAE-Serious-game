@@ -1,14 +1,17 @@
 <?php
 namespace Vue;
 
-
-class VueConnexionAdmin extends Vue {
+/**
+ * Classe représentant la vue de la connexion d'un administrateur
+ */
+class VueConnexionAdmin extends Vue
+{
 
     public function __construct($layout)
     {
         parent::__construct($layout);
 
-        $this->content= '
+        $this->content = '
         <div class="container">
             <div class="forms">
                 <div class="form login" id="partie1">
@@ -34,4 +37,3 @@ class VueConnexionAdmin extends Vue {
         </div>';
     }
 }
-

@@ -1,7 +1,11 @@
 <?php
 namespace Vue;
 
-class VueInscription extends Vue {
+/**
+ * Classe représentant la vue du formualire d'inscription
+ */
+class VueInscription extends Vue
+{
     public function __construct($layout)
     {
         parent::__construct($layout);
@@ -33,4 +37,3 @@ class VueInscription extends Vue {
     }
 }
 ?>
-
