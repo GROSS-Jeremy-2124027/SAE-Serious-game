@@ -1,5 +1,9 @@
 <?php
 namespace Modele;
+
+/**
+ * Classe représentant les scores
+ */
 class Score
 {
     protected $pseudo;

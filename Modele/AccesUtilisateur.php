@@ -1,16 +1,24 @@
 <?php
 namespace Modele;
 
-
-class AccesUtilisateur {
+/**
+ * Classe d'accès aux utilisateurs
+ */
+class AccesUtilisateur
+{
 
     protected $accesDonnees = null;
 
-    public function __construct($accesDonnees){
+    public function __construct($accesDonnees)
+    {
         $this->accesDonnees = $accesDonnees;
     }
 
-    public function connexion($login, $password) {
+    /**
+     * Méthode pour la connexion d'un utilisateur
+     */
+    public function connexion($login, $password)
+    {
         // Si clic sur le bouton se connecter
         if (isset($_POST["login"])) {
 
@@ -41,7 +49,11 @@ class AccesUtilisateur {
         }
     }
 
-    public function inscription() {
+    /**
+     * Méthode pour l'inscription d'un utilisateur
+     */
+    public function inscription()
+    {
         // Si clic sur le bouton s'inscrire
         if (isset($_POST["signup"])) {
 
@@ -123,7 +135,11 @@ class AccesUtilisateur {
         }
     }
 
-    public function connexionAdmin() {
+    /**
+     * Méthode pour la connexion d'un administrateur
+     */
+    public function connexionAdmin()
+    {
         // Si clic sur le bouton se connecter
         if (isset($_POST["loginAdmin"])) {
             session_start();
@@ -131,9 +147,9 @@ class AccesUtilisateur {
             $_SESSION['username'] = $_POST["username"];
             $_SESSION['password'] = $_POST["password"];
 
-            $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
+            $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '" . $_SESSION["username"] . "'";
             $string = $this->accesDonnees->run($mot_de_passe_hash);
-            $sql = " SELECT * FROM `admin` WHERE identifiant = '".$_SESSION["username"]."'";
+            $sql = " SELECT * FROM `admin` WHERE identifiant = '" . $_SESSION["username"] . "'";
 
             $user = $this->accesDonnees->run($sql);
 
@@ -146,8 +162,7 @@ class AccesUtilisateur {
                     echo "<script type='text/javascript'>window.parent.document.getElementById('boutonAdministrateur').textContent = 'Se déconnecter';</script>";
                     set_url();
                 }
-            }
-            else {
+            } else {
                 echo "<script> alert('Identifiant invalide'); </script>";
                 session_abort();
             }
