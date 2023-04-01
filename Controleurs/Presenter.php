@@ -1,14 +1,24 @@
 <?php
 namespace Controleurs;
+
 use service\Service;
 
+/**
+ * Classe de présentation des données
+ */
 class Presenter
 {
     protected $service;
-    public function __construct($service) {
+    public function __construct($service)
+    {
         $this->service = $service;
     }
-    public function getMeilleursScoresHTML() {
+
+    /**
+     * Retourne le code HTML pour l'affichage des meilleurs scores
+     */
+    public function getMeilleursScoresHTML()
+    {
         $content = null;
         $scores = $this->service->getScores();
         foreach ($scores as $score) {
