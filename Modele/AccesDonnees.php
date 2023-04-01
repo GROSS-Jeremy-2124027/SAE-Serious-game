@@ -23,6 +23,7 @@ class AccesDonnees
 
     public function run($sql)
     {
+        $result = null;
         $nom = $this->bdd->prepare($sql);
         $nom->execute();
         while ($row = $nom->fetch()) {

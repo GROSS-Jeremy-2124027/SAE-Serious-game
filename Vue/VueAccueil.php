@@ -29,19 +29,19 @@ class VueAccueil extends Vue
                     <div class="form login" id="partie1">
                       <span class="title">Administrateur</span>
                 
-                      <form action="loginAdmin.php" method="post">
+                      <form method="post">
                         <div class="input-field">
                           <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
                           <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                          <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
+                          <input type="password" name="passwordAdmin" class="password" placeholder="Entrez votre mot de passe" required>
                           <i class="uil uil-lock icon"></i>
                           <i class="uil uil-eye-slash showHidePw"></i>
                         </div>
                         <p id="erreurConnection"></p>
                         <div class="input-field button">
-                          <input type="button" name="loginAdmin" value="Se connecter">
+                          <input type="submit" name="loginAdminButton" value="Se connecter">
                         </div>  
                       </form>
                     </div>
@@ -55,6 +55,10 @@ class VueAccueil extends Vue
                     Se connecter / S\'inscrire
                 </button>
                 <div id="pageConnexion">
+                    <form method="post" id="formDeconnexion">
+                        <p id="pDeconnexion">Voulez-vous vraiment vous déconnecter ?</p>
+                        <button id="btnDeconnexion" name="btnDeconnexion">Oui</button>
+                    </form>
                     <object id="htmlpage" type="text/html" width="436" height="500">
                     <div class="container">
                     <div class="forms">
@@ -84,24 +88,24 @@ class VueAccueil extends Vue
                     <!-- Formulaire d\'inscription -->
                     <div class="form signup" id="partie2">
                         <span class="title">Inscription</span>
-                        <form action="signup.php" method="post">
+                        <form method="post">
                             <div class="input-field">
-                                <input type="text" name="username" placeholder="Entrez votre nom" required>
+                                <input type="text" name="loginSignup" placeholder="Entrez votre nom" required>
                                 <i class="uil uil-envelope icon"></i>
                             </div>
                             <div class="input-field">
-                                <input type="password" name="password" class="password" id="createPassword" placeholder="Entrez votre mot de passe" required>
+                                <input type="password" name="passwordSignup" class="password" id="createPassword" placeholder="Entrez votre mot de passe" required>
                                 <i class="uil uil-lock icon"></i>
                                 <i class="uil uil-eye-slash showHidePw"></i>
                             </div>
                             <div class="input-field">
-                                <input type="password" name ="confirmPassword" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
+                                <input type="password" name ="confirmPasswordSignup" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
                                 <i class="uil uil-lock icon"></i>
                                 <i class="uil uil-eye-slash showHidePw"></i>
                             </div>
                             <p id="erreur"></p>
                             <div class="input-field button">
-                                <input type="submit" name="signup" value="S\'inscrire">
+                                <input type="submit" name="signupButton" value="S\'inscrire">
                             </div>
                         </form>
                         <div class="login-signup">

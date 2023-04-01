@@ -11,17 +11,19 @@ include_once "Services/UtilisateurCheck.php";
 include_once 'Modele/AccesDonnees.php';
 include_once 'Modele/AccesScore.php';
 include_once "Modele/AccesUtilisateur.php";
+include_once "Modele/AccesQuestion.php";
 
 include_once 'Vue/Layout.php';
 include_once 'Vue/VueAccueil.php';
-//include_once 'Vue/VueConnexionAdmin.php';
-//include_once 'Vue/VueInscription.php';
+include_once "Vue/VueAdmin.php";
+include_once "Vue/VueNiveaux.php";
+
 
 
 use Controleurs\{Controleur, Presenter};
 use Service\{Service, UtilisateurCheck};
-use Modele\{AccesDonnees, AccesScore, AccesUtilisateur};
-use Vue\{Layout, VueAccueil, VueConnexion, VueConnexionAdmin, VueInscription};
+use Modele\{AccesDonnees, AccesScore, AccesUtilisateur, AccesQuestion};
+use Vue\{Layout, VueAccueil, VueAdmin, VueNiveaux};
 
 // initialisation du controleur
 $controleur = new Controleur();
@@ -39,8 +41,9 @@ $utilisateurCheck = new UtilisateurCheck();
 $donnees = null;
 try{
     $bd = new AccesDonnees();
-    $scores = new AccesScore($bd);
-    $AccesUtilisateur = new AccesUtilisateur($bd);
+    $accesScores = new AccesScore($bd);
+    $accesUtilisateur = new AccesUtilisateur($bd);
+    $accesQuestions = new AccesQuestion($bd);
 } catch (PDOException $e) {
     print "Erreur de connexion : " . $e->getMessage() . "</br>";
     die();
@@ -51,54 +54,47 @@ ini_set('session.gc_maxlifetime', 3600);
 session_set_cookie_params(3600);
 session_start();
 
-$_SESSION['connecter'] = false;
-if ($_SESSION['connecter'] === true) {
-    echo "<script>document.getElementById('boutonconnexion').textContent = 'Se déconnecter'</script>";
-    echo "<script>document.getElementById('htmlpage').style.display='none'</script>";
-}
-if (isset($_POST['btnDeconnexion'])) {
-    session_unset();
-    echo "<script>document.getElementById('boutonconnexion').textContent = 'Se connecter / S\'inscrire'</script>";
-    echo "<script>window.location.href = window.location.href</script>";
-}
-
 // chemin de l'URL demandée au navigateur
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
 if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri){
 
-    $controleur->scoreAction($scores, $service);
+    $controleur->scoreAction($accesScores, $service);
 
     if (isset($_POST['loginButton']) && isset($_POST['login'])) {
-        $controleur->identificationAction($utilisateurCheck, $AccesUtilisateur);
+        $controleur->identificationAction($utilisateurCheck, $accesUtilisateur);
+    }
+
+    if (isset($_POST['signupButton']) && isset($_POST['loginSignup'])) {
+        $controleur->inscriptionAction($accesUtilisateur);
+    }
+
+    if (isset($_POST['loginAdminButton']) && isset($_POST['loginAdmin'])) {
+        $controleur->identificationAdminAction($accesUtilisateur);
     }
 
     $layout = new Layout("Vue/layout.html");
     $vueAccueil = new VueAccueil($layout, $presenter);
 
+    if (isset($_SESSION['connecte'])) {
+        if ($_SESSION['connecte'] === true) {
+            echo "<script>document.getElementById('boutonconnexion').textContent = 'Se déconnecter'</script>";
+            echo "<script>document.getElementById('htmlpage').style.display='none'</script>";
+        }
+    }
+
     $vueAccueil->display();
 }
 // page administrateur
-elseif('/sae/SAE-Serious-game/index.php/admin' == $uri){
+elseif('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])){
 
-    $controleur->adminAction();
-
-    $layout = new Layout("Vue/layout.html");
-    $vueAdmin = new VueAdmin();
-
-    $vueAdmin->display();
-
-}
-// page des différents niveaux
-elseif('/sae/SAE-Serious-game/index.php/niveaux' == $uri){
-
-    $controleur->adminAction();
+    $controleur->adminAction($accesQuestions, $service);
 
     $layout = new Layout("Vue/layout.html");
     $vueAdmin = new VueAdmin($layout, $presenter);
 
-    //$vueAnnoncesEmploi->display();
+    $vueAdmin->display();
 
 }
 // page d'erreur
@@ -107,18 +103,10 @@ else {
     echo '<html><body><h1>Page introuvable</h1></body></html>';
 }
 
-
-/*// Envoi de la requête pour savoir si les cookies correspondent à un utilisateur
-if (isset($_SESSION["username"]) && isset($_SESSION["password"])){
-    $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '".$_SESSION["username"]."' AND mot_de_passe = '".$_SESSION["password"]."' ";
-    //$sql = $con->prepare($sql);
-    $result = $bd->run();
+if (isset($_POST['btnDeconnexion'])) {
+    session_unset();
+    session_destroy();
+    echo "<script>document.getElementById('boutonconnexion').textContent = 'Se connecter / S\'inscrire'</script>";
 }
-// Envoi de la requête pour les meilleurs scores
-$sql = "Select identifiant, (meilleurScore1 + meilleurScore2 + meilleurScore3 + meilleurScore4) as Sommes from utilisateur order by Sommes desc limit 5";
-$result = $bd->run($sql);
-*/
-
-
 // On ferme la connection
 $bd = null;

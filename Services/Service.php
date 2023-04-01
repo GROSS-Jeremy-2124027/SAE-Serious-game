@@ -7,6 +7,7 @@ class Service
 
     protected $scores;
 
+    protected $questions;
 
     public function estConnecte()
     {
@@ -31,5 +32,15 @@ class Service
     public function getScores()
     {
         return $this->scores;
+    }
+
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
+
+
+    public function getAllQuestions($donnees) {
+        $this->questions = $donnees -> getAllQuestions();
     }
 }

@@ -70,22 +70,7 @@ class Page {
     connexionPage() {
         if (document.getElementById('boutonconnexion').textContent == 'Se déconnecter') {  //si le client est connecté normalement
             this.veutDeconnecte = true;
-            var paragraph = document.createElement('p');
-            paragraph.textContent = "Voulez-vous vraiment vous déconnecter ?"
-            paragraph.id = "pDeconnexion"
-            var bouton = document.createElement('button')
-            bouton.id = 'btnDeconnexion'
-            bouton.textContent = "Oui"
-            bouton.name = 'btnDeconnexion'
-            bouton.onclick = function () {
-                document.getElementById('pageConnexion').removeChild(paragraph);
-                document.getElementById('pageConnexion').removeChild(bouton);
-                document.getElementById('boutonconnexion').textContent = "Se connecter / S'inscrire";
-                window.location.href = window.location.href
-            }
-            document.getElementById('formConnexion').appendChild(paragraph)
-            document.getElementById('formConnexion').appendChild(bouton)
-            document.getElementById('boutonconnexion').textContent = "quitter";
+            document.getElementById('formDeconnexion').style.display = 'block';
         }
         else { //si le client est pas connecté
             if (document.getElementById('boutonconnexion').textContent == 'Se connecter / S\'inscrire') {  // si le texte précédant n'était pas "quitter"
@@ -93,13 +78,12 @@ class Page {
                 document.getElementById('boutonconnexion').textContent = "quitter";
                 document.getElementById('pageAdmin').style.display = "none";
                 document.getElementById('boutonAdministrateur').textContent = "Administrateur";
-                console.log(document.getElementById('htmlpage').style)
             }
             else {
                 window.document.getElementById('htmlpage').style.display = "none";
                 if (this.veutDeconnecte) { //si le client veut se déconnecter
-                    document.getElementById('formConnexion').removeChild(document.getElementById('btnDeconnexion'));
-                    document.getElementById('formConnexion').removeChild(document.getElementById('pDeconnexion'));
+                    document.getElementById('formDeconnexion').removeChild(document.getElementById('btnDeconnexion'));
+                    document.getElementById('formDeconnexion').removeChild(document.getElementById('pDeconnexion'));
                     document.getElementById('boutonconnexion').textContent = "Se déconnecter";
                     this.veutDeconnecte = false;
                 }

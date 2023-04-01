@@ -30,4 +30,23 @@ class Presenter
         }
         return $content;
     }
+
+    public function getAllQuestionsHTML() {
+        $content = null;
+        $questions = $this->service->getQuestions();
+        foreach ($questions as $question) {
+            $content .= "<tr>";
+            $content .= '<td>';
+            $content .= $question->getId();
+            $content .= '</td>';
+            $content .= "<td>" . $question->getQuestion() . "</td>";
+            $content .= "<td>" . $question->getIndice() . "</td>";
+            $content .= "<td>" . $question->getBonneReponse() . "</td>";
+            $content .= "<td>" . $question->getMauvaiseReponse1() . "</td>";
+            $content .= "<td>" . $question->getMauvaiseReponse2() . "</td>";
+            $content .= "<td>" . $question->getMauvaiseReponse3() . "</td>";
+            $content .= "</tr>";
+        }
+        return $content;
+    }
 }
