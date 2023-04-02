@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
-*{
+* {
     padding: 0;
     list-style: none;
     text-decoration: none;
 }
 
-body{
+body {
     padding: 20px;
 }
 
-header{
+header {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -27,7 +27,7 @@ header{
     justify-content: center;
 }
 
-h1{
+h1 {
     font-family: 'Silkscreen', cursive;
     text-align: center;
     font-size: 4em;
@@ -35,7 +35,7 @@ h1{
     color: #fff;
 }
 
-h2{
+h2 {
     font-family: 'Silkscreen', cursive;
     text-align: center;
     font-size: 2.5em;
@@ -43,29 +43,96 @@ h2{
     color: #fff;
 }
 
-#titreHistoire{
+#titreHistoire {
     padding-top: 40px;
 }
 
-p{
+p {
     font-family: 'Silkscreen', cursive;
     text-align: justify;
     color: #fff;
 }
 
-ul{
+#connexion {
+    font-family: 'Silkscreen', cursive;
+    color: #000;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.champs-saisie {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.champs-saisie input {
+    color: #000;
+    position: absolute;
+    font-family: 'Kanit', sans-serif;
+    height: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.champs-saisie i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.champs-saisie i.showHidePw {
+    right: 100px;
+}
+
+.bouton-connexion {
+    margin-top: 30px;
+}
+
+.bouton-connexion input {
+    padding: 20px 35px;
+    border: none;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 6px;
+    background-color: #55868c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.text {
+    color: #333;
+    font-size: 14px;
+}
+
+.text a {
+    color: #55868c;
+    text-decoration: none;
+}
+
+ul {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-li{
+li {
     font-family: 'Silkscreen', cursive;
     font-size: 1.2em;
     color: #fff;
 }
 
-button{
+button {
     font-family: 'Silkscreen', cursive;
     font-size: 1.5em;
     margin-top: 40px;
@@ -78,21 +145,21 @@ button{
     transition: 0.4s;
 }
 
-#Deconnexion{
+#Deconnexion {
     width: 175px;
 }
 
-.boutonConnexion{
+.boutonConnexion {
     font-size: 1em;
     margin-top: 20px !important;
     width: 200px !important;
     margin-top: 0 !important;
 }
 
-.boutonAdministrateur{
+.boutonAdministrateur {
     font-size: 1em;
     margin-top: 20px !important;
-    width: 200px !important; 
+    width: 200px !important;
     margin-top: 0 !important;
     margin-left: 20px;
     display: flex;
@@ -100,30 +167,30 @@ button{
     justify-content: center;
 }
 
-button:hover{
+button:hover {
     background-color: #17868f;
     border-color: #17868f;
     cursor: pointer;
 }
 
-#description{
+#description {
     margin-top: 40px;
 }
 
-#textDescription{
+#textDescription {
     padding: 0 20%;
 }
 
-#imgAlien{
+#imgAlien {
     height: 152px;
 }
 
-#histoire{
+#histoire {
     margin-top: 40px;
     padding: 0 20%;
 }
 
-#histoire-image-text{
+#histoire-image-text {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,7 +205,7 @@ button:hover{
 }
 
 #menulvl {
-    margin-bottom:-3.2em;
+    margin-bottom: -3.2em;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -146,7 +213,7 @@ button:hover{
     align-items: center;
 }
 
-#menulvl p{
+#menulvl p {
     color: #fff;
     width: 800px;
     margin-top: 100px;
@@ -159,6 +226,19 @@ object {
     margin-left: -27ex;
 }
 
+.form-connexion {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 30px 30px 30px 45px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+    margin-right: 1em;
+    border-radius: 10px;
+}
+
 #pageAdmin {
     display: none;
     margin-left: 79%;
@@ -168,45 +248,45 @@ object {
     display: none;
 }
 
-@media(max-width : 800px){
+@media(max-width : 800px) {
 
     .section {
         height: 100%;
     }
 
-    #histoire-image-text{
+    #histoire-image-text {
         flex-direction: column;
     }
 
-    #imgAlien{
+    #imgAlien {
         margin-bottom: 30px;
     }
 
-    #sectionScore{
+    #sectionScore {
         margin-top: 100px;
     }
 
-    button{
+    button {
         width: 220px;
     }
 
-    .boutonAdministrateur{
+    .boutonAdministrateur {
         padding: 38px 0;
         font-size: 0.8em;
         width: 150px !important;
     }
 
-    .boutonConnexion{
+    .boutonConnexion {
         font-size: 0.8em;
         width: 180px !important;
     }
 
-    h1{
+    h1 {
         margin-top: 30px;
         font-size: 3em;
     }
 
-    #menulvl p{
+    #menulvl p {
         width: auto;
         margin: 0 20px;
     }

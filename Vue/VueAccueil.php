@@ -24,30 +24,30 @@ class VueAccueil extends Vue
                 </button>
                 <div id="pageAdmin">
                     <object id="htmlpageAdmin" type="text/html" width="436" height="500">
-                    <div class="container">
-                  <div class="forms">
-                    <div class="form login" id="partie1">
-                      <span class="title">Administrateur</span>
-                
-                      <form method="post">
-                        <div class="input-field">
-                          <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
-                          <i class="uil uil-envelope icon"></i>
+                        <div class="container">
+                            <div class="forms">
+                                <div class="form login" id="partie1">
+                                    <span class="title">Administrateur</span>
+                    
+                                    <form method="post">
+                                        <div class="input-field">
+                                            <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
+                                            <i class="uil uil-envelope icon"></i>
+                                        </div>
+                                        <div class="input-field">
+                                            <input type="password" name="passwordAdmin" class="password" placeholder="Entrez votre mot de passe" required>
+                                            <i class="uil uil-lock icon"></i>
+                                            <i class="uil uil-eye-slash showHidePw"></i>
+                                        </div>
+                                        <p id="erreurConnection"></p>
+                                        <div class="input-field button">
+                                            <input type="submit" name="loginAdminButton" value="Se connecter">
+                                        </div>  
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-field">
-                          <input type="password" name="passwordAdmin" class="password" placeholder="Entrez votre mot de passe" required>
-                          <i class="uil uil-lock icon"></i>
-                          <i class="uil uil-eye-slash showHidePw"></i>
-                        </div>
-                        <p id="erreurConnection"></p>
-                        <div class="input-field button">
-                          <input type="submit" name="loginAdminButton" value="Se connecter">
-                        </div>  
-                      </form>
-                    </div>
-                  </div>
-                </div>
-</object>
+                    </object>
                 </div>
             </div>
             <div id="connexionDiv">
@@ -60,63 +60,27 @@ class VueAccueil extends Vue
                         <button id="btnDeconnexion" name="btnDeconnexion">Oui</button>
                     </form>
                     <object id="htmlpage" type="text/html" width="436" height="500">
-                    <div class="container">
-                    <div class="forms">
-                        <div class="form login" id="partie1">
-                            <span class="title">Connexion</span>
-                            <form method="post">
-                                <div class="input-field">
-                                    <input type="text" name="login" placeholder="Entrez votre nom" required>
-                                    <i class="uil uil-envelope icon"></i>
-                                </div>
-                                <div class="input-field">
-                                    <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
-                                    <i class="uil uil-lock icon"></i>
-                                    <i class="uil uil-eye-slash showHidePw"></i>
-                                </div>
-                                <p id="erreurConnection"></p>
-                                <div class="input-field button">
-                                    <input type="submit" name="loginButton" value="Se connecter">
-                                </div>
-                            </form>
-                            <div class="login-signup">
-                                    <span class="text">Pas de compte ?
-                                        <a href="#" class="text signup-link">Inscrivez-vous</a>
-                                    </span>
-                            </div>
-                    </div>
-                    <!-- Formulaire d\'inscription -->
-                    <div class="form signup" id="partie2">
-                        <span class="title">Inscription</span>
-                        <form method="post">
-                            <div class="input-field">
-                                <input type="text" name="loginSignup" placeholder="Entrez votre nom" required>
+                        <form class="form-connexion" method="post">
+                            <span id="connexion">
+                                Connexion
+                            </span>
+                            <div class="champs-saisie">
+                                <input type="text" name="login" placeholder="Entrez votre nom" required>
                                 <i class="uil uil-envelope icon"></i>
                             </div>
-                            <div class="input-field">
-                                <input type="password" name="passwordSignup" class="password" id="createPassword" placeholder="Entrez votre mot de passe" required>
+                            <div class="champs-saisie">
+                                <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
                                 <i class="uil uil-lock icon"></i>
                                 <i class="uil uil-eye-slash showHidePw"></i>
                             </div>
-                            <div class="input-field">
-                                <input type="password" name ="confirmPasswordSignup" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
-                                <i class="uil uil-lock icon"></i>
-                                <i class="uil uil-eye-slash showHidePw"></i>
+                            <div class="bouton-connexion">
+                                <input type="submit" name="loginButton" value="Se connecter">
                             </div>
-                            <p id="erreur"></p>
-                            <div class="input-field button">
-                                <input type="submit" name="signupButton" value="S\'inscrire">
-                            </div>
+                            <span class="text">Pas de compte ?
+                                <a href="#" signup-link">Inscrivez-vous</a>
+                            </span>
                         </form>
-                        <div class="login-signup">
-                                <span class="text"> Vous avez déjà un compte?
-                                    <a href="#" class="text login-link"> Connectez-vous </a>
-                                </span>
-                        </div>
-                    </div>
-                    </div>
-            </div>
-        </object>
+                    </object>
                 </div>
             </div>
         </header>
