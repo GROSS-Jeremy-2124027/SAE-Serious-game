@@ -52,7 +52,7 @@ class Menu {
     }
 
     warpLvl(id) {
-        let niveau = "Levels/level-" + id + "/"
+        let niveau = "godot/Levels/level-" + id + "/"
         window.location.href = niveau;
     }//fonction pour acceder au niveau selon le bouton
     

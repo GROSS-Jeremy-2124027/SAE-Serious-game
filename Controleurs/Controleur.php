@@ -32,4 +32,8 @@ class Controleur
     public function adminAction($donnees, $service) {
         $service->getAllQuestions($donnees);
     }
+
+    public function changeQuestionAction($donnees) {
+        $donnees-> changeQuestion($_POST['identifiant'], $_POST['question'], $_POST['indice'], $_POST['bonneReponse'], $_POST['mauvaiseReponse'], $_POST['mauvaiseReponse2'], $_POST['mauvaiseReponse3']);
+    }
 }

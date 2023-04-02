@@ -23,4 +23,13 @@ class AccesQuestion
         }
         return $questions;
     }
+
+    public function changeQuestion($identifiant, $question, $indice, $bonneReponse, $mauvaiseReponse, $mauvaiseReponse2, $mauvaiseReponse3) {
+        $query1 = "UPDATE `question` SET `tupleQuestion` = '$question', `indice` = '$indice' WHERE `id_question` = '$identifiant'";
+        $query2 = "UPDATE `reponse` SET `bonneReponse` = '$bonneReponse', `mauvaiseReponse` = '$mauvaiseReponse', `mauvaiseReponse2` = '$mauvaiseReponse2', 
+        `mauvaiseReponse3` = '$mauvaiseReponse3' WHERE `question_id` = '$identifiant'";
+
+        $this->accesDonnees->runInsert($query1);
+        $this->accesDonnees->runInsert($query2);
+    }
 }

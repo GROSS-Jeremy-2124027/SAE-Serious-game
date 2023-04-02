@@ -16,14 +16,14 @@ include_once "Modele/AccesQuestion.php";
 include_once 'Vue/Layout.php';
 include_once 'Vue/VueAccueil.php';
 include_once "Vue/VueAdmin.php";
-include_once "Vue/VueNiveaux.php";
+
 
 
 
 use Controleurs\{Controleur, Presenter};
 use Service\{Service, UtilisateurCheck};
 use Modele\{AccesDonnees, AccesScore, AccesUtilisateur, AccesQuestion};
-use Vue\{Layout, VueAccueil, VueAdmin, VueNiveaux};
+use Vue\{Layout, VueAccueil, VueAdmin};
 
 // initialisation du controleur
 $controleur = new Controleur();
@@ -90,6 +90,11 @@ if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $ur
 elseif('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])){
 
     $controleur->adminAction($accesQuestions, $service);
+
+    if (isset($_POST['valider']) && isset($_POST['identifiant'])) {
+        $controleur->changeQuestionAction($accesQuestions);
+        header( "refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
+    }
 
     $layout = new Layout("Vue/layout.html");
     $vueAdmin = new VueAdmin($layout, $presenter);
