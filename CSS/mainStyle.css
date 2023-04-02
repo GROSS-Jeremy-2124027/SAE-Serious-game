@@ -226,7 +226,7 @@ object {
     margin-left: -27ex;
 }
 
-.form-connexion {
+#form-connexion {
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -237,6 +237,10 @@ object {
     transition: margin-left 0.18s ease;
     margin-right: 1em;
     border-radius: 10px;
+}
+
+#form-inscription {
+    display: none !important;
 }
 
 #pageAdmin {

@@ -60,7 +60,7 @@ class VueAccueil extends Vue
                         <button id="btnDeconnexion" name="btnDeconnexion">Oui</button>
                     </form>
                     <object id="htmlpage" type="text/html" width="436" height="500">
-                        <form class="form-connexion" method="post">
+                        <form id="form-connexion" method="post">
                             <span id="connexion">
                                 Connexion
                             </span>
@@ -77,7 +77,27 @@ class VueAccueil extends Vue
                                 <input type="submit" name="loginButton" value="Se connecter">
                             </div>
                             <span class="text">Pas de compte ?
-                                <a href="#" signup-link">Inscrivez-vous</a>
+                                <a href="#" onclick="afficherInscription()" signup-link">Inscrivez-vous</a>
+                            </span>
+                        </form>
+                        <form id="form-inscription" method="post">
+                            <span id="inscription">
+                                Inscription
+                            </span>
+                            <div class="champs-saisie">
+                                <input type="text" name="login" placeholder="Entrez votre nom" required>
+                                <i class="uil uil-envelope icon"></i>
+                            </div>
+                            <div class="champs-saisie">
+                                <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
+                            <div class="bouton-inscription">
+                                <input type="submit" name="signupButton" value="S\'inscrire">
+                            </div>
+                            <span class="text">Vous avez déja un compte ?
+                                <a href="#" onclick="afficherConnexion()" signup-link">Connectez-vous</a>
                             </span>
                         </form>
                     </object>
