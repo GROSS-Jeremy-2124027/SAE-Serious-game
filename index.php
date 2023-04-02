@@ -29,7 +29,7 @@ use Vue\{Layout, VueAccueil, VueAdmin};
 $controleur = new Controleur();
 
 // intialisation du cas d'utilisation Service
-$service = new Service() ;
+$service = new Service();
 
 // initilisation du presenter
 $presenter = new Presenter($service);
@@ -39,7 +39,7 @@ $utilisateurCheck = new UtilisateurCheck();
 
 // initilisation de l'accès au données
 $donnees = null;
-try{
+try {
     $bd = new AccesDonnees();
     $accesScores = new AccesScore($bd);
     $accesUtilisateur = new AccesUtilisateur($bd);
@@ -58,7 +58,7 @@ session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
-if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri){
+if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri) {
 
     $controleur->scoreAction($accesScores, $service);
 
@@ -87,16 +87,16 @@ if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $ur
     $vueAccueil->display();
 }
 // page administrateur
-elseif('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])){
+elseif ('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])) {
 
     $controleur->adminAction($accesQuestions, $service);
 
     if (isset($_POST['valider']) && isset($_POST['identifiant'])) {
         $controleur->changeQuestionAction($accesQuestions);
-        header( "refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
+        header("refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
     }
 
-    $layout = new Layout("Vue/layout.html");
+    $layout = new Layout("Vue/layoutAdmin.html");
     $vueAdmin = new VueAdmin($layout, $presenter);
 
     $vueAdmin->display();
