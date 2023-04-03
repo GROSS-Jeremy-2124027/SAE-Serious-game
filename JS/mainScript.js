@@ -5,27 +5,27 @@ class Menu {
     btnRetour = document.createElement("button");
     aide = document.createElement("p");
 
-    
+
     menuLvl() {
         let btnCampagne = document.getElementById("boutonJouer");
         let textDescription = document.getElementById('textDescription');
         let score = document.getElementById('scores');
         let histoire = document.getElementById('histoire');
         //on récupère tout les éléments présent au début
-    
+
         this.removeAllChildNodes(document.getElementById('menu'));
         this.removeAllChildNodes(document.getElementById('description'));
         this.removeAllChildNodes(document.getElementById('menuHistoire'));
         this.removeAllChildNodes(document.getElementById('sectionScore'));
         //on supprime tout les éléments présent au début
-    
+
         this.aide.textContent = "Vous êtes sur le point d'entrer dans le vaisseau. Utilisez les touches directionnelles de votre clavier pour accéder au différentes machines du vaisseau. Positionnez vous sur une machine et appuyez sur la barre d'espace pour répondre aux questions. Si vous avez la bonne réponse, vous pourrez continuer votre aventure ! Taper aide si vous en avez besoin, le chatbot vous donnera un indice.";
         document.getElementById("menulvl").appendChild(this.aide);
-    
-    
+
+
         for (let i = 0; i < this.NbLvl; i++) {
             this.btn[i] = document.createElement("button");
-            let j = i+1;
+            let j = i + 1;
             this.btn[i].id = j;
             this.btn[i].textContent = j.toString();
             this.btn[i].onclick = function () {
@@ -34,10 +34,10 @@ class Menu {
             document.getElementById("menulvl").appendChild(this.btn[i]);
         }
         //ajoute un nombre de boutons correspondant a NbLvl qui mènent au niveau correspondant
-    
+
         this.btnRetour.textContent = "retour";
         this.btnRetour.style.backgroundColor = '#345153';
-        this.btnRetour.style.borderColor ='#345153';
+        this.btnRetour.style.borderColor = '#345153';
         this.btnRetour.onclick = function () {
             let menu2 = new Menu();
             menu2.removeAllChildNodes(document.getElementById('menulvl'));
@@ -45,7 +45,7 @@ class Menu {
             document.getElementById("sectionScore").appendChild(score);
             document.getElementById("description").appendChild(textDescription);
             document.getElementById("menuHistoire").appendChild(histoire);
-    
+
         }
         document.getElementById("menulvl").appendChild(this.btnRetour);
         //créer et ajoute le bouton retour à la suite
@@ -55,7 +55,7 @@ class Menu {
         let niveau = "godot/Levels/level-" + id + "/"
         window.location.href = niveau;
     }//fonction pour acceder au niveau selon le bouton
-    
+
     removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -92,7 +92,7 @@ class Page {
                 }
             }
         }//fonction pour afficher/cacher la page de connexion
-     }
+    }
 
 
 

@@ -58,7 +58,7 @@ session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
-if ('/' == $uri || '/index.php' == $uri) {
+if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri) {
 
     $controleur->scoreAction($accesScores, $service);
 
