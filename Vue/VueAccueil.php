@@ -23,30 +23,24 @@ class VueAccueil extends Vue
                     Administrateur
                 </button>
                 <div id="pageAdmin">
-                    <object id="htmlpageAdmin" type="text/html" width="436" height="500">
-                        <div class="container">
-                            <div class="forms">
-                                <div class="form login" id="partie1">
-                                    <span class="title">Administrateur</span>
-                    
-                                    <form method="post">
-                                        <div class="input-field">
-                                            <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
-                                            <i class="uil uil-envelope icon"></i>
-                                        </div>
-                                        <div class="input-field">
-                                            <input type="password" name="passwordAdmin" class="password" placeholder="Entrez votre mot de passe" required>
-                                            <i class="uil uil-lock icon"></i>
-                                            <i class="uil uil-eye-slash showHidePw"></i>
-                                        </div>
-                                        <p id="erreurConnection"></p>
-                                        <div class="input-field button">
-                                            <input type="submit" name="loginAdminButton" value="Se connecter">
-                                        </div>  
-                                    </form>
-                                </div>
+                    <object id="htmlpageAdmin" type="text/html" width="390" height="400">
+                        <form id="form-connexion" method="post">
+                            <span id="connexion">
+                                Connexion
+                            </span>
+                            <div class="champs-saisie">
+                                <input type="text" name="loginAdmin" placeholder="Entrez votre nom" required>
+                                <i class="uil uil-envelope icon"></i>
                             </div>
-                        </div>
+                            <div class="champs-saisie">
+                                <input type="password" name="passwordAdmin" class="password" placeholder="Entrez votre mot de passe" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
+                            <div class="bouton-connexion">
+                                <input type="submit" name="loginAdminButton" value="Se connecter">
+                            </div>
+                        </form>
                     </object>
                 </div>
             </div>
@@ -59,7 +53,7 @@ class VueAccueil extends Vue
                         <p id="pDeconnexion">Voulez-vous vraiment vous déconnecter ?</p>
                         <button id="btnDeconnexion" name="btnDeconnexion">Oui</button>
                     </form>
-                    <object id="htmlpage" type="text/html" width="436" height="500">
+                    <object id="htmlpage" type="text/html" width="390" height="500">
                         <form id="form-connexion" method="post">
                             <span id="connexion">
                                 Connexion
