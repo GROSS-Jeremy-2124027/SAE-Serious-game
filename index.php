@@ -88,7 +88,7 @@ if ('/' == $uri || '/index.php' == $uri) {
 
 }
 // page administrateur
-elseif ('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])) {
+elseif ('/index.php/admin' == $uri && isset($_SESSION['admin'])) {
 
     $controleur->adminAction($accesQuestions, $service);
 
