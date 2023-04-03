@@ -3,11 +3,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// ATTENTION, 
+// ATTENTION, faut penser à enlever ça quand on a fini
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-include "../connection/AccesDonnees.php";
+include "AccesDonnees.php";
+use Modele\AccesDonnees;
 $con = new AccesDonnees();
 
 
@@ -22,7 +23,7 @@ switch ($_REQUEST['command']) {
         *  au-dessus, le reste sert à transformer la valeur de score de string a int
         */
         
-        echo json_encode((int) filter_var(current($result), FILTER_SANITIZE_NUMBER_INT)); //affiche le score de l'utilisateur
+        echo json_encode((int) filter_var(current($result[0]), FILTER_SANITIZE_NUMBER_INT)); //affiche le score de l'utilisateur
         session_abort();
         die;
 
@@ -37,8 +38,7 @@ switch ($_REQUEST['command']) {
         $sql = "SELECT tupleQuestion,indice,bonneReponse,mauvaiseReponse,mauvaiseReponse2,mauvaiseReponse3 FROM question, reponse WHERE question_id=id_question AND question_id = ".$_REQUEST['idQuestion']."";
         $result = $con->run($sql);
 
-        // var_dump($result);
-        echo json_encode($result[0]);
+        echo json_encode($result[0], JSON_UNESCAPED_UNICODE);
         die;
 }
 
