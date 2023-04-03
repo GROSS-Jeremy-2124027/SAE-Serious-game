@@ -76,6 +76,8 @@ if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $ur
 
     $layout = new Layout("Vue/layout.html");
     $vueAccueil = new VueAccueil($layout, $presenter);
+    $vueAccueil->display();
+
 
     if (isset($_SESSION['connecte'])) {
         if ($_SESSION['connecte'] === true) {
@@ -84,7 +86,6 @@ if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $ur
         }
     }
 
-    $vueAccueil->display();
 }
 // page administrateur
 elseif ('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])) {

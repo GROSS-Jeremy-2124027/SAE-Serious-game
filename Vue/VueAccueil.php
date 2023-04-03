@@ -23,8 +23,8 @@ class VueAccueil extends Vue
                     Administrateur
                 </button>
                 <div id="pageAdmin">
-                    <object id="htmlpageAdmin" type="text/html" width="390" height="400">
-                        <form id="form-connexion" method="post">
+                    <object id="htmlpageAdmin" type="text/html" width="450" height="400">
+                        <form id="form-connexion-admin" method="post">
                             <span id="connexion">
                                 Connexion
                             </span>
