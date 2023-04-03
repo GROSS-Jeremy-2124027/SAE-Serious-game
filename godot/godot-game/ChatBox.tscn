@@ -53,6 +53,6 @@ margin_bottom = 24.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-selecting_enabled = false
+max_length = 100
 placeholder_text = "Entrer"
 placeholder_alpha = 0.224

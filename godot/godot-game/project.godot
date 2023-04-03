@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Network Park"
-run/main_scene="res://level4.tscn"
+run/main_scene="res://level1.tscn"
 config/icon="res://ASSETS/controller.png"
 
 [compression]
@@ -29,9 +29,7 @@ settings/fps/force_fps=60
 
 window/size/width=1280
 window/size/height=720
-window/size/resizable=false
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [gui]
 

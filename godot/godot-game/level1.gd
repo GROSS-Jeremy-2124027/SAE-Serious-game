@@ -64,15 +64,20 @@ func _ready():
 	get_score(int(name[-1]))
 	get_node("CanvasLayer/Blackwait").visible = false
 	get_node("CanvasLayer/Temps").visible = true
+	get_node("CanvasLayer/Fullscreen").visible = true
 	# detect if user is on mobile
 	userAgent = String(JavaScript.eval("navigator.userAgent")).to_lower()
 	if ("android" in userAgent || "webos" in userAgent || "iphone" in userAgent || "ipad" in userAgent || "ipod" in userAgent || "blackberry" in userAgent || "windows phone" in userAgent) :
 		get_node("CanvasLayer/Mobile").visible = true
-		get_node("CanvasLayer/ChatBox").visible = false
+		get_node("CanvasLayer/ChatBox").visible = true
+		get_node("CanvasLayer/Sombre/Indice").visible = true
+		get_node("CanvasLayer/ChatBox").mobile()
 		userAgent = true
 	else :
-		userAgent = false
+		userAgent = true
+		get_node("CanvasLayer/Mobile").visible = false
 		get_node("CanvasLayer/ChatBox").visible = true
+		get_node("CanvasLayer/Sombre/Indice").visible = false
 	# player can now move
 	get_node("KinematicBody2D").set_physics_process(true)
 	

@@ -19,10 +19,13 @@ func _on_Sombre_visibility_changed():
 		get_parent().get_node("Mobile/Jump").hide()
 		get_parent().get_node("Mobile/Left").hide()
 		get_parent().get_node("Mobile/Right").hide()
+		get_parent().get_node("Mobile/Home").hide()
 	elif visible == false and get_parent().get_parent().userAgent :
 		get_parent().get_node("Mobile/Jump").show()
 		get_parent().get_node("Mobile/Left").show()
 		get_parent().get_node("Mobile/Right").show()
+		get_parent().get_node("Mobile/Home").show()
+		get_parent().get_node("ChatBox").chatLog.percent_visible = 0
 
 func _on_box_resized():
 	# On ajuste les hitbox des réponses à leurs tailles

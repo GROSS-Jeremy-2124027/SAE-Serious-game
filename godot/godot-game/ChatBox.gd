@@ -20,6 +20,12 @@ func enable(stateOfPlayer):
 		for i in get_parent().get_node("Sombre/Q1").get_child_count() :
 			get_parent().get_node("Sombre/Q1").get_child(i).get_node("CollisionMouse").visible = false
 
+func mobile():
+	get_node("VBoxContainer/HBoxContainer").visible = false
+	chatLog.percent_visible = 0
+	get_node("NotChatBot").visible = false
+	get_node("ChatBot").visible = false
+	
 func disable(stateOfPlayer):
 	inputField.release_focus()
 	Input.action_release("ui_select")
@@ -35,13 +41,16 @@ func disable(stateOfPlayer):
 
 func _ready():
 	inputField.connect("text_entered", self,'text_entered')
-	add_message('BOT', 'tapez \'aide\' pour voir les commandes disponible')
+	
+	add_message('BOT', 'Essayer la commande \'aide\' si vous en avez besoin')
 	yield(get_tree().create_timer(5.0), "timeout")
-	chatLog.percent_visible = 0
+	if not (get_parent().get_parent().get_node("KinematicBody2D").state == get_parent().get_parent().get_node("KinematicBody2D").States.CHATBOT) :
+		chatLog.percent_visible = 0
 
 func _on_ChatBot_pressed():
 	var stateOfPlayer = get_parent().get_parent().get_node("KinematicBody2D").state
-	enable(stateOfPlayer)
+	if stateOfPlayer == 2 or stateOfPlayer == 4 :
+		enable(stateOfPlayer)
 
 func _on_NotChatBot_pressed():
 	var stateOfPlayer = get_parent().get_parent().get_node("KinematicBody2D").state
@@ -64,14 +73,34 @@ func add_message(username, text, color = ''):
 	chatLog.bbcode_text += text
 
 func text_entered(text):
-	if text =='help' or text =='aide':
+	if text.to_lower() =='help' or text =='aide':
 		add_message('BOT', 'commandes\nindice : affiche un indice pour la question en cours \nsortir : fait sortir du niveau et fait retourner au menu', '#ffffff')
 		inputField.text = ''		
-	elif text =='indice':
-		add_message('', envoie_indice(), '#ff5757')
+	elif 'indice' in text.to_lower() or 'aide' in text.to_lower():
+		add_message(user_name, text, '#00abc7')
+		add_message('BOT', envoie_indice(), '#ff5757')
 		inputField.text = ''
-	elif text =='sortir':
-		JavaScript.eval("window.location.href='../index.php'")
+	elif "bonjour" in text.to_lower() or "salut" in text.to_lower() or "coucou" in text.to_lower() or "hello" in text.to_lower() or "hi" in text.to_lower() or "hey" in text.to_lower() or "yo" in text.to_lower():
+		add_message(user_name, text, '#00abc7')
+		var responses = ["Bonjour ! Comment ça va ?", "Salut ! Quoi de neuf ?", "Coucou ! Comment tu vas ?", "Hello ! Comment s'est passé ta journée ?", "Salut ! Quoi de beau ?", "Hey ! Comment vas-tu ?", "Yo ! Comment ça roule ?"]
+		var response = responses[randi() % responses.size()]
+		add_message('BOT', response, '#ffffff')
+		inputField.text = ''
+	elif "comment ça va" in text.to_lower() or "ça va" in text.to_lower() or "comment vas-tu" in text.to_lower() or "tu vas bien" in text.to_lower():
+		add_message(user_name, text, '#00abc7')
+		var responses = ["Je vais bien, merci ! Et toi ?", "Je me sens super bien ! Et toi ?", "Je vais bien, merci de demander ! Et toi ?", "Je suis en forme, merci ! Et toi ?"]
+		var response = responses[randi() % responses.size()]
+		add_message('BOT', response, '#ffffff')
+		inputField.text = ''
+	elif "quoi de neuf" in text.to_lower() or "qu'est-ce qui se passe" in text.to_lower() or "tu fais quoi" in text.to_lower():
+		add_message(user_name, text, '#00abc7')
+		var responses = ["Pas grand-chose, et toi ?", "Rien de spécial, et toi ?", "Je suis là, en train de discuter avec toi ! Et toi ?", "Je ne fais rien de particulier, et toi ?"]
+		var response = responses[randi() % responses.size()]
+		add_message('BOT', response, '#ffffff')
+		inputField.text = ''
+	elif 'partir' in text.to_lower() or 'sortir' in text.to_lower() or "au revoir" in text.to_lower() or "à plus" in text.to_lower() or "à la prochaine" in text.to_lower() or "ciao" in text.to_lower():
+		add_message(user_name, text, '#00abc7')
+		JavaScript.eval("window.location.href='../../../'")
 		inputField.text = ''
 	elif text != '':
 		add_message(user_name, text, '#00abc7')
@@ -81,6 +110,12 @@ func text_entered(text):
 func envoie_indice():
 	return indice
 
+func _on_Indice_pressed():
+	chatLog.percent_visible = 1
+	chatLog.bbcode_text=''
+	add_message('', envoie_indice(), '#ff5757')
+	yield(get_tree().create_timer(10.0), "timeout")
+	chatLog.percent_visible = 0
 
-
-
+func _on_Home_pressed():
+	JavaScript.eval("window.location.href='../../../'")

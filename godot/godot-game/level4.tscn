@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_tiles.png" type="Texture" id=2]
@@ -14,15 +14,18 @@
 [ext_resource path="res://ASSETS/texture blocks level 4/coin_low_platform.png" type="Texture" id=12]
 [ext_resource path="res://tileset laders.tres" type="TileSet" id=13]
 [ext_resource path="res://ASSETS/texture blocks level 1/fill.png" type="Texture" id=14]
+[ext_resource path="res://ASSETS/font/newfont.tres" type="Theme" id=15]
+[ext_resource path="res://ASSETS/mobile ui/indice.png" type="Texture" id=16]
+[ext_resource path="res://ASSETS/mobile ui/home.png" type="Texture" id=17]
+[ext_resource path="res://Fullscreen.gd" type="Script" id=18]
+[ext_resource path="res://ASSETS/mobile ui/Fullscreen.png" type="Texture" id=19]
 [ext_resource path="res://ASSETS/Spring/Spring_01.png" type="Texture" id=28]
 [ext_resource path="res://ASSETS/texture blocks level 1/set2_background.png" type="Texture" id=29]
 [ext_resource path="res://level1.gd" type="Script" id=30]
-[ext_resource path="res://ASSETS/font/Silkscreen-Bold.ttf" type="DynamicFontData" id=31]
 [ext_resource path="res://ASSETS/checkmark.png" type="Texture" id=32]
 [ext_resource path="res://ASSETS/Billboard and Advertising/2 Billboard/64x64_2 - red.png" type="Texture" id=33]
 [ext_resource path="res://2q_Reponse.gd" type="Script" id=34]
 [ext_resource path="res://1question.gd" type="Script" id=35]
-[ext_resource path="res://font1.tres" type="DynamicFont" id=36]
 [ext_resource path="res://Panel.gd" type="Script" id=37]
 [ext_resource path="res://Sombre-2q.gd" type="Script" id=38]
 [ext_resource path="res://Temps.gd" type="Script" id=39]
@@ -345,14 +348,7 @@ points = PoolVector2Array( 64, 160, 0, 160, 0, 0, 64, 0 )
 } ]
 9/z_index = 0
 
-[sub_resource type="DynamicFont" id=98]
-size = 40
-font_data = ExtResource( 31 )
-
-[sub_resource type="Theme" id=80]
-default_font = SubResource( 98 )
-
-[sub_resource type="StyleBoxFlat" id=81]
+[sub_resource type="StyleBoxFlat" id=103]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -360,55 +356,73 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Theme" id=82]
-default_font = ExtResource( 36 )
+[sub_resource type="RectangleShape2D" id=104]
+extents = Vector2( 437.885, 60.769 )
 
-[sub_resource type="RectangleShape2D" id=83]
-extents = Vector2( 532, 64.5 )
+[sub_resource type="RectangleShape2D" id=106]
 
-[sub_resource type="RectangleShape2D" id=84]
+[sub_resource type="RectangleShape2D" id=107]
 
-[sub_resource type="RectangleShape2D" id=85]
-
-[sub_resource type="RectangleShape2D" id=86]
+[sub_resource type="RectangleShape2D" id=108]
 extents = Vector2( 192, 60 )
 
-[sub_resource type="DynamicFont" id=99]
-size = 32
-font_data = ExtResource( 31 )
+[sub_resource type="DynamicFontData" id=99]
+font_path = "res://ASSETS/font/VCR_OSD_MONO.ttf"
 
-[sub_resource type="Theme" id=88]
-default_font = SubResource( 99 )
-
-[sub_resource type="DynamicFont" id=100]
+[sub_resource type="DynamicFont" id=116]
 size = 50
-font_data = ExtResource( 31 )
+font_data = SubResource( 99 )
 
-[sub_resource type="Theme" id=90]
-default_font = SubResource( 100 )
+[sub_resource type="Theme" id=117]
+default_font = SubResource( 116 )
 
-[sub_resource type="ImageTexture" id=97]
+[sub_resource type="DynamicFont" id=118]
+size = 35
+font_data = SubResource( 99 )
+
+[sub_resource type="Theme" id=119]
+default_font = SubResource( 118 )
+
+[sub_resource type="DynamicFont" id=120]
+size = 60
+font_data = SubResource( 99 )
+
+[sub_resource type="Theme" id=121]
+default_font = SubResource( 120 )
+
+[sub_resource type="DynamicFont" id=128]
+size = 12
+font_data = SubResource( 99 )
+
+[sub_resource type="Theme" id=129]
+default_font = SubResource( 128 )
+
+[sub_resource type="ImageTexture" id=111]
 lossy_quality = 0.83
 size = Vector2( 100, 100 )
 
-[sub_resource type="DynamicFont" id=101]
-size = 100
-font_data = ExtResource( 31 )
+[sub_resource type="DynamicFont" id=122]
+size = 130
+font_data = SubResource( 99 )
 
-[sub_resource type="Theme" id=92]
-default_font = SubResource( 101 )
+[sub_resource type="Theme" id=123]
+default_font = SubResource( 122 )
 
-[sub_resource type="DynamicFont" id=102]
+[sub_resource type="DynamicFont" id=124]
 size = 50
-font_data = ExtResource( 31 )
+font_data = SubResource( 99 )
 
-[sub_resource type="Theme" id=94]
-default_font = SubResource( 102 )
+[sub_resource type="Theme" id=125]
+default_font = SubResource( 124 )
 
-[sub_resource type="Theme" id=95]
-default_font = SubResource( 101 )
+[sub_resource type="DynamicFont" id=126]
+size = 130
+font_data = SubResource( 99 )
 
-[sub_resource type="RectangleShape2D" id=96]
+[sub_resource type="Theme" id=127]
+default_font = SubResource( 126 )
+
+[sub_resource type="RectangleShape2D" id=115]
 extents = Vector2( 108, 60 )
 
 [node name="Level4" type="Node2D"]
@@ -638,7 +652,7 @@ margin_top = 345.0
 margin_right = 2105.0
 margin_bottom = 397.0
 size_flags_horizontal = 3
-theme = SubResource( 80 )
+theme = ExtResource( 15 )
 text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ?"
 valign = 1
 
@@ -661,27 +675,28 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Sombre/Q1/R1/box"]
-margin_right = 1064.0
-margin_bottom = 129.0
+margin_right = 874.0
+margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 81 )
+custom_styles/panel = SubResource( 103 )
 script = ExtResource( 37 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R1/box"]
-margin_right = 1064.0
-margin_bottom = 129.0
+margin_right = 874.0
+margin_bottom = 120.0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer"]
-margin_right = 1064.0
-margin_bottom = 129.0
+margin_right = 874.0
+margin_bottom = 120.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R1/box/MarginContainer/HBoxContainer"]
-margin_right = 1064.0
-margin_bottom = 129.0
+margin_top = 3.0
+margin_right = 874.0
+margin_bottom = 117.0
 size_flags_horizontal = 3
-theme = SubResource( 82 )
+theme = ExtResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cdc
@@ -691,8 +706,8 @@ valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R1"]
 light_mask = 17
-position = Vector2( 532, 64.5 )
-shape = SubResource( 83 )
+position = Vector2( 437.885, 60.769 )
+shape = SubResource( 104 )
 
 [node name="R2" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 396.539 )
@@ -716,7 +731,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 81 )
+custom_styles/panel = SubResource( 103 )
 script = ExtResource( 37 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R2/box"]
@@ -730,11 +745,11 @@ margin_bottom = 120.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R2/box/MarginContainer/HBoxContainer"]
-margin_top = 39.0
+margin_top = 42.0
 margin_right = 384.0
-margin_bottom = 80.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
-theme = SubResource( 82 )
+theme = ExtResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "32"
 align = 1
@@ -743,7 +758,7 @@ valign = 1
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R2"]
 light_mask = 17
 position = Vector2( 192, 60 )
-shape = SubResource( 84 )
+shape = SubResource( 106 )
 
 [node name="R3" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 596.539 )
@@ -768,7 +783,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 81 )
+custom_styles/panel = SubResource( 103 )
 script = ExtResource( 37 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R3/box"]
@@ -782,11 +797,11 @@ margin_bottom = 120.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R3/box/MarginContainer/HBoxContainer"]
-margin_top = 39.0
+margin_top = 42.0
 margin_right = 384.0
-margin_bottom = 80.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
-theme = SubResource( 82 )
+theme = ExtResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "64"
 align = 1
@@ -794,7 +809,7 @@ valign = 1
 
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R3"]
 light_mask = 17
-shape = SubResource( 85 )
+shape = SubResource( 107 )
 
 [node name="R4" type="Area2D" parent="CanvasLayer/Sombre/Q1"]
 position = Vector2( 0, 796.539 )
@@ -819,7 +834,7 @@ __meta__ = {
 margin_right = 384.0
 margin_bottom = 120.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 81 )
+custom_styles/panel = SubResource( 103 )
 script = ExtResource( 37 )
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Sombre/Q1/R4/box"]
@@ -833,11 +848,11 @@ margin_bottom = 120.0
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Sombre/Q1/R4/box/MarginContainer/HBoxContainer"]
-margin_top = 39.0
+margin_top = 42.0
 margin_right = 384.0
-margin_bottom = 80.0
+margin_bottom = 78.0
 size_flags_horizontal = 3
-theme = SubResource( 82 )
+theme = ExtResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "128"
 align = 1
@@ -846,10 +861,15 @@ valign = 1
 [node name="CollisionMouse" type="CollisionShape2D" parent="CanvasLayer/Sombre/Q1/R4"]
 light_mask = 17
 position = Vector2( 192, 60 )
-shape = SubResource( 86 )
+shape = SubResource( 108 )
+
+[node name="Indice" type="TouchScreenButton" parent="CanvasLayer/Sombre"]
+position = Vector2( 1801.54, 1089.23 )
+scale = Vector2( 0.953846, 0.953846 )
+normal = ExtResource( 16 )
+action = "ui_accept"
 
 [node name="debug" type="Label" parent="CanvasLayer"]
-visible = false
 margin_left = 248.0
 margin_top = 288.0
 margin_right = 472.0
@@ -857,12 +877,12 @@ margin_bottom = 392.0
 
 [node name="Temps" type="Label" parent="CanvasLayer"]
 visible = false
-margin_left = 1080.0
+margin_left = 1082.0
 margin_top = 16.0
-margin_right = 1216.0
-margin_bottom = 57.0
-theme = SubResource( 88 )
-text = "TEMPS"
+margin_right = 1227.0
+margin_bottom = 60.0
+theme = SubResource( 117 )
+text = "Temps"
 align = 1
 valign = 1
 __meta__ = {
@@ -870,11 +890,11 @@ __meta__ = {
 }
 
 [node name="Valeur" type="Label" parent="CanvasLayer/Temps"]
-margin_left = -48.0
-margin_top = 48.0
-margin_right = 180.0
-margin_bottom = 89.0
-theme = SubResource( 88 )
+margin_left = -22.0
+margin_top = 51.0
+margin_right = 206.0
+margin_bottom = 92.0
+theme = SubResource( 119 )
 text = "00:00:000"
 script = ExtResource( 39 )
 
@@ -889,7 +909,7 @@ margin_left = 176.0
 margin_top = 288.0
 margin_right = 1107.0
 margin_bottom = 353.0
-theme = SubResource( 90 )
+theme = SubResource( 121 )
 text = "Patientez s'il vous plait"
 
 [node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 40 )]
@@ -900,29 +920,38 @@ margin_right = -1050.0
 margin_bottom = -353.0
 rect_scale = Vector2( 2, 2 )
 mouse_filter = 2
+theme = SubResource( 129 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="NotChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -477.5, -379.5 )
 scale = Vector2( 11.12, 6.24 )
-normal = SubResource( 97 )
+normal = SubResource( 111 )
 action = "ui_accept"
 
 [node name="ChatBot" type="TouchScreenButton" parent="CanvasLayer/ChatBox"]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -1.5, 248.5 )
 scale = Vector2( 2.2, 0.24 )
-normal = SubResource( 97 )
+normal = SubResource( 111 )
 action = "ui_accept"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Mobile" type="Label" parent="CanvasLayer"]
 visible = false
 margin_top = 56.0
 margin_right = 40.0
 margin_bottom = 70.0
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="Home" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 12, -45 )
+scale = Vector2( 0.52, 0.508822 )
+normal = ExtResource( 17 )
 
 [node name="Left" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
 position = Vector2( 48, 450 )
@@ -965,7 +994,7 @@ margin_left = 432.0
 margin_top = 168.0
 margin_right = 844.0
 margin_bottom = 209.0
-theme = SubResource( 88 )
+theme = ExtResource( 15 )
 text = "Erreurs : 0"
 valign = 1
 
@@ -974,8 +1003,8 @@ margin_left = 432.0
 margin_top = 216.0
 margin_right = 892.0
 margin_bottom = 257.0
-theme = SubResource( 88 )
-text = "TEMPS : 00:00:000"
+theme = ExtResource( 15 )
+text = "Temps : 00:00:000"
 valign = 1
 
 [node name="Score" type="Label" parent="CanvasLayer/GameOver"]
@@ -983,27 +1012,27 @@ margin_left = 424.0
 margin_top = 296.0
 margin_right = 851.0
 margin_bottom = 424.0
-theme = SubResource( 92 )
+theme = SubResource( 123 )
 text = "Score"
 align = 1
 
 [node name="ScoreValeur" type="Label" parent="CanvasLayer/GameOver/Score"]
-margin_left = 16.0
+margin_left = 9.0
 margin_top = 120.0
-margin_right = 428.0
+margin_right = 421.0
 margin_bottom = 185.0
-theme = SubResource( 94 )
+theme = SubResource( 125 )
 text = "000000"
 align = 1
 valign = 1
 
 [node name="NewHighScore" type="Label" parent="CanvasLayer/GameOver"]
 visible = false
-margin_left = 56.0
+margin_left = 71.0
 margin_top = 528.0
-margin_right = 1222.0
+margin_right = 1237.0
 margin_bottom = 656.0
-theme = SubResource( 95 )
+theme = SubResource( 127 )
 text = "New High Score!"
 align = 1
 script = ExtResource( 43 )
@@ -1015,17 +1044,17 @@ wait_time = 0.4
 script = ExtResource( 42 )
 
 [node name="Menu" type="Label" parent="CanvasLayer/GameOver/Home"]
-margin_left = 96.0
+margin_left = 106.0
 margin_top = 112.0
-margin_right = 216.0
+margin_right = 199.0
 margin_bottom = 153.0
-theme = SubResource( 88 )
+theme = ExtResource( 15 )
 text = "Menu"
 valign = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Home"]
 position = Vector2( 152, 132 )
-shape = SubResource( 96 )
+shape = SubResource( 115 )
 
 [node name="Next" type="Area2D" parent="CanvasLayer/GameOver"]
 position = Vector2( 976, 0 )
@@ -1036,7 +1065,7 @@ margin_left = 40.0
 margin_top = 88.0
 margin_right = 256.0
 margin_bottom = 173.0
-theme = SubResource( 88 )
+theme = ExtResource( 15 )
 text = "Prochain
 Niveau"
 align = 1
@@ -1044,7 +1073,14 @@ valign = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/GameOver/Next"]
 position = Vector2( 148, 132 )
-shape = SubResource( 96 )
+shape = SubResource( 115 )
+
+[node name="Fullscreen" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2( 822, 11 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 19 )
+script = ExtResource( 18 )
 
 [connection signal="visibility_changed" from="CanvasLayer/Sombre" to="CanvasLayer/Sombre" method="_on_Sombre_visibility_changed"]
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R1" to="CanvasLayer/Sombre/Q1/R1" method="_on_R1_input_event"]
@@ -1059,11 +1095,14 @@ shape = SubResource( 96 )
 [connection signal="input_event" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/Sombre/Q1/R4" to="CanvasLayer/Sombre/Q1/R4" method="_on_R1_mouse_exited"]
 [connection signal="resized" from="CanvasLayer/Sombre/Q1/R4/box" to="CanvasLayer/Sombre" method="_on_box_resized"]
+[connection signal="pressed" from="CanvasLayer/Sombre/Indice" to="CanvasLayer/ChatBox" method="_on_Indice_pressed"]
 [connection signal="visibility_changed" from="CanvasLayer/Temps/Valeur" to="CanvasLayer/Temps/Valeur" method="_on_Valeur_visibility_changed"]
 [connection signal="pressed" from="CanvasLayer/ChatBox/NotChatBot" to="CanvasLayer/ChatBox" method="_on_NotChatBot_pressed"]
 [connection signal="pressed" from="CanvasLayer/ChatBox/ChatBot" to="CanvasLayer/ChatBox" method="_on_ChatBot_pressed"]
+[connection signal="pressed" from="CanvasLayer/Mobile/Home" to="CanvasLayer/ChatBox" method="_on_Home_pressed"]
 [connection signal="timeout" from="CanvasLayer/GameOver/NewHighScore/Timer" to="CanvasLayer/GameOver/NewHighScore" method="_on_Timer_timeout"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Home" to="CanvasLayer/GameOver/Home" method="_on_Home_mouse_exited"]
 [connection signal="input_event" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_input_event"]
 [connection signal="mouse_exited" from="CanvasLayer/GameOver/Next" to="CanvasLayer/GameOver/Next" method="_on_Next_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Fullscreen" to="CanvasLayer/Fullscreen" method="_on_Fullscreen_pressed"]
