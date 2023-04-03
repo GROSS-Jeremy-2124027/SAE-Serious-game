@@ -18,7 +18,7 @@ func get_question(nbQuest, level):
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed_get_question")
 	for id in range(nbQuest) :
 		httpActive = true
-		$HTTPRequest.request(String(host)+"/query/commande.php?command=get_question&idQuestion="+String(id+level*4-3))
+		$HTTPRequest.request(String(host)+"/Modele/commande.php?command=get_question&idQuestion="+String(id+level*4-3))
 		while(httpActive):
 			yield(get_tree(), "idle_frame")
 	$HTTPRequest.disconnect("request_completed", self, "_on_request_completed_get_question")
@@ -34,7 +34,7 @@ func get_score(level):
 	if isGetQuestionFinished :
 		$HTTPRequest.connect("request_completed", self, "_on_request_completed_get_score")
 		httpActive = true
-		$HTTPRequest.request(String(host)+"/query/commande.php?command=get_score&level="+String(level))
+		$HTTPRequest.request(String(host)+"/Modele/commande.php?command=get_score&level="+String(level))
 		while(httpActive):
 			yield(get_tree(), "idle_frame")
 		$HTTPRequest.disconnect("request_completed", self, "_on_request_completed_get_score")
@@ -42,7 +42,7 @@ func get_score(level):
 func add_score(level, score):
 	$HTTPRequest.connect("request_completed", self, "disconnect")
 	httpActive = true
-	$HTTPRequest.request(String(host)+"/query/commande.php?command=add_score&level="+String(level)+"&score="+String(score))
+	$HTTPRequest.request(String(host)+"/Modele/commande.php?command=add_score&level="+String(level)+"&score="+String(score))
 	while(httpActive):
 		yield(get_tree(), "idle_frame")
 	$HTTPRequest.disconnect("request_completed", self, "disconnect")
