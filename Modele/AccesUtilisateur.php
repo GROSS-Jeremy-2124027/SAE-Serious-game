@@ -17,7 +17,8 @@ class AccesUtilisateur
     /**
      * Méthode pour la connexion d'un utilisateur
      */
-    public function connexion($login, $password) {
+    public function connexion($login, $password)
+    {
         $mot_de_passe_hash = "SELECT mot_de_passe FROM `utilisateur` WHERE identifiant = '" . $login . "'";
         $string = $this->accesDonnees->run($mot_de_passe_hash);
         $sql = " SELECT * FROM `utilisateur` WHERE identifiant = '" . $login . "'";
@@ -43,7 +44,8 @@ class AccesUtilisateur
     /**
      * Méthode pour l'inscription d'un utilisateur
      */
-    public function inscription($username, $password, $passwordConfirm) {
+    public function inscription($username, $password, $passwordConfirm)
+    {
         // Vérification des critères du mot de passe
         $has_uppercase = false;
         $has_digit = false;
@@ -100,7 +102,7 @@ class AccesUtilisateur
             $verification = "SELECT identifiant FROM `utilisateur` WHERE identifiant = '" . $username . "' ";
             $user = $this->accesDonnees->run($verification);
 
-            if (count($user) < 1) {
+            if ($user == null) {
                 $sql = "INSERT INTO `utilisateur`(`identifiant`, `mot_de_passe`) 
             VALUES ('$username', '$hash')";
                 $insert = $this->accesDonnees->runInsert($sql);
@@ -120,11 +122,12 @@ class AccesUtilisateur
     /**
      * Méthode pour la connexion d'un administrateur
      */
-    public function connexionAdmin($login, $password) {
+    public function connexionAdmin($login, $password)
+    {
 
-        $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '".$login."'";
+        $mot_de_passe_hash = "SELECT mot_de_passe FROM `admin` WHERE identifiant = '" . $login . "'";
         $string = $this->accesDonnees->run($mot_de_passe_hash);
-        $sql = " SELECT * FROM `admin` WHERE identifiant = '".$login."'";
+        $sql = " SELECT * FROM `admin` WHERE identifiant = '" . $login . "'";
 
         $user = $this->accesDonnees->run($sql);
 
@@ -139,10 +142,9 @@ class AccesUtilisateur
                 $_SESSION['connecte'] = true;
                 $_SESSION['password'] = $password;
                 $_SESSION['admin'] = true;
-                header( "refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
+                header("refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
             }
-        }
-        else {
+        } else {
             echo "<script> alert('Identifiant invalide'); </script>";
             session_abort();
         }

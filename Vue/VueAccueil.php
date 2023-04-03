@@ -79,11 +79,16 @@ class VueAccueil extends Vue
                                 Inscription
                             </span>
                             <div class="champs-saisie">
-                                <input type="text" name="login" placeholder="Entrez votre nom" required>
+                                <input type="text" name="loginSignup" placeholder="Entrez votre nom" required>
                                 <i class="uil uil-envelope icon"></i>
                             </div>
                             <div class="champs-saisie">
-                                <input type="password" name="password" class="password" placeholder="Entrez votre mot de passe" required>
+                                <input type="password" name="passwordSignup" class="password" placeholder="Entrez votre mot de passe" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidePw"></i>
+                            </div>
+                            <div class="champs-saisie">
+                                <input type="password" name ="confirmPasswordSignup" class="password" id="confirmPassword" placeholder="Confirmez votre mot de passe" required>
                                 <i class="uil uil-lock icon"></i>
                                 <i class="uil uil-eye-slash showHidePw"></i>
                             </div>
