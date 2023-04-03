@@ -58,7 +58,7 @@ session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
-if ('/sae/SAE-Serious-game/' == $uri || 'sae/SAE-Serious-game/index.php' == $uri) {
+if ('/' == $uri || '/index.php' == $uri) {
 
     $controleur->scoreAction($accesScores, $service);
 
@@ -88,13 +88,13 @@ if ('/sae/SAE-Serious-game/' == $uri || 'sae/SAE-Serious-game/index.php' == $uri
 
 }
 // page administrateur
-elseif ('sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])) {
+elseif ('/index.php/admin' == $uri && isset($_SESSION['admin'])) {
 
     $controleur->adminAction($accesQuestions, $service);
 
     if (isset($_POST['valider']) && isset($_POST['identifiant'])) {
         $controleur->changeQuestionAction($accesQuestions);
-        header("refresh:0;url=/sae/SAE-Serious-game/index.php/admin");
+        header("refresh:0;url=/index.php/admin");
     }
 
     $layout = new Layout("Vue/layoutAdmin.html");
