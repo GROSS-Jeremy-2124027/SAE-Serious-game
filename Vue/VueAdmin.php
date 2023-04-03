@@ -8,7 +8,9 @@ class VueAdmin extends Vue
     {
         parent::__construct($layout);
 
-        $this->content .= '
+        $this->content .= '<div id="etoile"></div>
+                            <div id="etoile2"></div>
+                            <div id="etoile3"></div>
                             <div>
                                 <a href="../index.php">
                                    <button class="boutonRetour">
