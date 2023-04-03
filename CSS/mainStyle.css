@@ -53,7 +53,7 @@ p {
     color: #fff;
 }
 
-#connexion {
+#connexion-inscription {
     font-family: 'Silkscreen', cursive;
     color: #000;
     font-size: 1.8em;
@@ -94,11 +94,13 @@ p {
     right: 50px;
 }
 
-.bouton-connexion {
+.bouton-connexion,
+.bouton-inscription {
     margin-top: 30px;
 }
 
-.bouton-connexion input {
+.bouton-connexion input,
+.bouton-inscription input {
     padding: 20px 35px;
     border: none;
     color: #fff;
@@ -111,7 +113,9 @@ p {
 }
 
 .text {
+    margin-top: 10px;
     color: #333;
+    font-family: 'Kanit', sans-serif;
     font-size: 14px;
 }
 
@@ -245,10 +249,11 @@ object {
 }
 
 #form-connexion-admin {
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 350px;
     margin-top: 40px;
-    padding: 30px 30px 30px 45px;
+    margin: 30px;
+    padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
     margin-right: 1em;
@@ -256,7 +261,16 @@ object {
 }
 
 #form-inscription {
-    display: none !important;
+    display: none;
+    height: 350px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 30px 30px 30px 45px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+    margin-right: 1em;
+    border-radius: 10px;
 }
 
 #pageAdmin {

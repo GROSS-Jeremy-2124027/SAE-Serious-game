@@ -58,7 +58,7 @@ session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // page d'accueil
-if ('/' == $uri || '/index.php' == $uri) {
+if ('/sae/SAE-Serious-game/' == $uri || '/sae/SAE-Serious-game/index.php' == $uri) {
 
     $controleur->scoreAction($accesScores, $service);
 
@@ -76,6 +76,8 @@ if ('/' == $uri || '/index.php' == $uri) {
 
     $layout = new Layout("Vue/layout.html");
     $vueAccueil = new VueAccueil($layout, $presenter);
+    $vueAccueil->display();
+
 
     if (isset($_SESSION['connecte'])) {
         if ($_SESSION['connecte'] === true) {
@@ -84,7 +86,6 @@ if ('/' == $uri || '/index.php' == $uri) {
         }
     }
 
-    $vueAccueil->display();
 }
 // page administrateur
 elseif ('/sae/SAE-Serious-game/index.php/admin' == $uri && isset($_SESSION['admin'])) {

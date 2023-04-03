@@ -23,9 +23,9 @@ class VueAccueil extends Vue
                     Administrateur
                 </button>
                 <div id="pageAdmin">
-                    <object id="htmlpageAdmin" type="text/html" width="390" height="400">
-                        <form id="form-connexion" method="post">
-                            <span id="connexion">
+                    <object id="htmlpageAdmin" type="text/html" width="375px" height="400">
+                        <form id="form-connexion-admin" method="post">
+                            <span id="connexion-inscription">
                                 Connexion
                             </span>
                             <div class="champs-saisie">
@@ -55,7 +55,7 @@ class VueAccueil extends Vue
                     </form>
                     <object id="htmlpage" type="text/html" width="390" height="500">
                         <form id="form-connexion" method="post">
-                            <span id="connexion">
+                            <span id="connexion-inscription">
                                 Connexion
                             </span>
                             <div class="champs-saisie">
@@ -75,7 +75,7 @@ class VueAccueil extends Vue
                             </span>
                         </form>
                         <form id="form-inscription" method="post">
-                            <span id="inscription">
+                            <span id="connexion-inscription">
                                 Inscription
                             </span>
                             <div class="champs-saisie">
